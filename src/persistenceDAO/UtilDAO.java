@@ -30,7 +30,11 @@ public class UtilDAO {
 			statement.executeUpdate();
 
 			// + "drop table if exists feedback;"
-			// + "drop table if exists preventivo;"
+			
+			delete = "drop table if exists preventivo;";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
 			// + "drop table if exists carrello;";
 
 			System.out.println("Executed drop database");
@@ -68,6 +72,36 @@ public class UtilDAO {
 					+ "  `emailVenditore` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `numeroTelefonicoVenditore` VARCHAR(255) NOT NULL,\r\n" + "  PRIMARY KEY (`id_venditore`),\r\n"
 					+ "  UNIQUE INDEX `id_venditore_UNIQUE` (`id_venditore` ASC));";
+
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "CREATE TABLE `tarreduDB`.`preventivo` (\r\n" + 
+					"  `id_preventivo` INT(11) NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `data_ora_preventivo` DATE NOT NULL,\r\n" + 
+					"  `id_utente` INT(11) NOT NULL,\r\n" + 
+					"  `id_venditore` INT(11) NOT NULL,\r\n" + 
+					"  `id_prodotto` INT(11) NOT NULL,\r\n" + 
+					"  PRIMARY KEY (`id_preventivo`),\r\n" + 
+					"  UNIQUE INDEX `id_prventivo_UNIQUE` (`id_preventivo` ASC),\r\n" + 
+					"  INDEX `id_utente_idx` (`id_utente` ASC),\r\n" + 
+					"  INDEX `id_venditore_idx` (`id_venditore` ASC),\r\n" + 
+					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
+					"  CONSTRAINT `id_utente`\r\n" + 
+					"    FOREIGN KEY (`id_utente`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`utente` (`utente_id`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE,\r\n" + 
+					"  CONSTRAINT `id_venditore`\r\n" + 
+					"    FOREIGN KEY (`id_venditore`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`venditore` (`id_venditore`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE,\r\n" + 
+					"  CONSTRAINT `id_prodotto`\r\n" + 
+					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
+					"    ON DELETE NO ACTION\r\n" + 
+					"    ON UPDATE NO ACTION);";
 
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();

@@ -41,8 +41,9 @@ public abstract class DAOFactory {
 	
 	/**
 	 * Method to obtain a DATA ACCESS OBJECT
-	 * for the datatype 'Student'
 	 */
 
-	public abstract persistenceDAO.UtilDAO getUtilDAO();
+	public abstract PreventivoDAO getPreventivoDAO();
+	
+	public abstract UtilDAO getUtilDAO();
 }
