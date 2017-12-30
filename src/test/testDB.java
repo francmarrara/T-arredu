@@ -1,8 +1,6 @@
 package test;
 
 import java.util.Calendar;
-import java.util.Date;
-
 import model.Utente;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.UtenteDAO;

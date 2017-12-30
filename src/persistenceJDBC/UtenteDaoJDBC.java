@@ -6,11 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Indirizzo;
-import model.Studente;
 import model.Utente;
-import persistence.IndirizzoDaoJDBC;
-import persistence.dao.IndirizzoDao;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.UtenteDAO;
@@ -61,15 +57,16 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
 				utente = new Utente();
-				utente.setMatricola(result.getString("matricola"));				
-				studente.setNome(result.getString("nome"));
-				studente.setCognome(result.getString("cognome"));
-				long secs = result.getDate("data_nascita").getTime();
-				studente.setDataNascita(new java.util.Date(secs));
+				utente.setIdUtente(result.getInt("utente_id"));			
+				utente.setNomeUtente(result.getString("nome"));
+				utente.setCognomeUtente(result.getString("cognome"));
+				long secs = result.getDate("dataNascita").getTime();
+				utente.setDatadiNascita(new java.util.Date(secs));
+		        utente.setEmailUtente(result.getString("email"));
+                utente.setNumeroTelefonoUtente(result.getString("numeroTelefonico"));
+                utente.setPasswordUtente(result.getString("passwordUtente"));
 				
-				IndirizzoDao indirizzoDao = new IndirizzoDaoJDBC(dataSource);
-				Indirizzo indirizzo = indirizzoDao.findByPrimaryKey(result.getLong("indirizzo_codice"));
-				studente.setIndirizzo(indirizzo);
+		                                     
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -80,7 +77,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}	
-		return studente;
+		return utente;
 	}
 
 	@Override
