@@ -43,7 +43,12 @@ public abstract class DAOFactory {
 	 * Method to obtain a DATA ACCESS OBJECT
 	 */
 
+
 	public abstract PreventivoDAO getPreventivoDAO();
 	
+
 	public abstract UtilDAO getUtilDAO();
+	
+	public abstract UtenteDAO getUtenteDAO();
+
 }

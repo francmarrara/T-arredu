@@ -61,13 +61,14 @@ public class UtilDAO {
 					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" + "  `cognome` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `dataNascita` DATE NOT NULL,\r\n" + "  `email` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `numeroTelefonico` VARCHAR(255) NOT NULL,\r\n"
-					+ "  UNIQUE INDEX `utente_id_UNIQUE` (`utente_id` ASC),\r\n" + "  PRIMARY KEY (`utente_id`));";
+					+ "  `passwordUtente` VARCHAR(255) NOT NULL,\r\n"
+					+ "  UNIQUE INDEX `utente_id_UNIQUE` (`utente_id` ASC),\r\n" + "  PRIMARY KEY (`email`));";
 
 			PreparedStatement statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
 			add = "CREATE TABLE `venditore` (\r\n" + "  `id_venditore` INT NOT NULL AUTO_INCREMENT, \r\n"  
-					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" + "  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n"
+					+ "  `nomeTitolare` VARCHAR(255) NOT NULL,\r\n" + "  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" + "  `indirizzoVenditore` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `emailVenditore` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `numeroTelefonicoVenditore` VARCHAR(255) NOT NULL,\r\n" + "  PRIMARY KEY (`id_venditore`),\r\n"
