@@ -2,7 +2,7 @@ package persistenceDAO;
 
 import java.sql.*;
 
-class DataSource {
+public class DataSource {
 	final private String dbURI;// = "jdbc:mysql://tarredudb.c6p6ctnyivkj.us-east-2.rds.amazonaws.com:3306/?user=tarredu";
 	final private String userName;// = "tarredu";
 	final private String password;// = "tarredu01";

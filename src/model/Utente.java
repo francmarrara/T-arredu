@@ -9,10 +9,11 @@ public class Utente {
 	private String cognomeUtente;
 	private Date datadiNascita;
 	private String emailUtente;
+	private String numeroTelefonoUtente;
 	private String passwordUtente;
 	
 	//costruttore senza parametri
-	private Utente() {
+	public Utente() {
 		
 	}
 	
@@ -55,5 +56,13 @@ public class Utente {
 
 	public void setPasswordUtente(String passwordUtente) {
 		this.passwordUtente = passwordUtente;
+	}
+
+	public String getNumeroTelefonoUtente() {
+		return numeroTelefonoUtente;
+	}
+
+	public void setNumeroTelefonoUtente(String numeroTelefonoUtente) {
+		this.numeroTelefonoUtente = numeroTelefonoUtente;
 	}
 }

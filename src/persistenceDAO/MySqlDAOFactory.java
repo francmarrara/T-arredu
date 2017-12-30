@@ -1,5 +1,7 @@
 package persistenceDAO;
 
+import persistenceJDBC.UtenteDaoJDBC;
+
 @SuppressWarnings("deprecation")
 class MySqlDAOFactory extends DAOFactory {
 
@@ -41,6 +43,13 @@ class MySqlDAOFactory extends DAOFactory {
 
 		return new UtilDAO(dataSource);
 		
+	}
+
+
+	@Override
+	public UtenteDAO getUtenteDAO() {
+		
+		return new UtenteDaoJDBC(dataSource);
 	}
 	
 	

@@ -58,7 +58,7 @@ public class UtilDAO {
 					+ "  `dataNascita` DATE NOT NULL,\r\n" + "  `email` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `numeroTelefonico` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `passwordUtente` VARCHAR(255) NOT NULL,\r\n"
-					+ "  UNIQUE INDEX `utente_id_UNIQUE` (`utente_id` ASC),\r\n" + "  PRIMARY KEY (`utente_id`));";
+					+ "  UNIQUE INDEX `utente_id_UNIQUE` (`utente_id` ASC),\r\n" + "  PRIMARY KEY (`email`));";
 
 			PreparedStatement statement = connection.prepareStatement(add);
 			statement.executeUpdate();

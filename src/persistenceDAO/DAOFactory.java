@@ -44,5 +44,7 @@ public abstract class DAOFactory {
 	 * for the datatype 'Student'
 	 */
 
-	public abstract persistenceDAO.UtilDAO getUtilDAO();
+	public abstract UtilDAO getUtilDAO();
+	
+	public abstract UtenteDAO getUtenteDAO();
 }
