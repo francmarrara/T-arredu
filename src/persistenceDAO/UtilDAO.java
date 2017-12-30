@@ -77,6 +77,26 @@ public class UtilDAO {
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			
+
+			add = "CREATE TABLE `tarreduDB`.`prodotto` (\r\n" + "  `id_prodotto` INT NOT NULL AUTO_INCREMENT,\r\n"
+					+ "  `marcaProdotto` VARCHAR(255) NOT NULL,\r\n" + "  `ambienteProdotto` VARCHAR(255) NOT NULL,\r\n"
+					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" + "  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n"
+					+ "  `prezzoProdotto` VARCHAR(255) NOT NULL,\r\n"
+					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
+					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
+					+ "  `id_venditoreProdotto` INT NOT NULL,\r\n" + "  PRIMARY KEY (`id_prodotto`),\r\n"
+					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC),\r\n"
+					+ "  INDEX `id_venditoreProdotto_idx` (`id_venditoreProdotto` ASC),\r\n"
+					+ "  CONSTRAINT `id_venditoreProdotto`\r\n" + "    FOREIGN KEY (`id_venditoreProdotto`)\r\n"
+					+ "    REFERENCES `tarreduDB`.`venditore` (`id_venditore`)\r\n" + "    ON DELETE CASCADE\r\n"
+					+ "    ON UPDATE CASCADE);";
+
+			statement = connection.prepareStatement(add);
+
+			statement.executeUpdate();
+
+			
+			
 			add = "CREATE TABLE `tarreduDB`.`preventivo` (\r\n" + 
 					"  `id_preventivo` INT(11) NOT NULL AUTO_INCREMENT,\r\n" + 
 					"  `data_ora_preventivo` DATE NOT NULL,\r\n" + 
@@ -107,22 +127,11 @@ public class UtilDAO {
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
-			add = "CREATE TABLE `tarreduDB`.`prodotto` (\r\n" + "  `id_prodotto` INT NOT NULL AUTO_INCREMENT,\r\n"
-					+ "  `marcaProdotto` VARCHAR(255) NOT NULL,\r\n" + "  `ambienteProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" + "  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `prezzoProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
-					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `id_venditoreProdotto` INT NOT NULL,\r\n" + "  PRIMARY KEY (`id_prodotto`),\r\n"
-					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC),\r\n"
-					+ "  INDEX `id_venditoreProdotto_idx` (`id_venditoreProdotto` ASC),\r\n"
-					+ "  CONSTRAINT `id_venditoreProdotto`\r\n" + "    FOREIGN KEY (`id_venditoreProdotto`)\r\n"
-					+ "    REFERENCES `tarreduDB`.`venditore` (`id_venditore`)\r\n" + "    ON DELETE CASCADE\r\n"
-					+ "    ON UPDATE CASCADE);";
-
-			statement = connection.prepareStatement(add);
-
-			statement.executeUpdate();
+			
+			
+			
+			
+			
 			System.out.println("Executed create database");
 
 		} catch (SQLException e) {

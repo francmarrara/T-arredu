@@ -33,6 +33,10 @@ public class testDB {
 		
 		utenteDAO.save(utente);
 
+		
+	utente.setCognomeUtente("Rossi");
+	utenteDAO.update(utente);
+		
 	}
 
 }

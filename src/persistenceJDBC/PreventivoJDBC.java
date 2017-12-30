@@ -60,14 +60,16 @@ public class PreventivoJDBC implements PreventivoDAO {
 				preventivo.setDataOraPreventivo(new java.util.Date(secs));
 				
 				VenditoreDAO venditoreDAO = new VenditoreJDBC(dataSource);
-				Venditore venditore = venditoreDAO.findByPrimaryKey(result.getLong("id_venditore"));
+				Venditore venditore = venditoreDAO.findByPrimaryKey((int) result.getLong("id_venditore"));
 				preventivo.setIdVenditore(venditore);
 				
-				UtenteDAO utenteDAO = new UtenteJDBC(dataSource);
-				Utente utente = venditoreDAO.findByPrimaryKey(result.getLong("id_utente"));
+				
+				//cambiare la chiave primaria di utente dentro preventivo, ossia email utente
+				UtenteDAO utenteDAO = new UtenteDaoJDBC(dataSource);
+				Utente utente = utenteDAO.findByPrimaryKey((int) result.getLong("id_utente"));
 				preventivo.setIdUtente(utente);
 				
-				ProdottoDAO prodottoDAO = new ProdottoJDBC(dataSource);
+				ProdottoDAO prodottoDAO = new ProdottoDaoJDBC(dataSource);
 				List<Prodotto> listaProdotto = prodottoDAO.findProductsByPreventivo(codicePreventivo);
 				preventivo.setListaProdotti(listaProdotto);
 				

@@ -3,9 +3,15 @@ package persistenceJDBC;
 import java.util.List;
 
 import model.Venditore;
+import persistenceDAO.DataSource;
 import persistenceDAO.VenditoreDAO;
 
 public class VenditoreDaoJDBC implements VenditoreDAO {
+private DataSource dataSource;
+	
+	public VenditoreDaoJDBC(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	@Override
 	public void save(Venditore venditore) {
@@ -35,6 +41,14 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 	public void delete(Venditore venditore) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
 }
