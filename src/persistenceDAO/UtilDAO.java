@@ -53,7 +53,7 @@ public class UtilDAO {
 		Connection connection = dataSource.getConnection();
 		try {
 
-			String add = "CREATE TABLE `utente` (\r\n" + "  `utente_id` INT NOT NULL,\r\n"
+			String add = "CREATE TABLE `utente` (\r\n" + "  `utente_id` INT NOT NULL AUTO_INCREMENT,\r\n"
 					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" + "  `cognome` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `dataNascita` DATE NOT NULL,\r\n" + "  `email` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `numeroTelefonico` VARCHAR(255) NOT NULL,\r\n"
@@ -62,7 +62,7 @@ public class UtilDAO {
 			PreparedStatement statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
-			add = "CREATE TABLE `venditore` (\r\n" + "  `id_venditore` INT NOT NULL,\r\n"
+			add = "CREATE TABLE `venditore` (\r\n" + "  `id_venditore` INT NOT NULL AUTO_INCREMENT, \r\n"  
 					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" + "  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" + "  `indirizzoVenditore` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `emailVenditore` VARCHAR(255) NOT NULL,\r\n"
@@ -72,7 +72,7 @@ public class UtilDAO {
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
-			add = "CREATE TABLE `tarreduDB`.`prodotto` (\r\n" + "  `id_prodotto` INT NOT NULL,\r\n"
+			add = "CREATE TABLE `tarreduDB`.`prodotto` (\r\n" + "  `id_prodotto` INT NOT NULL AUTO_INCREMENT,\r\n"
 					+ "  `marcaProdotto` VARCHAR(255) NOT NULL,\r\n" + "  `ambienteProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" + "  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `prezzoProdotto` VARCHAR(255) NOT NULL,\r\n"
