@@ -14,10 +14,8 @@ public class testDB {
 		UtilDAO util = factory.getUtilDAO();
 		UtenteDAO utenteDAO = factory.getUtenteDAO();
 		
-//		util.resetDatabase();
-		
+		// Resetta e ricrea il DB
 		util.dropDatabase();
-
 		util.createDatabase();
 		
 		

@@ -12,31 +12,29 @@ public class UtilDAO {
 		this.dataSource = dataSource;
 	}
 
+	// Svuota il Database
 	public void dropDatabase() {
 
 		Connection connection = dataSource.getConnection();
 		try {
-
-			deleteReferences(connection);
 			
-			String delete = "drop table if exists venditore;";
+			String delete = "drop table if exists preventivo;";
 			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
+			delete = "drop table if exists utente;";
+			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
 			delete = "drop table if exists prodotto;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			delete = "drop table if exists utente;";
+			delete = "drop table if exists venditore;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
-
+			
 			// + "drop table if exists feedback;"
-			
-			delete = "drop table if exists preventivo;";
-			statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-			
 			// + "drop table if exists carrello;";
 
 			System.out.println("Executed drop database");
@@ -54,12 +52,13 @@ public class UtilDAO {
 		}
 	}
 
+	// Crea il DataBase
 	public void createDatabase() {
 
 		Connection connection = dataSource.getConnection();
 		try {
 
-			String add = "CREATE TABLE `utente` (\r\n" 
+			String add = "CREATE TABLE `tarreduDB`.`utente` (\r\n" 
 					+ "  `utente_id` INT NOT NULL AUTO_INCREMENT,\r\n"
 					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `cognome` VARCHAR(255) NOT NULL,\r\n"
@@ -73,7 +72,7 @@ public class UtilDAO {
 			PreparedStatement statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
-			add = "CREATE TABLE `venditore` (\r\n" 
+			add = "CREATE TABLE `tarreduDB`.`venditore` (\r\n" 
 					+ "  `id_venditore` INT NOT NULL AUTO_INCREMENT, \r\n"  
 					+ "  `nomeTitolare` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n"
@@ -156,99 +155,6 @@ public class UtilDAO {
 		}
 	}
 
-	public void resetDatabase() {
-
-		Connection connection = dataSource.getConnection();
-		
-		deleteReferences(connection);
-		
-		try {
-			
-			String delete = "delete FROM preventivo";
-			PreparedStatement statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-			
-			delete = "delete FROM utente";
-			statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-			
-			delete = "delete FROM venditore";
-			statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-
-			delete = "delete FROM prodotto";
-			statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-
-			
-			
-			System.out.println("Executed reset database");
-			
-		} catch (SQLException e) {
-
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-	}
-	
-	public void deleteReferences(Connection conn) {
-		
-		try {
-		
-			String delete = "delete FROM venditore WHERE id_venditore = "
-				+ " (select prod.id_venditoreProdotto FROM prodotto as prod "
-				+ " WHERE venditore.id_venditore = prod.id_venditoreProdotto); ";
-			
-			PreparedStatement statement = conn.prepareStatement(delete);
-			statement.executeUpdate();
-			
-			delete = "delete FROM utente WHERE email = "
-					+ " (select prev.id_utente FROM preventivo as prev "
-					+ " WHERE prev.id_utente = utente.email); ";
-				
-			statement = conn.prepareStatement(delete);
-			statement.executeUpdate();
-			
-			delete = "delete FROM prodotto WHERE id_prodotto = "
-					+ " (select prev.id_prodotto FROM preventivo as prev "
-					+ " WHERE prodotto.id_prodotto = prev.id_prodotto); ";
-				
-			statement = conn.prepareStatement(delete);
-			statement.executeUpdate();
-			
-			delete = "delete FROM venditore WHERE id_venditore = "
-					+ " (select prev.id_venditore FROM preventivo as prev "
-					+ " WHERE venditore.id_venditore = prev.id_venditore); ";
-				
-				statement = conn.prepareStatement(delete);
-				statement.executeUpdate();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
