@@ -96,13 +96,13 @@ public class UtilDAO {
 					+ "  `prezzoProdotto` DOUBLE NOT NULL,\r\n"
 					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
 					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `id_venditoreProdotto` INT NOT NULL,\r\n" 
+					+ "  `email_venditoreProdotto` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  PRIMARY KEY (`id_prodotto`),\r\n"
 					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC),\r\n"
-					+ "  INDEX `id_venditoreProdotto_idx` (`id_venditoreProdotto` ASC),\r\n"
-					+ "  CONSTRAINT `id_venditoreProdotto`\r\n" 
-					+ "    FOREIGN KEY (`id_venditoreProdotto`)\r\n"
-					+ "    REFERENCES `tarreduDB`.`venditore` (`id_venditore`)\r\n" 
+					+ "  INDEX `email_venditoreProdotto_idx` (`email_venditoreProdotto` ASC),\r\n"
+					+ "  CONSTRAINT `email_venditoreProdotto`\r\n" 
+					+ "    FOREIGN KEY (`email_venditoreProdotto`)\r\n"
+					+ "    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" 
 					+ "    ON DELETE CASCADE\r\n"
 					+ "    ON UPDATE CASCADE);";
 

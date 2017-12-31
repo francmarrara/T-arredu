@@ -71,7 +71,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
 
-				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getInt("id_venditoreProdotto")));
+				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
 
 			}
 		} catch (SQLException e) {
@@ -109,7 +109,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
 
-				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getInt("id_venditoreProdotto")));
+				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
 
 				prodotti.add(prodotto);
 			}
@@ -147,7 +147,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
 
-				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getInt("id_venditoreProdotto")));
+				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
 
 				prodotti.add(prodotto);
 			}
