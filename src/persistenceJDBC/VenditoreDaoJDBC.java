@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Utente;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
