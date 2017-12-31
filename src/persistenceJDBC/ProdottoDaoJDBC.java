@@ -248,5 +248,11 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		this.dataSource = dataSource;
 	}
 
+	@Override
+	public void deleteProductsFromPreventivo(Long codicePreventivo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

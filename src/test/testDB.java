@@ -13,7 +13,9 @@ public class testDB {
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		UtilDAO util = factory.getUtilDAO();
 		UtenteDAO utenteDAO = factory.getUtenteDAO();
-
+		
+//		util.resetDatabase();
+		
 		util.dropDatabase();
 
 		util.createDatabase();

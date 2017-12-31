@@ -17,11 +17,11 @@ import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
 import persistenceDAO.VenditoreDAO;
 
-public class PreventivoJDBC implements PreventivoDAO {
+public class PreventivoDaoJDBC implements PreventivoDAO {
 
 	private DataSource dataSource;
 
-	public PreventivoJDBC(DataSource dataSource) {
+	public PreventivoDaoJDBC(DataSource dataSource) {
 
 		this.dataSource = dataSource;
 
@@ -59,14 +59,14 @@ public class PreventivoJDBC implements PreventivoDAO {
 				long secs = result.getDate("data_ora_preventivo").getTime();
 				preventivo.setDataOraPreventivo(new java.util.Date(secs));
 				
-				VenditoreDAO venditoreDAO = new VenditoreJDBC(dataSource);
+				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
 				Venditore venditore = venditoreDAO.findByPrimaryKey((int) result.getLong("id_venditore"));
 				preventivo.setIdVenditore(venditore);
 				
 				
 				//cambiare la chiave primaria di utente dentro preventivo, ossia email utente
 				UtenteDAO utenteDAO = new UtenteDaoJDBC(dataSource);
-				Utente utente = utenteDAO.findByPrimaryKey((int) result.getLong("id_utente"));
+				Utente utente = utenteDAO.findByPrimaryKey(result.getString("email"));
 				preventivo.setIdUtente(utente);
 				
 				ProdottoDAO prodottoDAO = new ProdottoDaoJDBC(dataSource);
@@ -108,6 +108,7 @@ public class PreventivoJDBC implements PreventivoDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 
 }

@@ -1,8 +1,9 @@
 package persistenceDAO;
 
-import persistenceJDBC.PreventivoJDBC;
+import persistenceJDBC.PreventivoDaoJDBC;
 
 import persistenceJDBC.UtenteDaoJDBC;
+import persistenceJDBC.VenditoreDaoJDBC;
 
 @SuppressWarnings("deprecation")
 class MySqlDAOFactory extends DAOFactory {
@@ -45,7 +46,7 @@ class MySqlDAOFactory extends DAOFactory {
 	@Override
 	public PreventivoDAO getPreventivoDAO() {
 
-		return new PreventivoJDBC(dataSource);
+		return new PreventivoDaoJDBC(dataSource);
 
 	}
 
@@ -54,6 +55,13 @@ class MySqlDAOFactory extends DAOFactory {
 	public UtenteDAO getUtenteDAO() {
 		
 		return new UtenteDaoJDBC(dataSource);
+	}
+
+	@Override
+	public VenditoreDAO getVenditoreDAO() {
+
+		return new VenditoreDaoJDBC(dataSource);
+		
 	}
 	
 	
