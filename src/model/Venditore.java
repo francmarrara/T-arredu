@@ -9,15 +9,14 @@ public class Venditore {
 	private String indirizzoVenditore;
 	private String emailVenditore;
 	private String numeroTelefonicoVenditore;
-	
-	//costruttore senza parametri
-	private Venditore() {
-		
+
+	// costruttore senza parametri
+	public Venditore() {
+
 	}
 
-	
-	//getter & setter
-	
+	// getter & setter
+
 	public Integer getIdVenditore() {
 		return idVenditore;
 	}
@@ -73,11 +72,5 @@ public class Venditore {
 	public void setNumeroTelefonicoVenditore(String numeroTelefonicoVenditore) {
 		this.numeroTelefonicoVenditore = numeroTelefonicoVenditore;
 	}
-	
-
-
 
 }
-
-
-
