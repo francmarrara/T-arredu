@@ -60,7 +60,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 				preventivo.setDataOraPreventivo(new java.util.Date(secs));
 				
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
-				Venditore venditore = venditoreDAO.findByPrimaryKey((int) result.getLong("id_venditore"));
+				Venditore venditore = venditoreDAO.findByPrimaryKey(result.getString("id_venditore"));
 				preventivo.setIdVenditore(venditore);
 				
 				

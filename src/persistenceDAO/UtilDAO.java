@@ -72,16 +72,16 @@ public class UtilDAO {
 			PreparedStatement statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
-			add = "CREATE TABLE `tarreduDB`.`venditore` (\r\n" 
-					+ "  `id_venditore` INT NOT NULL AUTO_INCREMENT, \r\n"  
-					+ "  `nomeTitolare` VARCHAR(255) NOT NULL,\r\n" 
-					+ "  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" 
-					+ "  `indirizzoVenditore` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `emailVenditore` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `numeroTelefonicoVenditore` VARCHAR(255) NOT NULL,\r\n" 
-					+ "  PRIMARY KEY (`id_venditore`),\r\n"
-					+ "  UNIQUE INDEX `id_venditore_UNIQUE` (`id_venditore` ASC));";
+			add = "CREATE TABLE `tarreduDB`.`venditore` (\r\n" + 
+					"  `id_venditore` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `nomeTitolare` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `indirizzoVenditore` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `emailVenditore` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `numeroTelefonicoVenditore` VARCHAR(255) NOT NULL,\r\n" + 
+					"  PRIMARY KEY (`emailVenditore`),\r\n" + 
+					"  UNIQUE INDEX `id_venditore_UNIQUE` (`id_venditore` ASC));";
 
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
@@ -114,10 +114,10 @@ public class UtilDAO {
 					"  `id_preventivo` INT(11) NOT NULL AUTO_INCREMENT,\r\n" + 
 					"  `data_ora_preventivo` DATE NOT NULL,\r\n" + 
 					"  `id_utente` VARCHAR(255) NOT NULL,\r\n" + 
-					"  `id_venditore` INT(11) NOT NULL,\r\n" + 
+					"  `id_venditore` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `id_prodotto` INT(11) NOT NULL,\r\n" + 
 					"  PRIMARY KEY (`id_preventivo`),\r\n" + 
-					"  UNIQUE INDEX `id_prventivo_UNIQUE` (`id_preventivo` ASC),\r\n" + 
+					"  UNIQUE INDEX `id_preventivo_UNIQUE` (`id_preventivo` ASC),\r\n" + 
 					"  INDEX `id_utente_idx` (`id_utente` ASC),\r\n" + 
 					"  INDEX `id_venditore_idx` (`id_venditore` ASC),\r\n" + 
 					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
@@ -128,7 +128,7 @@ public class UtilDAO {
 					"    ON UPDATE CASCADE,\r\n" + 
 					"  CONSTRAINT `id_venditore`\r\n" + 
 					"    FOREIGN KEY (`id_venditore`)\r\n" + 
-					"    REFERENCES `tarreduDB`.`venditore` (`id_venditore`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
 					"    ON UPDATE CASCADE,\r\n" + 
 					"  CONSTRAINT `id_prodotto`\r\n" + 

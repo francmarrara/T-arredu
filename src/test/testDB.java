@@ -2,9 +2,12 @@ package test;
 
 import java.util.Calendar;
 import model.Utente;
+import model.Venditore;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.UtenteDAO;
 import persistenceDAO.UtilDAO;
+import persistenceDAO.VenditoreDAO;
+import persistenceJDBC.VenditoreDaoJDBC;
 
 public class testDB {
 
@@ -32,10 +35,22 @@ public class testDB {
 		utente.setPasswordUtente("puppamilafava01!");
 		
 		utenteDAO.save(utente);
-
 		
-	utente.setCognomeUtente("Rossi");
-	utenteDAO.update(utente);
+		utente.setCognomeUtente("Rossi");
+		utenteDAO.update(utente);
+		
+		Venditore venditore = new Venditore();
+		VenditoreDAO venditoreDao = factory.getVenditoreDAO();
+		
+		venditore.setNomeTitolare("Simone");
+		venditore.setCognomeTitolare("Crisafi");
+		venditore.setNomeNegozio("MannaiaDao Enterprise");
+		venditore.setIndirizzoVenditore("Via paperino, 3");
+		venditore.setNumeroTelefonicoVenditore("3477353491");
+		venditore.setEmailVenditore("paperino@suca.it");
+		
+		venditoreDao.save(venditore);
+		
 		
 	}
 
