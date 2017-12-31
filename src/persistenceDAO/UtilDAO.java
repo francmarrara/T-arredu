@@ -93,7 +93,7 @@ public class UtilDAO {
 					+ "  `ambienteProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `prezzoProdotto` DOUBLE NOT NULL,\r\n"
+					+ "  `prezzoProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
 					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `email_venditoreProdotto` VARCHAR(255) NOT NULL,\r\n" 

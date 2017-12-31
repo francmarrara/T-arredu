@@ -7,11 +7,13 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Carrello;
 import model.Preventivo;
 import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
+import persistenceDAO.PreventivoDAO;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.VenditoreDAO;
 
@@ -234,29 +236,141 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	}
 
-	@Override
-	public void deleteProductsFromPreventivo(Long codicePreventivo) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public List<Prodotto> findByMarca(String marcaProdotto) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = this.dataSource.getConnection();
+		List<Prodotto> prodotti = new LinkedList<>();
+		try {
+			Prodotto prodotto;
+			PreparedStatement statement;
+			String query = "select * from prodotto where marcaProdotto = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1,marcaProdotto);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				prodotto = new Prodotto();
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+
+				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+
+				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+
+				prodotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
 	}
 
 	@Override
 	public List<Prodotto> findByColour(String coloreProdotto) {
+		Connection connection = this.dataSource.getConnection();
+		List<Prodotto> prodotti = new LinkedList<>();
+		try {
+			Prodotto prodotto;
+			PreparedStatement statement;
+			String query = "select * from prodotto where coloreProdotto = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1,coloreProdotto);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				prodotto = new Prodotto();
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+
+				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+
+				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+
+				prodotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+	}
+	
+	
+	@Override
+	public List<Prodotto> findByAmbiente(String ambienteProdotto) {
+		Connection connection = this.dataSource.getConnection();
+		List<Prodotto> prodotti = new LinkedList<>();
+		try {
+			Prodotto prodotto;
+			PreparedStatement statement;
+			String query = "select * from prodotto where ambienteProdotto = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1,ambienteProdotto);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				prodotto = new Prodotto();
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+
+				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+
+				prodotto.setVenditoreProdotto(venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+
+				prodotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+	}
+	
+	
+
+	@Override
+	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo) {
+		return null;
+		
+		
+	}
+	
+	@Override
+	public List<Prodotto> findProductsByCarrello(Carrello carrello) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -265,5 +379,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
+
+
+	
 
 }
