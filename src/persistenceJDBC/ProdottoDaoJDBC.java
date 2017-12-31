@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Preventivo;
 import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
@@ -86,6 +87,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		return prodotto;
 	}
 
+	
 	@Override
 	public List<Prodotto> findByVenditore(Venditore venditore) {
 		Connection connection = this.dataSource.getConnection();
