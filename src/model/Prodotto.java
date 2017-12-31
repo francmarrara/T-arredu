@@ -7,7 +7,7 @@ public class Prodotto {
 	private String marcaProdotto;
 	private String ambienteProdotto;
 	private String coloreProdotto;
-	private String prezzoProdotto;
+	private Double prezzoProdotto;
 	private Boolean disponibilit‡Prodotto;
 	private String descrizioneProdotto;
 	private Venditore venditoreProdotto;
@@ -58,11 +58,11 @@ public class Prodotto {
 		this.coloreProdotto = coloreProdotto;
 	}
 
-	public String getPrezzoProdotto() {
+	public Double getPrezzoProdotto() {
 		return prezzoProdotto;
 	}
 
-	public void setPrezzoProdotto(String prezzoProdotto) {
+	public void setPrezzoProdotto(Double prezzoProdotto) {
 		this.prezzoProdotto = prezzoProdotto;
 	}
 

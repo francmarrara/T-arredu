@@ -32,7 +32,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setString(2, prodotto.getAmbienteProdotto());
 			statement.setString(3, prodotto.getNomeProdotto());
 			statement.setString(4, prodotto.getColoreProdotto());
-			statement.setString(5, prodotto.getPrezzoProdotto());
+			statement.setDouble(5, prodotto.getPrezzoProdotto());
 			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
 			statement.setString(7, prodotto.getDescrizioneProdotto());
 			statement.setInt(8, prodotto.getVenditoreProdotto().getIdVenditore());
@@ -66,7 +66,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getString("prezzoProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
 
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
@@ -104,7 +104,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getString("prezzoProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
 
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
@@ -142,7 +142,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getString("prezzoProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
 
 				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
@@ -173,7 +173,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setString(2, prodotto.getAmbienteProdotto());
 			statement.setString(3, prodotto.getNomeProdotto());
 			statement.setString(4, prodotto.getColoreProdotto());
-			statement.setString(5, prodotto.getPrezzoProdotto());
+			statement.setDouble(5, prodotto.getPrezzoProdotto());
 			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
 			statement.setString(7, prodotto.getDescrizioneProdotto());
 			statement.setInt(8, prodotto.getVenditoreProdotto().getIdVenditore());
@@ -233,13 +233,29 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 
 	@Override
+	public void deleteProductsFromPreventivo(Long codicePreventivo) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Prodotto> findByMarca(String marcaProdotto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Prodotto> findByColour(String coloreProdotto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
-	
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -247,12 +263,5 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-
-	@Override
-	public void deleteProductsFromPreventivo(Long codicePreventivo) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }
