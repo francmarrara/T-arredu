@@ -17,10 +17,13 @@ public class UtilDAO {
 
 		Connection connection = dataSource.getConnection();
 		try {
-			
 	
-			String delete = "drop table if exists carrello;";
+			String delete = "drop table if exists sequence_data;";
 			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+	
+			delete = "drop table if exists carrello;";
+			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
 			delete = "drop table if exists prodottoInCarrello;";
@@ -82,8 +85,67 @@ public class UtilDAO {
 		Connection connection = dataSource.getConnection();
 		try {
 
-			String add = "CREATE TABLE `tarreduDB`.`utente` (\r\n" 
-					+ "  `utente_id` INT NOT NULL AUTO_INCREMENT,\r\n"
+			String  add = "CREATE TABLE `tarreduDB`.`sequence_data` (\r\n" + 
+					"    `sequence_name` varchar(100) NOT NULL,\r\n" + 
+					"    `sequence_increment` int(11) unsigned NOT NULL DEFAULT 1,\r\n" + 
+					"    `sequence_min_value` int(11) unsigned NOT NULL DEFAULT 1,\r\n" + 
+					"    `sequence_max_value` bigint(20) unsigned NOT NULL DEFAULT 18446744073709551615,\r\n" + 
+					"    `sequence_cur_value` bigint(20) unsigned DEFAULT 1,\r\n" + 
+					"    `sequence_cycle` boolean NOT NULL DEFAULT FALSE,\r\n" + 
+					"    PRIMARY KEY (`sequence_name`)\r\n" + 
+					") ENGINE=MyISAM;";
+
+			PreparedStatement statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add =   "INSERT INTO tarreduDB.sequence_data\r\n" + 
+					"    (sequence_name)\r\n" + 
+					"VALUE\r\n" + 
+					"    ('sq_my_sequence')\r\n" + 
+					";";
+
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add =   "CREATE FUNCTION `nextval` (`seq_name` varchar(100))\r\n" + 
+					"RETURNS bigint(20) NOT DETERMINISTIC\r\n" + 
+					"BEGIN\r\n" + 
+					"    DECLARE cur_val bigint(20);\r\n" + 
+					" \r\n" + 
+					"    SELECT\r\n" + 
+					"        sequence_cur_value INTO cur_val\r\n" + 
+					"    FROM\r\n" + 
+					"        tarreduDB.sequence_data\r\n" + 
+					"    WHERE\r\n" + 
+					"        sequence_name = seq_name\r\n" + 
+					"    ;\r\n" + 
+					" \r\n" + 
+					"    IF cur_val IS NOT NULL THEN\r\n" + 
+					"        UPDATE\r\n" + 
+					"            tarreduDB.sequence_data\r\n" + 
+					"        SET\r\n" + 
+					"            sequence_cur_value = IF (\r\n" + 
+					"                (sequence_cur_value + sequence_increment) > sequence_max_value,\r\n" + 
+					"                IF (\r\n" + 
+					"                    sequence_cycle = TRUE,\r\n" + 
+					"                    sequence_min_value,\r\n" + 
+					"                    NULL\r\n" + 
+					"                ),\r\n" + 
+					"                sequence_cur_value + sequence_increment\r\n" + 
+					"            )\r\n" + 
+					"        WHERE\r\n" + 
+					"            sequence_name = seq_name\r\n" + 
+					"        ;\r\n" + 
+					"    END IF;\r\n" + 
+					" \r\n" + 
+					"    RETURN cur_val;\r\n" + 
+					"    END";
+
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "CREATE TABLE `tarreduDB`.`utente` (\r\n" 
+					+ "  `utente_id` INT NOT NULL,\r\n"
 					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `cognome` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `dataNascita` DATE NOT NULL,\r\n" 
@@ -93,11 +155,11 @@ public class UtilDAO {
 					+ "  UNIQUE INDEX `utente_id_UNIQUE` (`utente_id` ASC),\r\n" 
 					+ "  PRIMARY KEY (`email`));";
 
-			PreparedStatement statement = connection.prepareStatement(add);
+			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 
 			add = "CREATE TABLE `tarreduDB`.`venditore` (\r\n" + 
-					"  `id_venditore` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `id_venditore` INT NOT NULL,\r\n" + 
 					"  `nomeTitolare` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" + 
@@ -112,7 +174,7 @@ public class UtilDAO {
 			
 
 			add = "CREATE TABLE `tarreduDB`.`prodotto` (\r\n" 
-					+ "  `id_prodotto` INT NOT NULL AUTO_INCREMENT,\r\n"
+					+ "  `id_prodotto` INT NOT NULL,\r\n"
 					+ "  `marcaProdotto` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `ambienteProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" 
@@ -134,7 +196,7 @@ public class UtilDAO {
 			statement.executeUpdate();
 			
 			add = "CREATE TABLE `tarreduDB`.`preventivo` (\r\n" + 
-					"  `id_preventivo` INT(11) NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `id_preventivo` INT(11) NOT NULL,\r\n" + 
 					"  `data_ora_preventivo` DATE NOT NULL,\r\n" + 
 					"  `id_utente` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `id_venditore` VARCHAR(255) NOT NULL,\r\n" + 
@@ -156,7 +218,7 @@ public class UtilDAO {
 			statement.executeUpdate();
 			
 			add = "CREATE TABLE `tarreduDB`.`carrello` (\r\n" + 
-					"  `id_carrello` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `id_carrello` INT NOT NULL,\r\n" + 
 					"  `email_utente` VARCHAR(255) NOT NULL,\r\n" + 
 					"  PRIMARY KEY (`id_carrello`),\r\n" + 
 					"  INDEX `emailUtente_idx` (`email_utente` ASC),\r\n" + 
@@ -192,7 +254,7 @@ public class UtilDAO {
 
 			
 			add = "CREATE TABLE `tarreduDB`.`commentoProdotto` (\r\n" + 
-					"  `id_commentoProdotto` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `id_commentoProdotto` INT NOT NULL,\r\n" + 
 					"  `utenteEmail` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `idProdotto` INT NOT NULL,\r\n" + 
 					"  `commentoProdotto` VARCHAR(255) NULL,\r\n" + 
@@ -215,7 +277,7 @@ public class UtilDAO {
 			statement.executeUpdate();
 			
 			add = "CREATE TABLE `tarreduDB`.`preventivoRiferitoVenditore` (\r\n" + 
-					"  `id_preventivoRiferitoVenditore` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `id_preventivoRiferitoVenditore` INT NOT NULL,\r\n" + 
 					"  `venditoreEmail` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `preventivoID` INT NOT NULL,\r\n" + 
 					"  PRIMARY KEY (`id_preventivoRiferitoVenditore`),\r\n" + 
@@ -236,7 +298,7 @@ public class UtilDAO {
 			statement.executeUpdate();
 			
 			add = "CREATE TABLE `tarreduDB`.`prodottoInPreventivo` (\r\n" + 
-					"  `id_prodottoInPreventivo` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `id_prodottoInPreventivo` INT NOT NULL,\r\n" + 
 					"  `preventivoID` INT NOT NULL,\r\n" + 
 					"  `prodottoID` INT NOT NULL,\r\n" + 
 					"  `richiestaAggiuntiva` VARCHAR(255) NULL,\r\n" + 

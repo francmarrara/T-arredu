@@ -64,12 +64,12 @@ public class testDB {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Tavolo bianco per ambiente cucina");
 		prodotto.setVenditoreProdotto(venditore);
-		//
+		
 		prodottoDao.save(prodotto);
 		
 		Carrello c = new Carrello();
 		c.setUtenteCarello(utente);
-		c.getProdottiNelCarrello().add(prodottoDao.findByPrimaryKey(1));
+		c.getProdottiNelCarrello().add(prodottoDao.findByPrimaryKey(0));
 		
 		CarrelloDAO carrelloDao = factory.getCArrelloDAO();
 		carrelloDao.save(c);
