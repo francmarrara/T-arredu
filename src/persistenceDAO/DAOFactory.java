@@ -47,6 +47,8 @@ public abstract class DAOFactory {
 	public abstract PreventivoDAO getPreventivoDAO();
 	
 	public abstract VenditoreDAO getVenditoreDAO();
+	
+	public abstract ProdottoDAO getProdottoDAO();
 
 	public abstract UtilDAO getUtilDAO();
 	

@@ -45,6 +45,8 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 			statement.executeUpdate();
 			
 			updateProdotto(preventivo, connection);
+			updateUtente(preventivo, connection);
+			updateVenditore(preventivo, connection);
 			
 			
 		} catch (SQLException e) {
@@ -117,13 +119,58 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 	@Override
 	public void update(Preventivo preventivo) {
-		// TODO Auto-generated method stub
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			String update = "update preventivo SET data_ora_preventivo = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+
+			long secs = preventivo.getDataOraPreventivo().getTime();
+			statement.setDate(1, new java.sql.Date(secs));
+			
+			// MANCANO TABELLE PREVENTIVO-VENDITORE PRODOTTO-PREVENTIVO UTENTE-PREVENTIVO
+			
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 
 	}
 
 	@Override
 	public void delete(Preventivo preventivo) {
-		// TODO Auto-generated method stub
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			String delete = "delete FROM preventivo WHERE id_preventivo = ? ";
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.setInt(1, preventivo.getIdPreventivo());
+
+			statement.executeUpdate();
+			
+			// MANCANO TABELLE PREVENTIVO-VENDITORE PRODOTTO-PREVENTIVO UTENTE-PREVENTIVO
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 
 	}
 

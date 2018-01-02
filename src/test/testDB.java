@@ -1,9 +1,14 @@
 package test;
 
 import java.util.Calendar;
+
+import model.Preventivo;
+import model.Prodotto;
 import model.Utente;
 import model.Venditore;
 import persistenceDAO.DAOFactory;
+import persistenceDAO.PreventivoDAO;
+import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
 import persistenceDAO.UtilDAO;
 import persistenceDAO.VenditoreDAO;
@@ -50,6 +55,28 @@ public class testDB {
 		venditore.setEmailVenditore("paperino@suca.it");
 		
 		venditoreDao.save(venditore);
+		
+		Prodotto prodotto = new Prodotto();
+		ProdottoDAO prodottoDao = factory.getProdottoDAO();
+		
+		prodotto.setMarcaProdotto("Scavolini");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("Tavolo da cucina");
+		prodotto.setColoreProdotto("Bianco");
+		prodotto.setPrezzoProdotto(Double.parseDouble("450,00"));
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Tavolo bianco per ambiente cucina");
+		
+		prodottoDao.save(prodotto);
+		
+		Preventivo preventivo = new Preventivo();
+		PreventivoDAO preventivoDao = factory.getPreventivoDAO();
+		
+		cal.set(2018, Calendar.JANUARY, 2);
+		preventivo.setDataOraPreventivo(cal.getTime());
+		preventivo.setIdUtente(utente);
+		preventivo.setIdVenditore(venditore);
+		
 		
 		
 	}

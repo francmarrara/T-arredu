@@ -1,7 +1,7 @@
 package persistenceDAO;
 
 import persistenceJDBC.PreventivoDaoJDBC;
-
+import persistenceJDBC.ProdottoDaoJDBC;
 import persistenceJDBC.UtenteDaoJDBC;
 import persistenceJDBC.VenditoreDaoJDBC;
 
@@ -61,6 +61,13 @@ class MySqlDAOFactory extends DAOFactory {
 	public VenditoreDAO getVenditoreDAO() {
 
 		return new VenditoreDaoJDBC(dataSource);
+		
+	}
+
+	@Override
+	public ProdottoDAO getProdottoDAO() {
+
+		return new ProdottoDaoJDBC(dataSource);
 		
 	}
 	
