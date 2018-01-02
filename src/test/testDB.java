@@ -69,13 +69,6 @@ public class testDB {
 		
 		prodottoDao.save(prodotto);
 		
-		Preventivo preventivo = new Preventivo();
-		PreventivoDAO preventivoDao = factory.getPreventivoDAO();
-		
-		cal.set(2018, Calendar.JANUARY, 2);
-		preventivo.setDataOraPreventivo(cal.getTime());
-		preventivo.setIdUtente(utente);
-		preventivo.setIdVenditore(venditore);
 		
 		
 		
