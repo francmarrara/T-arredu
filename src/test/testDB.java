@@ -63,7 +63,7 @@ public class testDB {
 		prodotto.setAmbienteProdotto("Cucina");
 		prodotto.setNomeProdotto("Tavolo da cucina");
 		prodotto.setColoreProdotto("Bianco");
-		prodotto.setPrezzoProdotto(Double.parseDouble("450,00"));
+		prodotto.setPrezzoProdotto(Double.parseDouble("450.00"));
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Tavolo bianco per ambiente cucina");
 		
