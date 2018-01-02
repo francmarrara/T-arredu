@@ -18,28 +18,32 @@ public class UtilDAO {
 		Connection connection = dataSource.getConnection();
 		try {
 			
-			
-			String delete = "drop table if exists preventivo;";
+	
+			String delete = "drop table if exists carrello;";
 			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
+			delete = "drop table if exists prodottoInCarrello;";
+			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
 			delete = "drop table if exists commentoProdotto;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			delete = "drop table if exists carrello;";
-			statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-			
-			delete = "drop table if exists prodottoInCarrello;";
-			statement = connection.prepareStatement(delete);
-			statement.executeUpdate();
-
 			delete = "drop table if exists preventivoRiferitoVenditore;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
 			delete = "drop table if exists prodottoInPreventivo;";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
+			delete = "drop table if exists preventivo;";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
+			delete = "drop table if exists urlImmaginiProdotto";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
@@ -134,12 +138,10 @@ public class UtilDAO {
 					"  `data_ora_preventivo` DATE NOT NULL,\r\n" + 
 					"  `id_utente` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `id_venditore` VARCHAR(255) NOT NULL,\r\n" + 
-					"  `id_prodotto` INT(11) NOT NULL,\r\n" + 
 					"  PRIMARY KEY (`id_preventivo`),\r\n" + 
 					"  UNIQUE INDEX `id_preventivo_UNIQUE` (`id_preventivo` ASC),\r\n" + 
 					"  INDEX `id_utente_idx` (`id_utente` ASC),\r\n" + 
 					"  INDEX `id_venditore_idx` (`id_venditore` ASC),\r\n" + 
-					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
 					"  CONSTRAINT `id_utente`\r\n" + 
 					"    FOREIGN KEY (`id_utente`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
@@ -149,13 +151,7 @@ public class UtilDAO {
 					"    FOREIGN KEY (`id_venditore`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
-					"    ON UPDATE CASCADE,\r\n" + 
-					"  CONSTRAINT `id_prodotto`\r\n" + 
-					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
-					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
-					"    ON DELETE CASCADE\r\n" + 
-					"    ON UPDATE CASCADE);";
-
+					"    ON UPDATE CASCADE);\r\n";
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			
@@ -174,8 +170,21 @@ public class UtilDAO {
 			statement.executeUpdate();
 					
 			add = "CREATE TABLE `tarreduDB`.`prodottoInCarrello` (\r\n" + 
+					"  `id_prodottoInCarrello` INT NOT NULL,\r\n" + 
 					"  `email_utenteCarrello` VARCHAR(255) NOT NULL,\r\n" + 
-					"  `id_prodottoInCarrello` INT NOT NULL);";
+					"  INDEX `id_prodottoInCarrello_idx` (`id_prodottoInCarrello` ASC),\r\n" + 
+					"  INDEX `email_utenteCarrello_idx` (`email_utenteCarrello` ASC),\r\n" + 
+					"  CONSTRAINT `id_prodottoInCarrello`\r\n" + 
+					"    FOREIGN KEY (`id_prodottoInCarrello`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE,\r\n" + 
+					"  CONSTRAINT `email_utenteCarrello`\r\n" + 
+					"    FOREIGN KEY (`email_utenteCarrello`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n" + 
+					"";
 			
 			
 			statement = connection.prepareStatement(add);
@@ -245,6 +254,18 @@ public class UtilDAO {
 					"    ON DELETE CASCADE\r\n" + 
 					"    ON UPDATE CASCADE);" ;
 			
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "CREATE TABLE `tarreduDB`.`urlImmaginiProdotto` (\r\n" + 
+					"  `id_prodotto` INT NOT NULL,\r\n" + 
+					"  `urlImmagine` VARCHAR(255) NOT NULL,\r\n" + 
+					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
+					"  CONSTRAINT `id_prodotto`\r\n" + 
+					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n";
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			

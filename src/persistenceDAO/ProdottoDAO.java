@@ -23,4 +23,8 @@ public interface ProdottoDAO {
 	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo);
    	public List<Prodotto> findProductsByCarrello(Carrello carrello);
 
+   	public List<String> getImages(Prodotto prodotto);
+   	public void addImageToProduct(String url);
+   	public void removeImageInProduct(String url);
+   	
 }

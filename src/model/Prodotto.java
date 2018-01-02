@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Prodotto {
 
 	private Integer idProdotto;
@@ -11,10 +13,13 @@ public class Prodotto {
 	private Boolean disponibilit‡Prodotto;
 	private String descrizioneProdotto;
 	private Venditore venditoreProdotto;
-
+    private ArrayList<String> urlImmaginiProdotto;
+	
+	
 	//costruttore senza Parametri
 	public Prodotto() {
 
+		urlImmaginiProdotto = new ArrayList<String>();
 	}
 
 	//Getter & Setter
@@ -88,6 +93,14 @@ public class Prodotto {
 
 	public void setVenditoreProdotto(Venditore venditoreProdotto) {
 		this.venditoreProdotto = venditoreProdotto;
+	}
+
+	public ArrayList<String> getUrlImmaginiProdotto() {
+		return urlImmaginiProdotto;
+	}
+
+	public void setUrlImmaginiProdotto(ArrayList<String> urlImmaginiProdotto) {
+		this.urlImmaginiProdotto = urlImmaginiProdotto;
 	}
 
 }
