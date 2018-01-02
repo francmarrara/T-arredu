@@ -11,6 +11,7 @@ import model.Carrello;
 import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
+import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.VenditoreDAO;
@@ -27,19 +28,26 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void save(Prodotto prodotto) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into prodotto(marcaProdotto, ambienteProdotto, nomeProdotto, coloreProdotto, prezzoProdotto, disponibilitaProdotto, descrizioneProdotto, email_venditoreProdotto) values (?,?,?,?,?,?,?,?)";
+			String insert = "insert into prodotto(id_prodotto, marcaProdotto, ambienteProdotto, nomeProdotto, coloreProdotto, prezzoProdotto, disponibilitaProdotto, descrizioneProdotto, email_venditoreProdotto) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setString(1, prodotto.getMarcaProdotto());
-			statement.setString(2, prodotto.getAmbienteProdotto());
-			statement.setString(3, prodotto.getNomeProdotto());
-			statement.setString(4, prodotto.getColoreProdotto());
-			statement.setDouble(5, prodotto.getPrezzoProdotto());
-			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
-			statement.setString(7, prodotto.getDescrizioneProdotto());
-			statement.setString(8, prodotto.getVenditoreProdotto().getEmailVenditore());
+			
+			Integer id = IdBuilder.getId(connection);
+			prodotto.setIdProdotto(id);
+			
+			statement.setInt(1, id);
+			statement.setString(2, prodotto.getMarcaProdotto());
+			statement.setString(3, prodotto.getAmbienteProdotto());
+			statement.setString(4, prodotto.getNomeProdotto());
+			statement.setString(5, prodotto.getColoreProdotto());
+			statement.setDouble(6, prodotto.getPrezzoProdotto());
+			statement.setBoolean(7, prodotto.getDisponibilit‡Prodotto());
+			statement.setString(8, prodotto.getDescrizioneProdotto());
+			statement.setString(9, prodotto.getVenditoreProdotto().getEmailVenditore());
+			
 			statement.executeUpdate();
 
 			for (String s : prodotto.getUrlImmaginiProdotto()) {
+				
 				insert = "insert into urlImmaginiProdotto(id_prodotto,urlImmagine) values(?,?)";
 				statement = connection.prepareStatement(insert);
 				statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());

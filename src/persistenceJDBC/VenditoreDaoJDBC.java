@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.Venditore;
 import persistenceDAO.DataSource;
+import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.VenditoreDAO;
 
@@ -26,18 +27,22 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 
 		try {
 
-			String save = " insert into venditore(nomeTitolare, cognomeTitolare, "
+			String save = " insert into venditore(id_venditore, nomeTitolare, cognomeTitolare, "
 					+ "nomeNegozio, indirizzoVenditore, emailVenditore, numeroTelefonicoVenditore) values"
-					+ "(?,?,?,?,?,?) ";
+					+ "(?,?,?,?,?,?,?) ";
 
 			PreparedStatement statement = connection.prepareStatement(save);
 
-			statement.setString(1, venditore.getNomeTitolare());
-			statement.setString(2, venditore.getCognomeTitolare());
-			statement.setString(3, venditore.getNomeNegozio());
-			statement.setString(4, venditore.getIndirizzoVenditore());
-			statement.setString(5, venditore.getEmailVenditore());
-			statement.setString(6, venditore.getNumeroTelefonicoVenditore());
+			Integer id = IdBuilder.getId(connection);
+			venditore.setIdVenditore(id);
+			
+			statement.setInt(1, id);
+			statement.setString(2, venditore.getNomeTitolare());
+			statement.setString(3, venditore.getCognomeTitolare());
+			statement.setString(4, venditore.getNomeNegozio());
+			statement.setString(5, venditore.getIndirizzoVenditore());
+			statement.setString(6, venditore.getEmailVenditore());
+			statement.setString(7, venditore.getNumeroTelefonicoVenditore());
 
 			statement.executeUpdate();
 

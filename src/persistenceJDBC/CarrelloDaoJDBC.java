@@ -11,6 +11,7 @@ import model.Carrello;
 import model.Prodotto;
 import persistenceDAO.CarrelloDAO;
 import persistenceDAO.DataSource;
+import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
@@ -27,19 +28,25 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 	public void save(Carrello carrello) {
 		Connection connection = dataSource.getConnection();
 		try {
-			String insert = "insert into carrello(email_utente) values (?)";
+			String insert = "insert into carrello(id_carrello, email_utente) values (?,?)";
+			
+			Integer id = IdBuilder.getId(connection);
+			carrello.setIdCarello(id);
+			
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
+			
+			statement.setInt(1, id);
+			statement.setString(2, carrello.getUtenteCarrello().getEmailUtente());
 
 			statement.executeUpdate();
 
 			for (Prodotto p : carrello.getProdottiNelCarrello()) {
 
-				insert = "insert into prodottoInCarrello(email_utenteCarrello, id_prodottoInCarrello) values (?,?)";
+				insert = "insert into prodottoInCarrello(id_prodottoInCarrello, email_utenteCarrello) values (?,?)";
 			    statement = connection.prepareStatement(insert);
 
-				statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
-				statement.setInt(2, p.getIdProdotto());
+			    statement.setInt(1, p.getIdProdotto());
+				statement.setString(2, carrello.getUtenteCarrello().getEmailUtente());
 				statement.executeUpdate();
 
 			}

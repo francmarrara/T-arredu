@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.Utente;
 import persistenceDAO.DataSource;
+import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.UtenteDAO;
 
@@ -24,16 +25,26 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	public void save(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into utente(nome, cognome, dataNascita, email, numeroTelefonico, passwordUtente) values (?,?,?,?,?,?)";
+			
+			String insert = "insert into utente(utente_id, nome, cognome, dataNascita, email, numeroTelefonico, passwordUtente) values (?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setString(1, utente.getNomeUtente());
-			statement.setString(2, utente.getCognomeUtente());
+			
+			Integer id = IdBuilder.getId(connection);
+			utente.setIdUtente(id);
+			
+			statement.setInt(1, id);
+			statement.setString(2, utente.getNomeUtente());
+			statement.setString(3, utente.getCognomeUtente());
+			
 			long secs = utente.getDatadiNascita().getTime();
-			statement.setDate(3, new java.sql.Date(secs));
-			statement.setString(4, utente.getEmailUtente());
-			statement.setString(5, utente.getNumeroTelefonoUtente());
-			statement.setString(6, utente.getPasswordUtente());
+			statement.setDate(4, new java.sql.Date(secs));
+			
+			statement.setString(5, utente.getEmailUtente());
+			statement.setString(6, utente.getNumeroTelefonoUtente());
+			statement.setString(7, utente.getPasswordUtente());
+			
 			statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {

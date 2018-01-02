@@ -12,6 +12,7 @@ import model.Prodotto;
 import model.Utente;
 import model.Venditore;
 import persistenceDAO.DataSource;
+import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.PreventivoDAO;
 import persistenceDAO.ProdottoDAO;
@@ -35,12 +36,16 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 		
 		try {
 			
-			String save = " insert into preventivo (data_ora_preventivo) values (?) ";
+			String save = " insert into preventivo (id_preventivo, data_ora_preventivo) values (?,?) ";
 			
 			PreparedStatement statement = connection.prepareStatement(save);
 			
+			Integer id = IdBuilder.getId(connection);
+			preventivo.setIdPreventivo(id);
+			statement.setInt(1, id);
+			
 			long secs = preventivo.getDataOraPreventivo().getTime();
-			statement.setDate(1, new java.sql.Date(secs));
+			statement.setDate(2, new java.sql.Date(secs));
 			
 			statement.executeUpdate();
 			
