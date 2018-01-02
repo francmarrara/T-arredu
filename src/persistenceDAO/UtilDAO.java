@@ -21,6 +21,10 @@ public class UtilDAO {
 			String delete = "drop table if exists sequence_data;";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
+			
+			delete = "drop function if exists nextval;";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
 	
 			delete = "drop table if exists carrello;";
 			statement = connection.prepareStatement(delete);
