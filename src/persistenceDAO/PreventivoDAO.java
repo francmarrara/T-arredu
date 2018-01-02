@@ -19,7 +19,8 @@ public interface PreventivoDAO {
 	public void updateProdotto(Preventivo preventivo, Connection connection);
 	public void updateUtente(Preventivo preventivo, Connection connection);
 	public void updateVenditore(Preventivo preventivo, Connection connection);
-
+	
+	public void addProductToPreventivo(Prodotto prodotto);
 
 	
 }

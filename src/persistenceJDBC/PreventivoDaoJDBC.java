@@ -254,6 +254,12 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 		
 	}
 
+	@Override
+	public void addProductToPreventivo(Prodotto prodotto) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }
