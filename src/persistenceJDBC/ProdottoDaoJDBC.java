@@ -8,12 +8,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Carrello;
-import model.Preventivo;
 import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
-import persistenceDAO.PreventivoDAO;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.VenditoreDAO;
 
@@ -29,7 +27,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void save(Prodotto prodotto) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into prodotto(marcaProdotto, ambienteProdotto, nomeProdotto, coloreProdotto, prezzoProdotto, disponibilitaProdotto, descrizioneProdotto, id_venditoreProdotto) values (?,?,?,?,?,?,?,?)";
+			String insert = "insert into prodotto(marcaProdotto, ambienteProdotto, nomeProdotto, coloreProdotto, prezzoProdotto, disponibilitaProdotto, descrizioneProdotto, email_venditoreProdotto) values (?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, prodotto.getMarcaProdotto());
 			statement.setString(2, prodotto.getAmbienteProdotto());
@@ -38,7 +36,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setDouble(5, prodotto.getPrezzoProdotto());
 			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
 			statement.setString(7, prodotto.getDescrizioneProdotto());
-			statement.setInt(8, prodotto.getVenditoreProdotto().getIdVenditore());
+			statement.setString(8, prodotto.getVenditoreProdotto().getEmailVenditore());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

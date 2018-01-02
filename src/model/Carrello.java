@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Carrello {
@@ -10,7 +11,7 @@ public class Carrello {
 	
 	//costruttore senza parametri
 	public Carrello() {
-		
+		prodottiNelCarrello = new ArrayList<Prodotto>();
 	}
 	
 	
@@ -23,7 +24,7 @@ public class Carrello {
 		this.idCarello = idCarello;
 	}
 
-	public Utente getUtenteCarello() {
+	public Utente getUtenteCarrello() {
 		return utenteCarello;
 	}
 

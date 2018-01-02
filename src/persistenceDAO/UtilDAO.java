@@ -140,6 +140,30 @@ public class UtilDAO {
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			
+			add = "CREATE TABLE `tarreduDB`.`carrello` (\r\n" + 
+					"  `id_carrello` INT NOT NULL AUTO_INCREMENT,\r\n" + 
+					"  `email_utente` VARCHAR(255) NOT NULL,\r\n" + 
+					"  PRIMARY KEY (`email_utente`),\r\n" + 
+					"  INDEX `email_utente_idx` (`email_utente` ASC),\r\n" + 
+					"  CONSTRAINT `emailUtente`\r\n" + 
+					"    FOREIGN KEY (`email_utente`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n" ;
+			
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+					
+			add = "CREATE TABLE `tarreduDB`.`prodottoInCarrello` (\r\n" + 
+					"  `email_utenteCarrello` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `id_prodottoInCarrello` INT NOT NULL);";
+			
+			
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			
+			
 			System.out.println("Executed create database");
 
 		} catch (SQLException e) {

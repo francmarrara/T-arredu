@@ -3,17 +3,18 @@ package persistenceDAO;
 import java.util.List;
 
 import model.Carrello;
-
-import model.Utente;
+import model.Prodotto;
 
 public interface CarrelloDAO {
 
 	public void save(Carrello carrello);  // Create
-	public Carrello findByPrimaryKey(Integer idCarrello);     // Retrieve
-	public Carrello findByUtente(Utente utente);     // Retrieve
+	public Carrello findByPrimaryKey(String utenteCarrello);     // Retrieve
 	
 	public List<Carrello> findAll();       
-	public void update(Carrello carrello); //Update
+	
+	public void addProduct(Prodotto p, Carrello c);
+	public void removeProduct(Prodotto p, Carrello c);
+	
 	public void delete(Carrello carrello); //Delete	
 
    	
