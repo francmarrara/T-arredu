@@ -107,6 +107,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		return prodotto;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByVenditore(Venditore venditore) {
 		Connection connection = this.dataSource.getConnection();
@@ -158,6 +159,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		return prodotti;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findAll() {
 		Connection connection = this.dataSource.getConnection();
@@ -183,6 +185,15 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setVenditoreProdotto(
 						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
 
+				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				statement = connection.prepareStatement(query);
+				statement.setInt(1, prodotto.getIdProdotto());
+				result = statement.executeQuery();
+				if (result.next()) {
+					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+
+				}
+				
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -266,6 +277,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByMarca(String marcaProdotto) {
 		Connection connection = this.dataSource.getConnection();
@@ -291,7 +303,16 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				prodotto.setVenditoreProdotto(
 						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				statement = connection.prepareStatement(query);
+				statement.setInt(1, prodotto.getIdProdotto());
+				result = statement.executeQuery();
+				if (result.next()) {
+					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
 
+				}
+				
+				
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -306,6 +327,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		return prodotti;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByColour(String coloreProdotto) {
 		Connection connection = this.dataSource.getConnection();
@@ -332,6 +354,15 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setVenditoreProdotto(
 						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
 
+				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				statement = connection.prepareStatement(query);
+				statement.setInt(1, prodotto.getIdProdotto());
+				result = statement.executeQuery();
+				if (result.next()) {
+					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+
+				}
+				
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -346,6 +377,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		return prodotti;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByAmbiente(String ambienteProdotto) {
 		Connection connection = this.dataSource.getConnection();
@@ -372,6 +404,15 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setVenditoreProdotto(
 						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
 
+				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				statement = connection.prepareStatement(query);
+				statement.setInt(1, prodotto.getIdProdotto());
+				result = statement.executeQuery();
+				if (result.next()) {
+					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+
+				}
+				
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
