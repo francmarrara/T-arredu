@@ -7,9 +7,10 @@ public class Preventivo {
 
 	private Integer idPreventivo;
 	private Date dataOraPreventivo;
-	private Venditore idVenditore;
+	private List<Venditore> listaVenditori;
 	private Utente idUtente;
 	private List<Prodotto> listaProdotti;
+	private String richiesteAggiuntiveUtente;
 
 	public Integer getIdPreventivo() {
 		return idPreventivo;
@@ -27,12 +28,12 @@ public class Preventivo {
 		this.dataOraPreventivo = dataOraPreventivo;
 	}
 
-	public Venditore getIdVenditore() {
-		return idVenditore;
+	public List<Venditore> getIdVenditore() {
+		return listaVenditori;
 	}
 
-	public void setIdVenditore(Venditore idVenditore) {
-		this.idVenditore = idVenditore;
+	public void setIdVenditore(List<Venditore> idVenditore) {
+		this.listaVenditori = idVenditore;
 	}
 
 	public Utente getIdUtente() {
@@ -49,6 +50,26 @@ public class Preventivo {
 
 	public void setListaProdotti(List<Prodotto> listaProdotti) {
 		this.listaProdotti = listaProdotti;
+	}
+
+	public String getRichiesteAggiuntiveUtente() {
+		return richiesteAggiuntiveUtente;
+	}
+
+	public void setRichiesteAggiuntiveUtente(String richiesteAggiuntiveUtente) {
+		this.richiesteAggiuntiveUtente = richiesteAggiuntiveUtente;
+	}
+
+	public void addProdotto(Prodotto prodotto) {
+
+		listaProdotti.add(prodotto);
+
+	}
+
+	public void addVenditore(Venditore venditore) {
+
+		listaVenditori.add(venditore);
+
 	}
 
 }
