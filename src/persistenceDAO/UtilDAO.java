@@ -18,8 +18,12 @@ public class UtilDAO {
 		Connection connection = dataSource.getConnection();
 		try {
 			
-			String delete = "drop table if exists preventivo;";
-			PreparedStatement statement = connection.prepareStatement(delete);
+			String delete = "drop table if exists commentoProdotto;";
+			PreparedStatement  statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
+			delete = "drop table if exists preventivo;";
+			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
 			delete = "drop table if exists utente;";
@@ -34,8 +38,8 @@ public class UtilDAO {
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			// + "drop table if exists feedback;"
-			// + "drop table if exists carrello;";
+			
+			
 
 			System.out.println("Executed drop database");
 
@@ -107,7 +111,6 @@ public class UtilDAO {
 					+ "    ON UPDATE CASCADE);";
 
 			statement = connection.prepareStatement(add);
-
 			statement.executeUpdate();
 			
 			add = "CREATE TABLE `tarreduDB`.`preventivo` (\r\n" + 
@@ -136,6 +139,11 @@ public class UtilDAO {
 					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
 					"    ON UPDATE CASCADE);";
+
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "";
 
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
