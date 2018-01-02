@@ -36,6 +36,8 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 			for (Prodotto p : carrello.getProdottiNelCarrello()) {
 
 				insert = "insert into prodottoInCarrello(email_utenteCarrello, id_prodottoInCarrello) values (?,?)";
+			    statement = connection.prepareStatement(insert);
+
 				statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
 				statement.setInt(2, p.getIdProdotto());
 				statement.executeUpdate();

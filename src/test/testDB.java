@@ -2,17 +2,16 @@ package test;
 
 import java.util.Calendar;
 
-import model.Preventivo;
+import model.Carrello;
 import model.Prodotto;
 import model.Utente;
 import model.Venditore;
+import persistenceDAO.CarrelloDAO;
 import persistenceDAO.DAOFactory;
-import persistenceDAO.PreventivoDAO;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
 import persistenceDAO.UtilDAO;
 import persistenceDAO.VenditoreDAO;
-import persistenceJDBC.VenditoreDaoJDBC;
 
 public class testDB {
 
@@ -21,11 +20,9 @@ public class testDB {
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		UtilDAO util = factory.getUtilDAO();
 		UtenteDAO utenteDAO = factory.getUtenteDAO();
-		
-		// Resetta e ricrea il DB
+
 		util.dropDatabase();
 		util.createDatabase();
-		
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(1989, Calendar.NOVEMBER, 5); // // 5 Novembre 1989
@@ -67,8 +64,15 @@ public class testDB {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Tavolo bianco per ambiente cucina");
 		prodotto.setVenditoreProdotto(venditore);
-		
+		//
 		prodottoDao.save(prodotto);
+		
+		Carrello c = new Carrello();
+		c.setUtenteCarello(utente);
+		c.getProdottiNelCarrello().add(prodottoDao.findByPrimaryKey(1));
+		
+		CarrelloDAO carrelloDao = factory.getCArrelloDAO();
+		carrelloDao.save(c);
 		
 		
 		

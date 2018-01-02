@@ -1,5 +1,6 @@
 package persistenceDAO;
 
+import persistenceJDBC.CarrelloDaoJDBC;
 import persistenceJDBC.PreventivoDaoJDBC;
 import persistenceJDBC.ProdottoDaoJDBC;
 import persistenceJDBC.UtenteDaoJDBC;
@@ -70,6 +71,12 @@ class MySqlDAOFactory extends DAOFactory {
 		return new ProdottoDaoJDBC(dataSource);
 		
 	}
+
+	@Override
+	public CarrelloDAO getCArrelloDAO() {
+		return new CarrelloDaoJDBC(dataSource);
+	}
+	
 	
 	
 	
