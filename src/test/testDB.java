@@ -103,8 +103,6 @@ public class testDB {
 		
 		preventivoDao.save(preventivo);
 		
-		
-		
 		preventivoDao.addVenditoreToPreventivo(prodotto.getVenditoreProdotto(), preventivo);
 		
 		

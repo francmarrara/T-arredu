@@ -42,7 +42,6 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 			PreparedStatement statement = connection.prepareStatement(save);
 
-			System.out.println("prev " + preventivo.getIdPreventivo());
 			statement.setInt(1, preventivo.getIdPreventivo());
 
 			long secs = preventivo.getDataOraPreventivo().getTime();
@@ -221,8 +220,6 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 				utente = utenteDao.findByPrimaryKey(results.getString("id_utente"));
 
 				preventivo.setUtente(utente);
-
-				preventivi.add(preventivo);
 				
 				VenditoreDAO venditoreDao = new VenditoreDaoJDBC(dataSource);
 				preventivo.setListaVenditori(venditoreDao.findVenditoriByPreventivo(preventivo.getIdPreventivo()));
@@ -230,6 +227,8 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				preventivo.setListaProdotti(prodottoDao.findProductsByPreventivo(preventivo.getIdPreventivo()));
 
+				preventivi.add(preventivo);
+				
 			}
 
 		} catch (SQLException e) {
