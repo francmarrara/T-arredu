@@ -36,7 +36,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 		
 		try {
 			
-			String save = " insert into preventivo (id_preventivo, data_ora_preventivo) values (?,?) ";
+			String save = " insert into preventivo (id_preventivo, data_ora_preventivo, id_utente) values (?,?,?) ";
 			
 			PreparedStatement statement = connection.prepareStatement(save);
 			
@@ -47,11 +47,17 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 			long secs = preventivo.getDataOraPreventivo().getTime();
 			statement.setDate(2, new java.sql.Date(secs));
 			
+			Utente utente = new Utente();
+			UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
+			
+			utente = utenteDao.findByPrimaryKey(preventivo.getIdUtente().getEmailUtente());
+			statement.setString(3, utente.getEmailUtente());
+			
 			statement.executeUpdate();
 			
-			updateProdotto(preventivo, connection);
-			updateUtente(preventivo, connection);
-			updateVenditore(preventivo, connection);
+			updateUtente(preventivo);
+			updateProdotto(preventivo);
+			updateVenditore(preventivo);
 			
 			
 		} catch (SQLException e) {
@@ -151,19 +157,30 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 	}
 
 	@Override
-	public void updateProdotto(Preventivo preventivo, Connection connection) {
+	public void updateProdotto(Preventivo preventivo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateUtente(Preventivo preventivo, Connection connection) {
-		// TODO Auto-generated method stub
+	public void updateUtente(Preventivo preventivo) {
+
+		Connection connection = dataSource.getConnection();
+		
+		try {
+			
+			String update = "";
+			PreparedStatement statement = connection.prepareStatement(update);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
-	public void updateVenditore(Preventivo preventivo, Connection connection) {
+	public void updateVenditore(Preventivo preventivo) {
 		// TODO Auto-generated method stub
 		
 	}

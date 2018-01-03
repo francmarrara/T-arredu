@@ -203,7 +203,6 @@ public class UtilDAO {
 					"  `id_preventivo` INT(11) NOT NULL,\r\n" + 
 					"  `data_ora_preventivo` DATE NOT NULL,\r\n" + 
 					"  `id_utente` VARCHAR(255) NOT NULL,\r\n" + 
-					"  `id_venditore` VARCHAR(255) NOT NULL,\r\n" + 
 					"  PRIMARY KEY (`id_preventivo`),\r\n" + 
 					"  UNIQUE INDEX `id_preventivo_UNIQUE` (`id_preventivo` ASC),\r\n" + 
 					"  INDEX `id_utente_idx` (`id_utente` ASC),\r\n" + 
@@ -212,12 +211,8 @@ public class UtilDAO {
 					"    FOREIGN KEY (`id_utente`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
-					"    ON UPDATE CASCADE,\r\n" + 
-					"  CONSTRAINT `id_venditore`\r\n" + 
-					"    FOREIGN KEY (`id_venditore`)\r\n" + 
-					"    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" + 
-					"    ON DELETE CASCADE\r\n" + 
-					"    ON UPDATE CASCADE);\r\n";
+					"    ON UPDATE CASCADE,\r\n";
+			
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			
@@ -280,11 +275,11 @@ public class UtilDAO {
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			
-			add = "CREATE TABLE `tarreduDB`.`preventivoRiferitoVenditore` (\r\n" + 
-					"  `id_preventivoRiferitoVenditore` INT NOT NULL,\r\n" + 
+			add = "CREATE TABLE `tarreduDB`.`venditoreInPreventivo` (\r\n" + 
+					"  `id_venditoreInPreventivo` INT NOT NULL,\r\n" + 
 					"  `venditoreEmail` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `preventivoID` INT NOT NULL,\r\n" + 
-					"  PRIMARY KEY (`id_preventivoRiferitoVenditore`),\r\n" + 
+					"  PRIMARY KEY (`id_venditoreInPreventivo`),\r\n" + 
 					"  INDEX `venditoreEmail_idx` (`venditoreEmail` ASC),\r\n" + 
 					"  INDEX `preventivoID_idx` (`preventivoID` ASC),\r\n" + 
 					"  CONSTRAINT `venditoreEmail`\r\n" + 
