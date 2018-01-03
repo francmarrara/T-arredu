@@ -40,6 +40,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 			PreparedStatement statement = connection.prepareStatement(save);
 
+			System.out.println("prev " + preventivo.getIdPreventivo());
 			statement.setInt(1, preventivo.getIdPreventivo());
 
 			long secs = preventivo.getDataOraPreventivo().getTime();
@@ -331,7 +332,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 			PreparedStatement statement = connection.prepareStatement(addProduct);
 
 			Integer id = IdBuilder.getId(connection);
-			statement.setInt(1, prodotto.getIdProdotto());
+			statement.setInt(1, id);
 
 			statement.setInt(2, preventivo.getIdPreventivo());
 			statement.setInt(3, prodotto.getIdProdotto());

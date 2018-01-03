@@ -83,12 +83,13 @@ public class testDB {
 		
 		prodottoDao2.save(prodotto2);
 		
-//		Carrello c = new Carrello();
-//		c.setUtenteCarello(utente);
-//		c.getProdottiNelCarrello().add(prodottoDao.findByPrimaryKey(0));
-//		
-//		CarrelloDAO carrelloDao = factory.getCArrelloDAO();
-//		carrelloDao.save(c);
+		Carrello c = new Carrello();
+		c.setUtenteCarello(utente);
+		c.getProdottiNelCarrello().add(prodotto);
+		c.getProdottiNelCarrello().add(prodotto2);
+		
+		CarrelloDAO carrelloDao = factory.getCArrelloDAO();
+		carrelloDao.save(c);
 		
 		Preventivo preventivo = new Preventivo();
 		PreventivoDAO preventivoDao = factory.getPreventivoDAO();
@@ -96,11 +97,13 @@ public class testDB {
 		preventivo.setUtente(utente);
 		cal.set(2018, Calendar.JANUARY, 3);
 		preventivo.setDataOraPreventivo(cal.getTime());
-		
+	
 		preventivoDao.addProductToPreventivo(prodotto, preventivo);
 		preventivoDao.addProductToPreventivo(prodotto2, preventivo);
 		
 		preventivoDao.save(preventivo);
+		
+		
 		
 		preventivoDao.addVenditoreToPreventivo(prodotto.getVenditoreProdotto(), preventivo);
 		
