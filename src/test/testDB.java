@@ -2,12 +2,10 @@ package test;
 
 import java.util.Calendar;
 
-import model.Carrello;
 import model.Preventivo;
 import model.Prodotto;
 import model.Utente;
 import model.Venditore;
-import persistenceDAO.CarrelloDAO;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.PreventivoDAO;
 import persistenceDAO.ProdottoDAO;
@@ -96,9 +94,12 @@ public class testDB {
 		preventivo.setUtente(utente);
 		cal.set(2018, Calendar.JANUARY, 3);
 		preventivo.setDataOraPreventivo(cal.getTime());
+		preventivo.getListaProdotti().add(prodotto);
+		preventivo.getListaProdotti().add(prodotto2);
 		
-		preventivoDao.addProductToPreventivo(prodotto, preventivo);
-		preventivoDao.addProductToPreventivo(prodotto2, preventivo);
+		
+//		preventivoDao.addProductToPreventivo(prodotto, preventivo);
+//		preventivoDao.addProductToPreventivo(prodotto2, preventivo);
 		
 		preventivoDao.save(preventivo);
 		

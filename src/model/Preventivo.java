@@ -2,9 +2,8 @@ package model;
 
 import java.sql.Connection;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
-
-import javax.activation.DataSource;
 
 import persistenceDAO.IdBuilder;
 import persistenceDAO.MySqlDAOFactory;
@@ -24,6 +23,7 @@ public class Preventivo {
 		
 		Integer id = IdBuilder.getId(connection);
 		setIdPreventivo(id);
+		listaProdotti = new LinkedList<Prodotto>();
 		
 	}
 
