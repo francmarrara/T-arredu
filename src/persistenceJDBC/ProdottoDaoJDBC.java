@@ -432,7 +432,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 
 	@Override
-	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo) {
+	public List<Prodotto> findProductsByPreventivo(Integer codicePreventivo) {
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
 		try {

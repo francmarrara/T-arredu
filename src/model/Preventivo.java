@@ -24,6 +24,7 @@ public class Preventivo {
 		
 		Integer id = IdBuilder.getId(connection);
 		setIdPreventivo(id);
+		
 		listaVenditori = new ArrayList<>();
 		listaProdotti = new ArrayList<>();
 		

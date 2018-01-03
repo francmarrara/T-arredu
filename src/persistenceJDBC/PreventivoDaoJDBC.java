@@ -17,7 +17,9 @@ import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.PreventivoDAO;
+import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
+import persistenceDAO.VenditoreDAO;
 
 public class PreventivoDaoJDBC implements PreventivoDAO {
 
@@ -97,6 +99,13 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 				utente = utenteDao.findByPrimaryKey(result.getString("id_utente"));
 
 				preventivo.setUtente(utente);
+				
+				VenditoreDAO venditoreDao = new VenditoreDaoJDBC(dataSource);
+				preventivo.setListaVenditori(venditoreDao.findVenditoriByPreventivo(preventivo.getIdPreventivo()));
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
+				preventivo.setListaProdotti(prodottoDao.findProductsByPreventivo(preventivo.getIdPreventivo()));
+
 
 			}
 
@@ -214,6 +223,12 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 				preventivo.setUtente(utente);
 
 				preventivi.add(preventivo);
+				
+				VenditoreDAO venditoreDao = new VenditoreDaoJDBC(dataSource);
+				preventivo.setListaVenditori(venditoreDao.findVenditoriByPreventivo(preventivo.getIdPreventivo()));
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
+				preventivo.setListaProdotti(prodottoDao.findProductsByPreventivo(preventivo.getIdPreventivo()));
 
 			}
 
@@ -339,7 +354,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 			statement.executeUpdate();
 
-			preventivo.addProdotto(prodotto);
+//			preventivo.addProdotto(prodotto);
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -372,7 +387,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 			statement.executeUpdate();
 
-			preventivo.addVenditore(venditore);
+//			preventivo.addVenditore(venditore);
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

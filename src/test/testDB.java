@@ -101,10 +101,6 @@ public class testDB {
 		preventivo.getListaProdotti().add(prodotto);
 		preventivo.getListaProdotti().add(prodotto2);
 		
-		
-//		preventivoDao.addProductToPreventivo(prodotto, preventivo);
-//		preventivoDao.addProductToPreventivo(prodotto2, preventivo);
-		
 		preventivoDao.save(preventivo);
 		
 		

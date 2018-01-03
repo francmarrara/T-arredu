@@ -20,7 +20,7 @@ public interface ProdottoDAO {
 	public void delete(Prodotto prodotto); //Delete	
 
 	public void cambioDisponibilità(Prodotto prodotto, boolean disponibilità);//cambia la disponibilità del prodotto
-	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo);
+	public List<Prodotto> findProductsByPreventivo(Integer codicePreventivo);
    	public List<Prodotto> findProductsByCarrello(Carrello carrello);
 
    	public List<String> getImages(Prodotto prodotto);
