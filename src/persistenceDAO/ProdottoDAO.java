@@ -24,7 +24,8 @@ public interface ProdottoDAO {
    	public List<Prodotto> findProductsByCarrello(Carrello carrello);
 
    	public List<String> getImages(Prodotto prodotto);
-   	public void addImageToProduct(String url);
-   	public void removeImageInProduct(String url);
+   	public void addImageToProduct(String url, Prodotto prodotto);
+   	public void removeImageInProduct(String url, Prodotto prodotto);
+	public void removeAllImagesInProduct(Prodotto prodotto);
    	
 }
