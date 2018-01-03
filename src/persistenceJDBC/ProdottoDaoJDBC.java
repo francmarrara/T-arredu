@@ -32,10 +32,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			String insert = "insert into prodotto(id_prodotto, marcaProdotto, ambienteProdotto, nomeProdotto, coloreProdotto, prezzoProdotto, disponibilitaProdotto, descrizioneProdotto, email_venditoreProdotto) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
-			Integer id = IdBuilder.getId(connection);
-			prodotto.setIdProdotto(id);
-
-			statement.setInt(1, id);
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, prodotto.getMarcaProdotto());
 			statement.setString(3, prodotto.getAmbienteProdotto());
 			statement.setString(4, prodotto.getNomeProdotto());

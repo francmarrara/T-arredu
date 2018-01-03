@@ -1,7 +1,13 @@
 package model;
 
+import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
+
+import javax.activation.DataSource;
+
+import persistenceDAO.IdBuilder;
+import persistenceDAO.MySqlDAOFactory;
 
 public class Preventivo {
 
@@ -11,6 +17,15 @@ public class Preventivo {
 	private Utente utente;
 	private List<Prodotto> listaProdotti;
 	private String richiesteAggiuntiveUtente;
+	
+	public Preventivo() {
+
+		Connection connection = MySqlDAOFactory.getDataSource().getConnection();
+		
+		Integer id = IdBuilder.getId(connection);
+		setIdPreventivo(id);
+		
+	}
 
 	public Integer getIdPreventivo() {
 		return idPreventivo;

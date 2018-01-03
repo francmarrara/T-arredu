@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class IdBuilder {
 
-	private static final String query = "SELECT nextval('my_sequence') AS id";
+	private static final String query = "SELECT nextval('sq_my_sequence') AS id";
 
 	public static Integer getId(Connection connection) {
 		Integer id = null;

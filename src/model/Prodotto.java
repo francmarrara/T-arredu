@@ -1,6 +1,10 @@
 package model;
 
+import java.sql.Connection;
 import java.util.ArrayList;
+
+import persistenceDAO.IdBuilder;
+import persistenceDAO.MySqlDAOFactory;
 
 public class Prodotto {
 
@@ -19,6 +23,11 @@ public class Prodotto {
 	//costruttore senza Parametri
 	public Prodotto() {
 
+		Connection connection = MySqlDAOFactory.getDataSource().getConnection();
+		
+		Integer id = IdBuilder.getId(connection);
+		setIdProdotto(id);
+		
 		urlImmaginiProdotto = new ArrayList<String>();
 	}
 
