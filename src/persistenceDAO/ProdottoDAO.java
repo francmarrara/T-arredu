@@ -2,7 +2,6 @@ package persistenceDAO;
 
 import java.util.List;
 
-import model.Preventivo;
 import model.Carrello;
 import model.Prodotto;
 import model.Venditore;

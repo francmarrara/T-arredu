@@ -251,6 +251,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
+			removeAllImagesInProduct(prodotto);
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -339,7 +341,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
 		try {
-			
+
 			Prodotto prodotto;
 			PreparedStatement statement;
 			String query = "select * from prodotto where coloreProdotto = ?";
@@ -573,8 +575,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 
 	}
-	
-	
+
 	@Override
 	public void removeAllImagesInProduct(Prodotto prodotto) {
 		Connection connection = this.dataSource.getConnection();
@@ -600,11 +601,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 
 	}
-
-	
-	
-	
-	
 
 	public DataSource getDataSource() {
 		return dataSource;
