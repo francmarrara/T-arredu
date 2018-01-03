@@ -97,9 +97,13 @@ public class testDB {
 		preventivo.setUtente(utente);
 		cal.set(2018, Calendar.JANUARY, 3);
 		preventivo.setDataOraPreventivo(cal.getTime());
-	
-		preventivoDao.addProductToPreventivo(prodotto, preventivo);
-		preventivoDao.addProductToPreventivo(prodotto2, preventivo);
+
+		preventivo.getListaProdotti().add(prodotto);
+		preventivo.getListaProdotti().add(prodotto2);
+		
+		
+//		preventivoDao.addProductToPreventivo(prodotto, preventivo);
+//		preventivoDao.addProductToPreventivo(prodotto2, preventivo);
 		
 		preventivoDao.save(preventivo);
 		
