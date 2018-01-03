@@ -1,5 +1,7 @@
 package persistenceJDBC;
 
+import static java.lang.Math.toIntExact;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +9,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;
@@ -138,6 +141,40 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			}
 		}
 
+		return venditori;
+	}
+	
+	@Override
+	public List<Venditore> findVenditoriByPreventivo(Integer codicePreventivo) {
+		
+		Connection connection = this.dataSource.getConnection();
+		List<Venditore> venditori = new LinkedList<>();
+		
+		try {
+			
+			PreparedStatement statement;
+			String query = "select * from venditoreInPreventivo where preventivoID = ?";
+			
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, codicePreventivo);
+			
+			ResultSet result = statement.executeQuery();
+			
+			while (result.next()) {
+
+				venditori.add(findByPrimaryKey(result.getString("venditoreEmail")));
+				
+			}
+			
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 		return venditori;
 	}
 

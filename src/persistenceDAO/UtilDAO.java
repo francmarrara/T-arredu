@@ -38,7 +38,7 @@ public class UtilDAO {
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			delete = "drop table if exists preventivoRiferitoVenditore;";
+			delete = "drop table if exists venditoreInPreventivo;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
@@ -206,12 +206,11 @@ public class UtilDAO {
 					"  PRIMARY KEY (`id_preventivo`),\r\n" + 
 					"  UNIQUE INDEX `id_preventivo_UNIQUE` (`id_preventivo` ASC),\r\n" + 
 					"  INDEX `id_utente_idx` (`id_utente` ASC),\r\n" + 
-					"  INDEX `id_venditore_idx` (`id_venditore` ASC),\r\n" + 
 					"  CONSTRAINT `id_utente`\r\n" + 
 					"    FOREIGN KEY (`id_utente`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
-					"    ON UPDATE CASCADE,\r\n";
+					"    ON UPDATE CASCADE);\r\n";
 			
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();

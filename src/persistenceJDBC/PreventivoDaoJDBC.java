@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.print.attribute.SetOfIntegerSyntax;
+
 import model.Preventivo;
 import model.Prodotto;
 import model.Utente;
@@ -15,9 +17,7 @@ import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.PreventivoDAO;
-import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
-import persistenceDAO.VenditoreDAO;
 
 public class PreventivoDaoJDBC implements PreventivoDAO {
 
@@ -33,33 +33,31 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 	public void save(Preventivo preventivo) {
 
 		Connection connection = dataSource.getConnection();
-		
+
 		try {
-			
+
 			String save = " insert into preventivo (id_preventivo, data_ora_preventivo, id_utente) values (?,?,?) ";
-			
+
 			PreparedStatement statement = connection.prepareStatement(save);
-			
+
 			Integer id = IdBuilder.getId(connection);
 			preventivo.setIdPreventivo(id);
 			statement.setInt(1, id);
-			
+
 			long secs = preventivo.getDataOraPreventivo().getTime();
 			statement.setDate(2, new java.sql.Date(secs));
-			
+
 			Utente utente = new Utente();
 			UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
-			
-			utente = utenteDao.findByPrimaryKey(preventivo.getIdUtente().getEmailUtente());
+
+			utente = utenteDao.findByPrimaryKey(preventivo.getUtente().getEmailUtente());
 			statement.setString(3, utente.getEmailUtente());
-			
+
 			statement.executeUpdate();
-			
-			updateUtente(preventivo);
-			updateProdotto(preventivo);
-			updateVenditore(preventivo);
-			
-			
+
+			updateProdottoInPreventivo(preventivo);
+			updateVenditoreInPreventivo(preventivo);
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -68,21 +66,51 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}	
+		}
 
 	}
 
 	@Override
-	public Preventivo findByPrimaryKey(Long codicePreventivo) {
+	public Preventivo findByPrimaryKey(Integer codicePreventivo) {
 
-		Connection connection = this.dataSource.getConnection();
+		Connection connection = dataSource.getConnection();
 		Preventivo preventivo = null;
-		
-		PreparedStatement statement;
-		String query = "select * from preventivo where id_preventivo = ?";
-		
-		
-		
+
+		try {
+
+			String find = "select * from preventivo where id_preventivo = ?";
+			PreparedStatement statement = connection.prepareStatement(find);
+
+			statement.setInt(1, codicePreventivo);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+
+				preventivo = new Preventivo();
+				preventivo.setIdPreventivo(result.getInt("id_preventivo"));
+
+				long secs = result.getDate("data_ora_preventivo").getTime();
+				preventivo.setDataOraPreventivo(new java.util.Date(secs));
+
+				Utente utente = new Utente();
+				UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
+				utente = utenteDao.findByPrimaryKey(result.getString("id_utente"));
+
+				preventivo.setUtente(utente);
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
 		return preventivo;
 	}
 
@@ -93,14 +121,14 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 		try {
 
-			String update = "update preventivo SET data_ora_preventivo = ?";
+			String update = "update preventivo SET data_ora_preventivo = ?, id_utente = ? WHERE id_preventivo = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 
 			long secs = preventivo.getDataOraPreventivo().getTime();
 			statement.setDate(1, new java.sql.Date(secs));
-			
-			// MANCANO TABELLE PREVENTIVO-VENDITORE PRODOTTO-PREVENTIVO UTENTE-PREVENTIVO
-			
+
+			statement.setString(2, preventivo.getUtente().getEmailUtente());
+			statement.setInt(3, preventivo.getIdPreventivo());
 
 			statement.executeUpdate();
 
@@ -123,13 +151,29 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 		try {
 
-			String delete = "delete FROM preventivo WHERE id_preventivo = ? ";
+			// Prima di eliminare un preventivo, elimino i riferimenti nelle tabelle
+			// prodottoInPreventivo
+			// e venditoreInPreventivo
+			String delete = "delete FROM prodottoInPreventivo WHERE preventivoID = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
+
 			statement.setInt(1, preventivo.getIdPreventivo());
 
 			statement.executeUpdate();
-			
-			// MANCANO TABELLE PREVENTIVO-VENDITORE PRODOTTO-PREVENTIVO UTENTE-PREVENTIVO
+
+			delete = "delete FROM venditoreInPreventivo WHERE preventivoID = ? ";
+			statement = connection.prepareStatement(delete);
+
+			statement.setInt(1, preventivo.getIdPreventivo());
+
+			statement.executeUpdate();
+
+			delete = "delete FROM preventivo WHERE id_preventivo = ? ";
+			statement = connection.prepareStatement(delete);
+
+			statement.setInt(1, preventivo.getIdPreventivo());
+
+			statement.executeUpdate();
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -148,73 +192,220 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 		Connection connection = this.dataSource.getConnection();
 		List<Preventivo> preventivi = new LinkedList<>();
-		List<Prodotto> prodotti = new LinkedList<>();
 
-		
+		try {
+
+			String findAll = "select * from preventivo";
+			PreparedStatement statement = connection.prepareStatement(findAll);
+
+			ResultSet results = statement.executeQuery();
+
+			while (results.next()) {
+
+				Preventivo preventivo = new Preventivo();
+				preventivo.setIdPreventivo(results.getInt("id_preventivo"));
+
+				long secs = results.getDate("data_ora_preventivo").getTime();
+				preventivo.setDataOraPreventivo(new java.util.Date(secs));
+
+				Utente utente = new Utente();
+				UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
+				utente = utenteDao.findByPrimaryKey(results.getString("id_utente"));
+
+				preventivo.setUtente(utente);
+
+				preventivi.add(preventivo);
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 
 		return preventivi;
+
+	}
+
+	@Override
+	public void updateProdottoInPreventivo(Preventivo preventivo) {
+
+		Connection connection = dataSource.getConnection();
+
+		try {
+
+			String update = "insert into prodottoInPreventivo (id_prodottoInPreventivo, "
+					+ "preventivoID, prodottoID) values (?,?,?)";
+
+			for (Prodotto p : preventivo.getListaProdotti()) {
+
+				PreparedStatement statement = connection.prepareStatement(update);
+				Integer id = IdBuilder.getId(connection);
+
+				statement.setInt(1, id);
+				statement.setInt(2, preventivo.getIdPreventivo());
+				statement.setInt(3, p.getIdProdotto());
+
+				statement.executeUpdate();
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+	}
+
+	@Override
+	public void updateVenditoreInPreventivo(Preventivo preventivo) {
+
+		Connection connection = dataSource.getConnection();
+
+		try {
+
+			String update = "insert into venditoreInPreventivo (id_venditoreInPreventivo, "
+					+ "venditoreEmail, preventivoID) values (?,?,?)";
+
+			for (Venditore v : preventivo.getListaVenditori()) {
+
+				PreparedStatement statement = connection.prepareStatement(update);
+				Integer id = IdBuilder.getId(connection);
+
+				statement.setInt(1, id);
+				statement.setString(2, v.getEmailVenditore());
+				statement.setInt(3, preventivo.getIdPreventivo());
+
+				statement.executeUpdate();
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+	}
+
+	@Override
+	public Utente findUtenteByPreventivo(Preventivo preventivo) {
+
+		Connection connection = dataSource.getConnection();
+		Utente utente = null;
+		
+		try {
+
+			String find = "select id_utente from preventivo where id_preventivo = ?";
+			PreparedStatement statement = connection.prepareStatement(find);
+				
+			statement.setInt(1, preventivo.getIdPreventivo());
+			
+			ResultSet result = statement.executeQuery();
+			
+			if(result.next()) {
+				
+				UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
+				utente = utenteDao.findByPrimaryKey(result.getString("id_utente"));
+				
+			}
+			
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+		return utente;
 		
 	}
 
 	@Override
-	public void updateProdotto(Preventivo preventivo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateUtente(Preventivo preventivo) {
+	public void addProductToPreventivo(Prodotto prodotto, Preventivo preventivo) {
 
 		Connection connection = dataSource.getConnection();
 		
 		try {
+
+			String addProduct = "insert into prodottoInPreventivo (id_prodottoInPreventivo, preventivoID, "
+					+ "prodottoID) values (?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(addProduct);
+				
+			Integer id = IdBuilder.getId(connection);
+			statement.setInt(1, id);
 			
-			String update = "";
-			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setInt(2, preventivo.getIdPreventivo());
+			statement.setInt(3, prodotto.getIdProdotto());
 			
+			statement.executeUpdate();
+			
+			preventivo.addProdotto(prodotto);
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
 		}
 		
-	}
-
-	@Override
-	public void updateVenditore(Preventivo preventivo) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void addProductToPreventivo(Prodotto prodotto) {
-		// TODO Auto-generated method stub
+	public void addVenditoreToPreventivo(Venditore venditore, Preventivo preventivo) {
+
+		Connection connection = dataSource.getConnection();
+		
+		try {
+
+			String addVenditore = "insert into venditoreInPreventivo (id_venditoreInPreventivo, venditoreEmail, "
+					+ "preventivoID) values (?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(addVenditore);
+				
+			Integer id = IdBuilder.getId(connection);
+			statement.setInt(1, id);
+			
+			statement.setString(2, venditore.getEmailVenditore());
+			statement.setInt(3, preventivo.getIdPreventivo());
+			
+			statement.executeUpdate();
+			
+			preventivo.addVenditore(venditore);
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
 		
 	}
-
-	@Override
-	public List<Prodotto> findAllProdottoByPreventivo(Integer id_preventivo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Venditore> findAllVenditoreByPreventivo(Integer id_preventivo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Utente findUtenteByPreventivo(String emailUtente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addVenditoreToPreventivo(Venditore venditore) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 
 }

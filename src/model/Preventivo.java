@@ -8,7 +8,7 @@ public class Preventivo {
 	private Integer idPreventivo;
 	private Date dataOraPreventivo;
 	private List<Venditore> listaVenditori;
-	private Utente idUtente;
+	private Utente utente;
 	private List<Prodotto> listaProdotti;
 	private String richiesteAggiuntiveUtente;
 
@@ -28,20 +28,20 @@ public class Preventivo {
 		this.dataOraPreventivo = dataOraPreventivo;
 	}
 
-	public List<Venditore> getIdVenditore() {
+	public List<Venditore> getListaVenditori() {
 		return listaVenditori;
 	}
 
-	public void setIdVenditore(List<Venditore> idVenditore) {
+	public void setListaVenditori(List<Venditore> idVenditore) {
 		this.listaVenditori = idVenditore;
 	}
 
-	public Utente getIdUtente() {
-		return idUtente;
+	public Utente getUtente() {
+		return utente;
 	}
 
-	public void setIdUtente(Utente idUtente) {
-		this.idUtente = idUtente;
+	public void setUtente(Utente idUtente) {
+		this.utente = idUtente;
 	}
 
 	public List<Prodotto> getListaProdotti() {

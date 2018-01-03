@@ -16,6 +16,8 @@ public class IdBuilder {
 			ResultSet result = statement.executeQuery();
 			result.next();
 			id = result.getInt("id");
+			System.out.println(id);
+			
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		}

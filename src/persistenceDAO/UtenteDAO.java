@@ -2,6 +2,7 @@ package persistenceDAO;
 
 import java.util.List;
 
+import model.Preventivo;
 import model.Utente;
 
 
