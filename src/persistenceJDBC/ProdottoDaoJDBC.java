@@ -13,7 +13,6 @@ import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
-import persistenceDAO.VenditoreDAO;
 import static java.lang.Math.toIntExact;
 
 public class ProdottoDaoJDBC implements ProdottoDAO {
@@ -47,19 +46,32 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			for (String s : prodotto.getUrlImmaginiProdotto()) {
 
-				addImageToProduct(s, prodotto);
+				insert = "insert into urlImmaginiProdotto(id_prodotto,urlImmagine) values(?,?)";
+				statement = connection.prepareStatement(insert);
+				statement.setInt(1, prodotto.getIdProdotto());
+				statement.setString(2, s);
+				statement.executeUpdate();
 
 			}
 			
 			for (String c : prodotto.getColoriProdotto()) {
 
-				addColorToProduct(c, prodotto);
+				insert = "insert into coloriPerProdotto(id_prodotto, coloreProdotto) values(?,?)";
+				statement = connection.prepareStatement(insert);
+				statement.setInt(1, prodotto.getIdProdotto());
+				statement.setString(2, c);
+				statement.executeUpdate();
 
 			}
 			
 			for (String v : prodotto.getVenditoriProdotto()) {
 
-				addVenditoreToProduct(v, prodotto);
+				insert = "insert into venditorePerProdotto(id_prodotto, emailVenditore) values(?,?)";
+				statement = connection.prepareStatement(insert);
+				statement.setInt(1, prodotto.getIdProdotto());
+				statement.setString(2, v);
+				statement.executeUpdate();
+
 
 			}
 
@@ -854,7 +866,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			insert = "insert into urlImmaginiProdotto(id_prodotto,urlImmagine) values(?,?)";
 			statement = connection.prepareStatement(insert);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, url);
 			statement.executeUpdate();
 
@@ -881,7 +893,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM urlImmaginiProdotto where id_prodotto = ? and urlImmagine=?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, url);
 			statement.executeUpdate();
 
@@ -909,7 +921,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM urlImmaginiProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
 
 		}
@@ -936,7 +948,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			insert = "insert into coloriPerProdotto(id_prodotto, coloreProdotto) values(?,?)";
 			statement = connection.prepareStatement(insert);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, color);
 			statement.executeUpdate();
 
@@ -965,7 +977,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM coloriPerProdotto where id_prodotto = ? and coloreProdotto =?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, color);
 			statement.executeUpdate();
 
@@ -994,7 +1006,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM coloriPerProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
 
 		}
@@ -1023,7 +1035,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			insert = "insert into venditorePerProdotto(id_prodotto, emailVenditore) values(?,?)";
 			statement = connection.prepareStatement(insert);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, emailVenditore);
 			statement.executeUpdate();
 
@@ -1052,7 +1064,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM venditorePerProdotto where id_prodotto = ? and emailVenditore = ?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, emailVenditore);
 			statement.executeUpdate();
 
@@ -1081,7 +1093,7 @@ Connection connection = this.dataSource.getConnection();
 
 			delete = "delete FROM venditorePerProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
 
 		}
@@ -1111,6 +1123,8 @@ Connection connection = this.dataSource.getConnection();
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	
 

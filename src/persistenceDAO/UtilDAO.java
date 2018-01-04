@@ -50,15 +50,15 @@ public class UtilDAO {
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			delete = "drop table if exists urlImmaginiProdotto";
+			delete = "drop table if exists urlImmaginiProdotto;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			delete = "drop table if exists coloriPerProdotto";
+			delete = "drop table if exists coloriPerProdotto;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
-			delete = "drop table if exists venditorePerProdotto";
+			delete = "drop table if exists venditorePerProdotto;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
@@ -73,8 +73,6 @@ public class UtilDAO {
 			delete = "drop table if exists venditore;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
-			
-		
 			
 			System.out.println("Executed drop database");
 
