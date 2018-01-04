@@ -1,6 +1,8 @@
 package test;
 
 import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
 
 import model.Carrello;
 import model.Preventivo;
@@ -109,8 +111,11 @@ public class testDB {
 		
 		preventivoDao.addVenditoreToPreventivo(prodotto.getVenditoreProdotto(), preventivo);
 		
-		System.out.println(prodottoDao.findByTipo("Tavolo"));
+		List<Prodotto> prodotti = prodottoDao.findAll();
 		
+		for(Prodotto p :prodotti ) {
+			p.stampaProdotto();
+		}
 	}
 
 }
