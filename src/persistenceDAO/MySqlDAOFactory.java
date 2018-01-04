@@ -6,6 +6,7 @@ import persistenceJDBC.ProdottoDaoJDBC;
 import persistenceJDBC.UtenteDaoJDBC;
 import persistenceJDBC.VenditoreDaoJDBC;
 
+@SuppressWarnings("deprecation")
 public class MySqlDAOFactory extends DAOFactory {
 
 	private static DataSource dataSource;

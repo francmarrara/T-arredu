@@ -29,8 +29,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String insert = "insert into prodotto(id_prodotto, marcaProdotto, tipoProdotto, ambienteProdotto, nomeProdotto, "
-					+ "coloreProdotto, prezzoProdotto, misureProdotto, disponibilitaProdotto, "
-					+ "descrizioneProdotto, email_venditoreProdotto) values (?,?,?,?,?,?,?,?,?,?,?)";
+					+ "prezzoProdotto, misureProdotto, disponibilitaProdotto, "
+					+ "descrizioneProdotto) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
 			statement.setInt(1, prodotto.getIdProdotto());

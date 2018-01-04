@@ -196,13 +196,8 @@ public class UtilDAO {
 					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
 					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  PRIMARY KEY (`id_prodotto`),\r\n"
-					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC),\r\n"
-					+ "  INDEX `email_venditoreProdotto_idx` (`email_venditoreProdotto` ASC),\r\n"
-					+ "  CONSTRAINT `email_venditoreProdotto`\r\n" 
-					+ "    FOREIGN KEY (`email_venditoreProdotto`)\r\n"
-					+ "    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" 
-					+ "    ON DELETE CASCADE\r\n"
-					+ "    ON UPDATE CASCADE);";
+					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC));\r\n";
+					
 
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
@@ -341,7 +336,7 @@ public class UtilDAO {
 					"  `id_prodotto` INT NOT NULL,\r\n" + 
 					"  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n" + 
 					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
-					"  CONSTRAINT `id_prodotto`\r\n" + 
+					"  CONSTRAINT `id_ProdottoColore`\r\n" + 
 					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
@@ -354,12 +349,12 @@ public class UtilDAO {
 					"  `id_prodotto` INT NOT NULL,\r\n" + 
 					"  `emailVenditore` VARCHAR(255) NOT NULL,\r\n" + 
 					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
-					"  CONSTRAINT `id_prodotto`\r\n" + 
+					"  CONSTRAINT `id_prodottoPerVenditore`\r\n" + 
 					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
-					"    ON UPDATE CASCADE);\r\n" +
-					"    CONSTRAINT `emailVenditore`\r\n" + 
+					"    ON UPDATE CASCADE,\r\n" +
+					"    CONSTRAINT `emailVenditoreProdotto`\r\n" + 
 					"    FOREIGN KEY (`emailVenditore`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
