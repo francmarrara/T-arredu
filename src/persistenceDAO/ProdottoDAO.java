@@ -13,6 +13,7 @@ public interface ProdottoDAO {
 	public Prodotto findByPrimaryKey(Integer idProdotto);     // Retrieve
 	public List<Prodotto> findByVenditore(Venditore venditore);     // Retrieve
 	public List<Prodotto> findByMarca(String marcaProdotto); // Retrieve
+	public List<Prodotto> findByTipo(String tipoProdotto); // Retrieve
 	public List<Prodotto> findByColour(String coloreProdotto); // Retrieve
 	public List<Prodotto> findByAmbiente(String ambienteProdotto); // Retrieve
 	public List<Prodotto> findAll();       

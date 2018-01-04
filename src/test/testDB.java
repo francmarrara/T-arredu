@@ -59,10 +59,12 @@ public class testDB {
 		ProdottoDAO prodottoDao = factory.getProdottoDAO();
 		
 		prodotto.setMarcaProdotto("Scavolini");
+		prodotto.setTipoProdotto("Tavolo");
 		prodotto.setAmbienteProdotto("Cucina");
-		prodotto.setNomeProdotto("Tavolo da cucina");
+		prodotto.setNomeProdotto("StoTavolo");
 		prodotto.setColoreProdotto("Bianco");
 		prodotto.setPrezzoProdotto(Double.parseDouble("450.00"));
+		prodotto.setMisureProdotto("200cm x 100cm x 50cm");
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Tavolo bianco per ambiente cucina");
 		prodotto.setVenditoreProdotto(venditore);
@@ -70,18 +72,20 @@ public class testDB {
 		prodottoDao.save(prodotto);
 		
 		Prodotto prodotto2 = new Prodotto();
-		ProdottoDAO prodottoDao2 = factory.getProdottoDAO();
+		prodottoDao = factory.getProdottoDAO();
 		
 		prodotto2.setMarcaProdotto("Ikea");
+		prodotto2.setTipoProdotto("Tavolo");
 		prodotto2.setAmbienteProdotto("Bagno");
-		prodotto2.setNomeProdotto("Tavolo da bagno");
+		prodotto2.setNomeProdotto("BagnoTavolo");
 		prodotto2.setColoreProdotto("Rosa");
 		prodotto2.setPrezzoProdotto(Double.parseDouble("250.00"));
+		prodotto2.setMisureProdotto("400cm x 400cm x 150cm");
 		prodotto2.setDisponibilit‡Prodotto(true);
 		prodotto2.setDescrizioneProdotto("Tavolo rosa per ambiente bagno");
 		prodotto2.setVenditoreProdotto(venditore);
 		
-		prodottoDao2.save(prodotto2);
+		prodottoDao.save(prodotto2);
 		
 		Carrello c = new Carrello();
 		c.setUtenteCarello(utente);
@@ -105,7 +109,7 @@ public class testDB {
 		
 		preventivoDao.addVenditoreToPreventivo(prodotto.getVenditoreProdotto(), preventivo);
 		
-		
+		System.out.println(prodottoDao.findByTipo("Tavolo"));
 		
 	}
 
