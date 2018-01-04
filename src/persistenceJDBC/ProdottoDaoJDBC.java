@@ -11,10 +11,8 @@ import model.Carrello;
 import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
-import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
-import persistenceDAO.VenditoreDAO;
 import static java.lang.Math.toIntExact;
 
 public class ProdottoDaoJDBC implements ProdottoDAO {
@@ -29,21 +27,20 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void save(Prodotto prodotto) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into prodotto(id_prodotto, marcaProdotto, ambienteProdotto, nomeProdotto, coloreProdotto, prezzoProdotto, disponibilitaProdotto, descrizioneProdotto, email_venditoreProdotto) values (?,?,?,?,?,?,?,?,?)";
+			String insert = "insert into prodotto(id_prodotto, marcaProdotto, tipoProdotto, ambienteProdotto, nomeProdotto, "
+					+ "prezzoProdotto, misureProdotto, disponibilitaProdotto, "
+					+ "descrizioneProdotto) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
-			Integer id = IdBuilder.getId(connection);
-			prodotto.setIdProdotto(id);
-
-			statement.setInt(1, id);
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, prodotto.getMarcaProdotto());
-			statement.setString(3, prodotto.getAmbienteProdotto());
-			statement.setString(4, prodotto.getNomeProdotto());
-			statement.setString(5, prodotto.getColoreProdotto());
+			statement.setString(3, prodotto.getTipoProdotto());
+			statement.setString(4, prodotto.getAmbienteProdotto());
+			statement.setString(5, prodotto.getNomeProdotto());
 			statement.setDouble(6, prodotto.getPrezzoProdotto());
-			statement.setBoolean(7, prodotto.getDisponibilit‡Prodotto());
-			statement.setString(8, prodotto.getDescrizioneProdotto());
-			statement.setString(9, prodotto.getVenditoreProdotto().getEmailVenditore());
+			statement.setString(7, prodotto.getMisureProdotto());
+			statement.setBoolean(8, prodotto.getDisponibilit‡Prodotto());
+			statement.setString(9, prodotto.getDescrizioneProdotto());
 
 			statement.executeUpdate();
 
@@ -51,9 +48,30 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				insert = "insert into urlImmaginiProdotto(id_prodotto,urlImmagine) values(?,?)";
 				statement = connection.prepareStatement(insert);
-				statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+				statement.setInt(1, prodotto.getIdProdotto());
 				statement.setString(2, s);
 				statement.executeUpdate();
+
+			}
+			
+			for (String c : prodotto.getColoriProdotto()) {
+
+				insert = "insert into coloriPerProdotto(id_prodotto, coloreProdotto) values(?,?)";
+				statement = connection.prepareStatement(insert);
+				statement.setInt(1, prodotto.getIdProdotto());
+				statement.setString(2, c);
+				statement.executeUpdate();
+
+			}
+			
+			for (String v : prodotto.getVenditoriProdotto()) {
+
+				insert = "insert into venditorePerProdotto(id_prodotto, emailVenditore) values(?,?)";
+				statement = connection.prepareStatement(insert);
+				statement.setInt(1, prodotto.getIdProdotto());
+				statement.setString(2, v);
+				statement.executeUpdate();
+
 
 			}
 
@@ -71,35 +89,66 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@Override
 	public Prodotto findByPrimaryKey(Integer idProdotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		Prodotto prodotto = null;
+		
 		try {
+			
 			PreparedStatement statement;
 			String query = "select * from prodotto where id_prodotto = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, idProdotto);
+			
 			ResultSet result = statement.executeQuery();
+			
 			if (result.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				prodotto = new Prodotto();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto = prodottoDao.findByPrimaryKey(result.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(result.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
+				
+				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					 
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
 
-				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+				}
 
-				prodotto.setVenditoreProdotto(
-						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
 
-				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				statement = connection.prepareStatement(query);
-				statement.setInt(1, idProdotto);
-				result = statement.executeQuery();
-				if (result.next()) {
-					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
 
 				}
 
@@ -118,37 +167,69 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@SuppressWarnings("resource")
 	@Override
-	public List<Prodotto> findByVenditore(Venditore venditore) {
+	public List<Prodotto> findProductsByVenditore(Venditore venditore) {
+		
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
+		
 		try {
+			
 			Prodotto prodotto;
 			PreparedStatement statement;
-			String query = "select * from prodotto where id_venditoreProdotto = ?";
+			
+			String query = "select * from venditorePerProdotto where emailVenditore = ?";
+			
 			statement = connection.prepareStatement(query);
-			statement.setInt(1, venditore.getIdVenditore());
+			statement.setString(1, venditore.getEmailVenditore());
+			
 			ResultSet result = statement.executeQuery();
+			
 			while (result.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				prodotto = new Prodotto();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto = prodottoDao.findByPrimaryKey(result.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(result.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 
-				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+				String queryVenditore = "select * from venditorePerProdotto where emailVenditore = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setString(1, venditore.getEmailVenditore());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
 
-				prodotto.setVenditoreProdotto(
-						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+				}
 
-				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				statement = connection.prepareStatement(query);
-				statement.setInt(1, prodotto.getIdProdotto());
-				result = statement.executeQuery();
-				if (result.next()) {
-					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
 
 				}
 
@@ -163,41 +244,76 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
+		
 		return prodotti;
 	}
 
 	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findAll() {
+		
+	
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
+		
 		try {
+			
 			Prodotto prodotto;
 			PreparedStatement statement;
+			
 			String query = "select * from prodotto";
+			
 			statement = connection.prepareStatement(query);
+			
 			ResultSet result = statement.executeQuery();
+			
 			while (result.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				prodotto = new Prodotto();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto = prodottoDao.findByPrimaryKey(result.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(result.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 
-				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					 
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
 
-				prodotto.setVenditoreProdotto(
-						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+				}
 
-				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				statement = connection.prepareStatement(query);
-				statement.setInt(1, prodotto.getIdProdotto());
-				result = statement.executeQuery();
-				if (result.next()) {
-					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
 
 				}
 
@@ -212,25 +328,35 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
+		
 		return prodotti;
-	}
+		
+}
 
 	@Override
 	public void update(Prodotto prodotto) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update prodotto SET marcaProdotto = ?, ambienteProdotto = ?, nomeProdotto = ?, coloreProdotto = ?, prezzoProdotto = ?, disponibilitaProdotto = ?, descrizioneProdotto = ?, id_venditoreProdotto = ?  WHERE id_prodotto=?";
+			String update = "update prodotto SET marcaProdotto = ?, tipoProdotto = ? ,ambienteProdotto = ?, nomeProdotto = ?, "
+					+ "prezzoProdotto = ?, misureProdotto = ?, disponibilitaProdotto = ?, "
+					+ "descrizioneProdotto = ?  WHERE id_prodotto=?";
+
 			PreparedStatement statement = connection.prepareStatement(update);
+
 			statement.setString(1, prodotto.getMarcaProdotto());
-			statement.setString(2, prodotto.getAmbienteProdotto());
-			statement.setString(3, prodotto.getNomeProdotto());
-			statement.setString(4, prodotto.getColoreProdotto());
+			statement.setString(2, prodotto.getTipoProdotto());
+			statement.setString(3, prodotto.getAmbienteProdotto());
+			statement.setString(4, prodotto.getNomeProdotto());
 			statement.setDouble(5, prodotto.getPrezzoProdotto());
 			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
-			statement.setString(7, prodotto.getDescrizioneProdotto());
-			statement.setInt(8, prodotto.getVenditoreProdotto().getIdVenditore());
+			statement.setString(7, prodotto.getMisureProdotto());
+			statement.setString(8, prodotto.getDescrizioneProdotto());
 			statement.setInt(9, prodotto.getIdProdotto());
+
 			statement.executeUpdate();
+			
+			
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -247,11 +373,16 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void delete(Prodotto prodotto) {
 		Connection connection = this.dataSource.getConnection();
 		try {
+			
+			removeAllColorsInProduct(prodotto);
+			removeAllVenditoriInProduct(prodotto);
+			removeAllImagesInProduct(prodotto);
+			
 			String delete = "delete FROM prodotto WHERE id_prodotto = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
+			
 			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
-			removeAllImagesInProduct(prodotto);
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -267,13 +398,18 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@Override
 	public void cambioDisponibilit‡(Prodotto prodotto, boolean disponibilit‡) {
+		
 		Connection connection = this.dataSource.getConnection();
+		
 		try {
 			String update = "update prodotto SET disponibilitaProdotto = ? where id_prodotto = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
+			
 			statement.setBoolean(1, disponibilit‡);
 			statement.setInt(2, prodotto.getIdProdotto());
+			
 			statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -289,39 +425,76 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByMarca(String marcaProdotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
+		
 		try {
+			
 			Prodotto prodotto;
-			PreparedStatement statement;
+			PreparedStatement statementProdotto;
+			
 			String query = "select * from prodotto where marcaProdotto = ?";
-			statement = connection.prepareStatement(query);
-			statement.setString(1, marcaProdotto);
-			ResultSet result = statement.executeQuery();
-			while (result.next()) {
+			statementProdotto = connection.prepareStatement(query);
+			
+			statementProdotto.setString(1, marcaProdotto);
+			
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+			
+			while (resultProdotto.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				prodotto = new Prodotto();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(resultProdotto.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(resultProdotto.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(resultProdotto.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(resultProdotto.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(resultProdotto.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
 
-				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					 
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
 
-				prodotto.setVenditoreProdotto(
-						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
-				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				statement = connection.prepareStatement(query);
-				statement.setInt(1, prodotto.getIdProdotto());
-				result = statement.executeQuery();
-				if (result.next()) {
-					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+				}
+
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
 
 				}
 
 				prodotti.add(prodotto);
+				 
+				
+
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -338,41 +511,76 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByColour(String coloreProdotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
+		
 		try {
 
 			Prodotto prodotto;
-			PreparedStatement statement;
-			String query = "select * from prodotto where coloreProdotto = ?";
-			statement = connection.prepareStatement(query);
-			statement.setString(1, coloreProdotto);
-			ResultSet result = statement.executeQuery();
-			while (result.next()) {
+			PreparedStatement statementProdotto;
+			
+			String query = "select * from coloriPerProdotto where coloreProdotto = ?";
+			statementProdotto = connection.prepareStatement(query);
+			
+			statementProdotto.setString(1, coloreProdotto);
+			
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+			
+			while (resultProdotto.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				prodotto = new Prodotto();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(resultProdotto.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(resultProdotto.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(resultProdotto.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(resultProdotto.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(resultProdotto.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
 
-				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					 
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
 
-				prodotto.setVenditoreProdotto(
-						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+				}
 
-				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				statement = connection.prepareStatement(query);
-				statement.setInt(1, prodotto.getIdProdotto());
-				result = statement.executeQuery();
-				if (result.next()) {
-					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
 
 				}
 
 				prodotti.add(prodotto);
+				 
+				
+
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -384,45 +592,164 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			}
 		}
 		return prodotti;
+	}
+	
+	@SuppressWarnings("resource")
+	@Override
+	public List<Prodotto> findByTipo(String tipoProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		List<Prodotto> prodotti = new LinkedList<>();
+		
+		try {
+			
+			Prodotto prodotto;
+			PreparedStatement statementProdotto;
+			
+			String query = "select * from prodotto where tipoProdotto = ?";
+			statementProdotto = connection.prepareStatement(query);
+			
+			statementProdotto.setString(1, tipoProdotto);
+			
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+			
+			while (resultProdotto.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
+				prodotto = new Prodotto();
+				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(resultProdotto.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(resultProdotto.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(resultProdotto.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(resultProdotto.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(resultProdotto.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
+
+				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					 
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
+
+				}
+
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
+
+				}
+
+				prodotti.add(prodotto);
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+		
 	}
 
 	@SuppressWarnings("resource")
 	@Override
 	public List<Prodotto> findByAmbiente(String ambienteProdotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
+		
 		try {
+			
 			Prodotto prodotto;
-			PreparedStatement statement;
+			PreparedStatement statementProdotto;
+			
 			String query = "select * from prodotto where ambienteProdotto = ?";
-			statement = connection.prepareStatement(query);
-			statement.setString(1, ambienteProdotto);
-			ResultSet result = statement.executeQuery();
-			while (result.next()) {
+			statementProdotto = connection.prepareStatement(query);
+			
+			statementProdotto.setString(1, ambienteProdotto);
+			
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+			
+			while (resultProdotto.next()) {
+				
+				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 				prodotto = new Prodotto();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setColoreProdotto(result.getString("coloreProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
+				
+//				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+//				prodotto.setMarcaProdotto(resultProdotto.getString("marcaProdotto"));
+//				prodotto.setTipoProdotto(resultProdotto.getString("tipoProdotto"));
+//				prodotto.setAmbienteProdotto(resultProdotto.getString("ambienteProdotto"));
+//				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+//				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
+//				prodotto.setMisureProdotto(resultProdotto.getString("misureProdotto"));
+//				prodotto.setDisponibilit‡Prodotto(resultProdotto.getBoolean("disponibilitaProdotto"));
+//				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
 
-				VenditoreDAO venditoreDAO = new VenditoreDaoJDBC(dataSource);
+				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
+				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
+				statementVenditori.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultVenditori = statementVenditori.executeQuery();
+				
+				while (resultVenditori.next()) {
+					 
+					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
 
-				prodotto.setVenditoreProdotto(
-						venditoreDAO.findByPrimaryKey(result.getString("email_venditoreProdotto")));
+				}
 
-				query = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				statement = connection.prepareStatement(query);
-				statement.setInt(1, prodotto.getIdProdotto());
-				result = statement.executeQuery();
-				if (result.next()) {
-					prodotto.getUrlImmaginiProdotto().add(result.getString("urlImmagine"));
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultImmagini = statementUrl.executeQuery();
+				
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				
+				String queryColor = "select * from coloriPerProdotto where id_prodotto = ?";
+				PreparedStatement statementColor = connection.prepareStatement(queryColor);
+				statementColor.setInt(1, prodotto.getIdProdotto());
+				
+				ResultSet resultColor = statementColor.executeQuery();
+				
+				while (resultColor.next()) {
+					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
 
 				}
 
 				prodotti.add(prodotto);
+
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -437,18 +764,24 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 
 	@Override
-	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo) {
+	public List<Prodotto> findProductsByPreventivo(Integer codicePreventivo) {
+		
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new LinkedList<>();
+		
 		try {
+			
 			PreparedStatement statement;
 			String query = "select * from prodottoInPreventivo where preventivoID = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, toIntExact(codicePreventivo));
+			
 			ResultSet result = statement.executeQuery();
+			
 			while (result.next()) {
 
 				prodotti.add(findByPrimaryKey(result.getInt("prodottoID")));
+				
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -459,6 +792,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
+		
 		return prodotti;
 	}
 
@@ -524,6 +858,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@Override
 	public void addImageToProduct(String url, Prodotto prodotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String insert;
@@ -531,7 +866,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			insert = "insert into urlImmaginiProdotto(id_prodotto,urlImmagine) values(?,?)";
 			statement = connection.prepareStatement(insert);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, url);
 			statement.executeUpdate();
 
@@ -558,7 +893,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM urlImmaginiProdotto where id_prodotto = ? and urlImmagine=?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.setString(2, url);
 			statement.executeUpdate();
 
@@ -578,6 +913,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@Override
 	public void removeAllImagesInProduct(Prodotto prodotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String delete;
@@ -585,7 +921,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			delete = "delete FROM urlImmaginiProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(delete);
-			statement.setInt(1, findByPrimaryKey(prodotto.getIdProdotto()).getIdProdotto());
+			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
 
 		}
@@ -601,6 +937,178 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 
 	}
+	
+	@Override
+	public void addColorToProduct(String color, Prodotto prodotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String insert;
+			PreparedStatement statement;
+
+			insert = "insert into coloriPerProdotto(id_prodotto, coloreProdotto) values(?,?)";
+			statement = connection.prepareStatement(insert);
+			statement.setInt(1, prodotto.getIdProdotto());
+			statement.setString(2, color);
+			statement.executeUpdate();
+
+		}
+
+		catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
+
+	@Override
+	public void removeColorInProduct(String color, Prodotto prodotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		
+		try {
+			String delete;
+			PreparedStatement statement;
+
+			delete = "delete FROM coloriPerProdotto where id_prodotto = ? and coloreProdotto =?";
+			statement = connection.prepareStatement(delete);
+			statement.setInt(1, prodotto.getIdProdotto());
+			statement.setString(2, color);
+			statement.executeUpdate();
+
+		}
+
+		catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
+
+	@Override
+	public void removeAllColorsInProduct(Prodotto prodotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		
+		try {
+			String delete;
+			PreparedStatement statement;
+
+			delete = "delete FROM coloriPerProdotto where id_prodotto = ?";
+			statement = connection.prepareStatement(delete);
+			statement.setInt(1, prodotto.getIdProdotto());
+			statement.executeUpdate();
+
+		}
+
+		catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
+	
+	@Override
+	public void addVenditoreToProduct(String emailVenditore, Prodotto prodotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		
+		try {
+			
+			String insert;
+			PreparedStatement statement;
+
+			insert = "insert into venditorePerProdotto(id_prodotto, emailVenditore) values(?,?)";
+			statement = connection.prepareStatement(insert);
+			statement.setInt(1, prodotto.getIdProdotto());
+			statement.setString(2, emailVenditore);
+			statement.executeUpdate();
+
+		}
+
+		catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
+
+	@Override
+	public void removeVenditoreInProduct(String emailVenditore, Prodotto prodotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		
+		try {
+			String delete;
+			PreparedStatement statement;
+
+			delete = "delete FROM venditorePerProdotto where id_prodotto = ? and emailVenditore = ?";
+			statement = connection.prepareStatement(delete);
+			statement.setInt(1, prodotto.getIdProdotto());
+			statement.setString(2, emailVenditore);
+			statement.executeUpdate();
+
+		}
+
+		catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
+
+	@Override
+	public void removeAllVenditoriInProduct(Prodotto prodotto) {
+
+Connection connection = this.dataSource.getConnection();
+		
+		try {
+			String delete;
+			PreparedStatement statement;
+
+			delete = "delete FROM venditorePerProdotto where id_prodotto = ?";
+			statement = connection.prepareStatement(delete);
+			statement.setInt(1, prodotto.getIdProdotto());
+			statement.executeUpdate();
+
+		}
+
+		catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -609,5 +1117,17 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
+
+	@Override
+	public List<Prodotto> findByVenditore(Venditore venditore) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	
+
+	
 
 }

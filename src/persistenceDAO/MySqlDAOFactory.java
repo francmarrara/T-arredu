@@ -7,7 +7,7 @@ import persistenceJDBC.UtenteDaoJDBC;
 import persistenceJDBC.VenditoreDaoJDBC;
 
 @SuppressWarnings("deprecation")
-class MySqlDAOFactory extends DAOFactory {
+public class MySqlDAOFactory extends DAOFactory {
 
 	private static DataSource dataSource;
 
@@ -26,7 +26,7 @@ class MySqlDAOFactory extends DAOFactory {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static DataSource getDataSource() {
 		return dataSource;
 	}

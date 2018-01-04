@@ -12,19 +12,33 @@ public interface ProdottoDAO {
 	public Prodotto findByPrimaryKey(Integer idProdotto);     // Retrieve
 	public List<Prodotto> findByVenditore(Venditore venditore);     // Retrieve
 	public List<Prodotto> findByMarca(String marcaProdotto); // Retrieve
+	public List<Prodotto> findByTipo(String tipoProdotto); // Retrieve
 	public List<Prodotto> findByColour(String coloreProdotto); // Retrieve
 	public List<Prodotto> findByAmbiente(String ambienteProdotto); // Retrieve
 	public List<Prodotto> findAll();       
+	
 	public void update(Prodotto prodotto); //Update
 	public void delete(Prodotto prodotto); //Delete	
 
 	public void cambioDisponibilità(Prodotto prodotto, boolean disponibilità);//cambia la disponibilità del prodotto
-	public List<Prodotto> findProductsByPreventivo(Long codicePreventivo);
+	public List<Prodotto> findProductsByPreventivo(Integer codicePreventivo);
    	public List<Prodotto> findProductsByCarrello(Carrello carrello);
+   	public List<Prodotto> findProductsByVenditore(Venditore venditore);
 
    	public List<String> getImages(Prodotto prodotto);
    	public void addImageToProduct(String url, Prodotto prodotto);
+	
    	public void removeImageInProduct(String url, Prodotto prodotto);
 	public void removeAllImagesInProduct(Prodotto prodotto);
+	
+	public void addColorToProduct(String color, Prodotto prodotto);
+	
+	public void removeColorInProduct(String color, Prodotto prodotto);
+	public void removeAllColorsInProduct(Prodotto prodotto);
+	
+	public void addVenditoreToProduct(String emailVenditore, Prodotto prodotto);
+	
+	public void removeVenditoreInProduct(String emailVenditore, Prodotto prodotto);
+	public void removeAllVenditoriInProduct(Prodotto prodotto);
    	
 }
