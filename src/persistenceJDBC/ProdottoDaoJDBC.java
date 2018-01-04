@@ -484,7 +484,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			
 		}
 
-		
 		return prodotti;
 		
 	}
