@@ -13,13 +13,13 @@ public class Prodotto {
 	private String tipoProdotto;
 	private String marcaProdotto;
 	private String ambienteProdotto;
-	private String coloreProdotto;
 	private Double prezzoProdotto;
 	private String misureProdotto;
 	private Boolean disponibilit‡Prodotto;
 	private String descrizioneProdotto;
-	private Venditore venditoreProdotto;
 	private ArrayList<String> urlImmaginiProdotto;
+	private ArrayList<String> coloriProdotto;
+	private ArrayList<String> venditoriProdotto;
 
 	// costruttore senza Parametri
 	public Prodotto() {
@@ -30,6 +30,9 @@ public class Prodotto {
 		setIdProdotto(id);
 
 		urlImmaginiProdotto = new ArrayList<String>();
+		coloriProdotto = new ArrayList<String>();
+		venditoriProdotto = new ArrayList<String>();
+		
 	}
 
 	// Getter & Setter
@@ -65,13 +68,6 @@ public class Prodotto {
 		this.ambienteProdotto = ambienteProdotto;
 	}
 
-	public String getColoreProdotto() {
-		return coloreProdotto;
-	}
-
-	public void setColoreProdotto(String coloreProdotto) {
-		this.coloreProdotto = coloreProdotto;
-	}
 
 	public Double getPrezzoProdotto() {
 		return prezzoProdotto;
@@ -97,13 +93,6 @@ public class Prodotto {
 		this.descrizioneProdotto = descrizioneProdotto;
 	}
 
-	public Venditore getVenditoreProdotto() {
-		return venditoreProdotto;
-	}
-
-	public void setVenditoreProdotto(Venditore venditoreProdotto) {
-		this.venditoreProdotto = venditoreProdotto;
-	}
 
 	public ArrayList<String> getUrlImmaginiProdotto() {
 		return urlImmaginiProdotto;
@@ -136,13 +125,27 @@ public class Prodotto {
 		System.out.println(tipoProdotto);
 		System.out.println(marcaProdotto);
 		System.out.println(ambienteProdotto);
-		System.out.println(coloreProdotto);
 		System.out.println(prezzoProdotto);
 		System.out.println(misureProdotto);
 		System.out.println(disponibilit‡Prodotto);
 		System.out.println(descrizioneProdotto);
-		System.out.println(venditoreProdotto.getEmailVenditore());
 			
 		}
+
+	public ArrayList<String> getColoriProdotto() {
+		return coloriProdotto;
+	}
+
+	public void setColoriProdotto(ArrayList<String> coloriProdotto) {
+		this.coloriProdotto = coloriProdotto;
+	}
+
+	public ArrayList<String> getVenditoriProdotto() {
+		return venditoriProdotto;
+	}
+
+	public void setVenditoriProdotto(ArrayList<String> venditoriProdotto) {
+		this.venditoriProdotto = venditoriProdotto;
+	}
 
 }

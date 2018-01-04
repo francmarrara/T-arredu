@@ -54,6 +54,14 @@ public class UtilDAO {
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
+			delete = "drop table if exists coloriPerProdotto";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
+			delete = "drop table if exists venditorePerProdotto";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
 			delete = "drop table if exists utente;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
@@ -183,12 +191,10 @@ public class UtilDAO {
 					+ "  `ambienteProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `tipoProdotto` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" 
-					+ "  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `prezzoProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `misureProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
 					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `email_venditoreProdotto` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  PRIMARY KEY (`id_prodotto`),\r\n"
 					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC),\r\n"
 					+ "  INDEX `email_venditoreProdotto_idx` (`email_venditoreProdotto` ASC),\r\n"
@@ -328,6 +334,37 @@ public class UtilDAO {
 					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 
 					"    ON UPDATE CASCADE);\r\n";
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "CREATE TABLE `tarreduDB`.`coloriPerProdotto` (\r\n" + 
+					"  `id_prodotto` INT NOT NULL,\r\n" + 
+					"  `coloreProdotto` VARCHAR(255) NOT NULL,\r\n" + 
+					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
+					"  CONSTRAINT `id_prodotto`\r\n" + 
+					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n";
+			
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "CREATE TABLE `tarreduDB`.`venditorePerProdotto` (\r\n" + 
+					"  `id_prodotto` INT NOT NULL,\r\n" + 
+					"  `emailVenditore` VARCHAR(255) NOT NULL,\r\n" + 
+					"  INDEX `id_prodotto_idx` (`id_prodotto` ASC),\r\n" + 
+					"  CONSTRAINT `id_prodotto`\r\n" + 
+					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n" +
+					"    CONSTRAINT `emailVenditore`\r\n" + 
+					"    FOREIGN KEY (`emailVenditore`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`venditore` (`emailVenditore`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n";
+			
 			statement = connection.prepareStatement(add);
 			statement.executeUpdate();
 			
