@@ -17,6 +17,9 @@ public class testDB {
 		dbManager.createIlluminazioni();
 		dbManager.createLetti();
 		dbManager.createTavoli();
+		dbManager.createCucine();
+		dbManager.createLibrerie();
+		dbManager.createScrivanie();
 
 	}
 
