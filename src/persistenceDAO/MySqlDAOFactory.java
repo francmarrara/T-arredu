@@ -73,7 +73,7 @@ public class MySqlDAOFactory extends DAOFactory {
 	}
 
 	@Override
-	public CarrelloDAO getCArrelloDAO() {
+	public CarrelloDAO getCarrelloDAO() {
 		return new CarrelloDaoJDBC(dataSource);
 	}
 	
