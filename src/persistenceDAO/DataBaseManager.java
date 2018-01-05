@@ -28,6 +28,7 @@ public class DataBaseManager {
 	}
 
 	public void createVenditori() {
+		// Antonella Mazzei Arredamenti, Cosenza
 
 		Venditore mazzei = new Venditore();
 		mazzei.setNomeNegozio("Antonella Mazzei Arredamenti");
@@ -190,6 +191,10 @@ public class DataBaseManager {
 	}
 
 	public void createComodini() {
+		// COMODINI LEFABLIER
+		// ----------------------------------------------------------
+
+		// Samsara
 
 		Prodotto comodinoSamsara = new Prodotto();
 
@@ -206,6 +211,8 @@ public class DataBaseManager {
 				+ "ma emblema della ricerca della cura del dettaglio.");
 
 		prodottoDao.save(comodinoSamsara);
+
+		// Zaffiro
 
 		Prodotto comodinoZaffiro = new Prodotto();
 
@@ -226,6 +233,8 @@ public class DataBaseManager {
 
 		prodottoDao.save(comodinoZaffiro);
 
+		// Giglio
+
 		Prodotto comodinoGiglio = new Prodotto();
 		comodinoGiglio.setAmbienteProdotto("Camera Da Letto");
 		comodinoGiglio.setTipoProdotto("Comodino");
@@ -244,9 +253,16 @@ public class DataBaseManager {
 
 		prodottoDao.save(comodinoGiglio);
 
+		// ----------------------------------------------------------
+
 	}
 
 	public void createCredenze() {
+
+		// CREDENZE LEFABLIER
+		// ----------------------------------------------------------
+
+		// Dyhana
 
 		Prodotto credenzaDyhana = new Prodotto();
 		credenzaDyhana.setAmbienteProdotto("Soggiorno");
@@ -266,6 +282,8 @@ public class DataBaseManager {
 
 		prodottoDao.save(credenzaDyhana);
 
+		// Gaya
+
 		Prodotto credenzaGaya = new Prodotto();
 		credenzaGaya.setAmbienteProdotto("Soggiorno");
 		credenzaGaya.setTipoProdotto("Credenza");
@@ -282,6 +300,8 @@ public class DataBaseManager {
 				+ " essenziale, che mostra tutta la sua forza espressiva Ë il segreto della credenza Gaya.");
 
 		prodottoDao.save(credenzaGaya);
+
+		// Clematide
 
 		Prodotto credenzaClematide = new Prodotto();
 		credenzaClematide.setAmbienteProdotto("Soggiorno");
@@ -304,6 +324,11 @@ public class DataBaseManager {
 
 	public void createCucine() {
 
+		// CUCINE LEFABLIER
+		// ----------------------------------------------------------
+
+		// Le Gemme Comp 1
+
 		Prodotto cucinaLeGemmeComp1 = new Prodotto();
 
 		cucinaLeGemmeComp1.setAmbienteProdotto("Cucina");
@@ -323,6 +348,8 @@ public class DataBaseManager {
 
 		prodottoDao.save(cucinaLeGemmeComp1);
 
+		// I Ciliegi Comp 1
+
 		Prodotto cucinaICigliegiComp1 = new Prodotto();
 
 		cucinaICigliegiComp1.setAmbienteProdotto("Cucina");
@@ -334,14 +361,13 @@ public class DataBaseManager {
 		cucinaICigliegiComp1.setPrezzoProdotto(5894.00);
 		cucinaICigliegiComp1.setMisureProdotto("Misure in cm (LxPxH) 360x38/59x216");
 		cucinaICigliegiComp1.setDisponibilit‡Prodotto(true);
-		cucinaICigliegiComp1.setDescrizioneProdotto(
-				"Una cucina, che nasce dal gusto " + 
-				"tradizionale  di un tempo, in cui qualit‡ e materiale " + 
-				"fanno da protagonisti.");
+		cucinaICigliegiComp1.setDescrizioneProdotto("Una cucina, che nasce dal gusto "
+				+ "tradizionale  di un tempo, in cui qualit‡ e materiale " + "fanno da protagonisti.");
 
 		prodottoDao.save(cucinaICigliegiComp1);
 
-	
+		// Melograno Comp 1
+
 		Prodotto cucinaMelogranoComp1 = new Prodotto();
 
 		cucinaMelogranoComp1.setAmbienteProdotto("Cucina");
@@ -355,18 +381,21 @@ public class DataBaseManager {
 		cucinaMelogranoComp1.setPrezzoProdotto(6419.00);
 		cucinaMelogranoComp1.setMisureProdotto("Misure in cm (LxPxH) 360+90x59/38x215+35");
 		cucinaMelogranoComp1.setDisponibilit‡Prodotto(true);
-		cucinaMelogranoComp1.setDescrizioneProdotto(
-				"Cucina Componibile. La struttura dei mobili" + 
-				" e dei ripiani Ë realizzata con pannelli in particelle di legno" + 
-				" a bassa emissione di formaldeide (classe E 1).");
+		cucinaMelogranoComp1.setDescrizioneProdotto("Cucina Componibile. La struttura dei mobili"
+				+ " e dei ripiani Ë realizzata con pannelli in particelle di legno"
+				+ " a bassa emissione di formaldeide (classe E 1).");
 
 		prodottoDao.save(cucinaMelogranoComp1);
 
-	
-	
+		// ----------------------------------------------------------
+
 	}
 
 	public void createLibrerie() {
+		// LIBRERIE LEFABLIER
+		// ----------------------------------------------------------
+
+		// Veda
 
 		Prodotto libreriaVeda = new Prodotto();
 
@@ -382,11 +411,12 @@ public class DataBaseManager {
 		libreriaVeda.setMisureProdotto("Misure in cm (LxPxH) 147x40x199");
 		libreriaVeda.setDisponibilit‡Prodotto(true);
 		libreriaVeda.setDescrizioneProdotto(
-				"Libreria a giorno realizzata con struttura in legno massello di Rovere. Le superfici sono trattate" + 
-				"con finiture speciali per esaltare la venatura del legno.");
+				"Libreria a giorno realizzata con struttura in legno massello di Rovere. Le superfici sono trattate"
+						+ "con finiture speciali per esaltare la venatura del legno.");
 
 		prodottoDao.save(libreriaVeda);
-		
+
+		// ----------------------------------------------------------
 
 	}
 
@@ -581,7 +611,12 @@ public class DataBaseManager {
 	}
 
 	public void createScrivanie() {
-		
+
+		// SCRIVANIE LEFABLIER
+		// ----------------------------------------------------------
+
+		// Atlas
+
 		Prodotto scrivaniaAtlas = new Prodotto();
 
 		scrivaniaAtlas.setAmbienteProdotto("Studio");
@@ -593,14 +628,12 @@ public class DataBaseManager {
 		scrivaniaAtlas.setPrezzoProdotto(3572.00);
 		scrivaniaAtlas.setMisureProdotto("Misure in cm (LxPxH) 200x90x78");
 		scrivaniaAtlas.setDisponibilit‡Prodotto(true);
-		scrivaniaAtlas.setDescrizioneProdotto(
-				"Scrivania in linea classica.");
-		
+		scrivaniaAtlas.setDescrizioneProdotto("Scrivania in linea classica.");
+
 		prodottoDao.save(scrivaniaAtlas);
-		
-		
-		
-		
+
+		// Summer
+
 		Prodotto scrivaniaSummer = new Prodotto();
 
 		scrivaniaSummer.setAmbienteProdotto("Studio");
@@ -613,13 +646,12 @@ public class DataBaseManager {
 		scrivaniaSummer.setPrezzoProdotto(4591.00);
 		scrivaniaSummer.setMisureProdotto("MMisure in cm (LxPxH) 180x87x77");
 		scrivaniaSummer.setDisponibilit‡Prodotto(true);
-		scrivaniaSummer.setDescrizioneProdotto(
-				"Summer Ë una scrivania dallíaspetto scultoreo, perfetta allíinterno " + 
-				"dello studio in cui si mostra in tutta la sua maestosit‡.");
+		scrivaniaSummer.setDescrizioneProdotto("Summer Ë una scrivania dallíaspetto scultoreo, perfetta allíinterno "
+				+ "dello studio in cui si mostra in tutta la sua maestosit‡.");
 
 		prodottoDao.save(scrivaniaSummer);
 
-		
+		// Yoga
 		Prodotto scrivaniaYoga = new Prodotto();
 
 		scrivaniaYoga.setAmbienteProdotto("Studio");
@@ -633,17 +665,88 @@ public class DataBaseManager {
 		scrivaniaYoga.setPrezzoProdotto(1436.00);
 		scrivaniaYoga.setMisureProdotto("Misure in cm (LxPxH) 150x70x80");
 		scrivaniaYoga.setDisponibilit‡Prodotto(true);
-		scrivaniaYoga.setDescrizioneProdotto(
-				"Forma sinuosa e ricercata per lo scrittoio Yoga," + 
-				" che unisce la funzionalit‡ alla ricerca estetica.");
+		scrivaniaYoga.setDescrizioneProdotto("Forma sinuosa e ricercata per lo scrittoio Yoga,"
+				+ " che unisce la funzionalit‡ alla ricerca estetica.");
 
 		prodottoDao.save(scrivaniaYoga);
-		
-		
-		
+
+		// ----------------------------------------------------------
+
 	}
 
-	public void createSedute() {
+	public void createSedie() {
+
+		// SEDIE LEFABLIER
+		// ----------------------------------------------------------
+
+		// Meissa
+
+		Prodotto sediaMeissa = new Prodotto();
+
+		sediaMeissa.setAmbienteProdotto("Sala da Pranzo");
+		sediaMeissa.setTipoProdotto("Sedia");
+		sediaMeissa.setMarcaProdotto("Le Fablier");
+		sediaMeissa.setNomeProdotto("Meissa");
+		sediaMeissa.getColoriProdotto().add("Marrone");
+		sediaMeissa.getColoriProdotto().add("Bianco");
+		sediaMeissa.getVenditoriProdotto().add("info@antonellamazzei.it");
+		sediaMeissa.setPrezzoProdotto(345.00);
+		sediaMeissa.setMisureProdotto("Misure in cm (LxPxH) 46x49x92");
+		sediaMeissa.setDisponibilit‡Prodotto(true);
+		sediaMeissa.setDescrizioneProdotto("Sedia con seduta imbottita in tessuto o pelle.");
+
+		prodottoDao.save(sediaMeissa);
+
+		// Margherita
+
+		Prodotto sediaMargherita = new Prodotto();
+
+		sediaMargherita.setAmbienteProdotto("Sala da Pranzo");
+		sediaMargherita.setTipoProdotto("Sedia");
+		sediaMargherita.setMarcaProdotto("Le Fablier");
+		sediaMargherita.setNomeProdotto("Margherita");
+		sediaMargherita.getColoriProdotto().add("Marrone");
+		sediaMargherita.getVenditoriProdotto().add("info@antonellamazzei.it");
+		sediaMargherita.setPrezzoProdotto(407.00);
+		sediaMargherita.setMisureProdotto("Misure in cm (LxPxH) 60x53x96");
+		sediaMargherita.setDisponibilit‡Prodotto(true);
+		sediaMargherita.setDescrizioneProdotto("Sedia capotavola con seduta imbottita rivestita in tessuto.");
+
+		prodottoDao.save(sediaMargherita);
+
+		// Kunti
+
+		Prodotto sediaKunti = new Prodotto();
+
+		sediaKunti.setAmbienteProdotto("Sala da Pranzo");
+		sediaKunti.setTipoProdotto("Sedia");
+		sediaKunti.setMarcaProdotto("Le Fablier");
+		sediaKunti.setNomeProdotto("Kunti");
+		sediaKunti.getColoriProdotto().add("Marrone");
+		sediaKunti.getColoriProdotto().add("Bianco");
+		sediaKunti.getColoriProdotto().add("Grigio");
+		sediaKunti.getVenditoriProdotto().add("info@antonellamazzei.it");
+		sediaKunti.setPrezzoProdotto(1436.00);
+		sediaKunti.setMisureProdotto("Misure in cm (LxPxH) 55x56x89");
+		sediaKunti.setDisponibilit‡Prodotto(true);
+		sediaKunti.setDescrizioneProdotto("Profilo essenziale ma solido per una seduta importante.");
+
+		prodottoDao.save(sediaKunti);
+
+		// ----------------------------------------------------------
+
+	}
+
+	public void createPoltrone() {
+		// POLTRONE LEFABLIER
+		// ----------------------------------------------------------
+
+		// 
+		// ----------------------------------------------------------
+
+	}
+
+	public void createDivani() {
 
 	}
 

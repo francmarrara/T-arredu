@@ -120,16 +120,16 @@ public class Prodotto {
 	
 	 public void stampaProdotto() {
 		 
-		System.out.println(idProdotto);
-		System.out.println(nomeProdotto);
-		System.out.println(tipoProdotto);
-		System.out.println(marcaProdotto);
-		System.out.println(ambienteProdotto);
-		System.out.println(prezzoProdotto);
-		System.out.println(misureProdotto);
-		System.out.println(disponibilit‡Prodotto);
-		System.out.println(descrizioneProdotto);
-			
+		System.out.println("Id : " + idProdotto);
+		System.out.println("Nome : " + nomeProdotto);
+		System.out.println("Tipo : " + tipoProdotto);
+		System.out.println("Marca : " + marcaProdotto);
+		System.out.println("Ambiente : " + ambienteProdotto);
+		System.out.println("Prezzo : " + prezzoProdotto);
+		System.out.println("Misure : " + misureProdotto);
+		System.out.println("Disponibilit‡ : " + disponibilit‡Prodotto);
+		System.out.println("Descrizione : " + descrizioneProdotto);
+		System.out.println();	
 		}
 
 	public ArrayList<String> getColoriProdotto() {
