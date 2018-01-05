@@ -304,9 +304,89 @@ public class DataBaseManager {
 
 	public void createCucine() {
 
+		Prodotto cucinaLeGemmeComp1 = new Prodotto();
+
+		cucinaLeGemmeComp1.setAmbienteProdotto("Cucina");
+		cucinaLeGemmeComp1.setTipoProdotto("Cucina");
+		cucinaLeGemmeComp1.setMarcaProdotto("Le Fablier");
+		cucinaLeGemmeComp1.setNomeProdotto("Composizione 1 - Le Gemme");
+		cucinaLeGemmeComp1.getColoriProdotto().add("Bianco");
+		cucinaLeGemmeComp1.getColoriProdotto().add("Grigio");
+		cucinaLeGemmeComp1.getColoriProdotto().add("Marrone");
+		cucinaLeGemmeComp1.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucinaLeGemmeComp1.setPrezzoProdotto(7650.00);
+		cucinaLeGemmeComp1.setMisureProdotto("Misure in cm (LxPxH) 540x38/59x216");
+		cucinaLeGemmeComp1.setDisponibilit‡Prodotto(true);
+		cucinaLeGemmeComp1.setDescrizioneProdotto(
+				"Forme e altezze diverse vengono " + "modulate per creare una nuova idea di spazio dove la cucina "
+						+ "diventa anche zona living. Il top.");
+
+		prodottoDao.save(cucinaLeGemmeComp1);
+
+		Prodotto cucinaICigliegiComp1 = new Prodotto();
+
+		cucinaICigliegiComp1.setAmbienteProdotto("Cucina");
+		cucinaICigliegiComp1.setTipoProdotto("Cucina");
+		cucinaICigliegiComp1.setMarcaProdotto("Le Fablier");
+		cucinaICigliegiComp1.setNomeProdotto("Composizione 1 - I Ciliegi");
+		cucinaICigliegiComp1.getColoriProdotto().add("Marrone");
+		cucinaICigliegiComp1.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucinaICigliegiComp1.setPrezzoProdotto(5894.00);
+		cucinaICigliegiComp1.setMisureProdotto("Misure in cm (LxPxH) 360x38/59x216");
+		cucinaICigliegiComp1.setDisponibilit‡Prodotto(true);
+		cucinaICigliegiComp1.setDescrizioneProdotto(
+				"Una cucina, che nasce dal gusto " + 
+				"tradizionale  di un tempo, in cui qualit‡ e materiale " + 
+				"fanno da protagonisti.");
+
+		prodottoDao.save(cucinaICigliegiComp1);
+
+	
+		Prodotto cucinaMelogranoComp1 = new Prodotto();
+
+		cucinaMelogranoComp1.setAmbienteProdotto("Cucina");
+		cucinaMelogranoComp1.setTipoProdotto("Cucina");
+		cucinaMelogranoComp1.setMarcaProdotto("Le Fablier");
+		cucinaMelogranoComp1.setNomeProdotto("Composizione 1 - Melograno");
+		cucinaMelogranoComp1.getColoriProdotto().add("Marrone");
+		cucinaMelogranoComp1.getColoriProdotto().add("Bianco");
+		cucinaMelogranoComp1.getColoriProdotto().add("Grigio");
+		cucinaMelogranoComp1.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucinaMelogranoComp1.setPrezzoProdotto(6419.00);
+		cucinaMelogranoComp1.setMisureProdotto("Misure in cm (LxPxH) 360+90x59/38x215+35");
+		cucinaMelogranoComp1.setDisponibilit‡Prodotto(true);
+		cucinaMelogranoComp1.setDescrizioneProdotto(
+				"Cucina Componibile. La struttura dei mobili" + 
+				" e dei ripiani Ë realizzata con pannelli in particelle di legno" + 
+				" a bassa emissione di formaldeide (classe E 1).");
+
+		prodottoDao.save(cucinaMelogranoComp1);
+
+	
+	
 	}
 
 	public void createLibrerie() {
+
+		Prodotto libreriaVeda = new Prodotto();
+
+		libreriaVeda.setAmbienteProdotto("Studio");
+		libreriaVeda.setTipoProdotto("Libreria");
+		libreriaVeda.setMarcaProdotto("Le Fablier");
+		libreriaVeda.setNomeProdotto("Veda");
+		libreriaVeda.getColoriProdotto().add("Marrone");
+		libreriaVeda.getColoriProdotto().add("Bianco");
+		libreriaVeda.getColoriProdotto().add("Grigio");
+		libreriaVeda.getVenditoriProdotto().add("info@antonellamazzei.it");
+		libreriaVeda.setPrezzoProdotto(3721.00);
+		libreriaVeda.setMisureProdotto("Misure in cm (LxPxH) 147x40x199");
+		libreriaVeda.setDisponibilit‡Prodotto(true);
+		libreriaVeda.setDescrizioneProdotto(
+				"Libreria a giorno realizzata con struttura in legno massello di Rovere. Le superfici sono trattate" + 
+				"con finiture speciali per esaltare la venatura del legno.");
+
+		prodottoDao.save(libreriaVeda);
+		
 
 	}
 
@@ -501,7 +581,66 @@ public class DataBaseManager {
 	}
 
 	public void createScrivanie() {
+		
+		Prodotto scrivaniaAtlas = new Prodotto();
 
+		scrivaniaAtlas.setAmbienteProdotto("Studio");
+		scrivaniaAtlas.setTipoProdotto("Scrivania");
+		scrivaniaAtlas.setMarcaProdotto("Le Fablier");
+		scrivaniaAtlas.setNomeProdotto("Atlas");
+		scrivaniaAtlas.getColoriProdotto().add("Marrone");
+		scrivaniaAtlas.getVenditoriProdotto().add("info@antonellamazzei.it");
+		scrivaniaAtlas.setPrezzoProdotto(3572.00);
+		scrivaniaAtlas.setMisureProdotto("Misure in cm (LxPxH) 200x90x78");
+		scrivaniaAtlas.setDisponibilit‡Prodotto(true);
+		scrivaniaAtlas.setDescrizioneProdotto(
+				"Scrivania in linea classica.");
+		
+		prodottoDao.save(scrivaniaAtlas);
+		
+		
+		
+		
+		Prodotto scrivaniaSummer = new Prodotto();
+
+		scrivaniaSummer.setAmbienteProdotto("Studio");
+		scrivaniaSummer.setTipoProdotto("Scrivania");
+		scrivaniaSummer.setMarcaProdotto("Le Fablier");
+		scrivaniaSummer.setNomeProdotto("Summer");
+		scrivaniaSummer.getColoriProdotto().add("Marrone");
+		scrivaniaSummer.getColoriProdotto().add("Nero");
+		scrivaniaSummer.getVenditoriProdotto().add("info@antonellamazzei.it");
+		scrivaniaSummer.setPrezzoProdotto(4591.00);
+		scrivaniaSummer.setMisureProdotto("MMisure in cm (LxPxH) 180x87x77");
+		scrivaniaSummer.setDisponibilit‡Prodotto(true);
+		scrivaniaSummer.setDescrizioneProdotto(
+				"Summer Ë una scrivania dallíaspetto scultoreo, perfetta allíinterno " + 
+				"dello studio in cui si mostra in tutta la sua maestosit‡.");
+
+		prodottoDao.save(scrivaniaSummer);
+
+		
+		Prodotto scrivaniaYoga = new Prodotto();
+
+		scrivaniaYoga.setAmbienteProdotto("Studio");
+		scrivaniaYoga.setTipoProdotto("Scrivania");
+		scrivaniaYoga.setMarcaProdotto("Le Fablier");
+		scrivaniaYoga.setNomeProdotto("Yoga");
+		scrivaniaYoga.getColoriProdotto().add("Marrone");
+		scrivaniaYoga.getColoriProdotto().add("Bianco");
+		scrivaniaYoga.getColoriProdotto().add("Grigio");
+		scrivaniaYoga.getVenditoriProdotto().add("info@antonellamazzei.it");
+		scrivaniaYoga.setPrezzoProdotto(1436.00);
+		scrivaniaYoga.setMisureProdotto("Misure in cm (LxPxH) 150x70x80");
+		scrivaniaYoga.setDisponibilit‡Prodotto(true);
+		scrivaniaYoga.setDescrizioneProdotto(
+				"Forma sinuosa e ricercata per lo scrittoio Yoga," + 
+				" che unisce la funzionalit‡ alla ricerca estetica.");
+
+		prodottoDao.save(scrivaniaYoga);
+		
+		
+		
 	}
 
 	public void createSedute() {
