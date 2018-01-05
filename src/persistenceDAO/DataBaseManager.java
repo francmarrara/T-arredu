@@ -496,6 +496,8 @@ public class DataBaseManager {
 
 		prodottoDao.save(prodotto);
 
+		// ----------------------------------------------------------
+
 	}
 
 	public void createScrivanie() {
@@ -507,6 +509,95 @@ public class DataBaseManager {
 	}
 
 	public void createTavoli() {
+
+		Prodotto prodotto = new Prodotto();
+
+		// TAVOLI LEFABLIER
+		// ----------------------------------------------------------
+
+		// Ekanta
+
+		prodotto.getColoriProdotto().add("Grigio");
+		prodotto.getColoriProdotto().add("Avorio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Ekanta");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1822.00"));
+		prodotto.setMisureProdotto("170/210cm x 90cm x 75cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Design fluido ed armonico per il tavolo Ekanta, caratterizzato da slanciate gambe in legno massello di Rovere che, unite alla struttura del piano del tavolo, \r\n"
+						+ "conferiscono alla composizione una linea morbida ed elegante.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Tulipano
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Marrone");
+		prodotto.getColoriProdotto().add("Avorio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("Tulipano");
+		prodotto.setPrezzoProdotto(Double.parseDouble("2042.00"));
+		prodotto.setMisureProdotto("180/264cm x 90cm x 79cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Tavolo rettangolare allungabile, struttura in legno massello di ciliegio.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Cartesio
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Marrone");
+		prodotto.getColoriProdotto().add("Grigio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Cartesio");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1765.00"));
+		prodotto.setMisureProdotto("115/200cm x 115cm x 80cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Forma quadrata e accuratezza dei dettagli rendono il tavolo Cartesio un elemento di charme che diventa protagonista in ogni ambiente.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Muschio
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Bianco");
+		prodotto.getColoriProdotto().add("Marrone");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("Muschio");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1555.00"));
+		prodotto.setMisureProdotto("220cm x 100cm x 75cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Tavolo fisso in rovere dalle linee calde, con dimensioni che rimandano alla lavorazione artigianale.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
 
 	}
 

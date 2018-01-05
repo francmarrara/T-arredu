@@ -16,6 +16,7 @@ public class testDB {
 		dbManager.createCredenze();
 		dbManager.createIlluminazioni();
 		dbManager.createLetti();
+		dbManager.createTavoli();
 
 	}
 
