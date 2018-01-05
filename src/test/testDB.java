@@ -9,7 +9,8 @@ DataBaseManager dbManager = new DataBaseManager();
 dbManager.dropDataBase();
 dbManager.createDataBase();
 dbManager.createVenditori();
-
+dbManager.createComodini();
+dbManager.createCredenze();
 
 
 
