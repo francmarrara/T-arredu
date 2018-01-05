@@ -383,7 +383,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			
 			statement.setInt(1, prodotto.getIdProdotto());
 			statement.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -516,7 +516,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		List<Prodotto> prodotti = new LinkedList<>();
 		
 		try {
-			
+
 			Prodotto prodotto;
 			PreparedStatement statementProdotto;
 			

@@ -1,5 +1,8 @@
 package persistenceDAO;
 
+import model.Prodotto;
+import model.Venditore;
+
 public class DataBaseManager {
 	
 	private DAOFactory factory;
@@ -24,6 +27,22 @@ public class DataBaseManager {
 		
 	}
 	
+	
+	public void createVenditori() {
+		
+		Venditore mazzei = new Venditore();
+		mazzei.setNomeNegozio("Antonella Mazzei Arredamenti");
+		mazzei.setNomeTitolare("Antonella");
+		mazzei.setCognomeTitolare("Mazzei");
+		mazzei.setNumeroTelefonicoVenditore("+39 338 5378178");
+		mazzei.setEmailVenditore("info@antonellamazzei.it");
+		mazzei.setIndirizzoVenditore("Viale Cosmai 32,  87100 Cosenza  (di fronte Guardia di Finanza)");
+		
+		venditoreDao.save(mazzei);
+	}
+	
+	
+	
 	public void createArmadi() {
 		
 		
@@ -37,6 +56,8 @@ public class DataBaseManager {
 	}
 	
 	public void createComodini() {
+		
+		Prodotto comodinoSamsara = new Prodotto();
 		
 		
 		

@@ -1,24 +1,16 @@
 package test;
 
-import java.util.Calendar;
-
-import model.Carrello;
-import model.Preventivo;
-import model.Prodotto;
-import model.Utente;
-import model.Venditore;
-import persistenceDAO.CarrelloDAO;
-import persistenceDAO.DAOFactory;
-import persistenceDAO.PreventivoDAO;
-import persistenceDAO.ProdottoDAO;
-import persistenceDAO.UtenteDAO;
-import persistenceDAO.UtilDAO;
-import persistenceDAO.VenditoreDAO;
+import persistenceDAO.DataBaseManager;
 
 public class testDB {
 
 	public static void main(String args[]) {
+DataBaseManager dbManager = new DataBaseManager();
+dbManager.dropDataBase();
+dbManager.createDataBase();
+dbManager.createVenditori();
 
+<<<<<<< HEAD
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		UtilDAO util = factory.getUtilDAO();
 		UtenteDAO utenteDAO = factory.getUtenteDAO();
@@ -110,8 +102,9 @@ public class testDB {
 		preventivo.getListaProdotti().add(prodotto);
 		preventivo.getListaProdotti().add(prodotto2);
 		preventivo.getListaVenditori().add(venditore);
+=======
+>>>>>>> master
 
-		preventivoDao.save(preventivo);
 
 
 	}
