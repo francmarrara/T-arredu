@@ -14,6 +14,8 @@ public class testDB {
 		dbManager.createCassettiere();
 		dbManager.createComodini();
 		dbManager.createCredenze();
+		dbManager.createIlluminazioni();
+		dbManager.createLetti();
 
 	}
 

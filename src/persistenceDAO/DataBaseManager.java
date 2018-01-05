@@ -312,9 +312,189 @@ public class DataBaseManager {
 
 	public void createIlluminazioni() {
 
+		Prodotto prodotto = new Prodotto();
+
+		// ILLUMINAZIONE LEFABLIER
+		// ----------------------------------------------------------
+
+		// Hari
+
+		prodotto.getColoriProdotto().add("Nero");
+		prodotto.getColoriProdotto().add("Oro");
+		prodotto.getColoriProdotto().add("Bianco");
+		prodotto.getColoriProdotto().add("Argento");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Hari");
+		prodotto.setPrezzoProdotto(Double.parseDouble("774.00"));
+		prodotto.setMisureProdotto("50cm x 180cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Lampada da terra e da tavolo con stelo in pirex trasparente e \r\n"
+				+ "paralume in tessuto con filo e prese in coordinato con il paralume.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Reishi
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Ambra");
+		prodotto.getColoriProdotto().add("Blu");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Reishi");
+		prodotto.setPrezzoProdotto(Double.parseDouble("363.00"));
+		prodotto.setMisureProdotto("15cm x 43cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Lampada da tavolo con struttra in pirex trasparente e bicchiere interno bianco, ambra o blu.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Zeta
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Avorio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Zeta");
+		prodotto.setPrezzoProdotto(Double.parseDouble("565.00"));
+		prodotto.setMisureProdotto("21cm x 21cm x 52cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Lampada da comodino con struttura cromata e paralume in lino avorio.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Miss
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Giallo");
+		prodotto.getColoriProdotto().add("Bianco");
+		prodotto.getColoriProdotto().add("Nero");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Miss");
+		prodotto.setPrezzoProdotto(Double.parseDouble("857.00"));
+		prodotto.setMisureProdotto("48cm x 180cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Lampada con struttura cromata e stelo sagomato in pirex trasparente e paralume liscio bianco, giallo o nero.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
 	}
 
 	public void createLetti() {
+
+		Prodotto prodotto = new Prodotto();
+
+		// LETTI LEFABLIER
+		// ----------------------------------------------------------
+
+		// Deva
+
+		prodotto.getColoriProdotto().add("Grigio");
+		prodotto.getColoriProdotto().add("Avorio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Letto");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Deva");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1530.00"));
+		prodotto.setMisureProdotto("173cm x 212cm x 115cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Uníelegante bordatura in Rovere massello racchiude la preziosit‡ della ricercata imbottitura della testata del letto Deva.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Sunrise
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Noce");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Letto");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Sunrise");
+		prodotto.setPrezzoProdotto(Double.parseDouble("4775.00"));
+		prodotto.setMisureProdotto("175cm x 213cm x 101cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Letto con giroletto e testata sagomata imbottiti.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Silicio
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Bianco");
+		prodotto.getColoriProdotto().add("Nero");
+		prodotto.getColoriProdotto().add("Rosso");
+		prodotto.getColoriProdotto().add("Avorio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Letto");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Silicio");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1814.00"));
+		prodotto.setMisureProdotto("172cm x 222cm x 111cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Morbidezza e calore esprime il letto Silicio. Líampia testiera imbottita, che puÚ essere rivestita in tessuto, in pelle o ecopelle, \r\n"
+						+ "richiama le linee morbide e delicatamente voluttuose della testata e della pediera.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// Ligustro
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Bianco");
+		prodotto.getColoriProdotto().add("Grigio");
+		prodotto.getColoriProdotto().add("Marrone");
+		prodotto.getColoriProdotto().add("Avorio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Letto");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Ligustro");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1097.00"));
+		prodotto.setMisureProdotto("175cm x 222cm x 100cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Il letto Ligustro si compone di una testiera dalla forma rettilinea e squadrata, rifinita da una sofisticata imbottitura che avvolge anche la struttura del letto.");
+
+		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
 
 	}
 
