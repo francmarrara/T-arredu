@@ -97,7 +97,7 @@ public class testDB {
 		c.getProdottiNelCarrello().add(prodotto);
 		c.getProdottiNelCarrello().add(prodotto2);
 
-		CarrelloDAO carrelloDao = factory.getCArrelloDAO();
+		CarrelloDAO carrelloDao = factory.getCarrelloDAO();
 		carrelloDao.save(c);
 
 		Preventivo preventivo = new Preventivo();
