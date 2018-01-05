@@ -1,5 +1,7 @@
 package persistenceDAO;
 
+import model.Prodotto;
+
 public class DataBaseManager {
 	
 	private DAOFactory factory;
