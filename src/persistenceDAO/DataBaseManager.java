@@ -28,6 +28,7 @@ public class DataBaseManager {
 	}
 
 	public void createVenditori() {
+
 		// Antonella Mazzei Arredamenti, Cosenza
 
 		Venditore mazzei = new Venditore();
@@ -36,9 +37,25 @@ public class DataBaseManager {
 		mazzei.setCognomeTitolare("Mazzei");
 		mazzei.setNumeroTelefonicoVenditore("+39 338 5378178");
 		mazzei.setEmailVenditore("info@antonellamazzei.it");
-		mazzei.setIndirizzoVenditore("Viale Cosmai 32,  87100 Cosenza  (di fronte Guardia di Finanza)");
+		mazzei.setIndirizzoVenditore("Viale Cosmai 32, 87100 Cosenza (di fronte Guardia di Finanza)");
 
 		venditoreDao.save(mazzei);
+
+		// ----------------------------------------------------------
+
+		// Scavolini Store, Cosenza
+
+		Venditore scavoliniCosenza = new Venditore();
+		scavoliniCosenza.setNomeNegozio("Scavolini Store Cosenza");
+		scavoliniCosenza.setNomeTitolare("Gianluca");
+		scavoliniCosenza.setCognomeTitolare("Mauro");
+		scavoliniCosenza.setNumeroTelefonicoVenditore("0984 839164");
+		scavoliniCosenza.setEmailVenditore("marazitamobilisas@libero.it");
+		scavoliniCosenza.setIndirizzoVenditore("Via Verdi, 87036 Cosenza  (di fronte Guardia di Finanza)");
+
+		venditoreDao.save(scavoliniCosenza);
+
+		// ----------------------------------------------------------
 	}
 
 	public void createArmadi() {
@@ -389,6 +406,69 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+		// CUCINE SCAVOLINI
+		// ----------------------------------------------------------
+
+		// Madeleine
+
+		Prodotto cucina = new Prodotto();
+
+		cucina.getColoriProdotto().add("Bianco");
+
+		cucina.setAmbienteProdotto("Cucina");
+		cucina.setTipoProdotto("Cucina");
+		cucina.setMarcaProdotto("Scavolini");
+		cucina.setNomeProdotto("Madeleiene");
+		cucina.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		cucina.setPrezzoProdotto(8043.00);
+		cucina.setMisureProdotto("270x240x254");
+		cucina.setDisponibilit‡Prodotto(true);
+		cucina.setDescrizioneProdotto(
+				"Cucina Scavolini modello Madeleine angolare in legno castagno con tavolo e n.4 sedie.\n"
+						+ "N.2 pensili a vetrina, colonna frigo comprensiva di frigorifero Ariston. Lavello Franke 2 vasche in Fragranite.");
+
+		prodottoDao.save(cucina);
+
+		// Sax
+
+		cucina = new Prodotto();
+
+		cucina.getColoriProdotto().add("Bianco");
+
+		cucina.setAmbienteProdotto("Cucina");
+		cucina.setTipoProdotto("Cucina");
+		cucina.setMarcaProdotto("Scavolini");
+		cucina.setNomeProdotto("Sax");
+		cucina.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		cucina.setPrezzoProdotto(9500.00);
+		cucina.setMisureProdotto("245x275x215");
+		cucina.setDisponibilit‡Prodotto(true);
+		cucina.setDescrizioneProdotto(
+				"La cucina ideale per chi ama líessenzialitaí delle forme,il design semplice ed attuale. Il modello Sax appartenendo alla linea ìBasicî , ha dei costi molto contenuti,pur avendo a disposizione svariate finiture e numerose varianti di colore.");
+
+		prodottoDao.save(cucina);
+
+		// Grand Relais
+
+		cucina = new Prodotto();
+
+		cucina.getColoriProdotto().add("Beige");
+
+		cucina.setAmbienteProdotto("Cucina");
+		cucina.setTipoProdotto("Cucina");
+		cucina.setMarcaProdotto("Scavolini");
+		cucina.setNomeProdotto("Grand Relais");
+		cucina.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		cucina.setPrezzoProdotto(9750.00);
+		cucina.setMisureProdotto("435x225");
+		cucina.setDisponibilit‡Prodotto(true);
+		cucina.setDescrizioneProdotto(
+				"Cucina Scavolini, modello Grand Relais con ante in finitutra nera, fornita di 2 colonne estraibili da 15cm.");
+
+		prodottoDao.save(cucina);
+		
+		// ----------------------------------------------------------
+
 	}
 
 	public void createLibrerie() {
@@ -511,6 +591,70 @@ public class DataBaseManager {
 		prodottoDao.save(prodotto);
 
 		// ----------------------------------------------------------
+
+	}
+
+	public void createBagni() {
+
+		// BAGNI SCAVOLINI
+		// ----------------------------------------------------------
+
+		// Idro
+
+		Prodotto bagno = new Prodotto();
+
+		bagno.getColoriProdotto().add("Blu");
+
+		bagno.setAmbienteProdotto("Bagno");
+		bagno.setTipoProdotto("Bagno");
+		bagno.setMarcaProdotto("Scavolini");
+		bagno.setNomeProdotto("Idro");
+		bagno.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		bagno.setPrezzoProdotto(7670.00);
+		bagno.setMisureProdotto("200x250");
+		bagno.setDisponibilit‡Prodotto(true);
+		bagno.setDescrizioneProdotto(
+				"Questa composizione del modello idro di Scavolini Bathrooms offre la possibilit‡ di creare eleganti soluzioni d'arredo anche per gli spazi ridotti.");
+
+		prodottoDao.save(bagno);
+
+		// Lagu
+
+		bagno = new Prodotto();
+
+		bagno.getColoriProdotto().add("Bianco");
+
+		bagno.setAmbienteProdotto("Bagno");
+		bagno.setTipoProdotto("Bagno");
+		bagno.setMarcaProdotto("Scavolini");
+		bagno.setNomeProdotto("Lagu");
+		bagno.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		bagno.setPrezzoProdotto(4150.00);
+		bagno.setMisureProdotto("275x300");
+		bagno.setDisponibilit‡Prodotto(true);
+		bagno.setDescrizioneProdotto(
+				"Composizione molto attuale e completa particolarmente adatta a bagni abbastanza stretti.");
+
+		prodottoDao.save(bagno);
+
+		// Rivo
+
+		bagno = new Prodotto();
+
+		bagno.getColoriProdotto().add("Bianco");
+
+		bagno.setAmbienteProdotto("Bagno");
+		bagno.setTipoProdotto("Bagno");
+		bagno.setMarcaProdotto("Scavolini");
+		bagno.setNomeProdotto("Rivo");
+		bagno.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		bagno.setPrezzoProdotto(5845.00);
+		bagno.setMisureProdotto("320x275");
+		bagno.setDisponibilit‡Prodotto(true);
+		bagno.setDescrizioneProdotto(
+				"Altissima qualit‡ per líarredo bagno Scavolini modello Rivo impiallacciato legno. Base lavabo impiallacciata legno laccato opaco Frassino Visone composta da due basi con cassettoni.");
+
+		prodottoDao.save(bagno);
 
 	}
 
@@ -741,6 +885,7 @@ public class DataBaseManager {
 		// POLTRONE LEFABLIER
 		// ----------------------------------------------------------
 
+
 		// PERSICA
 
 		Prodotto poltronaPersica = new Prodotto();
@@ -794,6 +939,7 @@ public class DataBaseManager {
 		poltronaLunetta.setDescrizioneProdotto("Lunetta Ë una comoda poltroncina" + " dallo stile contemporaneo.");
 
 		prodottoDao.save(poltronaLunetta);
+
 
 		//
 		// ----------------------------------------------------------
