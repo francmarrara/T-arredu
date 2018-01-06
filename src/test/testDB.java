@@ -29,6 +29,8 @@ public class testDB {
 
 		// POPULATE
 
+		System.out.println("Populating....");
+		
 		long startPopulate = System.currentTimeMillis();
 
 		dbManager.createVenditori();
