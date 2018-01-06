@@ -466,6 +466,8 @@ public class DataBaseManager {
 				"Cucina Scavolini, modello Grand Relais con ante in finitutra nera, fornita di 2 colonne estraibili da 15cm.");
 
 		prodottoDao.save(cucina);
+		
+		// ----------------------------------------------------------
 
 	}
 
