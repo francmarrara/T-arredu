@@ -741,12 +741,87 @@ public class DataBaseManager {
 		// POLTRONE LEFABLIER
 		// ----------------------------------------------------------
 
-		// 
+		// PERSICA
+
+		Prodotto poltronaPersica = new Prodotto();
+
+		poltronaPersica.setAmbienteProdotto("Studio");
+		poltronaPersica.setTipoProdotto("Poltrona");
+		poltronaPersica.setMarcaProdotto("Le Fablier");
+		poltronaPersica.setNomeProdotto("Persica");
+		poltronaPersica.getColoriProdotto().add("Marrone");
+		poltronaPersica.getColoriProdotto().add("Bianco");
+		poltronaPersica.getVenditoriProdotto().add("info@antonellamazzei.it");
+		poltronaPersica.setPrezzoProdotto(1004.00);
+		poltronaPersica.setMisureProdotto("Misure in cm (LxPxH) 57x66x98/108");
+		poltronaPersica.setDisponibilit‡Prodotto(true);
+		poltronaPersica.setDescrizioneProdotto("La poltrona girevole Persica, dallo spirito versatile, Ë un"
+				+ " elemento díarredo perfetto per líufficio ma anche per la casa. ");
+
+		prodottoDao.save(poltronaPersica);
+
+		// APOLLO
+
+		Prodotto poltronaApollo = new Prodotto();
+
+		poltronaApollo.setAmbienteProdotto("Salotto");
+		poltronaApollo.setTipoProdotto("Poltrona");
+		poltronaApollo.setMarcaProdotto("Le Fablier");
+		poltronaApollo.setNomeProdotto("Apollo");
+		poltronaApollo.getColoriProdotto().add("Marrone");
+		poltronaApollo.getVenditoriProdotto().add("info@antonellamazzei.it");
+		poltronaApollo.setPrezzoProdotto(1251.00);
+		poltronaApollo.setMisureProdotto("Misure in cm (LxPxH) 71x69x88");
+		poltronaApollo.setDisponibilit‡Prodotto(true);
+		poltronaApollo.setDescrizioneProdotto(
+				"Linee nette per la poltroncina Apollo, " + "un elemento díarredo dalla forma pulita e scultorea.");
+
+		prodottoDao.save(poltronaApollo);
+
+		// LUNETTA
+
+		Prodotto poltronaLunetta = new Prodotto();
+
+		poltronaLunetta.setAmbienteProdotto("Salotto");
+		poltronaLunetta.setTipoProdotto("Poltrona");
+		poltronaLunetta.setMarcaProdotto("Le Fablier");
+		poltronaLunetta.setNomeProdotto("Lunetta");
+		poltronaLunetta.getColoriProdotto().add("Grigio");
+		poltronaLunetta.getVenditoriProdotto().add("info@antonellamazzei.it");
+		poltronaLunetta.setPrezzoProdotto(1338.00);
+		poltronaLunetta.setMisureProdotto("Misure in cm (LxPxH) 68x77x81");
+		poltronaLunetta.setDisponibilit‡Prodotto(true);
+		poltronaLunetta.setDescrizioneProdotto("Lunetta Ë una comoda poltroncina" + " dallo stile contemporaneo.");
+
+		prodottoDao.save(poltronaLunetta);
+
+		//
 		// ----------------------------------------------------------
 
 	}
 
 	public void createDivani() {
+		// DIVANI LEFABLIER
+		// ----------------------------------------------------------
+
+		// ALBA
+
+		Prodotto divanoAlba = new Prodotto();
+
+		divanoAlba.setAmbienteProdotto("Soggiorno");
+		divanoAlba.setTipoProdotto("Divano");
+		divanoAlba.setMarcaProdotto("Le Fablier");
+		divanoAlba.setNomeProdotto("Alba");
+		divanoAlba.getColoriProdotto().add("Grigio");
+		divanoAlba.getVenditoriProdotto().add("info@antonellamazzei.it");
+		divanoAlba.setPrezzoProdotto(6008.00);
+		divanoAlba.setMisureProdotto("Misure (LxPxH) in cm 244x105x98");
+		divanoAlba.setDisponibilit‡Prodotto(true);
+		divanoAlba.setDescrizioneProdotto("Divano in stile moderno.");
+
+		prodottoDao.save(divanoAlba);
+
+		// ----------------------------------------------------------
 
 	}
 
@@ -844,6 +919,65 @@ public class DataBaseManager {
 	}
 
 	public void createVetrine() {
+
+		// VETRINE LEFABLIER
+		// ----------------------------------------------------------
+
+		// AMBROSIA
+
+		Prodotto vetrinaAmbrosia = new Prodotto();
+
+		vetrinaAmbrosia.setAmbienteProdotto("Soggiorno");
+		vetrinaAmbrosia.setTipoProdotto("Vetrina");
+		vetrinaAmbrosia.setMarcaProdotto("Le Fablier");
+		vetrinaAmbrosia.setNomeProdotto("Ambrosia");
+		vetrinaAmbrosia.getColoriProdotto().add("Marrone");
+		vetrinaAmbrosia.getVenditoriProdotto().add("info@antonellamazzei.it");
+		vetrinaAmbrosia.setPrezzoProdotto(1632.00);
+		vetrinaAmbrosia.setMisureProdotto("Misure in cm (LxPxH) 68x45x207");
+		vetrinaAmbrosia.setDisponibilit‡Prodotto(true);
+		vetrinaAmbrosia.setDescrizioneProdotto("Argentiera 1 anta dx/sx.");
+
+		prodottoDao.save(vetrinaAmbrosia);
+
+		// BALI
+
+		Prodotto vetrinaBali = new Prodotto();
+
+		vetrinaBali.setAmbienteProdotto("Soggiorno");
+		vetrinaAmbrosia.setTipoProdotto("Vetrina");
+		vetrinaAmbrosia.setMarcaProdotto("Le Fablier");
+		vetrinaBali.setNomeProdotto("Bali");
+		vetrinaBali.getColoriProdotto().add("Grigio");
+		vetrinaBali.getVenditoriProdotto().add("info@antonellamazzei.it");
+		vetrinaBali.setPrezzoProdotto(1563.00);
+		vetrinaBali.setMisureProdotto("Misure in cm (LxPxH) 120x43x184");
+		vetrinaBali.setDisponibilit‡Prodotto(true);
+		vetrinaBali.setDescrizioneProdotto(
+				"Eleganza e design moderno sono" + " racchiuse nellíargentiera a due ante Bali.");
+
+		prodottoDao.save(vetrinaBali);
+
+		// ABELIA
+
+		Prodotto vetrinaAbelia = new Prodotto();
+
+		vetrinaAbelia.setAmbienteProdotto("Studio");
+		vetrinaAbelia.setTipoProdotto("Vetrina");
+		vetrinaAbelia.setMarcaProdotto("Le Fablier");
+		vetrinaAbelia.setNomeProdotto("Abelia");
+		vetrinaAbelia.getColoriProdotto().add("Grigio");
+		vetrinaAbelia.getVenditoriProdotto().add("info@antonellamazzei.it");
+		vetrinaAbelia.setPrezzoProdotto(1930.00);
+		vetrinaAbelia.setMisureProdotto("Misure in cm (LxPxH) 69x45x206");
+		vetrinaAbelia.setDisponibilit‡Prodotto(true);
+		vetrinaAbelia.setDescrizioneProdotto(
+				"La vetrina Abelia, Ë una vetrina a colonna caratterizzata da una slanciata anta, inserite"
+						+ " in una elegante struttura in legno di frassino spazzolato.");
+
+		prodottoDao.save(vetrinaAbelia);
+
+		// ----------------------------------------------------------
 
 	}
 

@@ -1,7 +1,5 @@
 package test;
 
-import java.util.List;
-
 import model.Prodotto;
 import persistenceDAO.DataBaseManager;
 
@@ -46,6 +44,9 @@ public class testDB {
 		dbManager.createLibrerie();
 		dbManager.createScrivanie();
 		dbManager.createSedie();
+		dbManager.createPoltrone();
+		dbManager.createDivani();
+		dbManager.createVetrine();
 
 		long endPopulate = System.currentTimeMillis();
 
@@ -53,13 +54,6 @@ public class testDB {
 
 		// RECUPERO PRODOTTI
 
-		long startFindProducts = System.currentTimeMillis();
-
-		List<Prodotto> prodotti = dbManager.getProdottoDao().findAll();
-
-		long endFindProducts = System.currentTimeMillis();
-
-		System.out.println("Il Find ha impiegato " + (endFindProducts - startFindProducts) / 1000 + " secondi");
 
 		System.out.println("----------------");
 
@@ -67,11 +61,7 @@ public class testDB {
 
 		System.out.println("----------------");
 		
-		System.out.println("STAMPA PRODOTTI");
-
-		for (Prodotto p : prodotti) {
-			p.stampaProdotto();
-		}
+		
 
 	}
 
