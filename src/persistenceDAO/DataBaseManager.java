@@ -1091,8 +1091,8 @@ public class DataBaseManager {
 		Prodotto vetrinaBali = new Prodotto();
 
 		vetrinaBali.setAmbienteProdotto("Soggiorno");
-		vetrinaAmbrosia.setTipoProdotto("Vetrina");
-		vetrinaAmbrosia.setMarcaProdotto("Le Fablier");
+		vetrinaBali.setTipoProdotto("Vetrina");
+		vetrinaBali.setMarcaProdotto("Le Fablier");
 		vetrinaBali.setNomeProdotto("Bali");
 		vetrinaBali.getColoriProdotto().add("Grigio");
 		vetrinaBali.getVenditoriProdotto().add("info@antonellamazzei.it");
