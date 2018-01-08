@@ -105,8 +105,14 @@ public class UtilDAO {
 					"    PRIMARY KEY (`sequence_name`)\r\n" + 
 					") ENGINE=MyISAM;";
 
+			
+			
 			PreparedStatement statement = connection.prepareStatement(add);
 			statement.executeUpdate();
+			
+//			add = "set @@global.max_connections = 1000;";
+//			statement = connection.prepareStatement(add);
+//			statement.executeUpdate();
 			
 			add =   "INSERT INTO tarreduDB.sequence_data\r\n" + 
 					"    (sequence_name)\r\n" + 

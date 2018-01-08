@@ -941,6 +941,8 @@ public class DataBaseManager {
 		// ----------------------------------------------------------
 
 		// Harry H
+		
+		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Argento");
 
@@ -959,6 +961,8 @@ public class DataBaseManager {
 		prodottoDao.save(prodotto);
 
 		// Lana
+		
+		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Bianco");
 
@@ -977,6 +981,8 @@ public class DataBaseManager {
 		prodottoDao.save(prodotto);
 
 		// Mendori
+		
+		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Bianco");
 
@@ -1793,6 +1799,8 @@ public class DataBaseManager {
 		// ----------------------------------------------------------
 
 		// Thera
+		
+		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Marrone");
 
@@ -1806,7 +1814,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Tavolo allungabile Thera di Marelli e Molteni. Il piano, che parte da 180cm e raggiunge una lunghezza massima di 240cm, è sorretto da gambe posizionate obliquamente rispetto al top in modo da creare un incastro geometrico armonico.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentoduepi.it");
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
 
 		prodottoDao.save(prodotto);
 

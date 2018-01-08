@@ -11,7 +11,7 @@ public class testDB {
 		// DROP
 		long startDrop = System.currentTimeMillis();
 
-		dbManager.dropDataBase();
+//		dbManager.dropDataBase();
 
 		long endDrop = System.currentTimeMillis();
 
@@ -21,7 +21,7 @@ public class testDB {
 
 		long startCreate = System.currentTimeMillis();
 
-		dbManager.createDataBase();
+//		dbManager.createDataBase();
 
 		long endCreate = System.currentTimeMillis();
 
@@ -50,7 +50,6 @@ public class testDB {
         dbManager.createVetrine();
 		dbManager.createBagni();
 		dbManager.createCameraDaLetto();
-		dbManager.createPoltrone();
 
 		long endPopulate = System.currentTimeMillis();
 
