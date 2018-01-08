@@ -71,6 +71,7 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+<<<<<<< HEAD
 		// Poltrone e sof‡, Rende
 
 		Venditore poltroneSofa = new Venditore();
@@ -82,6 +83,19 @@ public class DataBaseManager {
 		poltroneSofa.setIndirizzoVenditore("Via Giuseppe Verdi, 9, 87036 Quattromiglia CS");
 
 		venditoreDao.save(poltroneSofa);
+=======
+		// Conforti Arredamenti, Rende
+
+		Venditore arredamentiDuePi = new Venditore();
+		arredamentiDuePi.setNomeNegozio("ArredamentiDuePi");
+		arredamentiDuePi.setNomeTitolare("Bruno");
+		arredamentiDuePi.setCognomeTitolare("Polillo");
+		arredamentiDuePi.setNumeroTelefonicoVenditore("0984 1900082");
+		arredamentiDuePi.setEmailVenditore("info@arredamentiduepi.it");
+		arredamentiDuePi.setIndirizzoVenditore("S.S.19 G.Verdi Rende");
+
+		venditoreDao.save(arredamentiDuePi);
+>>>>>>> SimonBranch
 
 		// ----------------------------------------------------------
 
@@ -153,6 +167,101 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto("Armadio con due ante scorrevoli.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
+		// ARMADI MODULNOVA
+		// ----------------------------------------------------------
+
+		// MH6
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Marrore");
+
+		prodotto.setMarcaProdotto("Modulnova");
+		prodotto.setTipoProdotto("Armadio");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("MH6");
+		prodotto.setPrezzoProdotto(Double.parseDouble("3794.00"));
+		prodotto.setMisureProdotto("500cm x 175cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Cucina ad isola MH6, con basi e fianchi in melaminico lava, top in laminato lava e piano snack in legno invecchiato abete nero.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// Twenty
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Beige");
+
+		prodotto.setMarcaProdotto("Modulnova");
+		prodotto.setTipoProdotto("Armadio");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("Twenty");
+		prodotto.setPrezzoProdotto(Double.parseDouble("4500.00"));
+		prodotto.setMisureProdotto("600cm x 200cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"In resina cemento grigio con lavabo in granito nero assoluto e penisola in legno massello sabbiato.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
+		// ARMADI FLOU
+		// ----------------------------------------------------------
+
+		// Epoque
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Grigio");
+
+		prodotto.setMarcaProdotto("Flou");
+		prodotto.setTipoProdotto("Armadio");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Epoque");
+		prodotto.setPrezzoProdotto(Double.parseDouble("1730.00"));
+		prodotto.setMisureProdotto("288cm x 259cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"E' una gamma di armadi caratterizzata da materiali di pregio, accuratezza delle lavorazioni e ampia modularita e varieta di ante e maniglie.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
+		// ARMADI LEMA
+		// ----------------------------------------------------------
+
+		// Fina
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Grigio");
+
+		prodotto.setMarcaProdotto("Lema");
+		prodotto.setTipoProdotto("Armadio");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Fina");
+		prodotto.setPrezzoProdotto(Double.parseDouble("3400.00"));
+		prodotto.setMisureProdotto("600cm x 450cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Armadio quattro ante scorrevoli in vetro laccato con maniglia integrata nel profilo dellíanta. I pannelli presentano una cornice in alluminio anodizzato naturale.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
 
 		prodottoDao.save(prodotto);
 
@@ -663,6 +772,7 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+<<<<<<< HEAD
 		// CAMERE DA LETTO DUEPI
 		// ----------------------------------------------------------
 
@@ -683,6 +793,29 @@ public class DataBaseManager {
 		cameraLettoTerraR02.setDescrizioneProdotto("Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
 
 		prodottoDao.save(cameraLettoTerraR02);
+=======
+		// CAMERE DA LETTO NARDI INTERNI
+		// ----------------------------------------------------------
+
+		// Terra R02
+
+		cameraDaLetto = new Prodotto();
+
+		cameraDaLetto.setAmbienteProdotto("Camera da Letto");
+		cameraDaLetto.setTipoProdotto("Camera da Letto");
+		cameraDaLetto.setMarcaProdotto("Nardi Interni");
+		cameraDaLetto.setNomeProdotto("Terra R02");
+		cameraDaLetto.getColoriProdotto().add("Lilla");
+		cameraDaLetto.getColoriProdotto().add("Grigio");
+		cameraDaLetto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cameraDaLetto.setPrezzoProdotto(3100.00);
+		cameraDaLetto.setMisureProdotto("-");
+		cameraDaLetto.setDisponibilit‡Prodotto(true);
+		cameraDaLetto.setDescrizioneProdotto(
+				"Spazio Ragazzi Ë un programma completo per la cameretta, che si articola attraverso composizioni con letti a terra, soluzioni con letti inseriti fra o sotto armadi a ponte e composizioni salvaspazio.");
+
+		prodottoDao.save(cameraDaLetto);
+>>>>>>> SimonBranch
 
 		// ----------------------------------------------------------
 
@@ -805,6 +938,65 @@ public class DataBaseManager {
 				"Lampada con struttura cromata e stelo sagomato in pirex trasparente e paralume liscio bianco, giallo o nero.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
+		// ILLUMINAZIONE ARTEMIDE
+		// ----------------------------------------------------------
+
+		// Harry H
+
+		prodotto.getColoriProdotto().add("Argento");
+
+		prodotto.setMarcaProdotto("Artemide");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Harry H");
+		prodotto.setPrezzoProdotto(Double.parseDouble("184.00"));
+		prodotto.setMisureProdotto("47cm D");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"La lampada Harry H. e' un sistema ibrido che affianca LED e OLED valorizzando i pregi delle due tecnologie e combinandoli per offrire il massimo delle performance.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// Lana
+
+		prodotto.getColoriProdotto().add("Bianco");
+
+		prodotto.setMarcaProdotto("Artemide");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Lana");
+		prodotto.setPrezzoProdotto(Double.parseDouble("127.00"));
+		prodotto.setMisureProdotto("12cm x 150cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Uníinnovativa ottica stampata in policarbonato trasparente permette di guidare il flusso emesso dalla sorgente LED fino alla sezione di uscita.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// Mendori
+
+		prodotto.getColoriProdotto().add("Bianco");
+
+		prodotto.setMarcaProdotto("Artemide");
+		prodotto.setTipoProdotto("Illuminazione");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Mendori");
+		prodotto.setPrezzoProdotto(Double.parseDouble("651.00"));
+		prodotto.setMisureProdotto("48cm x 50cm x 44cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Lampada da tavolo Mendori con sorgente a LED 8W, 3000K dimmer. IN-EI Ë un serie di lampade che si declina in tre varianti: a sospensione, da tavolo, da terra.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
 
 		prodottoDao.save(prodotto);
 
@@ -970,6 +1162,52 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+		// LETTI FLOU
+		// ----------------------------------------------------------
+
+		// Angle
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Beige");
+		prodotto.getColoriProdotto().add("Bianco");
+
+		prodotto.setMarcaProdotto("Flou");
+		prodotto.setTipoProdotto("Letto");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Angle");
+		prodotto.setPrezzoProdotto(Double.parseDouble("2670.00"));
+		prodotto.setMisureProdotto("184cm x 235cm x 130cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Letto matrimoniale Angle, previsto in versione semplice o con paravento. La testata imbottita Ë disponibile in versione liscia o trapuntata capitonnÈ con rivestimento totalmente sfoderabile in tessuto o pelle.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// Notturno
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Amaranto");
+
+		prodotto.setMarcaProdotto("Flou");
+		prodotto.setTipoProdotto("Letto");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("Notturno");
+		prodotto.setPrezzoProdotto(Double.parseDouble("2025.00"));
+		prodotto.setMisureProdotto("168cm x 220cm x 92cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
 	}
 
 	public void createScrivanie() {
@@ -1098,6 +1336,47 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+		// SEDIE LEMA
+		// ----------------------------------------------------------
+
+		// Toa
+
+		Prodotto sedia = new Prodotto();
+
+		sedia.setAmbienteProdotto("Soggiorno");
+		sedia.setTipoProdotto("Sedia");
+		sedia.setMarcaProdotto("Lema");
+		sedia.setNomeProdotto("Toa");
+		sedia.getColoriProdotto().add("Nero");
+		sedia.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		sedia.setPrezzoProdotto(270.00);
+		sedia.setMisureProdotto("Misure in cm (LxPxH) 45x51x76");
+		sedia.setDisponibilit‡Prodotto(true);
+		sedia.setDescrizioneProdotto(
+				"Sedia con struttura leggera in metallo con quattro gambe coniche a sezione quadrata a cui si abbinano seduta e schienale in materiale plastico.");
+
+		prodottoDao.save(sedia);
+
+		// FilNoir
+
+		sedia = new Prodotto();
+
+		sedia.setAmbienteProdotto("Soggiorno");
+		sedia.setTipoProdotto("Sedia");
+		sedia.setMarcaProdotto("Lema");
+		sedia.setNomeProdotto("FilNoir");
+		sedia.getColoriProdotto().add("Beige");
+		sedia.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		sedia.setPrezzoProdotto(199.00);
+		sedia.setMisureProdotto("Misure in cm (LxPxH) 58x83x50");
+		sedia.setDisponibilit‡Prodotto(true);
+		sedia.setDescrizioneProdotto(
+				"Sedia con struttura in tubolare metallico verniciato nero opaco con dettagli in metallo finitura black-nikel (anche in oro lucido e bronzo chiaro), seduta e schienali imbottiti e rivestiti in tessuto.");
+
+		prodottoDao.save(sedia);
+
+		// ----------------------------------------------------------
+
 	}
 
 	public void createPoltrone() {
@@ -1124,10 +1403,13 @@ public class DataBaseManager {
 
 		prodottoDao.save(poltrona);
 
+<<<<<<< HEAD
 		// ----------------------------------------------------------
 
 		// POLTRONE LE FABLIER
 		// ----------------------------------------------------------
+=======
+>>>>>>> SimonBranch
 		// PERSICA
 
 		Prodotto poltronaPersica = new Prodotto();
@@ -1269,6 +1551,7 @@ public class DataBaseManager {
 		prodottoDao.save(divanoAlba);
 
 		// ----------------------------------------------------------
+<<<<<<< HEAD
 
 		// DIVANI POLTRONE & SOFA'
 		// ----------------------------------------------------------
@@ -1332,6 +1615,8 @@ public class DataBaseManager {
 		prodottoDao.save(divanoBastiglia);
 
 		// ----------------------------------------------------------
+=======
+>>>>>>> SimonBranch
 
 	}
 
@@ -1450,6 +1735,94 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+		// TAVOLI FIAM
+		// ----------------------------------------------------------
+
+		// Atlas
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Celeste");
+
+		prodotto.setMarcaProdotto("Fiam");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("Atlas");
+		prodotto.setPrezzoProdotto(Double.parseDouble("12600.00"));
+		prodotto.setMisureProdotto("220cm x 100cm x 74cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Tavolo con piano rettangolare in vetro temperato (spessore 20 mm) poggiante su quattro gambe realizzate con sezioni di vetro scolpite a mano e incollate una sullíaltra.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// 3Pod
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Grigio");
+
+		prodotto.setMarcaProdotto("Fiam");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Studio");
+		prodotto.setNomeProdotto("3Pod");
+		prodotto.setPrezzoProdotto(Double.parseDouble("450.00"));
+		prodotto.setMisureProdotto("143cm x 140cm x 73cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"La base del tavolo 3-Pod, si ispira al classico tripode: un segno continuo in acciaio cromato che sorregge un piano (rettangolare, tondo o a goccia) in vetro, legno o laccato.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// Plie
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Marrone");
+
+		prodotto.setMarcaProdotto("Fiam");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Plie");
+		prodotto.setPrezzoProdotto(Double.parseDouble("4080.00"));
+		prodotto.setMisureProdotto("200cm x 100cm x 74cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Tavolo rettangolare con base in vetro fumË e piano in rovere termotrattato. PliË Ë composto da due basi in vetro sagomato e curvato.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
+		// TAVOLI LEMA
+		// ----------------------------------------------------------
+
+		// Thera
+
+		prodotto.getColoriProdotto().add("Marrone");
+
+		prodotto.setMarcaProdotto("Lema");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Cucina");
+		prodotto.setNomeProdotto("Thera");
+		prodotto.setPrezzoProdotto(Double.parseDouble("2570.00"));
+		prodotto.setMisureProdotto("180cm x 90cm x 73cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto(
+				"Tavolo allungabile Thera di Marelli e Molteni. Il piano, che parte da 180cm e raggiunge una lunghezza massima di 240cm, Ë sorretto da gambe posizionate obliquamente rispetto al top in modo da creare un incastro geometrico armonico.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentoduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
 	}
 
 	public void createVetrine() {
@@ -1513,6 +1886,7 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+<<<<<<< HEAD
 		// VETRINE DUE PI
 		// ----------------------------------------------------------
 
@@ -1570,6 +1944,8 @@ public class DataBaseManager {
 
 		prodottoDao.save(vetrinaGalerist);
 
+=======
+>>>>>>> SimonBranch
 	}
 
 	public void dropDataBase() {
