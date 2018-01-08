@@ -257,6 +257,81 @@ public class DataBaseManager {
 
 		prodottoDao.save(prodotto);
 
+		// CASSETTIERE DUE PI
+		// ----------------------------------------------------------
+
+		// Piroette
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Marrore");
+		prodotto.setMarcaProdotto("Porada");
+		prodotto.setTipoProdotto("Cassettiera");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Piroette");
+		prodotto.setPrezzoProdotto(2670.00);
+		prodotto.setMisureProdotto("62x107");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Piroette Ë una cassettiera alta dotata di sette cassetti,"
+				+ " caratterizzata dalla torsione dei frontali e realizzata in massello di noce.");
+
+		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+
+		prodottoDao.save(prodotto);
+
+		// EILEEN
+
+		Prodotto cassettieraEileen = new Prodotto();
+
+		cassettieraEileen.setAmbienteProdotto("Soggiorno");
+		cassettieraEileen.setTipoProdotto("Cassettiera");
+		cassettieraEileen.setMarcaProdotto("Rimadesio");
+		cassettieraEileen.setNomeProdotto("Eileen");
+		cassettieraEileen.getColoriProdotto().add("Grigio");
+		cassettieraEileen.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cassettieraEileen.setPrezzoProdotto(3300.00);
+		cassettieraEileen.setMisureProdotto("200x45x80");
+		cassettieraEileen.setDisponibilit‡Prodotto(true);
+		cassettieraEileen.setDescrizioneProdotto(
+				"Dotata di struttura di sostegno in acciaio inox, due ante scorrevoli complanari in vetro laccato opaco e ripiani interni in vetro laccato.");
+
+		prodottoDao.save(cassettieraEileen);
+
+		// PITAGORA
+
+		Prodotto cassettieraPitagora = new Prodotto();
+
+		cassettieraPitagora.setAmbienteProdotto("Camera da Letto");
+		cassettieraPitagora.setTipoProdotto("Cassettiera");
+		cassettieraPitagora.setMarcaProdotto("Novamobili");
+		cassettieraPitagora.setNomeProdotto("Pitagora");
+		cassettieraPitagora.getColoriProdotto().add("Marrone");
+		cassettieraPitagora.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cassettieraPitagora.setPrezzoProdotto(226.00);
+		cassettieraPitagora.setMisureProdotto("110x53x76");
+		cassettieraPitagora.setDisponibilit‡Prodotto(true);
+		cassettieraPitagora.setDescrizioneProdotto(
+				"Cassettiera a quattro cassetti prevista in due misure nelle finiture ecolegno, materico e laccato opaco.");
+
+		prodottoDao.save(cassettieraPitagora);
+
+		// DOTTY
+
+		Prodotto cassettieraDotty = new Prodotto();
+		cassettieraDotty.setAmbienteProdotto("Camera da Letto");
+		cassettieraDotty.setTipoProdotto("Cassettiera");
+		cassettieraDotty.setMarcaProdotto("Novamobili");
+		cassettieraDotty.setNomeProdotto("Dotty");
+		cassettieraDotty.getColoriProdotto().add("Grigio");
+		cassettieraDotty.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cassettieraDotty.setPrezzoProdotto(497.00);
+		cassettieraDotty.setMisureProdotto("130x53x72");
+		cassettieraDotty.setDisponibilit‡Prodotto(true);
+		cassettieraDotty.setDescrizioneProdotto(
+				"Cassettiera a quatto cassetti laccata opaco. I cassetti inferiori sono dotati di sistema di apertura push-pull.");
+
+		prodottoDao.save(cassettieraDotty);
+
 	}
 
 	public void createComodini() {
@@ -585,6 +660,29 @@ public class DataBaseManager {
 		cameraDaLetto.setDescrizioneProdotto("Camera matrimoniale completa.");
 
 		prodottoDao.save(cameraDaLetto);
+
+		// ----------------------------------------------------------
+
+		// CAMERE DA LETTO DUEPI
+		// ----------------------------------------------------------
+
+		// Terra R02
+		
+		Prodotto cameraLettoTerraR02 = new Prodotto();
+
+		cameraLettoTerraR02.setAmbienteProdotto("Camera da Letto");
+		cameraLettoTerraR02.setTipoProdotto("Camera da Letto");
+		cameraLettoTerraR02.setMarcaProdotto("Nardi Interni");
+		cameraLettoTerraR02.setNomeProdotto("Terra R02");
+		cameraLettoTerraR02.getColoriProdotto().add("Grigio");
+		cameraLettoTerraR02.getColoriProdotto().add("Lilla");
+		cameraLettoTerraR02.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cameraLettoTerraR02.setPrezzoProdotto(2025.00);
+		cameraLettoTerraR02.setMisureProdotto("Misure in cm (LxPxH) 168x220x92");
+		cameraLettoTerraR02.setDisponibilit‡Prodotto(true);
+		cameraLettoTerraR02.setDescrizioneProdotto("Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
+
+		prodottoDao.save(cameraLettoTerraR02);
 
 		// ----------------------------------------------------------
 
@@ -1103,9 +1201,49 @@ public class DataBaseManager {
 		poltronaMedolla.setPrezzoProdotto(1020.00);
 		poltronaMedolla.setMisureProdotto("Larghezza: 84cm, Profondit‡:89cm, Altezza: 100cm");
 		poltronaMedolla.setDisponibilit‡Prodotto(true);
-		poltronaMedolla.setDescrizioneProdotto("L'alto schienale, la seduta e il poggiareni assicurano il massimo comfort.");
+		poltronaMedolla
+				.setDescrizioneProdotto("L'alto schienale, la seduta e il poggiareni assicurano il massimo comfort.");
 
 		prodottoDao.save(poltronaMedolla);
+
+		// POLTRONE DUEPI
+		// ----------------------------------------------------------
+		// CLARISSA
+
+		Prodotto poltronaClarissa = new Prodotto();
+
+		poltronaClarissa.setAmbienteProdotto("Soggiorno");
+		poltronaClarissa.setTipoProdotto("Poltrona");
+		poltronaClarissa.setMarcaProdotto("Bontempi casa");
+		poltronaClarissa.setNomeProdotto("Clarissa");
+		poltronaClarissa.getColoriProdotto().add("Bianco");
+		poltronaClarissa.getColoriProdotto().add("Nero");
+		poltronaClarissa.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		poltronaClarissa.setPrezzoProdotto(747.00);
+		poltronaClarissa.setMisureProdotto("67x92x89");
+		poltronaClarissa.setDisponibilit‡Prodotto(true);
+		poltronaClarissa.setDescrizioneProdotto(
+				"Poltrona sfoderabile con struttura in acciaio laccato bianco o nero. Seduta e schienale sono imbottiti e rivestiti in pelle, ecopelle o tessuto.");
+
+		prodottoDao.save(poltronaClarissa);
+
+		// DAYA
+
+		Prodotto poltronaDaya = new Prodotto();
+
+		poltronaDaya.setAmbienteProdotto("Soggiorno");
+		poltronaDaya.setTipoProdotto("Poltrona");
+		poltronaDaya.setMarcaProdotto("Bontempi casa");
+		poltronaDaya.setNomeProdotto("Daya");
+		poltronaDaya.getColoriProdotto().add("Nero");
+		poltronaDaya.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		poltronaDaya.setPrezzoProdotto(115.00);
+		poltronaDaya.setMisureProdotto("80x80x90");
+		poltronaDaya.setDisponibilit‡Prodotto(true);
+		poltronaDaya.setDescrizioneProdotto(
+				"Poltrona con base centrale girevole in acciaio cromato, scocca con inserto metallico, imbottita in poliuretano flessibile.");
+
+		prodottoDao.save(poltronaDaya);
 
 	}
 
@@ -1173,7 +1311,7 @@ public class DataBaseManager {
 
 		prodottoDao.save(divanoArdiano);
 
-		// ARDIANO
+		// BASTIGLIA
 
 		Prodotto divanoBastiglia = new Prodotto();
 
@@ -1374,6 +1512,63 @@ public class DataBaseManager {
 		prodottoDao.save(vetrinaAbelia);
 
 		// ----------------------------------------------------------
+
+		// VETRINE DUE PI
+		// ----------------------------------------------------------
+
+		// ALAMBRA
+
+		Prodotto vetrinaAlambra = new Prodotto();
+
+		vetrinaAlambra.setAmbienteProdotto("Soggiorno");
+		vetrinaAlambra.setTipoProdotto("Vetrina");
+		vetrinaAlambra.setMarcaProdotto("Le Fablier");
+		vetrinaAlambra.setNomeProdotto("Alambra");
+		vetrinaAlambra.getColoriProdotto().add("Grigio");
+		vetrinaAlambra.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		vetrinaAlambra.setPrezzoProdotto(3600.00);
+		vetrinaAlambra.setMisureProdotto("600x500");
+		vetrinaAlambra.setDisponibilit‡Prodotto(true);
+		vetrinaAlambra.setDescrizioneProdotto(
+				" La proposta a cassetti che si caratterizza per il particolare costruttivo a coda di rondine\" e líescluviso sistema di scorrimento invisibile.");
+
+		prodottoDao.save(vetrinaAlambra);
+
+		// GLANCE
+
+		Prodotto vetrinaGlance = new Prodotto();
+
+		vetrinaGlance.setAmbienteProdotto("Camera da Letto");
+		vetrinaGlance.setTipoProdotto("Vetrina");
+		vetrinaGlance.setMarcaProdotto("Lema");
+		vetrinaGlance.setNomeProdotto("Glance");
+		vetrinaGlance.getColoriProdotto().add("Marrone");
+		vetrinaGlance.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		vetrinaGlance.setPrezzoProdotto(2500.00);
+		vetrinaGlance.setMisureProdotto("120x45x170 ");
+		vetrinaGlance.setDisponibilit‡Prodotto(true);
+		vetrinaGlance.setDescrizioneProdotto(
+				" Vetrina Glance dalle linee scultoree e massicce. Il modello ha struttura in rovere termotrattato, ante in cristallo e perimetro bordato in alluminio bronzato.");
+
+		prodottoDao.save(vetrinaGlance);
+
+		// GALERIST
+
+		Prodotto vetrinaGalerist = new Prodotto();
+
+		vetrinaGalerist.setAmbienteProdotto("Soggiorno");
+		vetrinaGalerist.setTipoProdotto("Vetrina");
+		vetrinaGalerist.setMarcaProdotto("Lema");
+		vetrinaGalerist.setNomeProdotto("Galerist");
+		vetrinaGalerist.getColoriProdotto().add("Argento");
+		vetrinaGalerist.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		vetrinaGalerist.setPrezzoProdotto(6866.00);
+		vetrinaGalerist.setMisureProdotto("110x250");
+		vetrinaGalerist.setDisponibilit‡Prodotto(true);
+		vetrinaGalerist.setDescrizioneProdotto(
+				" Galerist deve il suo nome al modo in cui espone gli oggetti nello spazio: una vetrina che nasce da uno stilema classico e si reinventa per diventare arredo contemporaneo e di design.");
+
+		prodottoDao.save(vetrinaGalerist);
 
 	}
 
