@@ -47,6 +47,8 @@ public class testDB {
 		dbManager.createScrivanie();
 		dbManager.createSedie();
 		dbManager.createBagni();
+		dbManager.createCameraDaLetto();
+		dbManager.createPoltrone();
 
 		long endPopulate = System.currentTimeMillis();
 

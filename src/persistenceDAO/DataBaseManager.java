@@ -56,6 +56,21 @@ public class DataBaseManager {
 		venditoreDao.save(scavoliniCosenza);
 
 		// ----------------------------------------------------------
+
+		// Conforti Arredamenti, Rende
+
+		Venditore confortiArredamenti = new Venditore();
+		confortiArredamenti.setNomeNegozio("Conforti Arredamenti");
+		confortiArredamenti.setNomeTitolare("Andrea");
+		confortiArredamenti.setCognomeTitolare("Conforti");
+		confortiArredamenti.setNumeroTelefonicoVenditore("0984 839164");
+		confortiArredamenti.setEmailVenditore("info@confortiarredamenti.it");
+		confortiArredamenti.setIndirizzoVenditore("S.S 107 Santo Stefano di Rende");
+
+		venditoreDao.save(confortiArredamenti);
+
+		// ----------------------------------------------------------
+
 	}
 
 	public void createArmadi() {
@@ -205,6 +220,29 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+		// CASSETTIERE DALE ITALIA
+		// ----------------------------------------------------------
+
+		// SideBoard A-141
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Marrore");
+		prodotto.getColoriProdotto().add("Griglio");
+
+		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setTipoProdotto("Cassettiera");
+		prodotto.setAmbienteProdotto("Camera da Letto");
+		prodotto.setNomeProdotto("SideBoard A-141");
+		prodotto.setPrezzoProdotto(Double.parseDouble("2570.00"));
+		prodotto.setMisureProdotto("200x80cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Cassettiera molto comoda, stile vintage.");
+
+		prodotto.getVenditoriProdotto().add("info@confortiarredamenti.it");
+
+		prodottoDao.save(prodotto);
+
 	}
 
 	public void createComodini() {
@@ -346,24 +384,24 @@ public class DataBaseManager {
 
 		// Le Gemme Comp 1
 
-		Prodotto cucinaLeGemmeComp1 = new Prodotto();
+		Prodotto cucina = new Prodotto();
 
-		cucinaLeGemmeComp1.setAmbienteProdotto("Cucina");
-		cucinaLeGemmeComp1.setTipoProdotto("Cucina");
-		cucinaLeGemmeComp1.setMarcaProdotto("Le Fablier");
-		cucinaLeGemmeComp1.setNomeProdotto("Composizione 1 - Le Gemme");
-		cucinaLeGemmeComp1.getColoriProdotto().add("Bianco");
-		cucinaLeGemmeComp1.getColoriProdotto().add("Grigio");
-		cucinaLeGemmeComp1.getColoriProdotto().add("Marrone");
-		cucinaLeGemmeComp1.getVenditoriProdotto().add("info@antonellamazzei.it");
-		cucinaLeGemmeComp1.setPrezzoProdotto(7650.00);
-		cucinaLeGemmeComp1.setMisureProdotto("Misure in cm (LxPxH) 540x38/59x216");
-		cucinaLeGemmeComp1.setDisponibilit‡Prodotto(true);
-		cucinaLeGemmeComp1.setDescrizioneProdotto(
+		cucina.setAmbienteProdotto("Cucina");
+		cucina.setTipoProdotto("Cucina");
+		cucina.setMarcaProdotto("Le Fablier");
+		cucina.setNomeProdotto("Composizione 1 - Le Gemme");
+		cucina.getColoriProdotto().add("Bianco");
+		cucina.getColoriProdotto().add("Grigio");
+		cucina.getColoriProdotto().add("Marrone");
+		cucina.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucina.setPrezzoProdotto(7650.00);
+		cucina.setMisureProdotto("Misure in cm (LxPxH) 540x38/59x216");
+		cucina.setDisponibilit‡Prodotto(true);
+		cucina.setDescrizioneProdotto(
 				"Forme e altezze diverse vengono " + "modulate per creare una nuova idea di spazio dove la cucina "
 						+ "diventa anche zona living. Il top.");
 
-		prodottoDao.save(cucinaLeGemmeComp1);
+		prodottoDao.save(cucina);
 
 		// I Ciliegi Comp 1
 
@@ -411,7 +449,7 @@ public class DataBaseManager {
 
 		// Madeleine
 
-		Prodotto cucina = new Prodotto();
+		cucina = new Prodotto();
 
 		cucina.getColoriProdotto().add("Bianco");
 
@@ -466,12 +504,80 @@ public class DataBaseManager {
 				"Cucina Scavolini, modello Grand Relais con ante in finitutra nera, fornita di 2 colonne estraibili da 15cm.");
 
 		prodottoDao.save(cucina);
-		
+
+		// ----------------------------------------------------------
+
+		// CUCINE PEDINI
+		// ----------------------------------------------------------
+
+		// Arke
+
+		cucina = new Prodotto();
+
+		cucina.getColoriProdotto().add("Bianco");
+		cucina.getColoriProdotto().add("Grigio");
+
+		cucina.setAmbienteProdotto("Cucina");
+		cucina.setTipoProdotto("Cucina");
+		cucina.setMarcaProdotto("Pedini");
+		cucina.setNomeProdotto("Arke");
+		cucina.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		cucina.setPrezzoProdotto(9850.00);
+		cucina.setMisureProdotto("800x300cm");
+		cucina.setDisponibilit‡Prodotto(true);
+		cucina.setDescrizioneProdotto(
+				"Arke accosta alla vasta gamma di materiali, finiture e colori una varieta' di legni pregiati, per dar vita a progetti destinati allíeccellenza.");
+
+		prodottoDao.save(cucina);
+
+		// Artika
+
+		cucina = new Prodotto();
+
+		cucina.getColoriProdotto().add("Bianco");
+
+		cucina.setAmbienteProdotto("Cucina");
+		cucina.setTipoProdotto("Cucina");
+		cucina.setMarcaProdotto("Pedini");
+		cucina.setNomeProdotto("Artika");
+		cucina.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		cucina.setPrezzoProdotto(11550.00);
+		cucina.setMisureProdotto("750x250cm");
+		cucina.setDisponibilit‡Prodotto(true);
+		cucina.setDescrizioneProdotto("Artika rappresenta una cucina completa suddivisa in due blocchi.");
+
+		prodottoDao.save(cucina);
+
+	}
+
+	public void createCameraDaLetto() {
+
+		// CAMERE DA LETTO GIESSEGI
+		// ----------------------------------------------------------
+
+		// New Moon
+
+		Prodotto cameraDaLetto = new Prodotto();
+
+		cameraDaLetto.setAmbienteProdotto("Camera da Letto");
+		cameraDaLetto.setTipoProdotto("Camera da Letto");
+		cameraDaLetto.setMarcaProdotto("Giessegi");
+		cameraDaLetto.setNomeProdotto("New Moon");
+		cameraDaLetto.getColoriProdotto().add("Bianco");
+		cameraDaLetto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cameraDaLetto.setPrezzoProdotto(4930.00);
+		cameraDaLetto.setMisureProdotto("Misure in cm (LxPxH) 277x66x262");
+		cameraDaLetto.setDisponibilit‡Prodotto(true);
+		cameraDaLetto.setDescrizioneProdotto("Camera matrimoniale completa.");
+
+		prodottoDao.save(cameraDaLetto);
+
 		// ----------------------------------------------------------
 
 	}
 
 	public void createLibrerie() {
+
 		// LIBRERIE LEFABLIER
 		// ----------------------------------------------------------
 
@@ -862,13 +968,14 @@ public class DataBaseManager {
 
 		Prodotto sediaKunti = new Prodotto();
 
+		sediaKunti.getColoriProdotto().add("Marrone");
+		sediaKunti.getColoriProdotto().add("Bianco");
+		sediaKunti.getColoriProdotto().add("Grigio");
+
 		sediaKunti.setAmbienteProdotto("Sala da Pranzo");
 		sediaKunti.setTipoProdotto("Sedia");
 		sediaKunti.setMarcaProdotto("Le Fablier");
 		sediaKunti.setNomeProdotto("Kunti");
-		sediaKunti.getColoriProdotto().add("Marrone");
-		sediaKunti.getColoriProdotto().add("Bianco");
-		sediaKunti.getColoriProdotto().add("Grigio");
 		sediaKunti.getVenditoriProdotto().add("info@antonellamazzei.it");
 		sediaKunti.setPrezzoProdotto(1436.00);
 		sediaKunti.setMisureProdotto("Misure in cm (LxPxH) 55x56x89");
@@ -882,8 +989,29 @@ public class DataBaseManager {
 	}
 
 	public void createPoltrone() {
-		// POLTRONE LEFABLIER
+
+		// POLTRONE MATERASSI
 		// ----------------------------------------------------------
+
+		// Poltrona Spazio Relax
+
+		Prodotto poltrona = new Prodotto();
+
+		poltrona.getColoriProdotto().add("Rossa");
+
+		poltrona.setAmbienteProdotto("Soggiorno");
+		poltrona.setTipoProdotto("Poltrona");
+		poltrona.setMarcaProdotto("Materassi");
+		poltrona.setNomeProdotto("Poltrona Spazio Relax");
+		poltrona.setPrezzoProdotto(990.00);
+		poltrona.setMisureProdotto("Misure in cm (LxPxH) 78x74x105");
+		poltrona.setDisponibilit‡Prodotto(true);
+		poltrona.setDescrizioneProdotto(
+				"Poltrona con sollevamento, dispone di due motori per muovere indipendentemente schienale e pediera.");
+
+		poltrona.getVenditoriProdotto().add("info@confortiarredamenti.it");
+
+		prodottoDao.save(poltrona);
 
 		//
 		// ----------------------------------------------------------
@@ -980,6 +1108,30 @@ public class DataBaseManager {
 				"Tavolo fisso in rovere dalle linee calde, con dimensioni che rimandano alla lavorazione artigianale.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+
+		prodottoDao.save(prodotto);
+
+		// ----------------------------------------------------------
+
+		// TAVOLI DI LAZZARO
+		// ----------------------------------------------------------
+
+		// Open90
+
+		prodotto = new Prodotto();
+
+		prodotto.getColoriProdotto().add("Grigio");
+
+		prodotto.setMarcaProdotto("Di Lazzaro");
+		prodotto.setTipoProdotto("Tavolo");
+		prodotto.setAmbienteProdotto("Soggiorno");
+		prodotto.setNomeProdotto("Open90");
+		prodotto.setPrezzoProdotto(Double.parseDouble("211.00"));
+		prodotto.setMisureProdotto("110/150cm x 70cm x 76cm");
+		prodotto.setDisponibilit‡Prodotto(true);
+		prodotto.setDescrizioneProdotto("Tavolo allungabile.");
+
+		prodotto.getVenditoriProdotto().add("info@confortiarredamenti.it");
 
 		prodottoDao.save(prodotto);
 
