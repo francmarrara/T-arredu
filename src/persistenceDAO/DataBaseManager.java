@@ -71,6 +71,20 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
+		// Poltrone e sof‡, Rende
+
+		Venditore poltroneSofa = new Venditore();
+		poltroneSofa.setNomeNegozio("Poltrone & Sofa");
+		poltroneSofa.setNomeTitolare("Mario");
+		poltroneSofa.setCognomeTitolare("Rossi");
+		poltroneSofa.setNumeroTelefonicoVenditore("0984 838196");
+		poltroneSofa.setEmailVenditore("info@poltronesofarende.it");
+		poltroneSofa.setIndirizzoVenditore("Via Giuseppe Verdi, 9, 87036 Quattromiglia CS");
+
+		venditoreDao.save(poltroneSofa);
+
+		// ----------------------------------------------------------
+
 	}
 
 	public void createArmadi() {
@@ -1012,6 +1026,10 @@ public class DataBaseManager {
 
 		prodottoDao.save(poltrona);
 
+		// ----------------------------------------------------------
+
+		// POLTRONE LE FABLIER
+		// ----------------------------------------------------------
 		// PERSICA
 
 		Prodotto poltronaPersica = new Prodotto();
@@ -1066,9 +1084,28 @@ public class DataBaseManager {
 
 		prodottoDao.save(poltronaLunetta);
 
-
 		//
 		// ----------------------------------------------------------
+
+		// POLTRONE POLTRONE E SOFA'
+		// ----------------------------------------------------------
+		// MEDOLLA
+
+		Prodotto poltronaMedolla = new Prodotto();
+
+		poltronaMedolla.setAmbienteProdotto("Soggiorno");
+		poltronaMedolla.setTipoProdotto("Poltrona");
+		poltronaMedolla.setMarcaProdotto("Poltrone e Sof‡");
+		poltronaMedolla.setNomeProdotto("Medolla");
+		poltronaMedolla.getColoriProdotto().add("Marrone");
+		poltronaMedolla.getColoriProdotto().add("Grigio");
+		poltronaMedolla.getVenditoriProdotto().add("info@poltronesofarende.it");
+		poltronaMedolla.setPrezzoProdotto(1020.00);
+		poltronaMedolla.setMisureProdotto("Larghezza: 84cm, Profondit‡:89cm, Altezza: 100cm");
+		poltronaMedolla.setDisponibilit‡Prodotto(true);
+		poltronaMedolla.setDescrizioneProdotto("L'alto schienale, la seduta e il poggiareni assicurano il massimo comfort.");
+
+		prodottoDao.save(poltronaMedolla);
 
 	}
 
@@ -1092,6 +1129,69 @@ public class DataBaseManager {
 		divanoAlba.setDescrizioneProdotto("Divano in stile moderno.");
 
 		prodottoDao.save(divanoAlba);
+
+		// ----------------------------------------------------------
+
+		// DIVANI POLTRONE & SOFA'
+		// ----------------------------------------------------------
+
+		// ALBA
+
+		Prodotto divanoAlpe = new Prodotto();
+
+		divanoAlpe.setAmbienteProdotto("Soggiorno");
+		divanoAlpe.setTipoProdotto("Divano");
+		divanoAlpe.setMarcaProdotto("Poltrone & Sof‡");
+		divanoAlpe.setNomeProdotto("Alpe");
+		divanoAlpe.getColoriProdotto().add("Grigio");
+		divanoAlpe.getColoriProdotto().add("Marrone");
+		divanoAlpe.getVenditoriProdotto().add("info@poltronesofarende.it");
+		divanoAlpe.setPrezzoProdotto(544.00);
+		divanoAlpe.setMisureProdotto("Misure: Larghezza:210cm , Profondit‡:	96cm, Altezza:	94cm");
+		divanoAlpe.setDisponibilit‡Prodotto(true);
+		divanoAlpe.setDescrizioneProdotto("Un divano dalle linee morbide e avvolgenti, "
+				+ "ispirato nel nome alla piccola frazione in provincia di Parma.");
+
+		prodottoDao.save(divanoAlpe);
+
+		// ARDIANO
+
+		Prodotto divanoArdiano = new Prodotto();
+
+		divanoArdiano.setAmbienteProdotto("Soggiorno");
+		divanoArdiano.setTipoProdotto("Divano");
+		divanoArdiano.setMarcaProdotto("Poltrone & Sof‡");
+		divanoArdiano.setNomeProdotto("Ardiano");
+		divanoArdiano.getColoriProdotto().add("Rosso");
+		divanoArdiano.getVenditoriProdotto().add("info@poltronesofarende.it");
+		divanoArdiano.setPrezzoProdotto(99.00);
+		divanoArdiano.setMisureProdotto("Misure: Larghezza:	196cm, Profondit‡:	89cm, Altezza:	65cm");
+		divanoArdiano.setDisponibilit‡Prodotto(true);
+		divanoArdiano.setDescrizioneProdotto(
+				"Braccioli e schienali hanno la stessa altezza in questo sof‡ essenziale, con un'immagine giovane ed informale, "
+						+ "che appare rigoroso ma equilibrato nelle sue linee a pozzetto.");
+
+		prodottoDao.save(divanoArdiano);
+
+		// ARDIANO
+
+		Prodotto divanoBastiglia = new Prodotto();
+
+		divanoBastiglia.setAmbienteProdotto("Soggiorno");
+		divanoBastiglia.setTipoProdotto("Divano");
+		divanoBastiglia.setMarcaProdotto("Poltrone & Sof‡");
+		divanoBastiglia.setNomeProdotto("Bastiglia");
+		divanoBastiglia.getColoriProdotto().add("Grigio");
+		divanoBastiglia.getColoriProdotto().add("Bianco");
+		divanoBastiglia.getVenditoriProdotto().add("info@poltronesofarende.it");
+		divanoBastiglia.setPrezzoProdotto(1056.00);
+		divanoBastiglia.setMisureProdotto(" Misure: Larghezza:	248cm, Profondit‡:	154cm, Altezza:	100cm");
+		divanoBastiglia.setDisponibilit‡Prodotto(true);
+		divanoBastiglia
+				.setDescrizioneProdotto("Un divano dalle linee rigorose ed essenziali che prende il nome dal paesino"
+						+ " in provincia di Modena, famoso per il suo santuario.");
+
+		prodottoDao.save(divanoBastiglia);
 
 		// ----------------------------------------------------------
 
