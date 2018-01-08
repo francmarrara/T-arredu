@@ -70,8 +70,6 @@ public class DataBaseManager {
 		venditoreDao.save(confortiArredamenti);
 
 		// ----------------------------------------------------------
-
-<<<<<<< HEAD
 		// Poltrone e sofà, Rende
 
 		Venditore poltroneSofa = new Venditore();
@@ -83,7 +81,7 @@ public class DataBaseManager {
 		poltroneSofa.setIndirizzoVenditore("Via Giuseppe Verdi, 9, 87036 Quattromiglia CS");
 
 		venditoreDao.save(poltroneSofa);
-=======
+		
 		// Conforti Arredamenti, Rende
 
 		Venditore arredamentiDuePi = new Venditore();
@@ -95,7 +93,6 @@ public class DataBaseManager {
 		arredamentiDuePi.setIndirizzoVenditore("S.S.19 G.Verdi Rende");
 
 		venditoreDao.save(arredamentiDuePi);
->>>>>>> SimonBranch
 
 		// ----------------------------------------------------------
 
@@ -772,7 +769,6 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
-<<<<<<< HEAD
 		// CAMERE DA LETTO DUEPI
 		// ----------------------------------------------------------
 
@@ -793,7 +789,6 @@ public class DataBaseManager {
 		cameraLettoTerraR02.setDescrizioneProdotto("Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
 
 		prodottoDao.save(cameraLettoTerraR02);
-=======
 		// CAMERE DA LETTO NARDI INTERNI
 		// ----------------------------------------------------------
 
@@ -815,7 +810,6 @@ public class DataBaseManager {
 				"Spazio Ragazzi è un programma completo per la cameretta, che si articola attraverso composizioni con letti a terra, soluzioni con letti inseriti fra o sotto armadi a ponte e composizioni salvaspazio.");
 
 		prodottoDao.save(cameraDaLetto);
->>>>>>> SimonBranch
 
 		// ----------------------------------------------------------
 
@@ -1403,13 +1397,11 @@ public class DataBaseManager {
 
 		prodottoDao.save(poltrona);
 
-<<<<<<< HEAD
 		// ----------------------------------------------------------
 
 		// POLTRONE LE FABLIER
 		// ----------------------------------------------------------
-=======
->>>>>>> SimonBranch
+		
 		// PERSICA
 
 		Prodotto poltronaPersica = new Prodotto();
@@ -1551,7 +1543,6 @@ public class DataBaseManager {
 		prodottoDao.save(divanoAlba);
 
 		// ----------------------------------------------------------
-<<<<<<< HEAD
 
 		// DIVANI POLTRONE & SOFA'
 		// ----------------------------------------------------------
@@ -1615,8 +1606,6 @@ public class DataBaseManager {
 		prodottoDao.save(divanoBastiglia);
 
 		// ----------------------------------------------------------
-=======
->>>>>>> SimonBranch
 
 	}
 
@@ -1886,7 +1875,6 @@ public class DataBaseManager {
 
 		// ----------------------------------------------------------
 
-<<<<<<< HEAD
 		// VETRINE DUE PI
 		// ----------------------------------------------------------
 
@@ -1896,7 +1884,7 @@ public class DataBaseManager {
 
 		vetrinaAlambra.setAmbienteProdotto("Soggiorno");
 		vetrinaAlambra.setTipoProdotto("Vetrina");
-		vetrinaAlambra.setMarcaProdotto("Le Fablier");
+		vetrinaAlambra.setMarcaProdotto("Lema");
 		vetrinaAlambra.setNomeProdotto("Alambra");
 		vetrinaAlambra.getColoriProdotto().add("Grigio");
 		vetrinaAlambra.getVenditoriProdotto().add("info@arredamentiduepi.it");
@@ -1944,8 +1932,6 @@ public class DataBaseManager {
 
 		prodottoDao.save(vetrinaGalerist);
 
-=======
->>>>>>> SimonBranch
 	}
 
 	public void dropDataBase() {
