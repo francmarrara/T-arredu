@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import model.Carrello;
 import model.Prodotto;
+import model.ProdottoConImmagini;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
@@ -837,4 +839,48 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		return prodotti;
 	}
 
+	@Override
+	public List<ProdottoConImmagini> findAllProductWithImages() {
+		Connection connection = this.dataSource.getConnection();
+		ArrayList<ProdottoConImmagini> prodotti = new ArrayList<ProdottoConImmagini>();
+
+		try {
+
+			PreparedStatement statement;
+			String query = "select * from prodotto";
+			statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+				ProdottoConImmagini prodotto = new ProdottoConImmagini();
+
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+
+				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
+				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
+				statementUrl.setInt(1, prodotto.getIdProdotto());
+
+				ResultSet resultImmagini = statementUrl.executeQuery();
+
+				while (resultImmagini.next()) {
+					prodotto.getUrlImmagini().add(resultImmagini.getString("urlImmagine"));
+
+				}
+				prodotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return prodotti;
+	}
 }
