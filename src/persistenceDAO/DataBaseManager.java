@@ -108,7 +108,7 @@ public class DataBaseManager {
 		// Brahman
 
 		prodotto.getColoriProdotto().add("Marrore");
-		prodotto.getColoriProdotto().add("Griglio");
+		prodotto.getColoriProdotto().add("Grigio");
 		prodotto.getColoriProdotto().add("Bianco");
 
 		prodotto.setMarcaProdotto("Le Fablier");
@@ -286,7 +286,7 @@ public class DataBaseManager {
 		// Ayurveda
 
 		prodotto.getColoriProdotto().add("Marrore");
-		prodotto.getColoriProdotto().add("Griglio");
+		prodotto.getColoriProdotto().add("Grigio");
 		prodotto.getColoriProdotto().add("Bianco");
 
 		prodotto.setMarcaProdotto("Le Fablier");
@@ -309,7 +309,7 @@ public class DataBaseManager {
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Marrore");
-		prodotto.getColoriProdotto().add("Griglio");
+		prodotto.getColoriProdotto().add("Grigio");
 		prodotto.getColoriProdotto().add("Bianco");
 
 		prodotto.setMarcaProdotto("Le Fablier");
@@ -333,7 +333,7 @@ public class DataBaseManager {
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Marrore");
-		prodotto.getColoriProdotto().add("Griglio");
+		prodotto.getColoriProdotto().add("Grigio");
 		prodotto.getColoriProdotto().add("Bianco");
 
 		prodotto.setMarcaProdotto("Le Fablier");
@@ -361,9 +361,9 @@ public class DataBaseManager {
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Marrore");
-		prodotto.getColoriProdotto().add("Griglio");
+		prodotto.getColoriProdotto().add("Grigio");
 
-		prodotto.setMarcaProdotto("Le Fablier");
+		prodotto.setMarcaProdotto("Porada");
 		prodotto.setTipoProdotto("Cassettiera");
 		prodotto.setAmbienteProdotto("Camera da Letto");
 		prodotto.setNomeProdotto("SideBoard A-141");

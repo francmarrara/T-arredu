@@ -69,11 +69,8 @@ public class testDB {
 
 		 long startFindProducts = System.currentTimeMillis();
 
-		 List<Prodotto> prodotti = new ArrayList<Prodotto>();
-		 for(int i =6;i<89;i++) {
-			 prodotti.add(dbManager.getProdottoDao().findByPrimaryKey(i));
-		 }
-
+		 List<Prodotto> prodotti = dbManager.getProdottoDao().findAll();
+	
 		
 		 long endFindProducts = System.currentTimeMillis();
 		
