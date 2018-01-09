@@ -82,7 +82,7 @@ public class DataBaseManager {
 
 		venditoreDao.save(poltroneSofa);
 		
-		// Conforti Arredamenti, Rende
+		// Arredamenti due pi, Rende
 
 		Venditore arredamentiDuePi = new Venditore();
 		arredamentiDuePi.setNomeNegozio("ArredamentiDuePi");
