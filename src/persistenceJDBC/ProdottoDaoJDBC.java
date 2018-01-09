@@ -137,6 +137,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				
 				while (resultImmagini.next()) {
 					prodotto.getUrlImmaginiProdotto().add(resultImmagini.getString("urlImmagine"));
+					System.out.println("entra");
 
 				}
 				
