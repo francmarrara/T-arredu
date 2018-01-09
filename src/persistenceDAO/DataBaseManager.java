@@ -81,7 +81,7 @@ public class DataBaseManager {
 		poltroneSofa.setIndirizzoVenditore("Via Giuseppe Verdi, 9, 87036 Quattromiglia CS");
 
 		venditoreDao.save(poltroneSofa);
-		
+
 		// Arredamenti due pi, Rende
 
 		Venditore arredamentiDuePi = new Venditore();
@@ -120,6 +120,8 @@ public class DataBaseManager {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Dettagli eleganti ed essenziali per líarmadio a due ante scorrevoli \r\n"
 				+ "Brahman dove un sottile profilo attraversa le ante scandendone la superficie in due parti.");
+		prodotto.getUrlImmaginiProdotto().add("Brahman_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Brahman_02.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
 
@@ -144,6 +146,9 @@ public class DataBaseManager {
 						+ "ed elegante frutto della maestria artigianale made in Le Fablier.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Giove_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Giove_02.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Giove_03.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -162,6 +167,8 @@ public class DataBaseManager {
 		prodotto.setMisureProdotto("300cm x 65cm x 255cm");
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Armadio con due ante scorrevoli.");
+		prodotto.getUrlImmaginiProdotto().add("Astro_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Astro_02.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
 
@@ -189,7 +196,7 @@ public class DataBaseManager {
 				"Cucina ad isola MH6, con basi e fianchi in melaminico lava, top in laminato lava e piano snack in legno invecchiato abete nero.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Mh6_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Twenty
@@ -209,6 +216,7 @@ public class DataBaseManager {
 				"In resina cemento grigio con lavabo in granito nero assoluto e penisola in legno massello sabbiato.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getUrlImmaginiProdotto().add("Twenty_01.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -234,6 +242,7 @@ public class DataBaseManager {
 				"E' una gamma di armadi caratterizzata da materiali di pregio, accuratezza delle lavorazioni e ampia modularita e varieta di ante e maniglie.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getUrlImmaginiProdotto().add("Epoque_01.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -259,6 +268,7 @@ public class DataBaseManager {
 				"Armadio quattro ante scorrevoli in vetro laccato con maniglia integrata nel profilo dellíanta. I pannelli presentano una cornice in alluminio anodizzato naturale.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getUrlImmaginiProdotto().add("Fina_01.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -290,6 +300,7 @@ public class DataBaseManager {
 				+ "avvolgono la forma, giochi di trasparenze e di dettagli sussurrati.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Ayurveda_01.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -311,6 +322,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Funzionalit‡ ed estetica sono racchiuse nel settimino Atha, dove i 7 cassetti sono intervallati \r\n"
 						+ "solo da una delicata fascia a definire la cura e la maestria della lavorazione del rovere, oltre al top a vassoio.");
+		prodotto.getUrlImmaginiProdotto().add("Atha_01.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
 
@@ -333,6 +345,7 @@ public class DataBaseManager {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto(
 				"Superfici che si incontrano e si abbracciano, accostate per generare nuove forme e nuovi dettagli.");
+		prodotto.getUrlImmaginiProdotto().add("Zen_01.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
 
@@ -360,6 +373,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto("Cassettiera molto comoda, stile vintage.");
 
 		prodotto.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		prodotto.getUrlImmaginiProdotto().add("SideBoard_01.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -380,6 +394,7 @@ public class DataBaseManager {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Piroette Ë una cassettiera alta dotata di sette cassetti,"
 				+ " caratterizzata dalla torsione dei frontali e realizzata in massello di noce.");
+		prodotto.getUrlImmaginiProdotto().add("Piroette_01.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
 
@@ -400,6 +415,7 @@ public class DataBaseManager {
 		cassettieraEileen.setDisponibilit‡Prodotto(true);
 		cassettieraEileen.setDescrizioneProdotto(
 				"Dotata di struttura di sostegno in acciaio inox, due ante scorrevoli complanari in vetro laccato opaco e ripiani interni in vetro laccato.");
+		cassettieraEileen.getUrlImmaginiProdotto().add("Eileen_01.jpg");
 
 		prodottoDao.save(cassettieraEileen);
 
@@ -418,6 +434,7 @@ public class DataBaseManager {
 		cassettieraPitagora.setDisponibilit‡Prodotto(true);
 		cassettieraPitagora.setDescrizioneProdotto(
 				"Cassettiera a quattro cassetti prevista in due misure nelle finiture ecolegno, materico e laccato opaco.");
+		cassettieraPitagora.getUrlImmaginiProdotto().add("Pitagora_01.jpg");
 
 		prodottoDao.save(cassettieraPitagora);
 
@@ -435,7 +452,7 @@ public class DataBaseManager {
 		cassettieraDotty.setDisponibilit‡Prodotto(true);
 		cassettieraDotty.setDescrizioneProdotto(
 				"Cassettiera a quatto cassetti laccata opaco. I cassetti inferiori sono dotati di sistema di apertura push-pull.");
-
+		cassettieraDotty.getUrlImmaginiProdotto().add("Dotty_01");
 		prodottoDao.save(cassettieraDotty);
 
 	}
@@ -459,6 +476,7 @@ public class DataBaseManager {
 		comodinoSamsara.setDisponibilit‡Prodotto(true);
 		comodinoSamsara.setDescrizioneProdotto("Piccolo scrigno di dettagli. Non solo comodino, "
 				+ "ma emblema della ricerca della cura del dettaglio.");
+		comodinoSamsara.getUrlImmaginiProdotto().add("Samsara_01.jpg");
 
 		prodottoDao.save(comodinoSamsara);
 
@@ -480,7 +498,7 @@ public class DataBaseManager {
 		comodinoZaffiro.setDisponibilit‡Prodotto(true);
 		comodinoZaffiro.setDescrizioneProdotto(
 				"Comodino con tre cassetti, circondati da uníelegante " + "cornice arrotondata e dolcemente morbida. ");
-
+		comodinoZaffiro.getUrlImmaginiProdotto().add("Zaffiro_01.jpg");
 		prodottoDao.save(comodinoZaffiro);
 
 		// Giglio
@@ -500,7 +518,7 @@ public class DataBaseManager {
 		comodinoGiglio.setDisponibilit‡Prodotto(true);
 		comodinoGiglio.setDescrizioneProdotto("Giglio Ë un comodo tavolino rotondo con piano díappoggio,"
 				+ "la cui funzione Ë adattabile a diversi ambienti.");
-
+		comodinoGiglio.getUrlImmaginiProdotto().add("Giglio_01.jpg");
 		prodottoDao.save(comodinoGiglio);
 
 		// ----------------------------------------------------------
@@ -529,7 +547,7 @@ public class DataBaseManager {
 				.setDescrizioneProdotto("Un elegante gioco di superfici rivela i cassetti centrali che racchiudono"
 						+ " la sartorialit‡ artigianale della lavorazione del rovere, cosÏ come il ricercato top"
 						+ " a vassoio, il delicato profilo che abbraccia tutto il mobile e lo zoccolo con piedi");
-
+		credenzaDyhana.getUrlImmaginiProdotto().add("Dyhana_01.jpg");
 		prodottoDao.save(credenzaDyhana);
 
 		// Gaya
@@ -549,6 +567,9 @@ public class DataBaseManager {
 		credenzaGaya.setDescrizioneProdotto("La bellezza e líeleganza della forma pura,"
 				+ " essenziale, che mostra tutta la sua forza espressiva Ë il segreto della credenza Gaya.");
 
+		credenzaGaya.getUrlImmaginiProdotto().add("Gaya_01.jpg");
+		credenzaGaya.getUrlImmaginiProdotto().add("Gaya_02.jpg");
+
 		prodottoDao.save(credenzaGaya);
 
 		// Clematide
@@ -567,7 +588,7 @@ public class DataBaseManager {
 		credenzaClematide.setDisponibilit‡Prodotto(true);
 		credenzaClematide.setDescrizioneProdotto("La credenza Clematide, Ë una credenza "
 				+ "dallíaspetto rigoroso caratterizzata da una particolare anta scorrevole a pannelli in noce canaletto");
-
+		credenzaClematide.getUrlImmaginiProdotto().add("Clematide_01.jpg");
 		prodottoDao.save(credenzaClematide);
 
 	}
@@ -595,6 +616,8 @@ public class DataBaseManager {
 		cucina.setDescrizioneProdotto(
 				"Forme e altezze diverse vengono " + "modulate per creare una nuova idea di spazio dove la cucina "
 						+ "diventa anche zona living. Il top.");
+		cucina.getUrlImmaginiProdotto().add("LeGemme_01.jpg");
+		cucina.getUrlImmaginiProdotto().add("LeGemme_02.jpg");
 
 		prodottoDao.save(cucina);
 
@@ -613,6 +636,9 @@ public class DataBaseManager {
 		cucinaICigliegiComp1.setDisponibilit‡Prodotto(true);
 		cucinaICigliegiComp1.setDescrizioneProdotto("Una cucina, che nasce dal gusto "
 				+ "tradizionale  di un tempo, in cui qualit‡ e materiale " + "fanno da protagonisti.");
+		cucinaICigliegiComp1.getUrlImmaginiProdotto().add("iCiliegi_01.jpg");
+		cucinaICigliegiComp1.getUrlImmaginiProdotto().add("iCiliegi_02.jpg");
+		cucinaICigliegiComp1.getUrlImmaginiProdotto().add("iCiliegi_03.jpg");
 
 		prodottoDao.save(cucinaICigliegiComp1);
 
@@ -634,6 +660,8 @@ public class DataBaseManager {
 		cucinaMelogranoComp1.setDescrizioneProdotto("Cucina Componibile. La struttura dei mobili"
 				+ " e dei ripiani Ë realizzata con pannelli in particelle di legno"
 				+ " a bassa emissione di formaldeide (classe E 1).");
+		cucinaMelogranoComp1.getUrlImmaginiProdotto().add("Melograno_01.jpg");
+		cucinaMelogranoComp1.getUrlImmaginiProdotto().add("Melograno_02.jpg");
 
 		prodottoDao.save(cucinaMelogranoComp1);
 
@@ -659,7 +687,7 @@ public class DataBaseManager {
 		cucina.setDescrizioneProdotto(
 				"Cucina Scavolini modello Madeleine angolare in legno castagno con tavolo e n.4 sedie.\n"
 						+ "N.2 pensili a vetrina, colonna frigo comprensiva di frigorifero Ariston. Lavello Franke 2 vasche in Fragranite.");
-
+		cucina.getUrlImmaginiProdotto().add("Madeleiene_01.jpg");
 		prodottoDao.save(cucina);
 
 		// Sax
@@ -678,7 +706,7 @@ public class DataBaseManager {
 		cucina.setDisponibilit‡Prodotto(true);
 		cucina.setDescrizioneProdotto(
 				"La cucina ideale per chi ama líessenzialitaí delle forme,il design semplice ed attuale. Il modello Sax appartenendo alla linea ìBasicî , ha dei costi molto contenuti,pur avendo a disposizione svariate finiture e numerose varianti di colore.");
-
+		cucina.getUrlImmaginiProdotto().add("Sax_01.jpg");
 		prodottoDao.save(cucina);
 
 		// Grand Relais
@@ -697,7 +725,7 @@ public class DataBaseManager {
 		cucina.setDisponibilit‡Prodotto(true);
 		cucina.setDescrizioneProdotto(
 				"Cucina Scavolini, modello Grand Relais con ante in finitutra nera, fornita di 2 colonne estraibili da 15cm.");
-
+		cucina.getUrlImmaginiProdotto().add("Grand_Relais_01.jpg");
 		prodottoDao.save(cucina);
 
 		// ----------------------------------------------------------
@@ -722,7 +750,7 @@ public class DataBaseManager {
 		cucina.setDisponibilit‡Prodotto(true);
 		cucina.setDescrizioneProdotto(
 				"Arke accosta alla vasta gamma di materiali, finiture e colori una varieta' di legni pregiati, per dar vita a progetti destinati allíeccellenza.");
-
+		cucina.getUrlImmaginiProdotto().add("Arke_01.jpg");
 		prodottoDao.save(cucina);
 
 		// Artika
@@ -740,6 +768,7 @@ public class DataBaseManager {
 		cucina.setMisureProdotto("750x250cm");
 		cucina.setDisponibilit‡Prodotto(true);
 		cucina.setDescrizioneProdotto("Artika rappresenta una cucina completa suddivisa in due blocchi.");
+		cucina.getUrlImmaginiProdotto().add("Artika_01.jpg");
 
 		prodottoDao.save(cucina);
 
@@ -764,7 +793,7 @@ public class DataBaseManager {
 		cameraDaLetto.setMisureProdotto("Misure in cm (LxPxH) 277x66x262");
 		cameraDaLetto.setDisponibilit‡Prodotto(true);
 		cameraDaLetto.setDescrizioneProdotto("Camera matrimoniale completa.");
-
+		cameraDaLetto.getUrlImmaginiProdotto().add("NewMoon_01.jpg");
 		prodottoDao.save(cameraDaLetto);
 
 		// ----------------------------------------------------------
@@ -773,7 +802,7 @@ public class DataBaseManager {
 		// ----------------------------------------------------------
 
 		// Terra R02
-		
+
 		Prodotto cameraLettoTerraR02 = new Prodotto();
 
 		cameraLettoTerraR02.setAmbienteProdotto("Camera da Letto");
@@ -786,20 +815,22 @@ public class DataBaseManager {
 		cameraLettoTerraR02.setPrezzoProdotto(2025.00);
 		cameraLettoTerraR02.setMisureProdotto("Misure in cm (LxPxH) 168x220x92");
 		cameraLettoTerraR02.setDisponibilit‡Prodotto(true);
-		cameraLettoTerraR02.setDescrizioneProdotto("Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
-
+		cameraLettoTerraR02.setDescrizioneProdotto(
+				"Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
+		cameraLettoTerraR02.getUrlImmaginiProdotto().add("TerraR02_01.jpg");
 		prodottoDao.save(cameraLettoTerraR02);
+
 		// CAMERE DA LETTO NARDI INTERNI
 		// ----------------------------------------------------------
 
-		// Terra R02
+		// Terra R04
 
 		cameraDaLetto = new Prodotto();
 
 		cameraDaLetto.setAmbienteProdotto("Camera da Letto");
 		cameraDaLetto.setTipoProdotto("Camera da Letto");
 		cameraDaLetto.setMarcaProdotto("Nardi Interni");
-		cameraDaLetto.setNomeProdotto("Terra R02");
+		cameraDaLetto.setNomeProdotto("Terra R04");
 		cameraDaLetto.getColoriProdotto().add("Lilla");
 		cameraDaLetto.getColoriProdotto().add("Grigio");
 		cameraDaLetto.getVenditoriProdotto().add("info@arredamentiduepi.it");
@@ -808,7 +839,7 @@ public class DataBaseManager {
 		cameraDaLetto.setDisponibilit‡Prodotto(true);
 		cameraDaLetto.setDescrizioneProdotto(
 				"Spazio Ragazzi Ë un programma completo per la cameretta, che si articola attraverso composizioni con letti a terra, soluzioni con letti inseriti fra o sotto armadi a ponte e composizioni salvaspazio.");
-
+		cameraDaLetto.getUrlImmaginiProdotto().add("TerraR04_01.jpg");
 		prodottoDao.save(cameraDaLetto);
 
 		// ----------------------------------------------------------
@@ -838,7 +869,7 @@ public class DataBaseManager {
 		libreriaVeda.setDescrizioneProdotto(
 				"Libreria a giorno realizzata con struttura in legno massello di Rovere. Le superfici sono trattate"
 						+ "con finiture speciali per esaltare la venatura del legno.");
-
+		libreriaVeda.getUrlImmaginiProdotto().add("Veda_01.jpg");
 		prodottoDao.save(libreriaVeda);
 
 		// ----------------------------------------------------------
@@ -870,6 +901,10 @@ public class DataBaseManager {
 				+ "paralume in tessuto con filo e prese in coordinato con il paralume.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Hari_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Hari_02.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Hari_03.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Hari_04.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -889,9 +924,9 @@ public class DataBaseManager {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto(
 				"Lampada da tavolo con struttra in pirex trasparente e bicchiere interno bianco, ambra o blu.");
-
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Reishi_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Reishi_02.jpg");
 		prodottoDao.save(prodotto);
 
 		// Zeta
@@ -908,9 +943,9 @@ public class DataBaseManager {
 		prodotto.setMisureProdotto("21cm x 21cm x 52cm");
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Lampada da comodino con struttura cromata e paralume in lino avorio.");
-
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Zeta_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Zeta_02.jpg");
 		prodottoDao.save(prodotto);
 
 		// Miss
@@ -933,6 +968,10 @@ public class DataBaseManager {
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
 
+		prodotto.getUrlImmaginiProdotto().add("Miss_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Miss_02.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Miss_03.jpg");
+
 		prodottoDao.save(prodotto);
 
 		// ----------------------------------------------------------
@@ -941,7 +980,7 @@ public class DataBaseManager {
 		// ----------------------------------------------------------
 
 		// Harry H
-		
+
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Argento");
@@ -957,11 +996,11 @@ public class DataBaseManager {
 				"La lampada Harry H. e' un sistema ibrido che affianca LED e OLED valorizzando i pregi delle due tecnologie e combinandoli per offrire il massimo delle performance.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("HarryH_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Lana
-		
+
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Bianco");
@@ -977,11 +1016,12 @@ public class DataBaseManager {
 				"Uníinnovativa ottica stampata in policarbonato trasparente permette di guidare il flusso emesso dalla sorgente LED fino alla sezione di uscita.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getUrlImmaginiProdotto().add("Lana_01.jpg");
 
 		prodottoDao.save(prodotto);
 
 		// Mendori
-		
+
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Bianco");
@@ -995,6 +1035,7 @@ public class DataBaseManager {
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto(
 				"Lampada da tavolo Mendori con sorgente a LED 8W, 3000K dimmer. IN-EI Ë un serie di lampade che si declina in tre varianti: a sospensione, da tavolo, da terra.");
+		prodotto.getUrlImmaginiProdotto().add("Mendori_01.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
 
@@ -1025,7 +1066,7 @@ public class DataBaseManager {
 		bagno.setDisponibilit‡Prodotto(true);
 		bagno.setDescrizioneProdotto(
 				"Questa composizione del modello idro di Scavolini Bathrooms offre la possibilit‡ di creare eleganti soluzioni d'arredo anche per gli spazi ridotti.");
-
+		bagno.getUrlImmaginiProdotto().add("Idro_01.jpg");
 		prodottoDao.save(bagno);
 
 		// Lagu
@@ -1044,6 +1085,7 @@ public class DataBaseManager {
 		bagno.setDisponibilit‡Prodotto(true);
 		bagno.setDescrizioneProdotto(
 				"Composizione molto attuale e completa particolarmente adatta a bagni abbastanza stretti.");
+		bagno.getUrlImmaginiProdotto().add("Lagu_01.jpg");
 
 		prodottoDao.save(bagno);
 
@@ -1063,6 +1105,7 @@ public class DataBaseManager {
 		bagno.setDisponibilit‡Prodotto(true);
 		bagno.setDescrizioneProdotto(
 				"Altissima qualit‡ per líarredo bagno Scavolini modello Rivo impiallacciato legno. Base lavabo impiallacciata legno laccato opaco Frassino Visone composta da due basi con cassettoni.");
+		bagno.getUrlImmaginiProdotto().add("Rivo_01.jpg");
 
 		prodottoDao.save(bagno);
 
@@ -1091,7 +1134,7 @@ public class DataBaseManager {
 				"Uníelegante bordatura in Rovere massello racchiude la preziosit‡ della ricercata imbottitura della testata del letto Deva.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Deva_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Sunrise
@@ -1110,6 +1153,8 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto("Letto con giroletto e testata sagomata imbottiti.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Sunrise_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Sunrise_02.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -1134,6 +1179,7 @@ public class DataBaseManager {
 						+ "richiama le linee morbide e delicatamente voluttuose della testata e della pediera.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Silicio_01.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -1157,6 +1203,9 @@ public class DataBaseManager {
 				"Il letto Ligustro si compone di una testiera dalla forma rettilinea e squadrata, rifinita da una sofisticata imbottitura che avvolge anche la struttura del letto.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Ligustro_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Ligustro_02.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Ligustro_03.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -1183,7 +1232,7 @@ public class DataBaseManager {
 				"Letto matrimoniale Angle, previsto in versione semplice o con paravento. La testata imbottita Ë disponibile in versione liscia o trapuntata capitonnÈ con rivestimento totalmente sfoderabile in tessuto o pelle.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Angle_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Notturno
@@ -1203,7 +1252,7 @@ public class DataBaseManager {
 				"Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Notturno_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// ----------------------------------------------------------
@@ -1230,6 +1279,10 @@ public class DataBaseManager {
 		scrivaniaAtlas.setDisponibilit‡Prodotto(true);
 		scrivaniaAtlas.setDescrizioneProdotto("Scrivania in linea classica.");
 
+		scrivaniaAtlas.getUrlImmaginiProdotto().add("Atlas_01.jpg");
+		scrivaniaAtlas.getUrlImmaginiProdotto().add("Atlas_02.jpg");
+		scrivaniaAtlas.getUrlImmaginiProdotto().add("Atlas_03.jpg");
+
 		prodottoDao.save(scrivaniaAtlas);
 
 		// Summer
@@ -1248,6 +1301,8 @@ public class DataBaseManager {
 		scrivaniaSummer.setDisponibilit‡Prodotto(true);
 		scrivaniaSummer.setDescrizioneProdotto("Summer Ë una scrivania dallíaspetto scultoreo, perfetta allíinterno "
 				+ "dello studio in cui si mostra in tutta la sua maestosit‡.");
+		scrivaniaSummer.getUrlImmaginiProdotto().add("Summer_01.jpg");
+		scrivaniaSummer.getUrlImmaginiProdotto().add("Summer_02.jpg");
 
 		prodottoDao.save(scrivaniaSummer);
 
@@ -1267,7 +1322,7 @@ public class DataBaseManager {
 		scrivaniaYoga.setDisponibilit‡Prodotto(true);
 		scrivaniaYoga.setDescrizioneProdotto("Forma sinuosa e ricercata per lo scrittoio Yoga,"
 				+ " che unisce la funzionalit‡ alla ricerca estetica.");
-
+		scrivaniaYoga.getUrlImmaginiProdotto().add("Yoga_01.jpg");
 		prodottoDao.save(scrivaniaYoga);
 
 		// ----------------------------------------------------------
@@ -1294,7 +1349,7 @@ public class DataBaseManager {
 		sediaMeissa.setMisureProdotto("Misure in cm (LxPxH) 46x49x92");
 		sediaMeissa.setDisponibilit‡Prodotto(true);
 		sediaMeissa.setDescrizioneProdotto("Sedia con seduta imbottita in tessuto o pelle.");
-
+		sediaMeissa.getUrlImmaginiProdotto().add("Meissa_01.jpg");
 		prodottoDao.save(sediaMeissa);
 
 		// Margherita
@@ -1311,7 +1366,7 @@ public class DataBaseManager {
 		sediaMargherita.setMisureProdotto("Misure in cm (LxPxH) 60x53x96");
 		sediaMargherita.setDisponibilit‡Prodotto(true);
 		sediaMargherita.setDescrizioneProdotto("Sedia capotavola con seduta imbottita rivestita in tessuto.");
-
+		sediaMargherita.getUrlImmaginiProdotto().add("Margherita_01.jpg");
 		prodottoDao.save(sediaMargherita);
 
 		// Kunti
@@ -1331,7 +1386,7 @@ public class DataBaseManager {
 		sediaKunti.setMisureProdotto("Misure in cm (LxPxH) 55x56x89");
 		sediaKunti.setDisponibilit‡Prodotto(true);
 		sediaKunti.setDescrizioneProdotto("Profilo essenziale ma solido per una seduta importante.");
-
+		sediaKunti.getUrlImmaginiProdotto().add("Kunti_01.jpg");
 		prodottoDao.save(sediaKunti);
 
 		// ----------------------------------------------------------
@@ -1354,17 +1409,17 @@ public class DataBaseManager {
 		sedia.setDisponibilit‡Prodotto(true);
 		sedia.setDescrizioneProdotto(
 				"Sedia con struttura leggera in metallo con quattro gambe coniche a sezione quadrata a cui si abbinano seduta e schienale in materiale plastico.");
-
+		sedia.getUrlImmaginiProdotto().add("Toa_01.jpg");
 		prodottoDao.save(sedia);
 
-		// FilNoir
+		// FillNoir
 
 		sedia = new Prodotto();
 
 		sedia.setAmbienteProdotto("Soggiorno");
 		sedia.setTipoProdotto("Sedia");
 		sedia.setMarcaProdotto("Lema");
-		sedia.setNomeProdotto("FilNoir");
+		sedia.setNomeProdotto("FillNoir");
 		sedia.getColoriProdotto().add("Beige");
 		sedia.getVenditoriProdotto().add("info@arredamentiduepi.it");
 		sedia.setPrezzoProdotto(199.00);
@@ -1372,7 +1427,7 @@ public class DataBaseManager {
 		sedia.setDisponibilit‡Prodotto(true);
 		sedia.setDescrizioneProdotto(
 				"Sedia con struttura in tubolare metallico verniciato nero opaco con dettagli in metallo finitura black-nikel (anche in oro lucido e bronzo chiaro), seduta e schienali imbottiti e rivestiti in tessuto.");
-
+		sedia.getUrlImmaginiProdotto().add("FilNoir_1.jpg");
 		prodottoDao.save(sedia);
 
 		// ----------------------------------------------------------
@@ -1400,14 +1455,14 @@ public class DataBaseManager {
 				"Poltrona con sollevamento, dispone di due motori per muovere indipendentemente schienale e pediera.");
 
 		poltrona.getVenditoriProdotto().add("info@confortiarredamenti.it");
-
+		poltrona.getUrlImmaginiProdotto().add("SpazioRelax_01.jpg");
 		prodottoDao.save(poltrona);
 
 		// ----------------------------------------------------------
 
 		// POLTRONE LE FABLIER
 		// ----------------------------------------------------------
-		
+
 		// PERSICA
 
 		Prodotto poltronaPersica = new Prodotto();
@@ -1424,7 +1479,8 @@ public class DataBaseManager {
 		poltronaPersica.setDisponibilit‡Prodotto(true);
 		poltronaPersica.setDescrizioneProdotto("La poltrona girevole Persica, dallo spirito versatile, Ë un"
 				+ " elemento díarredo perfetto per líufficio ma anche per la casa. ");
-
+		poltronaPersica.getUrlImmaginiProdotto().add("Persica_01.jpg");
+		poltronaPersica.getUrlImmaginiProdotto().add("Persica_02.jpg");
 		prodottoDao.save(poltronaPersica);
 
 		// APOLLO
@@ -1442,7 +1498,7 @@ public class DataBaseManager {
 		poltronaApollo.setDisponibilit‡Prodotto(true);
 		poltronaApollo.setDescrizioneProdotto(
 				"Linee nette per la poltroncina Apollo, " + "un elemento díarredo dalla forma pulita e scultorea.");
-
+		poltronaApollo.getUrlImmaginiProdotto().add("Apollo_01.jpg");
 		prodottoDao.save(poltronaApollo);
 
 		// LUNETTA
@@ -1459,7 +1515,7 @@ public class DataBaseManager {
 		poltronaLunetta.setMisureProdotto("Misure in cm (LxPxH) 68x77x81");
 		poltronaLunetta.setDisponibilit‡Prodotto(true);
 		poltronaLunetta.setDescrizioneProdotto("Lunetta Ë una comoda poltroncina" + " dallo stile contemporaneo.");
-
+		poltronaLunetta.getUrlImmaginiProdotto().add("Lunetta_01.jpg");
 		prodottoDao.save(poltronaLunetta);
 
 		//
@@ -1483,7 +1539,9 @@ public class DataBaseManager {
 		poltronaMedolla.setDisponibilit‡Prodotto(true);
 		poltronaMedolla
 				.setDescrizioneProdotto("L'alto schienale, la seduta e il poggiareni assicurano il massimo comfort.");
-
+		poltronaMedolla.getUrlImmaginiProdotto().add("Medolla_01.jpg");
+		poltronaMedolla.getUrlImmaginiProdotto().add("Medolla_02.jpg");
+		poltronaMedolla.getUrlImmaginiProdotto().add("Medolla_03.jpg");
 		prodottoDao.save(poltronaMedolla);
 
 		// POLTRONE DUEPI
@@ -1504,7 +1562,7 @@ public class DataBaseManager {
 		poltronaClarissa.setDisponibilit‡Prodotto(true);
 		poltronaClarissa.setDescrizioneProdotto(
 				"Poltrona sfoderabile con struttura in acciaio laccato bianco o nero. Seduta e schienale sono imbottiti e rivestiti in pelle, ecopelle o tessuto.");
-
+		poltronaClarissa.getUrlImmaginiProdotto().add("Clarissa_01.jpg");
 		prodottoDao.save(poltronaClarissa);
 
 		// DAYA
@@ -1522,7 +1580,7 @@ public class DataBaseManager {
 		poltronaDaya.setDisponibilit‡Prodotto(true);
 		poltronaDaya.setDescrizioneProdotto(
 				"Poltrona con base centrale girevole in acciaio cromato, scocca con inserto metallico, imbottita in poliuretano flessibile.");
-
+		poltronaDaya.getUrlImmaginiProdotto().add("Daya_01.jpg");
 		prodottoDao.save(poltronaDaya);
 
 	}
@@ -1545,6 +1603,9 @@ public class DataBaseManager {
 		divanoAlba.setMisureProdotto("Misure (LxPxH) in cm 244x105x98");
 		divanoAlba.setDisponibilit‡Prodotto(true);
 		divanoAlba.setDescrizioneProdotto("Divano in stile moderno.");
+
+		divanoAlba.getUrlImmaginiProdotto().add("Alba_01.jpg");
+		divanoAlba.getUrlImmaginiProdotto().add("Alba_02.jpg");
 
 		prodottoDao.save(divanoAlba);
 
@@ -1570,6 +1631,10 @@ public class DataBaseManager {
 		divanoAlpe.setDescrizioneProdotto("Un divano dalle linee morbide e avvolgenti, "
 				+ "ispirato nel nome alla piccola frazione in provincia di Parma.");
 
+		divanoAlpe.getUrlImmaginiProdotto().add("Alpe_01.jpg");
+		divanoAlpe.getUrlImmaginiProdotto().add("Alpe_02.jpg");
+		divanoAlpe.getUrlImmaginiProdotto().add("Alpe_03.jpg");
+
 		prodottoDao.save(divanoAlpe);
 
 		// ARDIANO
@@ -1588,7 +1653,10 @@ public class DataBaseManager {
 		divanoArdiano.setDescrizioneProdotto(
 				"Braccioli e schienali hanno la stessa altezza in questo sof‡ essenziale, con un'immagine giovane ed informale, "
 						+ "che appare rigoroso ma equilibrato nelle sue linee a pozzetto.");
-
+		divanoArdiano.getUrlImmaginiProdotto().add("Ardiano_01.jpg");
+		divanoArdiano.getUrlImmaginiProdotto().add("Ardiano_02.jpg");
+		divanoArdiano.getUrlImmaginiProdotto().add("Ardiano_03.jpg");
+		divanoArdiano.getUrlImmaginiProdotto().add("Ardiano_04.jpg");
 		prodottoDao.save(divanoArdiano);
 
 		// BASTIGLIA
@@ -1608,6 +1676,9 @@ public class DataBaseManager {
 		divanoBastiglia
 				.setDescrizioneProdotto("Un divano dalle linee rigorose ed essenziali che prende il nome dal paesino"
 						+ " in provincia di Modena, famoso per il suo santuario.");
+		divanoBastiglia.getUrlImmaginiProdotto().add("Bastiglia_01.jpg");
+		divanoBastiglia.getUrlImmaginiProdotto().add("Bastiglia_02.jpg");
+		divanoBastiglia.getUrlImmaginiProdotto().add("Bastiglia_03.jpg");
 
 		prodottoDao.save(divanoBastiglia);
 
@@ -1639,7 +1710,8 @@ public class DataBaseManager {
 						+ "conferiscono alla composizione una linea morbida ed elegante.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Ekanta_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Ekanta_02.jpg");
 		prodottoDao.save(prodotto);
 
 		// Tulipano
@@ -1659,6 +1731,8 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto("Tavolo rettangolare allungabile, struttura in legno massello di ciliegio.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getUrlImmaginiProdotto().add("Tulipano_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("Tulipano_02.jpg");
 
 		prodottoDao.save(prodotto);
 
@@ -1680,7 +1754,7 @@ public class DataBaseManager {
 				"Forma quadrata e accuratezza dei dettagli rendono il tavolo Cartesio un elemento di charme che diventa protagonista in ogni ambiente.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Cartesio_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Muschio
@@ -1701,7 +1775,7 @@ public class DataBaseManager {
 				"Tavolo fisso in rovere dalle linee calde, con dimensioni che rimandano alla lavorazione artigianale.");
 
 		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Muschio_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// ----------------------------------------------------------
@@ -1723,6 +1797,7 @@ public class DataBaseManager {
 		prodotto.setMisureProdotto("110/150cm x 70cm x 76cm");
 		prodotto.setDisponibilit‡Prodotto(true);
 		prodotto.setDescrizioneProdotto("Tavolo allungabile.");
+		prodotto.getUrlImmaginiProdotto().add("Open90_01.jpg");
 
 		prodotto.getVenditoriProdotto().add("info@confortiarredamenti.it");
 
@@ -1751,6 +1826,7 @@ public class DataBaseManager {
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
 
+		prodotto.getUrlImmaginiProdotto().add("AtlasTavolo_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// 3Pod
@@ -1770,7 +1846,7 @@ public class DataBaseManager {
 				"La base del tavolo 3-Pod, si ispira al classico tripode: un segno continuo in acciaio cromato che sorregge un piano (rettangolare, tondo o a goccia) in vetro, legno o laccato.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("3Ppod_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Plie
@@ -1790,7 +1866,7 @@ public class DataBaseManager {
 				"Tavolo rettangolare con base in vetro fumË e piano in rovere termotrattato. PliË Ë composto da due basi in vetro sagomato e curvato.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Plie_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// ----------------------------------------------------------
@@ -1799,7 +1875,7 @@ public class DataBaseManager {
 		// ----------------------------------------------------------
 
 		// Thera
-		
+
 		prodotto = new Prodotto();
 
 		prodotto.getColoriProdotto().add("Marrone");
@@ -1815,7 +1891,7 @@ public class DataBaseManager {
 				"Tavolo allungabile Thera di Marelli e Molteni. Il piano, che parte da 180cm e raggiunge una lunghezza massima di 240cm, Ë sorretto da gambe posizionate obliquamente rispetto al top in modo da creare un incastro geometrico armonico.");
 
 		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
-
+		prodotto.getUrlImmaginiProdotto().add("Thera_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// ----------------------------------------------------------
@@ -1841,6 +1917,8 @@ public class DataBaseManager {
 		vetrinaAmbrosia.setMisureProdotto("Misure in cm (LxPxH) 68x45x207");
 		vetrinaAmbrosia.setDisponibilit‡Prodotto(true);
 		vetrinaAmbrosia.setDescrizioneProdotto("Argentiera 1 anta dx/sx.");
+		vetrinaAmbrosia.getUrlImmaginiProdotto().add("Ambrosia_01.jpg");
+		vetrinaAmbrosia.getUrlImmaginiProdotto().add("Ambrosia_02.jpg");
 
 		prodottoDao.save(vetrinaAmbrosia);
 
@@ -1859,7 +1937,7 @@ public class DataBaseManager {
 		vetrinaBali.setDisponibilit‡Prodotto(true);
 		vetrinaBali.setDescrizioneProdotto(
 				"Eleganza e design moderno sono" + " racchiuse nellíargentiera a due ante Bali.");
-
+		vetrinaBali.getUrlImmaginiProdotto().add("Bali_01.jpg");
 		prodottoDao.save(vetrinaBali);
 
 		// ABELIA
@@ -1878,7 +1956,7 @@ public class DataBaseManager {
 		vetrinaAbelia.setDescrizioneProdotto(
 				"La vetrina Abelia, Ë una vetrina a colonna caratterizzata da una slanciata anta, inserite"
 						+ " in una elegante struttura in legno di frassino spazzolato.");
-
+		vetrinaAbelia.getUrlImmaginiProdotto().add("Abelia_01.jpg");
 		prodottoDao.save(vetrinaAbelia);
 
 		// ----------------------------------------------------------
@@ -1901,7 +1979,7 @@ public class DataBaseManager {
 		vetrinaAlambra.setDisponibilit‡Prodotto(true);
 		vetrinaAlambra.setDescrizioneProdotto(
 				" La proposta a cassetti che si caratterizza per il particolare costruttivo a coda di rondine\" e líescluviso sistema di scorrimento invisibile.");
-
+		vetrinaAlambra.getUrlImmaginiProdotto().add("Alambra_01.jpg");
 		prodottoDao.save(vetrinaAlambra);
 
 		// GLANCE
@@ -1919,7 +1997,7 @@ public class DataBaseManager {
 		vetrinaGlance.setDisponibilit‡Prodotto(true);
 		vetrinaGlance.setDescrizioneProdotto(
 				" Vetrina Glance dalle linee scultoree e massicce. Il modello ha struttura in rovere termotrattato, ante in cristallo e perimetro bordato in alluminio bronzato.");
-
+		vetrinaGlance.getUrlImmaginiProdotto().add("Glance_01.jpg");
 		prodottoDao.save(vetrinaGlance);
 
 		// GALERIST
@@ -1937,7 +2015,7 @@ public class DataBaseManager {
 		vetrinaGalerist.setDisponibilit‡Prodotto(true);
 		vetrinaGalerist.setDescrizioneProdotto(
 				" Galerist deve il suo nome al modo in cui espone gli oggetti nello spazio: una vetrina che nasce da uno stilema classico e si reinventa per diventare arredo contemporaneo e di design.");
-
+		vetrinaGalerist.getUrlImmaginiProdotto().add("Galerist_01.jpg");
 		prodottoDao.save(vetrinaGalerist);
 
 	}
