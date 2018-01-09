@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Prodotto;
+import model.ProdottoConImmagini;
 import persistenceDAO.DataBaseManager;
 
 public class testDB {
