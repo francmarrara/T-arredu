@@ -32,7 +32,7 @@ public class Prodotto {
 		urlImmaginiProdotto = new ArrayList<String>();
 		coloriProdotto = new ArrayList<String>();
 		venditoriProdotto = new ArrayList<String>();
-		
+
 	}
 
 	// Getter & Setter
@@ -68,7 +68,6 @@ public class Prodotto {
 		this.ambienteProdotto = ambienteProdotto;
 	}
 
-
 	public Double getPrezzoProdotto() {
 		return prezzoProdotto;
 	}
@@ -93,7 +92,6 @@ public class Prodotto {
 		this.descrizioneProdotto = descrizioneProdotto;
 	}
 
-
 	public ArrayList<String> getUrlImmaginiProdotto() {
 		return urlImmaginiProdotto;
 	}
@@ -117,9 +115,9 @@ public class Prodotto {
 	public void setTipoProdotto(String tipoProdotto) {
 		this.tipoProdotto = tipoProdotto;
 	}
-	
-	 public void stampaProdotto() {
-		 
+
+	public void stampaProdotto() {
+
 		System.out.println("Id : " + idProdotto);
 		System.out.println("Nome : " + nomeProdotto);
 		System.out.println("Tipo : " + tipoProdotto);
@@ -129,8 +127,22 @@ public class Prodotto {
 		System.out.println("Misure : " + misureProdotto);
 		System.out.println("Disponibilit‡ : " + disponibilit‡Prodotto);
 		System.out.println("Descrizione : " + descrizioneProdotto);
-		System.out.println();	
+		System.out.println("IMMAGINI : ");
+		System.out.println("----------------");
+		for (String s : urlImmaginiProdotto) {
+			System.out.println(s);
 		}
+		System.out.println("----------------");
+		System.out.println();
+
+		System.out.println("COLORI : ");
+		System.out.println("----------------");
+		for (String s : coloriProdotto) {
+			System.out.println(s);
+		}
+		System.out.println("----------------");
+		System.out.println();
+	}
 
 	public ArrayList<String> getColoriProdotto() {
 		return coloriProdotto;

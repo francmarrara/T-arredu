@@ -148,7 +148,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("coloreProdotto"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
@@ -229,7 +229,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
@@ -313,7 +313,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("coloreProdotto"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
@@ -487,7 +487,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
@@ -573,7 +573,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
@@ -659,7 +659,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("coloreProdotto"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
@@ -744,7 +744,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				ResultSet resultColor = statementColor.executeQuery();
 				
 				while (resultColor.next()) {
-					prodotto.getUrlImmaginiProdotto().add(resultColor.getString("urlImmagine"));
+					prodotto.getColoriProdotto().add(resultColor.getString("coloreProdotto"));
 
 				}
 
