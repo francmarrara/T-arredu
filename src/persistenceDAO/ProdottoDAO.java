@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Carrello;
 import model.Prodotto;
+import model.ProdottoConImmagini;
 import model.Venditore;
 
 public interface ProdottoDAO {
@@ -22,6 +23,8 @@ public interface ProdottoDAO {
 
 	public List<Prodotto> findAll();
 
+	public List<ProdottoConImmagini> findAllProductWithImages();
+	
 	public void update(Prodotto prodotto); // Update
 
 	public void delete(Prodotto prodotto); // Delete

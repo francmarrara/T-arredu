@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Prodotto;
+import model.ProdottoConImmagini;
 import persistenceDAO.DataBaseManager;
 
 public class testDB {
@@ -70,7 +71,7 @@ public class testDB {
 		 long startFindProducts = System.currentTimeMillis();
 
 
-		 List<Prodotto> prodotti = dbManager.getProdottoDao().findAll();
+		 List<ProdottoConImmagini> prodotti= dbManager.getProdottoDao().findAllProductWithImages();
 	
 		
 		 long endFindProducts = System.currentTimeMillis();
@@ -78,7 +79,7 @@ public class testDB {
 		 System.out.println("Il Find ha impiegato " + (endFindProducts -
 		 startFindProducts) / 1000 + " secondi");
 		
-     for(Prodotto p : prodotti) {
+     for(ProdottoConImmagini p : prodotti) {
     	 p.stampaProdotto();
      }
 	}
