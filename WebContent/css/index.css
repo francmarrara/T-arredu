@@ -1,63 +1,105 @@
-@charset "UTF-8";
-
-/* Remove the navbar's default rounded borders and increase the bottom margin */
-
-.navbar {
-    border-radius: 0;
-    z-index: 500;
-}
-
-
-/* Remove the jumbotron's default bottom margin */
-
-.jumbotron {
-    margin-bottom: 0;
-    margin-top: 10;
-}
-
-
-/* Add a gray background color and some padding to the footer */
-
-footer {
-    background-color: #f2f2f2;
-    padding: 25px;
-}
-
-
-/* Carrello */
-
-.carrello {
-    background-color: rgb(121, 4, 4);
-}
-
-
-/* Mouse che passa sulle voci del navbar */
-
-.navbar li:hover {
-    background-color: rgb(121, 4, 4);
-}
-
-.container {}
-
-.affix {
-    top: 0;
-    width: 100%;
-}
-
-.affix+.container-fluid {
-    padding-top: 70px;
-}
-
-header {
-    background-color: #F44336;
-    color: #fff;
-    height: 50px;
-}
-
-#share-buttons img {
-    width: 60px;
-    padding: 5px;
-    border: 0;
-    box-shadow: 0;
-    display: inline;
-}
+    @charset "UTF-8";
+    .navbar {
+        border-radius: 0;
+        z-index: 500;
+    }
+    
+    header {
+        background-color: #F44336;
+        color: #fff;
+        height: 50px;
+    }
+    
+    .jumbotron {
+        margin-bottom: 10;
+        margin-top: 10;
+    }
+    
+    body {
+        background-image: url("images/bodyBackground.jpg");
+        background-repeat: repeat;
+        background-color: #cccccc;
+    }
+    
+    footer {
+        background-color: #f2f2f2;
+        padding: 25px;
+    }
+    /* Carousel */
+    
+    #myCarousel {}
+    /* Carrello */
+    
+    .carrello {
+        background-color: rgb(121, 4, 4);
+    }
+    /* Mouse che passa sulle voci del navbar */
+    
+    .navbar li:hover {
+        background-color: rgb(121, 4, 4);
+    }
+    /* Per l'allineamento del navbar */
+    
+    .affix {
+        top: 0;
+        width: 100%;
+    }
+    
+    .affix+.container-fluid {
+        padding-top: 70px;
+    }
+    
+    #share-buttons img {
+        width: 60px;
+        padding: 5px;
+        border: 0;
+        box-shadow: 0;
+        display: inline;
+    }
+    /* Container dei prodotti in offerta */
+    
+    .offerte {
+        border-color: black;
+        border-style: groove;
+        width: max-content;
+        height: 430px;
+    }
+    /* Slider dei prodotti in offerta */
+    
+    .slider {
+        border-color: rgb(58, 52, 52);
+        border-style: groove;
+        width: auto;
+        height: 30%;
+        margin: 20px auto;
+        text-align: center;
+        padding: 20px;
+        color: rgb(0, 0, 0);
+    }
+    /* Tasto mostra tutti prodotti in offerta */
+    
+    .tuttiProdottiInOfferta {
+        color: rgb(0, 0, 0);
+        float: right;
+        padding: 5px;
+    }
+    /* Sfondo della pagina */
+    
+    #bg {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    #bg img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: -10;
+        >>>>>>>SimonBranch
+    }
