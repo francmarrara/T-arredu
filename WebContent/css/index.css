@@ -1,7 +1,8 @@
     @charset "UTF-8";
     .navbar {
         border-radius: 0;
-        z-index: 500;
+        z-index: 10;
+        box-shadow: 5px 4px 5px #000;
     }
     
     header {
@@ -13,6 +14,7 @@
     .jumbotron {
         margin-bottom: 10;
         margin-top: 10;
+        box-shadow: 5px 4px 5px #000;
     }
     
     body {
@@ -35,8 +37,10 @@
     }
     /* Mouse che passa sulle voci del navbar */
     
-    .navbar li:hover {
+    .navbar .navbarOggetto:hover {
         background-color: rgb(121, 4, 4);
+        border-bottom: 2px solid rgb(255, 255, 255);
+        box-shadow: 5px 4px 5px #000;
     }
     /* Per l'allineamento del navbar */
     
@@ -101,5 +105,10 @@
         bottom: 0;
         margin: auto;
         z-index: -10;
-        >>>>>>>SimonBranch
+    }
+    /* Menu catalogo prodotti */
+    
+    .dropdown-menu {
+        width: 1000px;
+        height: 1000px;
     }

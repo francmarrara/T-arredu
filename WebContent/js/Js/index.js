@@ -20,10 +20,19 @@ $(document).ready(function() {
     window.onload = function() {
         $('.slider').slick({
             autoplay: true,
-            autoplaySpeed: 1500,
+            autoplaySpeed: 1300,
             centerMode: true,
             slidesToShow: 3,
             slidesToScroll: 1
         });
     };
+});
+
+// Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
+$(document).ready(function() {
+    $("#catalogoProdotti").hover(function() {
+        $(this).find("#menuProdotti").show(400);
+    }, function() {
+        $(this).find("#menuProdotti").hide(400);
+    });
 });
