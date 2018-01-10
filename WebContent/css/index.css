@@ -1,27 +1,35 @@
 @charset "UTF-8";
-
-/* Remove the navbar's default rounded borders and increase the bottom margin */
-
 .navbar {
     border-radius: 0;
     z-index: 500;
 }
 
-
-/* Remove the jumbotron's default bottom margin */
+header {
+    background-color: #F44336;
+    color: #fff;
+    height: 50px;
+}
 
 .jumbotron {
-    margin-bottom: 0;
+    margin-bottom: 10;
     margin-top: 10;
 }
 
-
-/* Add a gray background color and some padding to the footer */
+body {
+    background-image: url("images/bodyBackground.jpg");
+    background-repeat: repeat;
+    background-color: #cccccc;
+}
 
 footer {
     background-color: #f2f2f2;
     padding: 25px;
 }
+
+
+/* Carousel */
+
+#myCarousel {}
 
 
 /* Carrello */
@@ -37,7 +45,8 @@ footer {
     background-color: rgb(121, 4, 4);
 }
 
-.container {}
+
+/* Per l'allineamento del navbar */
 
 .affix {
     top: 0;
@@ -48,8 +57,37 @@ footer {
     padding-top: 70px;
 }
 
-header {
-    background-color: #F44336;
-    color: #fff;
-    height: 50px;
+
+/* Container dei prodotti in offerta */
+
+.offerte {
+    border-color: black;
+    border-style: groove;
+    width: max-content;
+    height: 430px;
 }
+
+
+/* Slider dei prodotti in offerta */
+
+.slider {
+    border-color: rgb(58, 52, 52);
+    border-style: groove;
+    width: auto;
+    height: 30%;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+}
+
+
+/* Tasto mostra tutti prodotti in offerta */
+
+.tuttiProdottiInOfferta {
+    color: rgb(0, 0, 0);
+    float: right;
+    padding: 5px;
+}
+
+.btn btn-primary {}
