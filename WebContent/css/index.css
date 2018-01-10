@@ -110,5 +110,34 @@
     
     .dropdown-menu {
         width: 1000px;
-        height: 1000px;
+        height: 380px;
+    }
+    /* Nomi delle catergorie del menu prodotti */
+    
+    .NomiCategorie {
+        color: rgb(121, 4, 4);
+        font-family: "Century Gothic", Times, serif;
+    }
+    /* Singole categorie, marche e ambienti del menu prodotti */
+    
+    .oggettiCategorie {
+        color: rgb(34, 30, 30);
+        font-family: "Book Antiqua", Times, serif;
+        font-size: 15px;
+    }
+    
+    .oggettiCategorie:hover {
+        color: rgb(121, 4, 4);
+    }
+    /* Le colonne del menu dei prodotti */
+    
+    #listaMenu {
+        height: 340px;
+        border-left: 1px solid rgb(109, 97, 97);
+    }
+    /* Quando passo sopra alle colonne del menu dei prodotti */
+    
+    #listaMenu:hover {
+        border-bottom: 2px solid rgb(255, 255, 255);
+        box-shadow: 5px 4px 5px #000;
     }
