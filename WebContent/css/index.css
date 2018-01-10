@@ -73,7 +73,7 @@
     .slider {
         border-color: rgb(58, 52, 52);
         border-style: groove;
-        width: auto;
+        width: 1000px;
         height: 30%;
         margin: 20px auto;
         text-align: center;
