@@ -60,34 +60,6 @@
         box-shadow: 0;
         display: inline;
     }
-    /* Container dei prodotti in offerta */
-    
-    .offerte {
-        border-color: black;
-        border-style: groove;
-        width: max-content;
-        height: 430px;
-        box-shadow: 0 100px 106px 0 rgba(138, 97, 97, 0.2), 0 6px 20px 0 rgba(187, 105, 105, 0.19);
-    }
-    /* Slider dei prodotti in offerta */
-    
-    .slider {
-        border-color: rgb(58, 52, 52);
-        border-style: groove;
-        width: 1100px;
-        height: 40%;
-        margin: 20px auto;
-        text-align: center;
-        padding: 10px;
-        color: rgb(0, 0, 0);
-    }
-    /* Tasto mostra tutti prodotti in offerta */
-    
-    .tuttiProdottiInOfferta {
-        color: rgb(0, 0, 0);
-        float: right;
-        padding: 5px;
-    }
     /* Sfondo della pagina */
     
     #bg {
@@ -152,14 +124,7 @@
         color: white;
         text-shadow: 2px 2px 4px rgb(121, 4, 4);
     }
-    /* Contorno della sezione dei prodotti in offerta */
-    
-    .offerte {
-        background-color: #eeeeee;
-        border-radius: 10px;
-        border-style: outset;
-    }
-    /* Singolo prodotto piu visto */
+    /* Singolo prodotto in offerta */
     
     .coupon {
         border: 5px outset #bbb;
@@ -192,12 +157,12 @@
         padding-bottom: 35px;
     }
     
-    .bottoneProdottoPiuVisto {
+    .bottoneProdottoInOfferta {
         padding-block-end: 5px;
         float: right;
     }
     
-    .titoloArticoloProdottoPiuVisto {
+    .titoloArticoloInOfferta {
         color: rgb(121, 4, 4);
     }
     
@@ -205,5 +170,90 @@
         background: #ccc;
         padding: 3px;
     }
+
+    /* Contorno della sezione dei prodotti piu visti */
     
-    .separatore {}
+    .piuVisti,
+    #contornoSezionePiuVisti {
+        background-color: #eeeeee;
+        border-radius: 10px;
+        border-style: outset;
+    }
+    /* Slider dei prodotti piu visti */
+    
+    .slider {
+        border-color: rgb(58, 52, 52);
+        border-style: outset;
+        border-radius: 10px;
+        width: 1100px;
+        height: 40%;
+        margin: 20px auto;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    #sliderProdottoPiuVisti {
+        background-color: #eeeeee;
+        border-color: rgb(121, 4, 4);
+        border-radius: 10px;
+        border-style: outset;
+    }
+    /* Tasto mostra tutti prodotti piu visti */
+    
+    .tuttiProdottiPiuVisti {
+        color: rgb(0, 0, 0);
+        float: right;
+        padding: 3.5px;
+    }
+    /* Footer */
+    
+    footer {
+        height: 200px;
+    }
+    
+    .bottoneTornaSu {
+        height: 50px;
+        width: 1349px;
+        padding: 10px;
+    }
+    /* Social Media icons */
+    
+    .fa {
+        padding: 10px;
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+    }
+    
+    .fa:hover {
+        opacity: 0.7;
+    }
+    
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+    
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+    
+    .fa-google {
+        background: #dd4b39;
+        color: white;
+    }
+    
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+    
+    .fa-rss {
+        background: #ff6600;
+        color: white;
+    }
+
