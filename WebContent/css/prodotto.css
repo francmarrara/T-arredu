@@ -1,31 +1,28 @@
- /* Carousel */
- 
- #myCarousel {}
- /* Carrello */
- 
- .marca_prodotto {}
- 
- .product_name {
-     padding-top: 10%;
- }
- 
- .container {
-     padding-left: 0px;
-     padding-right: 0px;
-     max-width: 100%;
- }
- 
- .descrizione {
-     padding-top: 25%;
-     padding-left: 10%;
- }
- 
- .separatore {
-     border: 2px;
-     width: 1100px;
-     border-style: solid;
- }
- 
- .product-price {
-     font-style: italic;
- }
+/* Carousel */
+
+#myCarousel {}
+
+
+/* Carrello */
+
+.product_name {
+    padding-top: 10%;
+}
+
+.separatore {
+    border: 2px;
+    width: 1100px;
+    border-style: solid;
+}
+
+.menu_basso {
+    padding-top: 2%;
+}
+
+.checked {
+    color: yellow;
+}
+
+.descrizione {
+    padding-top: 12%
+}
