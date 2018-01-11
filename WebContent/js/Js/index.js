@@ -22,6 +22,7 @@ $(document).ready(function() {
             autoplay: true,
             autoplaySpeed: 1300,
             centerMode: true,
+            dots: true,
             slidesToShow: 3,
             slidesToScroll: 1
         });
@@ -31,8 +32,8 @@ $(document).ready(function() {
 // Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
 $(document).ready(function() {
     $("#catalogoProdotti").hover(function() {
-        $(this).find("#menuProdotti").show(400);
+        $(this).find("#menuProdotti").show(250);
     }, function() {
-        $(this).find("#menuProdotti").hide(400);
+        $(this).find("#menuProdotti").hide(250);
     });
 });

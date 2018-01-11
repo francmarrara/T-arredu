@@ -67,17 +67,18 @@
         border-style: groove;
         width: max-content;
         height: 430px;
+        box-shadow: 0 100px 106px 0 rgba(138, 97, 97, 0.2), 0 6px 20px 0 rgba(187, 105, 105, 0.19);
     }
     /* Slider dei prodotti in offerta */
     
     .slider {
         border-color: rgb(58, 52, 52);
         border-style: groove;
-        width: 1000px;
-        height: 30%;
+        width: 1100px;
+        height: 40%;
         margin: 20px auto;
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         color: rgb(0, 0, 0);
     }
     /* Tasto mostra tutti prodotti in offerta */
@@ -111,6 +112,7 @@
     .dropdown-menu {
         width: 1000px;
         height: 380px;
+        z-index: 10;
     }
     /* Nomi delle catergorie del menu prodotti */
     
@@ -140,4 +142,66 @@
     #listaMenu:hover {
         border-bottom: 2px solid rgb(255, 255, 255);
         box-shadow: 5px 4px 5px #000;
+    }
+    /* Nomi delle sezioni di prodotti nella home */
+    
+    .nomiSezioniProdotti {
+        color: wheat;
+        font-family: "Century Gothic", Times, serif;
+        padding-left: 105px;
+        color: white;
+        text-shadow: 2px 2px 4px rgb(121, 4, 4);
+    }
+    /* Contorno della sezione dei prodotti in offerta */
+    
+    .offerte {
+        background-color: #eeeeee;
+        border-radius: 10px;
+        border-style: outset;
+    }
+    /* Singolo prodotto piu visto */
+    
+    .coupon {
+        border: 5px outset #bbb;
+        width: 300px;
+        height: 540px;
+        border-radius: 15px;
+        margin: 0 0;
+        max-width: 600px;
+    }
+    
+    .containerLogo {
+        padding: 2px 16px;
+        background-color: #f1f1f1;
+    }
+    
+    .coupon img {
+        width: 290px;
+        height: 300px;
+    }
+    
+    .containerTitoloETesto {
+        background-color: #f1f1f1;
+        padding: 5px;
+    }
+    
+    .containerPrezzoEData {
+        background-color: rgb(121, 4, 4);
+        color: #f1f1f1;
+        padding: 3px;
+        padding-bottom: 35px;
+    }
+    
+    .bottoneProdottoPiuVisto {
+        padding-block-end: 5px;
+        float: right;
+    }
+    
+    .titoloArticoloProdottoPiuVisto {
+        color: rgb(121, 4, 4);
+    }
+    
+    .prezzo {
+        background: #ccc;
+        padding: 3px;
     }

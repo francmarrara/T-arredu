@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="js/Js/index.js"></script>
 
-
     <link rel="shortcut icon" href="images/T'arreduLogo.png">
 
 </head>
@@ -234,63 +233,188 @@
 
     <!-- Area prodotti home -->
     <!-- Prodotti in offerta -->
-    <div class="container offerte">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="slider">
-                    <div class="slide">
-                        <img src="images/resizedProduct/Epoque_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+    <h2 class="nomiSezioniProdotti">Prodotti in offerta</h4>
+        <div class="container offerte">
+            <div class="row">
+                <div class="col-sm-12" id="contornoSezioneOfferte">
+                    <div class="slider">
+                        <div class="slide">
+                            <img src="images/resizedProduct/Epoque_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+                        </div>
+                        <div class="slide">
+                            <img src="images/resizedProduct/Angle_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+                        </div>
+                        <div class="slide">
+                            <img src="images/resizedProduct/Plie_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+                        </div>
+                        <div class="slide">
+                            <img src="images/resizedProduct/Clarissa_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+                        </div>
+                        <div class="slide">
+                            <img src="images/resizedProduct/Gaya_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+                        </div>
                     </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Angle_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Plie_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Clarissa_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Gaya_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                </div>
-                <button type="button" class="btn btn-primary tuttiProdottiInOfferta">Mostra tutti</button>
-            </div>
-        </div>
-    </div><br> -->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                    <button type="button" class="btn btn-primary tuttiProdottiInOfferta">Mostra tutti</button>
                 </div>
             </div>
         </div>
-    </div><br><br>
+        <br>
 
-    <footer class="text-center">
-        <p>Online Store Copyright</p>
-        <form class="form-inline">Get deals:
-            <input type="email" class="form-control" size="50" placeholder="Email Address">
-            <button type="button" class="btn btn-danger">Sign Up</button>
-        </form>
-    </footer>
+        <!-- Prodotti con piu commenti -->
+        <h2 class="nomiSezioniProdotti">Più visti</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="coupon">
+                            <div class="containerLogo">
+                                <h4>Company Logo</h4>
+                            </div>
+                            <img class="immagineProdottoPiuVisto" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+                            <div class="containerTitoloETesto">
+                                <div class="titoloArticoloProdottoPiuVisto">
+                                    <h4>TITOLO 1</h4>
+                                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                                </div>
+                            </div>
+                            <div class="containerPrezzoEData">
+                                <p>Prezzo: <span class="prezzo">----$</span></p>
+                                <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="coupon">
+                            <div class="containerLogo">
+                                <h4>Company Logo</h4>
+                            </div>
+                            <img class="immagineProdottoPiuVisto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                            <div class="containerTitoloETesto">
+                                <div class="titoloArticoloProdottoPiuVisto">
+                                    <h4>TITOLO 1</h4>
+                                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                                </div>
+                            </div>
+                            <div class="containerPrezzoEData">
+                                <p>Prezzo: <span class="prezzo">----$</span></p>
+                                <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="coupon">
+                            <div class="containerLogo">
+                                <h4>Company Logo</h4>
+                            </div>
+                            <img class="immagineProdottoPiuVisto" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
+                            <div class="containerTitoloETesto">
+                                <div class="titoloArticoloProdottoPiuVisto">
+                                    <h4>TITOLO 1</h4>
+                                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                                </div>
+                            </div>
+                            <div class="containerPrezzoEData">
+                                <p>Prezzo: <span class="prezzo">----$</span></p>
+                                <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="coupon">
+                            <div class="containerLogo">
+                                <h4>Company Logo</h4>
+                            </div>
+                            <img class="immagineProdottoPiuVisto" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+                            <div class="containerTitoloETesto">
+                                <div class="titoloArticoloProdottoPiuVisto">
+                                    <h4>TITOLO 1</h4>
+                                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                                </div>
+                            </div>
+                            <div class="containerPrezzoEData">
+                                <p>Prezzo: <span class="prezzo">----$</span></p>
+                                <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="coupon">
+                            <div class="containerLogo">
+                                <h4>Company Logo</h4>
+                            </div>
+                            <img class="immagineProdottoPiuVisto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                            <div class="containerTitoloETesto">
+                                <div class="titoloArticoloProdottoPiuVisto">
+                                    <h4>TITOLO 1</h4>
+                                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                                </div>
+                            </div>
+                            <div class="containerPrezzoEData">
+                                <p>Prezzo: <span class="prezzo">----$</span></p>
+                                <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="coupon">
+                            <div class="containerLogo">
+                                <h4>Company Logo</h4>
+                            </div>
+                            <img class="immagineProdottoPiuVisto" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
+                            <div class="containerTitoloETesto">
+                                <div class="titoloArticoloProdottoPiuVisto">
+                                    <h4>TITOLO 1</h4>
+                                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                                </div>
+                            </div>
+                            <div class="containerPrezzoEData">
+                                <p>Prezzo: <span class="prezzo">----$</span></p>
+                                <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <footer class="text-center">
+                <p>Online Store Copyright</p>
+                <form class="form-inline">Get deals:
+                    <input type="email" class="form-control" size="50" placeholder="Email Address">
+                    <button type="button" class="btn btn-danger">Sign Up</button>
+                </form>
+            </footer>
 </body>
+
+>>>>>>> SimonBranch
 
 </html>
