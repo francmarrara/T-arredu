@@ -18,3 +18,11 @@
 .menu_basso {
     padding-top: 2%;
 }
+
+.checked {
+    color: yellow;
+}
+
+.descrizione {
+    padding-top: 12%
+}
