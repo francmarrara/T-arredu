@@ -17,6 +17,9 @@
 
 .menu_basso {
     padding-top: 2%;
+    border-style: solid;
+    border: 2px;
+    border-color: black;
 }
 
 .checked {
@@ -25,4 +28,66 @@
 
 .descrizione {
     padding-top: 12%
+}
+
+.lista_venditori {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+footer {
+    background-color: #333333;
+    height: 200px;
+}
+
+.descrizione_bassa {
+    font-style: oblique;
+    font-weight: 400;
+}
+
+.button_carrello {
+    padding-top: 10%;
+}
+
+.button_favoriti {
+    padding-top: 10%;
+}
+
+.prezzo_prodotto {
+    padding-left: 2%;
+    font-size: 120%;
+}
+
+tab-content {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 2px;
+}
+
+.marca_prodotto {
+    padding: 1%;
+    font-style: oblique;
+    font-weight: 700;
+}
+
+.ambiente_prodotto {
+    padding: 1%;
+    font-style: italic;
+}
+
+.tipo_prodotto {
+    padding: 1%;
+}
+
+.valutazioni_prodotto {
+    padding: 2%;
+}
+
+a {
+    color: rgb(121, 4, 4)
 }

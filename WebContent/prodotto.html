@@ -12,31 +12,13 @@
 
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Footer-with-social-icons.css">
     <link rel="stylesheet" href="css/prodotto.css">
 
     <script src="js/Js/index.js"></script>
 
     <link rel="shortcut icon" href="images/T'arreduLogo.png">
 
-
-    <!-- Smartsupp Live Chat script -->
-    <script type="text/javascript">
-        var _smartsupp = _smartsupp || {};
-        _smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
-        window.smartsupp || (function(d) {
-            var s, c, o = smartsupp = function() {
-                o._.push(arguments)
-            };
-            o._ = [];
-            s = d.getElementsByTagName('script')[0];
-            c = d.createElement('script');
-            c.type = 'text/javascript';
-            c.charset = 'utf-8';
-            c.async = true;
-            c.src = 'https://www.smartsuppchat.com/loader.js?';
-            s.parentNode.insertBefore(c, s);
-        })(document);
-    </script>
 
 </head>
 
@@ -48,7 +30,7 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li class="navbarOggetto"><img id="logoButton" src="images/TarreduLogo.png" width="50" height="50"></li>
-                <li class="navbarOggetto"><a href="#">Home</a></li>
+                <li class="navbarOggetto"><a href="index.html">Home</a></li>
                 <!-- DropMenu per catalogo prodotti -->
                 <li class="dropdown navbarOggetto" id="catalogoProdotti">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo Prodotti
@@ -237,7 +219,7 @@
             <div class="col-md-5 single-top-right descrizione">
                 <div class="marca_prodotto">Le Fablier</div>
                 <div class="tipo_prodotto">Divano</div>
-                <div class="ambienti_prodotto">Soggiorno</div>
+                <div class="ambiente_prodotto">Soggiorno</div>
 
                 <div class="valutazioni_prodotto">
                     <i class="fa fa-star checked"></i>
@@ -248,14 +230,14 @@
                 <hr>
                 <a href="#">Lascia una Recensione!!</a>
                 <hr>
-                <div class="prezzo_prodotto">€99.00</div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success">
+                <div class="prezzo_prodotto">Prezzo Consigliato : €99.00</div>
+                <div class="btn-group button_carrello">
+                    <button type="button" class="btn btn-success" title="Aggiungi questo prodotto al tuo carrello">
 							Aggiungi al carrello 
 						</button>
                 </div>
-                <div class="btn-group wishlist">
-                    <button type="button" class="btn btn-danger">
+                <div class="btn-group button_favoriti">
+                    <button type="button" class="btn btn-danger" title="Aggiungi ai favoriti">
 							Aggiungi ai favoriti 
 						</button>
                 </div>
@@ -268,24 +250,29 @@
 
     <div class="container menu_basso">
         <div class="col-md-7 single-top-left ">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-                <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+            <ul class="nav nav-tabs menu_down">
+                <li class="active"><a data-toggle="tab" href="#descrizione">Descrizione</a></li>
+                <li><a data-toggle="tab" href="#misure">Misure</a></li>
+                <li><a data-toggle="tab" href="#venditori">Venditori</a></li>
             </ul>
 
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <h3>HOME</h3>
-                    <p>Some content.</p>
+                <div id="descrizione" class="tab-pane fade in active">
+                    <h3>Descrizione</h3>
+                    <p class="descrizione_bassa">Braccioli e schienali hanno la stessa altezza in questo sofà essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
                 </div>
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Some content in menu 1.</p>
+                <div id="misure" class="tab-pane fade">
+                    <h3>Misure</h3>
+                    <p class="descrizione_bassa">Misure: Larghezza: 196cm, Profondità: 89cm, Altezza: 65cm.</p>
                 </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Some content in menu 2.</p>
+                <div id="venditori" class="tab-pane fade">
+                    <h3>Puoi Trovarlo Qui</h3>
+                    <ul class="lista_venditori">
+                        <li><a href="#">Venditore 1</a></li>
+                        <li><a href="#">Venditore 2</a></li>
+                        <li><a href="#">Venditore 3</a></li>
+                        <li><a href="#">Venditore 4</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -299,12 +286,56 @@
     <!--End Single Product Div Everything-->
 
 
-    <footer class="text-center ">
-        <p>Online Store Copyright</p>
-        <form class="form-inline ">Get deals:
-            <input type="email " class="form-control " size="50 " placeholder="Email Address ">
-            <button type="button " class="btn btn-danger ">Sign Up</button>
-        </form>
+    <div class="content">
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Ambienti</h5>
+                    <ul>
+                        <li><a href="#">Cucina</a></li>
+                        <li><a href="#">Bagno</a></li>
+                        <li><a href="#">Soggiorno</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">Camera da Letto</a></li>
+                        <li><a href="#">Salotto</a></li>
+                        <li><a href="#">Sala da Pranzo</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Marche</h5>
+                    <ul>
+                        <li><a href="#">Marca 1</a></li>
+                        <li><a href="#">Marca 2</a></li>
+                        <li><a href="#">Marca 3</a></li>
+                        <li><a href="#">Marca 4</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Supporto</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Contatti</h5>
+                    <ul id="contattiFooter">
+                        <li><a href="#">Francesco Marrara</a></li>
+                        <li><a href="#">francescomarrara@hotmail.it</a></li>
+                        <li><a href="#">Simone Crisafi</a></li>
+                        <li><a href="#">xblack90@hotmail.it</a></li>
+                        <li><a href="#">Tel: 0966 43762</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
     </footer>
 </body>
 
