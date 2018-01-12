@@ -15,20 +15,6 @@ $(document).ready(function() {
     })
 });
 
-// Pannello dei prodotti in offerta
-$(document).ready(function() {
-    window.onload = function() {
-        $('.slider').slick({
-            autoplay: true,
-            autoplaySpeed: 1300,
-            centerMode: true,
-            dots: true,
-            slidesToShow: 3,
-            slidesToScroll: 1
-        });
-    };
-});
-
 // Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
 $(document).ready(function() {
     $("#catalogoProdotti").hover(function() {

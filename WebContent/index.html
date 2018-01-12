@@ -43,6 +43,11 @@
 
     <link rel="shortcut icon" href="images/T'arreduLogo.png">
 
+
+    <!-- Start WOWSlider.com HEAD section -->
+    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+    <script type="text/javascript" src="engine1/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
 </head>
 
 <body>
@@ -52,8 +57,8 @@
     </div>
 
     <!-- Header -->
-    <header class="container-fluid">
-        <h1>Bootstrap Affix Example</h1>
+    <header class="container-fluid headerImage">
+        <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
     </header>
 
     <!-- Menu di navigazione principale -->
@@ -196,59 +201,38 @@
 
     <!-- Slider centrale -->
     <div class="jumbotron">
-        <div class="container text-center">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-                <!-- Indicicatori inferiori -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
-
-                <!-- Prodotti mostrati nel carousel -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/productImages/Epoque_01.jpg" alt="Armadio 'Epoque'">
-                        <div class="carousel-caption">
-                            <h4>Armadio Epoque</h4>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img src="images/productImages/Arke_01.jpg" alt="Cucina 'Arke'">
-                        <div class="carousel-caption">
-                            <h4>Cucina Arke</h4>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img src="images/productImages/Notturno_01.jpg" alt="Letto 'Notturno'">
-                        <div class="carousel-caption">
-                            <h4>Scrivania Atlas</h4>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img src="images/productImages/Rivo_01.jpg" alt="Bagno 'Rivo'">
-                        <div class="carousel-caption">
-                            <h4>Armadio Brahman</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Controlli destra e sinistra -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+        <!-- Start SLIDER section -->
+        <div id="wowslider-container1">
+            <div class="ws_images">
+                <ul>
+                    <li><img src="data1/images/arke.jpg" alt="Arke" title="Arke" id="wows1_0" /></li>
+                    <li><img src="data1/images/fina.jpg" alt="Fina" title="Fina" id="wows1_1" /></li>
+                    <li><img src="data1/images/medolla.jpg" alt="Medolla" title="Medolla" id="wows1_2" /></li>
+                    <li><img src="data1/images/bastiglia.jpg" alt="Bastiglia" title="Bastiglia" id="wows1_3" /></li>
+                    <li>
+                        <a href="http://wowslider.net"><img src="data1/images/rivo.jpg" alt="javascript image slider" title="Rivo" id="wows1_4" /></a>
+                    </li>
+                    <li><img src="data1/images/terra.jpg" alt="Terra" title="Terra" id="wows1_5" /></li>
+                </ul>
             </div>
+            <div class="ws_bullets">
+                <div>
+                    <a href="#" title="Arke"><span><img src="data1/tooltips/arke.jpg" alt="Arke"/>1</span></a>
+                    <a href="#" title="Fina"><span><img src="data1/tooltips/fina.jpg" alt="Fina"/>2</span></a>
+                    <a href="#" title="Medolla"><span><img src="data1/tooltips/medolla.jpg" alt="Medolla"/>3</span></a>
+                    <a href="#" title="Bastiglia"><span><img src="data1/tooltips/bastiglia.jpg" alt="Bastiglia"/>4</span></a>
+                    <a href="#" title="Rivo"><span><img src="data1/tooltips/rivo.jpg" alt="Rivo"/>5</span></a>
+                    <a href="#" title="Terra"><span><img src="data1/tooltips/terra.jpg" alt="Terra"/>6</span></a>
+                </div>
+            </div>
+            <div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">javascript image slider</a> by WOWSlider.com v8.8</div>
+            <div class="ws_shadow"></div>
+
+            <script type="text/javascript" src="engine1/wowslider.js"></script>
+            <script type="text/javascript" src="engine1/script.js"></script>
         </div>
+
+        <!-- End SLIDER section -->
     </div>
 
     <br>
@@ -258,7 +242,7 @@
 
     <!-- Prodotti in offerta -->
     <h2 class="nomiSezioniProdotti">Prodotti in offerta</h2>
-    <div class="container">
+    <div class="container inOfferta">
         <div class="row prodottiInOfferta">
             <div class="col-sm-4">
                 <div class="coupon">
@@ -381,26 +365,76 @@
     <!-- Prodotti piu visti -->
     <h2 class="nomiSezioniProdotti">Più visti</h2>
     <div class="container piuVisti">
-        <div class="row">
-            <div class="col-sm-12" id="contornoSezionePiuVisti">
-                <div class="slider" id="sliderProdottoPiuVisti">
-                    <div class="slide">
-                        <img src="images/resizedProduct/Epoque_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
+        <div class="row prodottiPiuVisti">
+            <div class="col-sm-4">
+                <div class="couponPiuVisto">
+                    <img class="immagineProdottoPiuVisto" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+                    <div class="containerTitoloETesto">
+                        <div class="titoloArticoloPiuVisto">
+                            <h4>TITOLO 1</h4>
+                        </div>
                     </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Angle_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Plie_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Clarissa_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
-                    <div class="slide">
-                        <img src="images/resizedProduct/Gaya_01_Resize.png" width="300" height="300" alt="" class="img-responsive" />
-                    </div>
+                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+
                 </div>
-                <button type="button" class="btn btn-primary tuttiProdottiPiuVisti">Mostra tutti</button>
+            </div>
+            <div class="col-sm-4">
+                <div class="couponPiuVisto">
+                    <img class="immagineProdottoPiuVisto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                    <div class="containerTitoloETesto">
+                        <div class="titoloArticoloPiuVisto">
+                            <h4>TITOLO 1</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="couponPiuVisto">
+                    <img class="immagineProdottoPiuVisto" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
+                    <div class="containerTitoloETesto">
+                        <div class="titoloArticoloPiuVisto">
+                            <h4>TITOLO 1</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                </div>
+            </div>
+        </div>
+        <div class="row prodottiPiuVisti">
+            <div class="col-sm-4">
+                <div class="couponPiuVisto">
+                    <img class="immagineProdottoPiuVisto" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+                    <div class="containerTitoloETesto">
+                        <div class="titoloArticoloPiuVisto">
+                            <h4>TITOLO 1</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="couponPiuVisto">
+                    <img class="immagineProdottoPiuVisto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                    <div class="containerTitoloETesto">
+                        <div class="titoloArticoloPiuVisto">
+                            <h4>TITOLO 1</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="couponPiuVisto">
+                    <img class="immagineProdottoPiuVisto" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
+                    <div class="containerTitoloETesto">
+                        <div class="titoloArticoloPiuVisto">
+                            <h4>TITOLO 1</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
+                </div>
             </div>
         </div>
     </div>
