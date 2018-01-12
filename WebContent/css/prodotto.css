@@ -27,7 +27,8 @@
 }
 
 .descrizione {
-    padding-top: 12%
+    padding-top: 12%;
+    padding-left: 3%;
 }
 
 .lista_venditori {
@@ -55,7 +56,6 @@ footer {
 }
 
 .prezzo_prodotto {
-    padding-left: 2%;
     font-size: 120%;
 }
 
