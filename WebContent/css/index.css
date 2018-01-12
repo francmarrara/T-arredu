@@ -154,6 +154,10 @@ footer {
 
 /* Singolo prodotto in offerta */
 
+.inOfferta {
+    text-align: center;
+}
+
 .coupon {
     border: 5px outset #bbb;
     width: 300px;
@@ -202,41 +206,25 @@ footer {
 
 /* Contorno della sezione dei prodotti piu visti */
 
-.piuVisti,
-#contornoSezionePiuVisti {
+.prodottiPiuVisti {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.couponPiuVisto {
     background-color: #eeeeee;
     border-radius: 10px;
     border-style: outset;
 }
 
-
-/* Slider dei prodotti piu visti */
-
-.slider {
-    border-color: rgb(58, 52, 52);
-    border-style: outset;
-    border-radius: 10px;
-    width: 1100px;
-    height: 40%;
-    margin: 20px auto;
-    text-align: left;
-    padding: 10px;
+.couponPiuVisto img {
+    width: 290px;
+    height: 300px;
 }
 
-#sliderProdottoPiuVisti {
-    background-color: #eeeeee;
-    border-color: rgb(121, 4, 4);
-    border-radius: 10px;
-    border-style: outset;
-}
-
-
-/* Tasto mostra tutti prodotti piu visti */
-
-.tuttiProdottiPiuVisti {
-    color: rgb(0, 0, 0);
-    float: right;
-    padding: 3.5px;
+.titoloArticoloPiuVisto {
+    color: rgb(121, 4, 4);
 }
 
 
@@ -252,5 +240,3 @@ footer {
     width: 1349px;
     padding: 15px;
 }
-
->>>>>>>SimonBranch
