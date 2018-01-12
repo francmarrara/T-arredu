@@ -4,6 +4,10 @@
     box-shadow: 5px 4px 5px #000;
 }
 
+body {
+    background: lightgray;
+}
+
 .jumbotron {
     margin-bottom: 10;
     margin-top: 10;
