@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prodotto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Footer-with-social-icons.css">
+    <link rel="stylesheet" href="css/prodotto.css">
+
+    <script src="js/Js/index.js"></script>
+
+    <link rel="shortcut icon" href="images/TarreduLogo.png">
+
+
+</head>
+
+<body>
+
+
+    <!-- Menu di navigazione principale -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="navbarOggetto"><img id="logoButton" src="images/TarreduLogo.png" width="50" height="50"></li>
+                <li class="navbarOggetto"><a href="index.html">Home</a></li>
+                <!-- DropMenu per catalogo prodotti -->
+                <li class="dropdown navbarOggetto" id="catalogoProdotti">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo Prodotti
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu row" id="menuProdotti">
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Ambienti</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Cucina</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Bagno</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Soggiorno</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Studio</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Camera da letto</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Salotto</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Stanza da pranzo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Categorie</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Armadi</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Cassettiere</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Comodini</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Illuminazioni</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Credenze</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Letti</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Tavoli</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Librerie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Scrivanie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Sedie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Poltrone</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Divani</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Vetrine</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Bagni</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Marche</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 2</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Marche</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 2</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navbarOggetto"><a href="#">Contatti</a></li>
+                <li class="navbarOggetto"><a href="#">Varie</a></li>
+                <li class="navbarOggetto"><a href="#">Varie 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbarOggetto">
+                    <!-- Spazio per la ricerca -->
+                    <form class="navbar-form" role="search">
+                        <div class="input-group add-on">
+                            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Sign Up</a></li>
+                <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" id="">
+            <div class="col-md-7 single-top-left">
+                <h2 class="product_name">Ardiano</h2>
+                <p class="separatore"></p>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicicatori inferiori -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="images/productImages/Ardiano_01.jpg" alt="Ardiano Pic 1">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <img src="images/productImages/Ardiano_02.jpg" alt="Ardiano Pic 2'">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <img src="images/productImages/Ardiano_03.jpg" alt="Ardiano Pic 3'">
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Div a destra con marca e pulsanti-->
+
+            <div class="col-md-5 single-top-right descrizione">
+                <div class="marca_prodotto">Le Fablier</div>
+                <div class="tipo_prodotto">Divano</div>
+                <div class="ambiente_prodotto">Soggiorno</div>
+
+                <div class="valutazioni_prodotto">
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span> </div>
+                <hr>
+                <a href="#">Lascia una Recensione!!</a>
+                <hr>
+                <div class="prezzo_prodotto">Prezzo Consigliato : €99.00</div>
+                <div class="btn-group button_carrello">
+                    <button type="button" class="btn btn-success" title="Aggiungi questo prodotto al tuo carrello">
+							Aggiungi al carrello 
+						</button>
+                </div>
+                <div class="btn-group button_favoriti">
+                    <button type="button" class="btn btn-danger" title="Aggiungi ai favoriti">
+							Aggiungi ai favoriti 
+						</button>
+                </div>
+            </div>
+            <!--Fine  Div a destra con marca e pulsanti-->
+
+
+        </div>
+    </div>
+
+    <div class="container menu_basso">
+        <div class="col-md-7 single-top-left ">
+            <ul class="nav nav-tabs menu_down">
+                <li class="active"><a data-toggle="tab" href="#descrizione">Descrizione</a></li>
+                <li><a data-toggle="tab" href="#misure">Misure</a></li>
+                <li><a data-toggle="tab" href="#venditori">Venditori</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="descrizione" class="tab-pane fade in active">
+                    <h3>Descrizione</h3>
+                    <p class="descrizione_bassa">Braccioli e schienali hanno la stessa altezza in questo sofà essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
+                </div>
+                <div id="misure" class="tab-pane fade">
+                    <h3>Misure</h3>
+                    <p class="descrizione_bassa">Misure: Larghezza: 196cm, Profondità: 89cm, Altezza: 65cm.</p>
+                </div>
+                <div id="venditori" class="tab-pane fade">
+                    <h3>Puoi Trovarlo Qui</h3>
+                    <ul class="lista_venditori">
+                        <li><a href="#">Venditore 1</a></li>
+                        <li><a href="#">Venditore 2</a></li>
+                        <li><a href="#">Venditore 3</a></li>
+                        <li><a href="#">Venditore 4</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!--End Single Product Div Everything-->
+
+
+    <div class="content">
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Ambienti</h5>
+                    <ul>
+                        <li><a href="#">Cucina</a></li>
+                        <li><a href="#">Bagno</a></li>
+                        <li><a href="#">Soggiorno</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">Camera da Letto</a></li>
+                        <li><a href="#">Salotto</a></li>
+                        <li><a href="#">Sala da Pranzo</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Marche</h5>
+                    <ul>
+                        <li><a href="#">Marca 1</a></li>
+                        <li><a href="#">Marca 2</a></li>
+                        <li><a href="#">Marca 3</a></li>
+                        <li><a href="#">Marca 4</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Supporto</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Contatti</h5>
+                    <ul id="contattiFooter">
+                        <li><a href="#">Francesco Marrara</a></li>
+                        <li><a href="#">francescomarrara@hotmail.it</a></li>
+                        <li><a href="#">Simone Crisafi</a></li>
+                        <li><a href="#">xblack90@hotmail.it</a></li>
+                        <li><a href="#">Tel: 0966 43762</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>
+<
