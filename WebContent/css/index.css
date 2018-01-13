@@ -10,12 +10,6 @@ header {
     color: #fff;
     height: 50px;
     text-align: left;
-    width: 100%;
-}
-
-.headerImage img {
-    height: 50px;
-    width: inherit;
 }
 
 .jumbotron {
@@ -241,15 +235,8 @@ footer {
     height: 200px;
 }
 
-.containerTornaSu {
-    width: 100%;
-}
-
 .bottoneTornaSu {
     height: 50px;
-    width: inherit;
+    width: 100%;
     padding: 15px;
 }
-
-
-/* Finestra login */
