@@ -181,20 +181,20 @@
                 <li class="navbarOggetto"><a href="#">Varie</a></li>
                 <li class="navbarOggetto"><a href="#">Varie 2</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="navbarOggetto barraRicerca">
+            <ul class="nav navbar-nav navbar-right menuDestra">
+                <li class="navbarOggetto ricerca">
                     <!-- Spazio per la ricerca -->
-                    <form class="navbar-form" role="search">
+                    <form class="navbar-form barraRicerca" role="search">
                         <div class="input-group add-on">
                             <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-default tastoRicerca" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
                         </div>
                     </form>
                 </li>
                 <li class="navbarOggetto">
-                    <!-- Button to open the modal login form -->
+                    <!-- <a> to open the modal login form -->
                     <a href="#" onclick="document.getElementById('id01').style.display='block'">
                         <span class="glyphicon glyphicon-user user"></span> Login</a>
 
@@ -207,20 +207,20 @@
                                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
                             </div>
 
-                            <div class="container">
+                            <div class="containerModal">
                                 <label><b>Username</b></label>
                                 <input type="text" placeholder="Enter Username" name="uname" required>
 
                                 <label><b>Password</b></label>
                                 <input type="password" placeholder="Enter Password" name="psw" required>
 
-                                <button type="submit">Login</button>
+                                <button class="buttonLog" type="submit">Login</button>
                                 <label>
                                   <input type="checkbox" checked="checked"> Remember me
                                 </label>
                             </div>
 
-                            <div class="container" style="background-color:#f1f1f1">
+                            <div class="containerModal" style="background-color:#f1f1f1">
                                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>

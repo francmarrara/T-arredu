@@ -30,13 +30,6 @@ footer {
 }
 
 
-/* Barra di ricerca */
-
-.barraRicerca {
-    z-index: 1;
-}
-
-
 /* Carousel */
 
 #myCarousel {
@@ -49,6 +42,11 @@ footer {
 
 .carrello {
     background-color: rgb(121, 4, 4);
+}
+
+.navbarOggetto {
+    z-index: 0;
+    height: 50px;
 }
 
 
@@ -267,7 +265,7 @@ input[type=password] {
 
 /* Set a style for all buttons */
 
-button {
+.buttonLog {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -277,7 +275,7 @@ button {
     width: 100%;
 }
 
-button:hover {
+.buttonLog:hover {
     opacity: 0.8;
 }
 
@@ -321,7 +319,7 @@ span.psw {
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
-    z-index: 5;
+    z-index: 1;
     /* Sit on top */
     left: 0;
     top: 0;
