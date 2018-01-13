@@ -357,7 +357,7 @@ span.psw {
     /* 5% from the top, 15% from the bottom and centered */
     border: 5px outset rgb(121, 4, 4);
     padding: 10px;
-    width: 600px;
+    width: 500px;
     height: 580px;
     /* Could be more or less, depending on screen size */
 }
