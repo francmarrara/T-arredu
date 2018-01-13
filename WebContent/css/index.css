@@ -3,6 +3,7 @@
     border-radius: 0;
     z-index: 10;
     box-shadow: 5px 4px 5px #000;
+    width: 100%;
 }
 
 header {
@@ -42,6 +43,15 @@ footer {
 
 .carrello {
     background-color: rgb(121, 4, 4);
+}
+
+.navbarOggetto {
+    z-index: 0;
+    height: 50px;
+}
+
+.menuDestra li {
+    z-index: 1;
 }
 
 
@@ -239,4 +249,180 @@ footer {
     height: 50px;
     width: 100%;
     padding: 15px;
+}
+
+
+/*Login finestra */
+
+
+/* Checkbox ricodami */
+
+.containerCheckbox {
+    display: inline;
+}
+
+
+/* Full-width input fields */
+
+.animate input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+/* Set a style for all buttons */
+
+.buttonLog {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.buttonLog:hover {
+    opacity: 0.8;
+}
+
+
+/* Extra styles for the cancel button */
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+
+/* Center the image and position the close button */
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 10;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height 
+    overflow: auto; */
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 10px;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    text-align: center;
+    background-color: #ffffff;
+    margin: auto auto auto auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 5px outset rgb(121, 4, 4);
+    padding: 10px;
+    width: 500px;
+    height: 580px;
+    /* Could be more or less, depending on screen size */
+}
+
+.containerModal label {
+    padding-left: 10px;
+}
+
+.containerModalBottom {
+    text-align: left;
+}
+
+
+/* The Close Button (x) */
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
 }

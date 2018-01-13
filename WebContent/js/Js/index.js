@@ -23,3 +23,17 @@ $(document).ready(function() {
         $(this).find("#menuProdotti").hide(250);
     });
 });
+
+// Finestra login
+$(document).ready(function() {
+    $("#myBtn").click(function() {
+        $("#myModal").modal("toggle");
+    });
+});
+
+// Ricordami Checkbox
+$(document).ready(function() {
+    function myFunction() {
+
+    }
+});
