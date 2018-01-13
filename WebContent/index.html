@@ -57,7 +57,7 @@
     </div>
 
     <!-- Header -->
-    <header class="container-fluid headerImage">
+    <header class="container-fluid headerImage" name="top">
         <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
     </header>
 
@@ -195,24 +195,24 @@
                 </li>
                 <li class="navbarOggetto">
                     <!-- <a> to open the modal login form -->
-                    <a href="#" onclick="document.getElementById('id01').style.display='block'">
+                    <a href="#" onclick="document.getElementById('login').style.display='block'">
                         <span class="glyphicon glyphicon-log-in"></span> Login</a>
 
                     <!-- The Modal -->
-                    <div id="id01" class="modal">
+                    <div id="login" class="modal">
 
-                        <form class="modal-content animate" action="/action_page.php">
+                        <form class="modal-content animate" action="------">
                             <div class="imgcontainer">
-                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                                <img src="images/userLogin.png" alt="Avatar" class="avatar" width=150 height=150>
+                                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Chiudi Login">&times;</span>
+                                <img src="images/userLogin.jpg" alt="Avatar" class="avatar" width=150 height=150>
                             </div>
 
                             <div class="containerModal">
                                 <label><b>Username</b></label>
-                                <input class="inputLogIn" type="text" placeholder="Enter Username" name="uname" required>
+                                <input class="inputLogIn" type="text" placeholder="Inserire Username" name="uname" required>
 
                                 <label><b>Password</b></label>
-                                <input class="inputLogIn" type="password" placeholder="Enter Password" name="psw" required>
+                                <input class="inputLogIn" type="password" placeholder="Inserire Password" name="psw" required>
 
                                 <button class="buttonLog" type="submit">Login</button>
                                 <div class="containerCheckbox">
@@ -221,13 +221,50 @@
                             </div>
 
                             <div class="containerModalBottom" style="background-color:#ffffff">
-                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
                                 <span class="psw"><a href="#">Password dimenticata?</a></span>
                             </div>
                         </form>
                     </div>
                 </li>
-                <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Registrati</a></li>
+                <li class="navbarOggetto">
+                    <!-- <a> to open the modal login form -->
+                    <a href="#" onclick="document.getElementById('registrazione').style.display='block'">
+                        <span class="glyphicon glyphicon-user user"></span> Registrati</a>
+
+                    <div id="registrazione" class="modal">
+
+                        <form class="modal-content animateReg" action="------">
+                            <div class="imgcontainerReg">
+                                <span onclick="document.getElementById('registrazione').style.display='none'" class="closeReg" title="Chiudi Registrazione">&times;</span>
+                            </div>
+                            <h1>Registrazione</h1>
+                            <p>Compila questo modulo per creare un account.</p>
+                            <hr>
+                            <div class="containerReg">
+                                <label><b>Email</b></label>
+                                <input type="text" placeholder="Inserire Indirizzo Email" name="email" required>
+
+                                <label><b>Password</b></label>
+                                <input type="password" placeholder="Inserire Password" name="psw" required>
+
+                                <label><b>Ripetere Password</b></label>
+                                <input type="password" placeholder="Reinserire Password" name="psw-repeat" required>
+                                <div class="containerRegistrazione">
+                                    <label>
+                                                <input type="checkbox" checked="checked" style="margin-bottom:15px"> Ricordami
+                                              </label>
+                                </div>
+                            </div>
+
+                            <div class="containerRegButton" style="background-color:#ffffff">
+                                <button type="button" onclick="document.getElementById('registrazione').style.display='none'" class="cancelbtnReg">Cancel</button>
+                                <button class="buttonReg" type="submit">Registrati</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </li>
                 <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
             </ul>
         </div>
@@ -475,10 +512,12 @@
     <br>
     <br>
 
-    <button type="button" href="#" class="btn btn-primary bottoneTornaSu">Torna su...</button>
+    <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
 
     <div class="content">
     </div>
+
+    <!-- Footer -->
     <footer id="myFooter">
         <div class="container">
             <div class="row">

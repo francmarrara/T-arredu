@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 });
 
-// Finestra login
+//Finestra login
 $(document).ready(function() {
     $("#myBtn").click(function() {
         $("#myModal").modal("toggle");
