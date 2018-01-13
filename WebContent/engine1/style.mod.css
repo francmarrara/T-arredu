@@ -83,4 +83,5 @@ div#ws_fullscreen:-webkit-full-screen {
 div#ws_fullscreen:fullscreen {
     background-color: #000;
     height: 100%;
+>>>>>>> master
 }
