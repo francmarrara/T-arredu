@@ -30,3 +30,10 @@ $(document).ready(function() {
         $("#myModal").modal("toggle");
     });
 });
+
+// Ricordami Checkbox
+$(document).ready(function() {
+    function myFunction() {
+
+    }
+});

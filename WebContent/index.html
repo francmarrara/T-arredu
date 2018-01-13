@@ -184,7 +184,7 @@
             <ul class="nav navbar-nav navbar-right menuDestra">
                 <li class="navbarOggetto ricerca">
                     <!-- Spazio per la ricerca -->
-                    <form class="navbar-form barraRicerca" role="search">
+                    <form class="navbar-form" role="search">
                         <div class="input-group add-on">
                             <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                             <div class="input-group-btn">
@@ -196,7 +196,7 @@
                 <li class="navbarOggetto">
                     <!-- <a> to open the modal login form -->
                     <a href="#" onclick="document.getElementById('id01').style.display='block'">
-                        <span class="glyphicon glyphicon-user user"></span> Login</a>
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
 
                     <!-- The Modal -->
                     <div id="id01" class="modal">
@@ -204,30 +204,30 @@
                         <form class="modal-content animate" action="/action_page.php">
                             <div class="imgcontainer">
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                                <img src="images/userLogin.png" alt="Avatar" class="avatar" width=150 height=150>
                             </div>
 
                             <div class="containerModal">
                                 <label><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username" name="uname" required>
+                                <input class="inputLogIn" type="text" placeholder="Enter Username" name="uname" required>
 
                                 <label><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password" name="psw" required>
+                                <input class="inputLogIn" type="password" placeholder="Enter Password" name="psw" required>
 
                                 <button class="buttonLog" type="submit">Login</button>
-                                <label>
-                                  <input type="checkbox" checked="checked"> Remember me
-                                </label>
+                                <div class="containerCheckbox">
+                                    <label>Ricordami <input type="checkbox" id="checkRicordami" onclick="controlla()"></label>
+                                </div>
                             </div>
 
-                            <div class="containerModal" style="background-color:#f1f1f1">
+                            <div class="containerModalBottom" style="background-color:#ffffff">
                                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                                <span class="psw">Forgot <a href="#">password?</a></span>
+                                <span class="psw"><a href="#">Password dimenticata?</a></span>
                             </div>
                         </form>
                     </div>
                 </li>
-                <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Sign Up</a></li>
+                <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Registrati</a></li>
                 <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
             </ul>
         </div>
