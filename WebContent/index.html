@@ -182,7 +182,7 @@
                 <li class="navbarOggetto"><a href="#">Varie 2</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="navbarOggetto">
+                <li class="navbarOggetto barraRicerca">
                     <!-- Spazio per la ricerca -->
                     <form class="navbar-form" role="search">
                         <div class="input-group add-on">
@@ -192,6 +192,40 @@
                             </div>
                         </div>
                     </form>
+                </li>
+                <li class="navbarOggetto">
+                    <!-- Button to open the modal login form -->
+                    <a href="#" onclick="document.getElementById('id01').style.display='block'">
+                        <span class="glyphicon glyphicon-user user"></span> Login</a>
+
+                    <!-- The Modal -->
+                    <div id="id01" class="modal">
+
+                        <form class="modal-content animate" action="/action_page.php">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                            </div>
+
+                            <div class="container">
+                                <label><b>Username</b></label>
+                                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                                <label><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                <button type="submit">Login</button>
+                                <label>
+                                  <input type="checkbox" checked="checked"> Remember me
+                                </label>
+                            </div>
+
+                            <div class="container" style="background-color:#f1f1f1">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                <span class="psw">Forgot <a href="#">password?</a></span>
+                            </div>
+                        </form>
+                    </div>
                 </li>
                 <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Sign Up</a></li>
                 <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
@@ -225,7 +259,6 @@
                     <a href="#" title="Terra"><span><img src="data1/tooltips/terra.jpg" alt="Terra"/>6</span></a>
                 </div>
             </div>
-            <div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">javascript image slider</a> by WOWSlider.com v8.8</div>
             <div class="ws_shadow"></div>
 
             <script type="text/javascript" src="engine1/wowslider.js"></script>
