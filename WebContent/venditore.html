@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <title>Venditore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Footer-with-social-icons.css">
+    <link rel="stylesheet" href="css/venditore.css">
+
+    <script src="js/Js/index.js"></script>
+
+    <link rel="shortcut icon" href="images/TarreduLogo.png">
+
+    <!-- Start WOWSlider.com HEAD section -->
+    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+    <script type="text/javascript" src="engine1/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
+
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="container-fluid headerImage">
+        <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
+    </header>
+
+
+
+    <!-- Menu di navigazione principale -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="navbarOggetto"><img id="logoButton" src="images/TarreduLogo.png" width="50" height="50"></li>
+                <li class="navbarOggetto"><a href="index.html">Home</a></li>
+                <!-- DropMenu per catalogo prodotti -->
+                <li class="dropdown navbarOggetto" id="catalogoProdotti">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo Prodotti
+                            <span class="caret"></span></a>
+                    <ul class="dropdown-menu row" id="menuProdotti">
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Ambienti</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Cucina</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Bagno</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Soggiorno</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Studio</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Camera da letto</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Salotto</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Stanza da pranzo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Categorie</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Armadi</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Cassettiere</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Comodini</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Illuminazioni</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Credenze</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Letti</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Tavoli</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Librerie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Scrivanie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Sedie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Poltrone</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Divani</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Vetrine</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Bagni</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Marche</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 2</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Marche</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 2</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navbarOggetto"><a href="#">Contatti</a></li>
+                <li class="navbarOggetto"><a href="#">Varie</a></li>
+                <li class="navbarOggetto"><a href="#">Varie 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbarOggetto">
+                    <!-- Spazio per la ricerca -->
+                    <form class="navbar-form" role="search">
+                        <div class="input-group add-on">
+                            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Sign Up</a></li>
+                <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" id="">
+
+
+
+            <!-- Div a destra con marca e pulsanti-->
+
+            <div class="col-md-7 single-top-left">
+                <h2 class="vendor_name">Antonella Mazzei Arredamenti</h2>
+                <p class="separatore"></p>
+                <div class="descrizione">
+                    <p><b>Antonella Mazzei Arredamenti</b> è un nome che ha dietro una storia fondata sulla passione per il mobile, per il legno, per il gusto di arredare.</p>
+                    <p>Quarant'anni nel settore hanno portato l'azienda a crescere anno dopo anno, identificandosi in tre caratteristiche: cortesia, qualità e professionalità.</p>
+                    <p>Da Antonella Mazzei Arredamenti potrai trovare uno staff di professionisti capace di prendersi cura delle tue esigenze, ma soprattutto in grado di valorizzare i tuoi spazi andando incontro ai tuoi desideri.</p>
+                    <p>Perchè la casa esprime il tuo gusto personale, che la rende unica ed eclusiva.</p>
+                </div>
+
+                <div class="info">
+                    <div class="col-sm-10">
+                        <h5>Contatti :</h5>
+                        <ul class="contatti">
+                            <li>Antonella Mazzei</li>
+                            <li><a href="mailto:info@antonellamazzei.it">info@antonellamazzei.it</a></li>
+                            <li>Viale Cosmai 32, 87100 Cosenza (di fronte Guardia di Finanza)</li>
+                            <li>
+                                <a href="skype:+39 338 5378178">+39 338 5378178</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-5 single-top-right">
+                <h2 style="padding-top:2%; padding-left:10%;">Come Raggiungerci : </h2>
+                <div class="mappa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12346.557015984656!2d16.248965!3d39.3191!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9b5c190b92bc84ac!2sAntonella+Mazzei+Arredamenti!5e0!3m2!1sit!2sit!4v1515843884042" width="100%" height="50%"
+                        frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+                </div>
+
+            </div>
+            <!--Fine  Div a destra con marca e pulsanti-->
+
+        </div>
+    </div>
+
+
+
+
+
+    <button type="button" href="#" class="btn btn-primary bottoneTornaSu">Torna su...</button>
+
+
+
+    <div class="content">
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Ambienti</h5>
+                    <ul>
+                        <li><a href="#">Cucina</a></li>
+                        <li><a href="#">Bagno</a></li>
+                        <li><a href="#">Soggiorno</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">Camera da Letto</a></li>
+                        <li><a href="#">Salotto</a></li>
+                        <li><a href="#">Sala da Pranzo</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Marche</h5>
+                    <ul>
+                        <li><a href="#">Marca 1</a></li>
+                        <li><a href="#">Marca 2</a></li>
+                        <li><a href="#">Marca 3</a></li>
+                        <li><a href="#">Marca 4</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Supporto</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Contatti</h5>
+                    <ul id="contatti">
+                        <li><a href="#">Francesco Marrara</a></li>
+                        <li><a href="#">francescomarrara@hotmail.it</a></li>
+                        <li><a href="#">Simone Crisafi</a></li>
+                        <li><a href="#">xblack90@hotmail.it</a></li>
+                        <li><a href="#">Tel: 0966 43762</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
