@@ -13,6 +13,10 @@ header {
     text-align: left;
 }
 
+.headerContainer {
+    text-align: center;
+}
+
 .jumbotron {
     margin-bottom: 10;
     margin-top: 10;
