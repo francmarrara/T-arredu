@@ -196,11 +196,10 @@
                     </form>
                 </li>
                 <li class="navbarOggetto">
-                    <!-- <a> to open the modal login form -->
+                    <!-- Form per il login -->
                     <a href="#" onclick="document.getElementById('login').style.display='block'">
                         <span class="glyphicon glyphicon-log-in"></span> Login</a>
 
-                    <!-- The Modal -->
                     <div id="login" class="modal">
 
                         <form class="modal-content animate" action="------">
@@ -230,7 +229,7 @@
                     </div>
                 </li>
                 <li class="navbarOggetto">
-                    <!-- <a> to open the modal login form -->
+                    <!-- Form per la registrazione -->
                     <a href="#" onclick="document.getElementById('registrazione').style.display='block'">
                         <span class="glyphicon glyphicon-user user"></span> Registrati</a>
 
@@ -244,6 +243,13 @@
                             <p>Compila questo modulo per creare un account.</p>
                             <hr>
                             <div class="containerReg">
+
+                                <label><b>Nome</b></label>
+                                <input type="text" placeholder="Inserire Nome" name="nome" required>
+
+                                <label><b>Cognome</b></label>
+                                <input type="text" placeholder="Inserire Cognome" name="cognome" required>
+
                                 <label><b>Email</b></label>
                                 <input type="text" placeholder="Inserire Indirizzo Email" name="email" required>
 
@@ -252,16 +258,18 @@
 
                                 <label><b>Ripetere Password</b></label>
                                 <input type="password" placeholder="Reinserire Password" name="psw-repeat" required>
+
                                 <div class="containerRegistrazione">
                                     <label>Ricordami
                                                 <input type="checkbox" checked="checked" style="margin-bottom:15px"> 
                                               </label>
                                 </div>
-                            </div>
 
-                            <div class="containerRegButton" style="background-color:#ffffff">
-                                <button type="button" onclick="document.getElementById('registrazione').style.display='none'" class="cancelbtnReg">Cancel</button>
-                                <button class="buttonReg" type="submit">Registrati</button>
+
+                                <div class="containerRegButton" style="background-color:#ffffff">
+                                    <button type="button" onclick="document.getElementById('registrazione').style.display='none'" class="cancelbtnReg">Cancel</button>
+                                    <button class="buttonReg" type="submit">Registrati</button>
+                                </div>
                             </div>
                         </form>
                     </div>
