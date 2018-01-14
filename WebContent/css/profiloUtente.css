@@ -37,7 +37,7 @@ body {
 
 footer {
     background-color: #333333;
-    height: 250px;
+    height: 100%;
 }
 
 .bottoneTornaSu {
@@ -165,4 +165,16 @@ footer {
 
 hr {
     border: 1px solid #333333;
+}
+
+
+/* Sezione credenziali */
+
+#home {
+    text-align: center;
+}
+
+.credenziali {
+    width: 50%;
+    margin-left: 33%;
 }
