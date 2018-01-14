@@ -82,22 +82,45 @@ body {
 }
 
 
+/* Sfondo della pagina */
+
+#bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}
+
+#bg img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -10;
+}
+
+
 /* Grid dei Prodotti */
 
 .grid {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: auto auto auto;
-    padding-top: 5%;
+    grid-template-rows: auto auto;
     padding-bottom: 1%;
+    padding-top: 2%;
 }
 
 .grid-item {
     background-color: lightgray;
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 2px rgba(0, 0, 0, 0.8);
     padding: 10px;
     font-size: auto;
     font-weight: 200;
+    border-style: groove;
     text-align: center;
 }
 
@@ -116,7 +139,7 @@ footer {
 }
 
 .mappa {
-    padding-top: 5%;
+    padding-top: 4%;
     padding-left: 10%;
 }
 
@@ -127,4 +150,41 @@ footer {
 
 a {
     color: rgb(121, 4, 4)
+}
+
+.testo_prodotto {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100%;
+}
+
+.titolo_prodotto {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+}
+
+.titolo_sopra_prodotti {
+    text-align: center;
+    padding-top: 3%;
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+.menu_selezione {
+    padding-top: 2%;
+}
+
+.box_venditore {
+    background: aliceblue;
+    border: 1px groove black;
+}
+
+.info {
+    padding-top: 10%;
+    padding-left: 0;
+}
+
+.titolo_menu_selezione {
+    color: antiquewhite;
+    text-align: center;
 }
