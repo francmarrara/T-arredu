@@ -24,12 +24,7 @@ $(document).ready(function() {
     });
 });
 
-//Finestra login
-$(document).ready(function() {
-    $("#myBtn").click(function() {
-        $("#myModal").modal("toggle");
-    });
-});
+
 
 // Ricordami Checkbox
 $(document).ready(function() {
