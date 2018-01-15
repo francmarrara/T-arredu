@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 /*Allinea il menu all'header quando si scrolla la pagina con scomparsa */
 $(document).ready(function() {
     /* affix the navbar after scroll below header */
