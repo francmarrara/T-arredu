@@ -32,24 +32,23 @@
         <img src="images/sfondoLegno.png" alt="">
     </div>
 
-
     <!-- Header -->
-    <header class="container-fluid headerImage">
-        <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
+    <header class="container-fluid headerImage" name="top">
+        <div class="headerContainer">
+            <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
+        </div>
     </header>
-
-
 
     <!-- Menu di navigazione principale -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li class="navbarOggetto"><img id="logoButton" src="images/TarreduLogo.png" width="50" height="50"></li>
-                <li class="navbarOggetto"><a href="index.html">Home</a></li>
+                <li class="navbarOggetto"><a href="#">Home</a></li>
                 <!-- DropMenu per catalogo prodotti -->
                 <li class="dropdown navbarOggetto" id="catalogoProdotti">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo Prodotti
-                        <span class="caret"></span></a>
+                            <span class="caret"></span></a>
                     <ul class="dropdown-menu row" id="menuProdotti">
                         <li class="col-sm-3" id="listaMenu">
                             <ul class="list-unstyled">
@@ -160,19 +159,99 @@
                 <li class="navbarOggetto"><a href="#">Varie</a></li>
                 <li class="navbarOggetto"><a href="#">Varie 2</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="navbarOggetto">
+            <ul class="nav navbar-nav navbar-right menuDestra">
+                <li class="navbarOggetto ricerca">
                     <!-- Spazio per la ricerca -->
                     <form class="navbar-form" role="search">
                         <div class="input-group add-on">
-                            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                            <input class="form-control " placeholder="Search" name="srch-term" id="srch-term" type="text">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit" style="padding:27%;"><i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-default tastoRicerca" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
                         </div>
                     </form>
                 </li>
-                <li class="navbarOggetto"><a href="#"><span class="glyphicon glyphicon-user user"></span> Sign Up</a></li>
+                <li class="navbarOggetto">
+                    <!-- Form per il login -->
+                    <a href="#" onclick="document.getElementById('login').style.display='block'">
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+
+                    <div id="login" class="modal">
+
+                        <form class="modal-content animate" action="------">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Chiudi Login">&times;</span>
+                                <img src="images/userLogin.jpg" alt="Avatar" class="avatar" width=150 height=150>
+                            </div>
+
+                            <div class="containerModal">
+                                <label><b>Username</b></label>
+                                <input class="inputLogIn" type="text" placeholder="Inserire Username" name="uname" required>
+
+                                <label><b>Password</b></label>
+                                <input class="inputLogIn" type="password" placeholder="Inserire Password" name="psw" required>
+
+                                <button class="buttonLog" type="submit">Login</button>
+                                <div class="containerCheckbox">
+                                    <label>Ricordami <input type="checkbox" id="checkRicordami" onclick="controlla()"></label>
+                                </div>
+                            </div>
+
+                            <div class="containerModalBottom" style="background-color:#ffffff">
+                                <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
+                                <span class="psw"><a href="#">Password dimenticata?</a></span>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="navbarOggetto">
+                    <!-- Form per la registrazione -->
+                    <a href="#" onclick="document.getElementById('registrazione').style.display='block'">
+                        <span class="glyphicon glyphicon-user user"></span> Registrati</a>
+
+                    <div id="registrazione" class="modal">
+
+                        <form class="modal-content animateReg" action="------">
+                            <div class="imgcontainerReg">
+                                <span onclick="document.getElementById('registrazione').style.display='none'" class="closeReg" title="Chiudi Registrazione">&times;</span>
+                            </div>
+                            <h1>Registrazione</h1>
+                            <p>Compila questo modulo per creare un account.</p>
+                            <hr>
+                            <div class="containerReg">
+
+                                <label><b>Nome</b></label>
+                                <input type="text" placeholder="Inserire Nome" name="nome" required>
+
+                                <label><b>Cognome</b></label>
+                                <input type="text" placeholder="Inserire Cognome" name="cognome" required>
+
+                                <label><b>Email</b></label>
+                                <input type="text" placeholder="Inserire Indirizzo Email" name="email" required>
+
+                                <label><b>Password</b></label>
+                                <input type="password" placeholder="Inserire Password" name="psw" required>
+
+                                <label><b>Ripetere Password</b></label>
+                                <input type="password" placeholder="Reinserire Password" name="psw-repeat" required>
+
+
+                            </div>
+                            <div class="containerRegistrazione">
+                                <label>Ricordami
+                                                    <input type="checkbox" checked="checked" style="margin-bottom:15px"> 
+                                                  </label>
+                            </div>
+
+
+                            <div class="containerRegButton" style="background-color:#ffffff">
+                                <button type="button" onclick="document.getElementById('registrazione').style.display='none'" class="cancelbtnReg">Cancel</button>
+                                <button class="buttonReg" type="submit">Registrati</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </li>
                 <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
             </ul>
         </div>
@@ -243,7 +322,6 @@
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span> </div>
                 <hr>
-                <a href="#">Lascia una Recensione!!</a>
                 <hr>
                 <div class="prezzo_prodotto">Prezzo Consigliato : €99.00</div>
                 <div class="btn-group button_carrello">
@@ -264,12 +342,17 @@
     </div>
 
     <div class="container menu_basso" style="background-color: aliceblue">
-        <div class="col-md-7 single-top-left ">
+        <div class="col-md-9 single-top-left ">
             <ul class="nav nav-tabs menu_down">
                 <li class="active"><a data-toggle="tab" href="#descrizione">Descrizione</a></li>
                 <li><a data-toggle="tab" href="#misure">Misure</a></li>
                 <li><a data-toggle="tab" href="#colori">Colori Disponibili</a></li>
                 <li><a data-toggle="tab" href="#venditori">Venditori</a></li>
+                <li><a data-toggle="tab" href="#recensioni">Recensioni</a></li>
+                <li><a data-toggle="tab" href="#aggiungiRecensione">Aggiungi una recensione!</a></li>
+
+
+
             </ul>
 
             <div class="tab-content">
@@ -293,6 +376,20 @@
                         <li><a href="#">Venditore 3</a></li>
                         <li><a href="#">Venditore 4</a></li>
                     </ul>
+                </div>
+                <div id="recensioni" class="tab-pane fade">
+                    <h3>Recensioni</h3>
+                    <ul class="recensioni">
+                        <li>Recensione 1</li>
+                        <li>Recensione 2</li>
+                        <li>Recensione 3</li>
+                    </ul>
+                </div>
+                <div id="aggiungiRecensione" class="tab-pane fade">
+                    <h3>Form Recensione</h3>
+                    <br>
+                    <br>
+
                 </div>
             </div>
 

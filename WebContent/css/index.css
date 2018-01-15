@@ -166,6 +166,17 @@ footer {
 }
 
 
+/*Tasto e Barra Ricerca */
+
+.tastoRicerca {
+    padding: 27%;
+}
+
+.barraRicerca {
+    padding: 35%;
+}
+
+
 /* Singolo prodotto in offerta */
 
 .inOfferta {
