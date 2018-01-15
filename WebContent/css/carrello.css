@@ -1,0 +1,142 @@
+.navbar {
+    border-radius: 0;
+    z-index: 10;
+    box-shadow: 5px 4px 5px #000;
+    width: 100%;
+}
+
+.navbarOggetto {
+    z-index: 0;
+    height: 50px;
+}
+
+.menuDestra li {
+    z-index: 1;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    height: 50px;
+    text-align: left;
+}
+
+.headerContainer {
+    text-align: center;
+}
+
+body {
+    background-image: url("images/bodyBackground.jpg");
+    background-repeat: repeat;
+    background-color: #cccccc;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #333333;
+    height: 100%;
+}
+
+.bottoneTornaSu {
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+}
+
+
+/* Mouse che passa sulle voci del navbar */
+
+.navbar .navbarOggetto:hover {
+    background-color: rgb(121, 4, 4);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    box-shadow: 5px 4px 5px #000;
+}
+
+
+/* Per l'allineamento del navbar */
+
+.affix {
+    top: 0;
+    width: 100%;
+}
+
+.affix+.container-fluid {
+    padding-top: 70px;
+}
+
+#share-buttons img {
+    width: 60px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+    display: inline;
+}
+
+
+/* Sfondo della pagina */
+
+#bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}
+
+#bg img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -10;
+}
+
+
+/* Menu catalogo prodotti */
+
+.dropdown-menu {
+    width: 1000px;
+    height: 380px;
+    z-index: 10;
+}
+
+
+/* Nomi delle catergorie del menu prodotti */
+
+.NomiCategorie {
+    color: rgb(121, 4, 4);
+    font-family: "Century Gothic", Times, serif;
+}
+
+
+/* Singole categorie, marche e ambienti del menu prodotti */
+
+.oggettiCategorie {
+    color: rgb(34, 30, 30);
+    font-family: "Book Antiqua", Times, serif;
+    font-size: 15px;
+}
+
+.oggettiCategorie:hover {
+    color: rgb(121, 4, 4);
+}
+
+
+/* Le colonne del menu dei prodotti */
+
+#listaMenu {
+    height: 340px;
+    border-left: 1px solid rgb(109, 97, 97);
+}
+
+
+/* Quando passo sopra alle colonne del menu dei prodotti */
+
+#listaMenu:hover {
+    border-bottom: 2px solid rgb(255, 255, 255);
+    box-shadow: 5px 4px 5px #000;
+}
