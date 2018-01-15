@@ -230,7 +230,16 @@ a {
     text-align: center;
     padding-top: 3%;
     font-size: 20px;
-    color: antiquewhite;
+    color: wheat;
+    font-family: "Century Gothic", Times, serif;
+    padding-left: 105px;
+    color: white;
+    text-shadow: 2px 2px 4px rgb(121, 4, 4);
+}
+
+hr {
+    border: 1px solid rgb(255, 255, 255);
+    width: 87%;
 }
 
 .menu_selezione {
