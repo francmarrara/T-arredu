@@ -1,14 +1,7 @@
-.navbar {
-    border-radius: 0;
-    z-index: 10;
-    box-shadow: 5px 4px 5px #000;
-}
-
-body {
-    background: lightgray;
-}
-
 header {
+    z-index: 10;
+    top: 0px;
+    position: fixed;
     background-color: rgb(0, 0, 0);
     color: #fff;
     height: 50px;
@@ -17,6 +10,27 @@ header {
 
 .headerContainer {
     text-align: center;
+}
+
+.headerContainer img {
+    z-index: 10;
+}
+
+.navbar {
+    top: 50px;
+    position: fixed;
+    border-radius: 0;
+    z-index: 10;
+    box-shadow: 5px 4px 5px #000;
+    width: 100%;
+}
+
+.mioSlider {
+    margin-top: 10%;
+}
+
+body {
+    background: lightgray;
 }
 
 .jumbotron {

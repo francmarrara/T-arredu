@@ -1,5 +1,25 @@
 @charset "UTF-8";
+header {
+    z-index: 10;
+    top: 0px;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    height: 50px;
+    text-align: left;
+}
+
+.headerContainer {
+    text-align: center;
+}
+
+.headerContainer img {
+    z-index: 10;
+}
+
 .navbar {
+    top: 50px;
+    position: fixed;
     border-radius: 0;
     z-index: 10;
     box-shadow: 5px 4px 5px #000;
@@ -13,17 +33,6 @@
 
 .menuDestra li {
     z-index: 1;
-}
-
-header {
-    background-color: rgb(0, 0, 0);
-    color: #fff;
-    height: 50px;
-    text-align: left;
-}
-
-.headerContainer {
-    text-align: center;
 }
 
 body {
@@ -177,6 +186,7 @@ footer {
     height: 50%;
     margin-left: 40px;
     margin-right: 40px;
+    margin-top: 10%;
 }
 
 hr {
