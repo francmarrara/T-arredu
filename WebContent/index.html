@@ -58,7 +58,9 @@
 
     <!-- Header -->
     <header class="container-fluid headerImage" name="top">
-        <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
+        <div class="headerContainer">
+            <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
+        </div>
     </header>
 
     <!-- Menu di navigazione principale -->
@@ -194,11 +196,10 @@
                     </form>
                 </li>
                 <li class="navbarOggetto">
-                    <!-- <a> to open the modal login form -->
+                    <!-- Form per il login -->
                     <a href="#" onclick="document.getElementById('login').style.display='block'">
                         <span class="glyphicon glyphicon-log-in"></span> Login</a>
 
-                    <!-- The Modal -->
                     <div id="login" class="modal">
 
                         <form class="modal-content animate" action="------">
@@ -228,7 +229,7 @@
                     </div>
                 </li>
                 <li class="navbarOggetto">
-                    <!-- <a> to open the modal login form -->
+                    <!-- Form per la registrazione -->
                     <a href="#" onclick="document.getElementById('registrazione').style.display='block'">
                         <span class="glyphicon glyphicon-user user"></span> Registrati</a>
 
@@ -242,6 +243,13 @@
                             <p>Compila questo modulo per creare un account.</p>
                             <hr>
                             <div class="containerReg">
+
+                                <label><b>Nome</b></label>
+                                <input type="text" placeholder="Inserire Nome" name="nome" required>
+
+                                <label><b>Cognome</b></label>
+                                <input type="text" placeholder="Inserire Cognome" name="cognome" required>
+
                                 <label><b>Email</b></label>
                                 <input type="text" placeholder="Inserire Indirizzo Email" name="email" required>
 
@@ -250,12 +258,15 @@
 
                                 <label><b>Ripetere Password</b></label>
                                 <input type="password" placeholder="Reinserire Password" name="psw-repeat" required>
-                                <div class="containerRegistrazione">
-                                    <label>
-                                                <input type="checkbox" checked="checked" style="margin-bottom:15px"> Ricordami
-                                              </label>
-                                </div>
+
+
                             </div>
+                            <div class="containerRegistrazione">
+                                <label>Ricordami
+                                                <input type="checkbox" checked="checked" style="margin-bottom:15px"> 
+                                              </label>
+                            </div>
+
 
                             <div class="containerRegButton" style="background-color:#ffffff">
                                 <button type="button" onclick="document.getElementById('registrazione').style.display='none'" class="cancelbtnReg">Cancel</button>
@@ -312,6 +323,7 @@
 
     <!-- Prodotti in offerta -->
     <h2 class="nomiSezioniProdotti">Prodotti in offerta</h2>
+    <hr>
     <div class="container inOfferta">
         <div class="row prodottiInOfferta">
             <div class="col-sm-4">
@@ -434,6 +446,7 @@
 
     <!-- Prodotti piu visti -->
     <h2 class="nomiSezioniProdotti">Più visti</h2>
+    <hr>
     <div class="container piuVisti">
         <div class="row prodottiPiuVisti">
             <div class="col-sm-4">
@@ -513,9 +526,6 @@
     <br>
 
     <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
-
-    <div class="content">
-    </div>
 
     <!-- Footer -->
     <footer id="myFooter">

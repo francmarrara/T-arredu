@@ -23,12 +23,3 @@ $(document).ready(function() {
         $(this).find("#menuProdotti").hide(250);
     });
 });
-
-
-
-// Ricordami Checkbox
-$(document).ready(function() {
-    function myFunction() {
-
-    }
-});

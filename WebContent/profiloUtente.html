@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Footer-with-social-icons.css">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+
+    <!-- Smartsupp Live Chat script 
+        <script type="text/javascript">
+            var _smartsupp = _smartsupp || {};
+            _smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+            window.smartsupp || (function(d) {
+                var s, c, o = smartsupp = function() {
+                    o._.push(arguments)
+                };
+                o._ = [];
+                s = d.getElementsByTagName('script')[0];
+                c = d.createElement('script');
+                c.type = 'text/javascript';
+                c.charset = 'utf-8';
+                c.async = true;
+                c.src = 'https://www.smartsuppchat.com/loader.js?';
+                s.parentNode.insertBefore(c, s);
+            })(document);
+        </script> -->
+
+    <link rel="stylesheet" href="css/profiloUtente.css">
+    <script src="js/Js/profiloUtente.js"></script>
+
+    <link rel="shortcut icon" href="images/TarreduLogo.png">
+</head>
+
+<body>
+
+    <!-- Sfondo -->
+    <div id="bg">
+        <img src="images/sfondoLegno.png" alt="">
+    </div>
+
+    <!-- Header -->
+    <header class="container-fluid headerImage" name="top">
+        <div class="headerContainer">
+            <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
+        </div>
+    </header>
+
+    <!-- Menu di navigazione principale -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="navbarOggetto"><img id="logoButton" src="images/TarreduLogo.png" width="50" height="50"></li>
+                <li class="navbarOggetto"><a href="#">Home</a></li>
+                <!-- DropMenu per catalogo prodotti -->
+                <li class="dropdown navbarOggetto" id="catalogoProdotti">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo Prodotti
+                            <span class="caret"></span></a>
+                    <ul class="dropdown-menu row" id="menuProdotti">
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Ambienti</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Cucina</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Bagno</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Soggiorno</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Studio</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Camera da letto</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Salotto</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Stanza da pranzo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Categorie</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Armadi</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Cassettiere</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Comodini</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Illuminazioni</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Credenze</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Letti</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Tavoli</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Librerie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Scrivanie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Sedie</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Poltrone</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Divani</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Vetrine</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Bagni</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Marche</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 2</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3" id="listaMenu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="NomiCategorie">Marche</h4>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 2</a>
+                                </li>
+                                <li>
+                                    <a class="oggettiCategorie" href="">Prodotti 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navbarOggetto"><a href="#">Contatti</a></li>
+                <li class="navbarOggetto"><a href="#">Varie</a></li>
+                <li class="navbarOggetto"><a href="#">Varie 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right menuDestra">
+                <li class="navbarOggetto ricerca">
+                    <!-- Spazio per la ricerca -->
+                    <form class="navbar-form" role="search">
+                        <div class="input-group add-on">
+                            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default tastoRicerca" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+
+                <li class="navbarOggetto">
+                    <!-- <a> to open the modal login form -->
+                    <a href="#" class="nomeUtente"><span class="glyphicon glyphicon-user user"></span> NomeUtente</a>
+                </li>
+                <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="centerContainer">
+        <h2>Il mio account</h2>
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Dati personali</a></li>
+            <li><a data-toggle="tab" href="#menu1">Prodotti Preferiti</a></li>
+            <li><a data-toggle="tab" href="#menu2">Storico Preventivi</a></li>
+            <li><a data-toggle="tab" href="#menu3">Modifica dati personali</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h3>
+                    </span> Dati personali <span class="glyphicon glyphicon-user"></span></h3>
+                <hr>
+                <div class="containerCredenziali">
+                    <div class="row credenziali">
+                        <div class="col-sm-8 rigaCredenziali">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Panel with panel-info class</div>
+                                <div class="panel-body">Panel Content</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row credenziali">
+                        <div class="col-sm-8 rigaCredenziali">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Panel with panel-info class</div>
+                                <div class="panel-body">Panel Content</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row credenziali">
+                        <div class="col-sm-8 rigaCredenziali">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Panel with panel-info class</div>
+                                <div class="panel-body">Panel Content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <h3>Preferiti</h3>
+                <hr>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <h3>Preventivi</h3>
+                <hr>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+            <div id="menu3" class="tab-pane fade">
+                <h3>Menu 3</h3>
+                <hr>
+                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
+
+    <div class="content">
+    </div>
+
+    <!-- Footer -->
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Ambienti</h5>
+                    <ul>
+                        <li><a href="#">Cucina</a></li>
+                        <li><a href="#">Bagno</a></li>
+                        <li><a href="#">Soggiorno</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">Camera da Letto</a></li>
+                        <li><a href="#">Salotto</a></li>
+                        <li><a href="#">Sala da Pranzo</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Marche</h5>
+                    <ul>
+                        <li><a href="#">Marca 1</a></li>
+                        <li><a href="#">Marca 2</a></li>
+                        <li><a href="#">Marca 3</a></li>
+                        <li><a href="#">Marca 4</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Supporto</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Contatti</h5>
+                    <ul id="contattiFooter">
+                        <li><a href="#">Francesco Marrara</a></li>
+                        <li><a href="#">francescomarrara@hotmail.it</a></li>
+                        <li><a href="#">Simone Crisafi</a></li>
+                        <li><a href="#">xblack90@hotmail.it</a></li>
+                        <li><a href="#">Tel: 0966 43762</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
