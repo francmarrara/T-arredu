@@ -2,23 +2,60 @@
     border-radius: 0;
     z-index: 10;
     box-shadow: 5px 4px 5px #000;
+    width: 100%;
+}
+
+.navbarOggetto {
+    z-index: 0;
+    height: 50px;
+}
+
+.menuDestra li {
+    z-index: 1;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    height: 50px;
+    text-align: left;
+}
+
+.headerContainer {
+    text-align: center;
 }
 
 body {
-    background: lightgray;
+    background-image: url("images/bodyBackground.jpg");
+    background-repeat: repeat;
+    background-color: #cccccc;
 }
 
-.jumbotron {
-    margin-bottom: 10;
-    margin-top: 10;
-    box-shadow: 5px 4px 5px #000;
+
+/* Footer */
+
+footer {
+    background-color: #333333;
+    height: 100%;
 }
+
+.bottoneTornaSu {
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+}
+
+
+/* Mouse che passa sulle voci del navbar */
 
 .navbar .navbarOggetto:hover {
     background-color: rgb(121, 4, 4);
     border-bottom: 2px solid rgb(255, 255, 255);
     box-shadow: 5px 4px 5px #000;
 }
+
+
+/* Per l'allineamento del navbar */
 
 .affix {
     top: 0;
@@ -27,6 +64,14 @@ body {
 
 .affix+.container-fluid {
     padding-top: 70px;
+}
+
+#share-buttons img {
+    width: 60px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+    display: inline;
 }
 
 
@@ -94,105 +139,4 @@ body {
 #listaMenu:hover {
     border-bottom: 2px solid rgb(255, 255, 255);
     box-shadow: 5px 4px 5px #000;
-}
-
-
-/* Carousel */
-
-#myCarousel {}
-
-
-/* Carrello */
-
-.product_name {
-    padding-top: 2%;
-}
-
-.separatore {
-    border: 2px;
-    width: 1100px;
-    border-style: solid;
-}
-
-.menu_basso {
-    padding-top: 2%;
-}
-
-.checked {
-    color: yellow;
-}
-
-.descrizione {
-    padding-top: 12%;
-    padding-left: 3%;
-}
-
-.lista_venditori {
-    list-style-type: none;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.descrizione_bassa {
-    font-style: oblique;
-    font-weight: 400;
-}
-
-.button_carrello {
-    padding-top: 10%;
-}
-
-.button_favoriti {
-    padding-top: 10%;
-}
-
-.prezzo_prodotto {
-    font-size: 120%;
-}
-
-tab-content {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    padding: 10px;
-}
-
-.nav-tabs {
-    margin-bottom: 2px;
-}
-
-.marca_prodotto {
-    padding: 1%;
-    font-style: oblique;
-    font-weight: 700;
-}
-
-.ambiente_prodotto {
-    padding: 1%;
-    font-style: italic;
-}
-
-.tipo_prodotto {
-    padding: 1%;
-}
-
-.valutazioni_prodotto {
-    padding: 2%;
-}
-
-a {
-    color: rgb(121, 4, 4)
-}
-
-
-/* Footer */
-
-footer {
-    background-color: #333333;
-    height: 200px;
-}
-
-.bottoneTornaSu {
-    height: 70px;
-    width: 100%;
-    padding: 15px;
 }
