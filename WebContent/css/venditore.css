@@ -188,3 +188,8 @@ a {
     color: antiquewhite;
     text-align: center;
 }
+
+.img_grid {
+    width: 300px;
+    height: 300px;
+}
