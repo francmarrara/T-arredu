@@ -37,7 +37,7 @@ public interface ProdottoDAO {
 
 	public List<Prodotto> findByVenditore(String emailVenditore);
 
-	public List<String> getImages(Prodotto prodotto);
+	public List<String> getImages(Integer idProdotto);
 
 	public void addImageToProduct(String url, Prodotto prodotto);
 
@@ -56,5 +56,13 @@ public interface ProdottoDAO {
 	public void removeVenditoreInProduct(String emailVenditore, Prodotto prodotto);
 
 	public void removeAllVenditoriInProduct(Prodotto prodotto);
+	
+	public Integer getNumberOfvisit(Integer idProdotto);
+	
+	public void visitPlusPlus(Integer idProdotto);
+	
+	
+	
+	
 
 }

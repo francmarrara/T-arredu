@@ -1,11 +1,14 @@
 package test;
 
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import model.Prodotto;
 import model.ProdottoConImmagini;
+import model.Utente;
 import persistenceDAO.DataBaseManager;
+import persistenceDAO.UtenteDAO;
 
 public class testDB {
 
@@ -68,20 +71,13 @@ public class testDB {
 //
 //		System.out.println("----------------");
 
-		 long startFindProducts = System.currentTimeMillis();
 
+	   List<ProdottoConImmagini> prodotti = dbManager.getUtenteDao().getProdottiPreferitiConImmagini("francmarrara@gmail.com");
 
-		 List<ProdottoConImmagini> prodotti= dbManager.getProdottoDao().findAllProductWithImages();
-	
-		
-		 long endFindProducts = System.currentTimeMillis();
-		
-		 System.out.println("Il Find ha impiegato " + (endFindProducts -
-		 startFindProducts) / 1000 + " secondi");
-		
-     for(ProdottoConImmagini p : prodotti) {
-    	 p.stampaProdotto();
-     }
-	}
+	   
+	   for(ProdottoConImmagini p : prodotti) {
+		   p.stampaProdotto();
+	   }
 
+}
 }

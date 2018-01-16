@@ -11,7 +11,6 @@ import java.util.List;
 import model.Carrello;
 import model.Prodotto;
 import model.ProdottoConImmagini;
-import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
@@ -31,7 +30,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 			String insert = "insert into prodotto(id_prodotto, marcaProdotto, tipoProdotto, ambienteProdotto, nomeProdotto, "
 					+ "prezzoProdotto, misureProdotto, disponibilitaProdotto, "
-					+ "descrizioneProdotto) values (?,?,?,?,?,?,?,?,?)";
+					+ "descrizioneProdotto, numeroVisite ) values (?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
 			statement.setInt(1, prodotto.getIdProdotto());
@@ -43,6 +42,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setString(7, prodotto.getMisureProdotto());
 			statement.setBoolean(8, prodotto.getDisponibilit‡Prodotto());
 			statement.setString(9, prodotto.getDescrizioneProdotto());
+			statement.setInt(10, prodotto.getNumeroVisite());
 
 			statement.executeUpdate();
 
@@ -116,6 +116,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setMisureProdotto(result.getString("misureProdotto"));
 				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
 				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
+				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
 				String queryVenditore = "select * from venditorePerProdotto where id_prodotto = ?";
 				PreparedStatement statementVenditori = connection.prepareStatement(queryVenditore);
@@ -209,7 +210,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 			String update = "update prodotto SET marcaProdotto = ?, tipoProdotto = ? ,ambienteProdotto = ?, nomeProdotto = ?, "
 					+ "prezzoProdotto = ?, misureProdotto = ?, disponibilitaProdotto = ?, "
-					+ "descrizioneProdotto = ?  WHERE id_prodotto=?";
+					+ "descrizioneProdotto = ?, numeroVisite = ? WHERE id_prodotto=?";
 
 			PreparedStatement statement = connection.prepareStatement(update);
 
@@ -221,7 +222,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
 			statement.setString(7, prodotto.getMisureProdotto());
 			statement.setString(8, prodotto.getDescrizioneProdotto());
-			statement.setInt(9, prodotto.getIdProdotto());
+			statement.setInt(9, prodotto.getNumeroVisite());
+			statement.setInt(10, prodotto.getIdProdotto());
 
 			statement.executeUpdate();
 
@@ -507,7 +509,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 
 	@Override
-	public List<String> getImages(Prodotto prodotto) {
+	public List<String> getImages(Integer idProdotto) {
 		Connection connection = this.dataSource.getConnection();
 		List<String> immagini = new LinkedList<String>();
 
@@ -517,7 +519,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			String query = "select * from urlImmaginiProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(query);
-			statement.setInt(1, prodotto.getIdProdotto());
+			statement.setInt(1,idProdotto);
 			ResultSet result = statement.executeQuery();
 
 			result = statement.executeQuery();
@@ -858,6 +860,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setIdProdotto(result.getInt("id_prodotto"));
 
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 
 				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
 				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
@@ -883,4 +887,59 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 		return prodotti;
 	}
+
+	@Override
+	public Integer getNumberOfvisit(Integer idProdotto) {
+		Connection connection = this.dataSource.getConnection();
+		Integer value = null;
+		try {
+
+			PreparedStatement statement;
+			String query = "select numeroVisite from prodotto WHERE id_prodotto = ?";
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, idProdotto);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				value = result.getInt("numeroVisite");
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return value;
+	}
+
+	@Override
+	public void visitPlusPlus(Integer idProdotto) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "UPDATE prodotto \r\n" + "  SET numeroVisite = numeroVisite + 1 \r\n" + "  WHERE id_prodotto = ?";
+
+			PreparedStatement statement = connection.prepareStatement(update);
+
+			statement.setInt(1, idProdotto);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+	}
+
 }

@@ -1,15 +1,20 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ProdottoConImmagini {
 
 	private Integer idProdotto;
 	private String nomeProdotto;
-	private ArrayList<String> urlImmagini;
+	private Double prezzoProdotto;
+	
+	private List<String> urlImmagini;
+	
 
 	public ProdottoConImmagini() {
-		urlImmagini = new ArrayList<String>();
+		urlImmagini = new LinkedList<String>();
 	}
 
 	public Integer getIdProdotto() {
@@ -28,11 +33,11 @@ public class ProdottoConImmagini {
 		this.nomeProdotto = nomeProdotto;
 	}
 
-	public ArrayList<String> getUrlImmagini() {
+	public List<String> getUrlImmagini() {
 		return urlImmagini;
 	}
 
-	public void setUrlImmagini(ArrayList<String> urlImmagini) {
+	public void setUrlImmagini(List<String> urlImmagini) {
 		this.urlImmagini = urlImmagini;
 	}
 
@@ -40,6 +45,7 @@ public class ProdottoConImmagini {
 		System.out.println("----------");
 		System.out.println("Id Prodotto : " + idProdotto);
 		System.out.println("Nome Prodotto : " + nomeProdotto);
+		System.out.println("Prezzo Prodotto : " +prezzoProdotto);
 		System.out.println("===IMMAGINI===");
 
 		for (String s : urlImmagini) {
@@ -47,6 +53,14 @@ public class ProdottoConImmagini {
 		}
 
 		System.out.println("---------");
+	}
+
+	public Double getPrezzoProdotto() {
+		return prezzoProdotto;
+	}
+
+	public void setPrezzoProdotto(Double prezzoProdotto) {
+		this.prezzoProdotto = prezzoProdotto;
 	}
 
 }

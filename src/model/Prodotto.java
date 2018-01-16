@@ -20,6 +20,7 @@ public class Prodotto {
 	private ArrayList<String> urlImmaginiProdotto;
 	private ArrayList<String> coloriProdotto;
 	private ArrayList<String> venditoriProdotto;
+	private Integer numeroVisite;
 
 	// costruttore senza Parametri
 	public Prodotto() {
@@ -32,6 +33,7 @@ public class Prodotto {
 		urlImmaginiProdotto = new ArrayList<String>();
 		coloriProdotto = new ArrayList<String>();
 		venditoriProdotto = new ArrayList<String>();
+		numeroVisite=0;
 
 	}
 
@@ -158,6 +160,14 @@ public class Prodotto {
 
 	public void setVenditoriProdotto(ArrayList<String> venditoriProdotto) {
 		this.venditoriProdotto = venditoriProdotto;
+	}
+
+	public Integer getNumeroVisite() {
+		return numeroVisite;
+	}
+
+	public void setNumeroVisite(Integer numeroVisite) {
+		this.numeroVisite = numeroVisite;
 	}
 
 }

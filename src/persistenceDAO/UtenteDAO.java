@@ -3,6 +3,8 @@ package persistenceDAO;
 import java.util.List;
 
 import model.Preventivo;
+import model.Prodotto;
+import model.ProdottoConImmagini;
 import model.Utente;
 
 
@@ -16,5 +18,12 @@ public interface UtenteDAO {
 	public void delete(Utente utente); //Delete	
 	
 	public void changePassword(Utente utente, String password);
+	
+	
+	public void aggiungiProdottoInPreferiti(Integer idProdotto, String emailUtente);
+	public void rimuoviProdottoInPreferiti(Integer idProdotto, String emailUtente);
+	public List<Prodotto> getProdottiPreferiti(String emailUtente);
+	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente);
+	public void rimuoviPreferiti(String emailUtente);
 	
 }
