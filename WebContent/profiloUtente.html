@@ -189,13 +189,14 @@
                 </li>
 
                 <li class="navbarOggetto">
-                    <a href="#" class="nomeUtente"><span class="glyphicon glyphicon-user user"></span> NomeUtente</a>
+                    <a href="#" class="nomeUtente"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 </li>
                 <li class="carrello navbarOggetto"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Container con Dati personali, preventivi, preferiti e modififa dati personali -->
     <div class="centerContainer">
         <h2>Il mio account</h2>
 
@@ -207,6 +208,7 @@
         </ul>
 
         <div class="tab-content">
+            <!-- Dati personali utente -->
             <div id="home" class="tab-pane fade in active">
                 <h3>
                     Dati personali <span class="glyphicon glyphicon-user"></span></h3>
@@ -263,6 +265,7 @@
 
                 </div>
             </div>
+            <!-- Prodotti preferiti utente -->
             <div id="menu1" class="tab-pane fade">
                 <div class="containerPreferiti">
                     <h3>Preferiti <span class="glyphicon glyphicon-star-empty"></span></h3>
@@ -355,141 +358,351 @@
                     </div>
                 </div>
             </div>
+            <!-- Lista di preventivi richiesti dall' utente -->
             <div id="menu2" class="tab-pane fade">
-                <h3>Preventivi</h3>
-                <hr>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-            </div>
-            <div id="menu3" class="tab-pane fade">
-                <div class="containerTitoloForm">
-                    <h3>Modifica Dati Personali <span class="glyphicon glyphicon-pencil"></span></h3>
+                <div class="containerListaPreventivi">
+                    <h3>Preventivi <span class="glyphicon glyphicon-list-alt"></span></h3>
                 </div>
                 <hr>
-                <div class="containerFormDatipersonali">
-                    <form action="/action_page.php">
-                        <div class="containerDatiForm">
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <label for="nomeUtente">Nome utente</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" id="nomeUtente" name="nome" placeholder="Inserire nuovo nome utente">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <label for="cognomeUtente">Cognome Utente</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" id="cognomeUtente" name="cognome" placeholder="Inserire nuovo cognome utente">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <label for="emailUtente">Email Utente</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" id="emailUtente" name="email" placeholder="Inserire nuova email utente">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <label for="passwordUtente">Password Utente</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="password" id="passwordUtente" placeholder="Inserire nuova Password" name="password" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <label for="dataNascita">Data di nascita Utente</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="date" name="bday">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <label for="recapitoTelefonico">Recapito Telefonico</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" id="recapitoTelefonico" name="recapitoTelefonicoUtente" placeholder="Inserire nuovo recapito telefonico">
-                                </div>
-                            </div>
-                        </div>
+                <div class="container boxCarrello" style="background: aliceblue; border: 2px solid black; padding-bottom:50px;">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-10 col-md-offset-1">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Codice Preventivo</th>
+                                        <th>Data Preventivo</th>
+                                        <th class="text-center">Id Utente</th>
+                                        <th class="text-center">Lista Prodotti in preventivo</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-sm-8 col-md-6">
+                                            <div class="media">
+                                                <div class="immaginePreventivo">
+                                                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/bustapreventivo.png" style="width: 72px; height: 72px;"> </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <br>
+                                                    <h4 class="media-heading"><a href="#"> Cod: #12345</a></h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
+                                        <td class="col-sm-1 col-md-1 text-center"><strong>Id: #123</strong></td>
+                                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                                        <td class="col-sm-1 col-md-1">
+                                            <button type="button" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-remove"></span> Remove
+                                        </button></td>
 
-                        <div class="row containerSubmitButton">
-                            <div class="col-md-6">
-                                <button class="cancelButton" type="reset">Cancella tutto</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="submitButton" type="submit">Salva</button>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-8 col-md-6">
+                                            <div class="media">
+                                                <div class="immaginePreventivo">
+                                                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/bustapreventivo.png" style="width: 72px; height: 72px;"> </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <br>
+                                                    <h4 class="media-heading"><a href="#"> Cod: #12345</a></h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
+                                        <td class="col-sm-1 col-md-1 text-center"><strong>Id: #123</strong></td>
+                                        <td class="col-sm-1 col-md-1 text-center containerListaProdotti">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Prodotti  <span class="glyphicon glyphicon-modal-window"></span></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="myModal" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title">Lista dei prodotti in preventivo</h3>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <h4>Nome Prodotto</h4>
+                                                                <div class="col-md-6">
+                                                                    <img href="prodotto.html" class="immagineProdotto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="containerCaratteristiche">
+                                                                        <h5>Caratteristiche prodotto</h5>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Nome: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Nome Prodotto </label>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Marca: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Marca Prodotto </label>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Colori: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <div class="coloriProdotto">
+                                                                                <div class="square"></div>
+                                                                                <div class="square"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Prezzo: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Prezzo Prodotto </label>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <h4>Nome Prodotto</h4>
+                                                                <div class="col-md-6">
+                                                                    <img href="prodotto.html" class="immagineProdotto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="containerCaratteristiche">
+                                                                        <h5>Caratteristiche prodotto</h5>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Nome: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Nome Prodotto </label>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Marca: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Marca Prodotto </label>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Colori: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <div class="coloriProdotto">
+                                                                                <div class="square"></div>
+                                                                                <div class="square"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Prezzo: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Prezzo Prodotto </label>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <h4>Nome Prodotto</h4>
+                                                                <div class="col-md-6">
+                                                                    <img href="prodotto.html" class="immagineProdotto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="containerCaratteristiche">
+                                                                        <h5>Caratteristiche prodotto</h5>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Nome: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Nome Prodotto </label>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Marca: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Marca Prodotto </label>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Colori: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <div class="coloriProdotto">
+                                                                                <div class="square"></div>
+                                                                                <div class="square"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="labelProdotto">
+                                                                            <label>Prezzo: </label>
+                                                                        </div>
+                                                                        <div class="valoreLabelProdotto">
+                                                                            <label>Prezzo Prodotto </label>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                        </td>
+                                        <td class="col-sm-1 col-md-1">
+                                            <button type="button" class="btn btn-danger">
+                                                <span class="glyphicon glyphicon-remove"></span> Rimuovi
+                                            </button></td>
+
+                                    </tr>
+
+
+
+
+                                </tbody>
+                            </table>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                </div>
+                <!-- Modifica dati personali utente -->
+                <div id="menu3" class="tab-pane fade">
+                    <div class="containerTitoloForm">
+                        <h3>Modifica Dati Personali <span class="glyphicon glyphicon-pencil"></span></h3>
+                    </div>
+                    <hr>
+                    <div class="containerFormDatipersonali">
+                        <form action="/action_page.php">
+                            <div class="containerDatiForm">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="nomeUtente">Nome utente</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="nomeUtente" name="nome" placeholder="Inserire nuovo nome utente">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="cognomeUtente">Cognome Utente</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="cognomeUtente" name="cognome" placeholder="Inserire nuovo cognome utente">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="emailUtente">Email Utente</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="emailUtente" name="email" placeholder="Inserire nuova email utente">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="passwordUtente">Password Utente</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="password" id="passwordUtente" placeholder="Inserire nuova Password" name="password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="dataNascita">Data di nascita Utente</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="date" name="bday">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="recapitoTelefonico">Recapito Telefonico</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="recapitoTelefonico" name="recapitoTelefonicoUtente" placeholder="Inserire nuovo recapito telefonico">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row containerSubmitButton">
+                                <div class="col-md-6">
+                                    <button class="cancelButton" type="reset">Cancella tutto</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="submitButton" type="submit">Salva</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-    <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
+        <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
 
-    <div class="content">
-    </div>
+        <div class="content">
+        </div>
 
-    <!-- Footer -->
-    <footer id="myFooter">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 myCols">
-                    <h5>Ambienti</h5>
-                    <ul>
-                        <li><a href="#">Cucina</a></li>
-                        <li><a href="#">Bagno</a></li>
-                        <li><a href="#">Soggiorno</a></li>
-                        <li><a href="#">Studio</a></li>
-                        <li><a href="#">Camera da Letto</a></li>
-                        <li><a href="#">Salotto</a></li>
-                        <li><a href="#">Sala da Pranzo</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 myCols">
-                    <h5>Marche</h5>
-                    <ul>
-                        <li><a href="#">Marca 1</a></li>
-                        <li><a href="#">Marca 2</a></li>
-                        <li><a href="#">Marca 3</a></li>
-                        <li><a href="#">Marca 4</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 myCols">
-                    <h5>Supporto</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 myCols">
-                    <h5>Contatti</h5>
-                    <ul id="contattiFooter">
-                        <li><a href="#">Francesco Marrara</a></li>
-                        <li><a href="#">francescomarrara@hotmail.it</a></li>
-                        <li><a href="#">Simone Crisafi</a></li>
-                        <li><a href="#">xblack90@hotmail.it</a></li>
-                        <li><a href="#">Tel: 0966 43762</a></li>
-                    </ul>
+        <!-- Footer -->
+        <footer id="myFooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 myCols">
+                        <h5>Ambienti</h5>
+                        <ul>
+                            <li><a href="#">Cucina</a></li>
+                            <li><a href="#">Bagno</a></li>
+                            <li><a href="#">Soggiorno</a></li>
+                            <li><a href="#">Studio</a></li>
+                            <li><a href="#">Camera da Letto</a></li>
+                            <li><a href="#">Salotto</a></li>
+                            <li><a href="#">Sala da Pranzo</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 myCols">
+                        <h5>Marche</h5>
+                        <ul>
+                            <li><a href="#">Marca 1</a></li>
+                            <li><a href="#">Marca 2</a></li>
+                            <li><a href="#">Marca 3</a></li>
+                            <li><a href="#">Marca 4</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 myCols">
+                        <h5>Supporto</h5>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Help desk</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 myCols">
+                        <h5>Contatti</h5>
+                        <ul id="contattiFooter">
+                            <li><a href="#">Francesco Marrara</a></li>
+                            <li><a href="#">francescomarrara@hotmail.it</a></li>
+                            <li><a href="#">Simone Crisafi</a></li>
+                            <li><a href="#">xblack90@hotmail.it</a></li>
+                            <li><a href="#">Tel: 0966 43762</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="social-networks">
-            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
-            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-        </div>
-    </footer>
+            <div class="social-networks">
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+            </div>
+        </footer>
 
 </body>
 
