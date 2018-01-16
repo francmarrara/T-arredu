@@ -262,7 +262,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		Connection connection = this.dataSource.getConnection();
 		List<Prodotto> prodotti = new ArrayList<Prodotto>();
 		ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-		
+
 		try {
 
 			PreparedStatement statement;
@@ -275,8 +275,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			while (result.next()) {
 				System.out.println(result.getInt("id_prodotto"));
 				prodotti.add(prodottoDao.findByPrimaryKey(result.getInt("id_prodotto")));
-				}
-			
+			}
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -295,21 +295,11 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		Connection connection = this.dataSource.getConnection();
 		List<ProdottoConImmagini> prodotti = new ArrayList<ProdottoConImmagini>();
 		ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-		
+
 		try {
 
 			PreparedStatement statement;
-			String query = "SELECT \r\n" + 
-					"        `p`.`id_prodotto` AS `id`,\r\n" + 
-					"        `p`.`nomeProdotto` AS `nome`,\r\n" + 
-					"        `p`.`prezzoProdotto` AS `prezzo`,\r\n" + 
-					"		`a`.`mailUtente` AS `mail`\r\n" + 
-					"\r\n" + 
-					"    FROM\r\n" + 
-					"        (`prodottiPreferiti` `a`\r\n" + 
-					"        FULL OUTER JOIN `prodotto` `p`)\r\n" + 
-					"    WHERE\r\n" + 
-					"        `a`.`id_prodotto` = `p`.`id_prodotto` AND `a`.`emailUtente` = ?";
+			String query = "SELECT * FROM prodottiPreferiti JOIN prodotto where prodottiPreferiti.id_prodotto = prodotto.id_prodotto and prodottiPreferiti.emailUtente=?";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, emailUtente);
 
@@ -317,15 +307,15 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 			while (result.next()) {
 				ProdottoConImmagini prodotto = new ProdottoConImmagini();
-				prodotto.setIdProdotto(result.getInt("id"));
-				prodotto.setNomeProdotto(result.getString("nome"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzo"));
-				
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+
 				prodotto.setUrlImmagini(prodottoDao.getImages(prodotto.getIdProdotto()));
-				
+
 				prodotti.add(prodotto);
-				}
-			
+			}
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
