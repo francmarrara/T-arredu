@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>T-arredu HomePage</title>
+    <title>About us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,6 @@
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/slick.min.js"></script>
 
     <!-- Smartsupp Live Chat script 
     <script type="text/javascript">
@@ -38,16 +37,10 @@
         })(document);
     </script> -->
 
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/Js/index.js"></script>
+    <link rel="stylesheet" href="css/aboutUs.css">
 
     <link rel="shortcut icon" href="images/TarreduLogo.png">
 
-
-    <!-- Start WOWSlider.com HEAD section -->
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
-    <!-- End WOWSlider.com HEAD section -->
 </head>
 
 <body>
@@ -280,249 +273,74 @@
         </div>
     </nav>
 
-    <!-- Slider centrale -->
-    <div class="jumbotron">
-        <!-- Start SLIDER section -->
-        <div id="wowslider-container1">
-            <div class="ws_images">
-                <ul>
-                    <li><img src="data1/images/arke.jpg" alt="Arke" title="Arke" id="wows1_0" /></li>
-                    <li><img src="data1/images/fina.jpg" alt="Fina" title="Fina" id="wows1_1" /></li>
-                    <li><img src="data1/images/medolla.jpg" alt="Medolla" title="Medolla" id="wows1_2" /></li>
-                    <li><img src="data1/images/bastiglia.jpg" alt="Bastiglia" title="Bastiglia" id="wows1_3" /></li>
-                    <li>
-                        <a href="http://wowslider.net"><img src="data1/images/rivo.jpg" alt="javascript image slider" title="Rivo" id="wows1_4" /></a>
-                    </li>
-                    <li><img src="data1/images/terra.jpg" alt="Terra" title="Terra" id="wows1_5" /></li>
-                </ul>
-            </div>
-            <div class="ws_bullets">
-                <div>
-                    <a href="#" title="Arke"><span><img src="data1/tooltips/arke.jpg" alt="Arke"/>1</span></a>
-                    <a href="#" title="Fina"><span><img src="data1/tooltips/fina.jpg" alt="Fina"/>2</span></a>
-                    <a href="#" title="Medolla"><span><img src="data1/tooltips/medolla.jpg" alt="Medolla"/>3</span></a>
-                    <a href="#" title="Bastiglia"><span><img src="data1/tooltips/bastiglia.jpg" alt="Bastiglia"/>4</span></a>
-                    <a href="#" title="Rivo"><span><img src="data1/tooltips/rivo.jpg" alt="Rivo"/>5</span></a>
-                    <a href="#" title="Terra"><span><img src="data1/tooltips/terra.jpg" alt="Terra"/>6</span></a>
-                </div>
-            </div>
-            <div class="ws_shadow"></div>
-
-            <script type="text/javascript" src="engine1/wowslider.js"></script>
-            <script type="text/javascript" src="engine1/script.js"></script>
-        </div>
-
-        <!-- End SLIDER section -->
-    </div>
-
     <br>
     <br>
 
-    <!-- Area prodotti home -->
+    <div class="containerAboutUs">
+        <div class="containerSezioneSuperiore">
+            <h2>Chi siamo</h2>
+            <hr>
+            <div class="row">
 
-    <!-- Prodotti in offerta -->
-    <h2 class="nomiSezioniProdotti">Prodotti in offerta</h2>
-    <hr>
-    <div class="container inOfferta">
-        <div class="row prodottiInOfferta">
-            <div class="col-sm-4">
-                <div class="coupon">
-                    <div class="containerLogo">
-                        <h4>Company Logo</h4>
-                    </div>
-                    <img class="immagineProdottoInOfferta" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloInOfferta">
-                            <h4>TITOLO 1</h4>
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                    </div>
-                    <div class="containerPrezzoEData">
-                        <p>Prezzo: <span class="prezzo">----$</span></p>
-                        <button type="button" class="btn btn-primary bottoneProdottoInOfferta">Mostra</button>
-                    </div>
+                <div class="col-md-4 immagine">
+                    <img id="logoButton" src="images/TarreduLogo.png" width="200" height="200">
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="coupon">
-                    <div class="containerLogo">
-                        <h4>Company Logo</h4>
-                    </div>
-                    <img class="immagineProdottoInOfferta" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloInOfferta">
-                            <h4>TITOLO 1</h4>
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                    </div>
-                    <div class="containerPrezzoEData">
-                        <p>Prezzo: <span class="prezzo">----$</span></p>
-                        <button type="button" class="btn btn-primary bottoneProdottoInOfferta">Mostra</button>
-                    </div>
+
+                <div class="col-md-8 descrizione">
+                    <h3>T’ARREDU (“Ti arredo”)</h3>
+                    <p>Web App che permette all’Utente di poter scegliere, configurare, richiedere un preventivo. </p>
+                    <p>Scelto il prodotto da acquistare l’utente potrà scegliere il punto vendita (Tramite geolocalizzazione, o preferenza</p>
+                    <p> dell’utente) presso il quale richiedere un preventivo o contattare il venditore per l’acquisto.</p>
+                    <p> L’utente può lasciare feedback sul singolo prodotto o sul venditore dopo aver effettuato l’acquisto. Il sito prevede</p>
+                    <p> anche una chat live per assistenza e supporto. </p>
                 </div>
+
             </div>
-            <div class="col-sm-4">
-                <div class="coupon">
-                    <div class="containerLogo">
-                        <h4>Company Logo</h4>
-                    </div>
-                    <img class="immagineProdottoInOfferta" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloInOfferta">
-                            <h4>TITOLO 1</h4>
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+            <div class="containerSezioneInferiore">
+                <h2>Sviluppatori</h2>
+                <hr>
+                <div class="row">
+
+                    <p>Hanno creato il sito:</p>
+
+                    <div class="col-md-6 immagineComponente">
+                        <div class="card">
+                            <img src="images/fotoFrancesco.jpg" alt="Francesco Marrara">
+                            <h2>Francesco Marrara</h2>
+                            <p class="title">Sviluppatore/Studente</p>
+                            <p>Università della Calabria</p>
+                            <div>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </div>
+                            <p><button><a href="mailto:francmarrara@gmail.com" class="componentiContatti">E-mail</a></button></p>
+                            <p><button><a class="componentiContatti">Tel: 347 31 39 840</a></button></p>
                         </div>
                     </div>
-                    <div class="containerPrezzoEData">
-                        <p>Prezzo: <span class="prezzo">----$</span></p>
-                        <button type="button" class="btn btn-primary bottoneProdottoInOfferta">Mostra</button>
+
+                    <div class="col-md-6 immagineComponente">
+                        <div class="card">
+                            <img src="images/fotoSimone.jpg" alt="Simone Crisafi">
+                            <h2>Simone Crisafi</h2>
+                            <p class="title">Sviluppatore/Studente</p>
+                            <p>Università della Calabria</p>
+                            <div>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </div>
+                            <p><button><a href="mailto:xblack90@hotmail.it" class="componentiContatti">E-mail</a></button></p>
+                            <p><button><a class="componentiContatti">Tel: 347 73 53 491</a></button></p>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="coupon">
-                    <div class="containerLogo">
-                        <h4>Company Logo</h4>
-                    </div>
-                    <img class="immagineProdottoInOfferta" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloInOfferta">
-                            <h4>TITOLO 1</h4>
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                    </div>
-                    <div class="containerPrezzoEData">
-                        <p>Prezzo: <span class="prezzo">----$</span></p>
-                        <button type="button" class="btn btn-primary bottoneProdottoInOfferta">Mostra</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="coupon">
-                    <div class="containerLogo">
-                        <h4>Company Logo</h4>
-                    </div>
-                    <img class="immagineProdottoInOfferta" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloInOfferta">
-                            <h4>TITOLO 1</h4>
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                    </div>
-                    <div class="containerPrezzoEData">
-                        <p>Prezzo: <span class="prezzo">----$</span></p>
-                        <button type="button" class="btn btn-primary bottoneProdottoInOfferta">Mostra</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="coupon">
-                    <div class="containerLogo">
-                        <h4>Company Logo</h4>
-                    </div>
-                    <img class="immagineProdottoInOfferta" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloInOfferta">
-                            <h4>TITOLO 1</h4>
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                    </div>
-                    <div class="containerPrezzoEData">
-                        <p>Prezzo: <span class="prezzo">----$</span></p>
-                        <button type="button" class="btn btn-primary bottoneProdottoInOfferta">Mostra</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
+
 
     </div>
-
-    <!-- Prodotti piu visti -->
-    <h2 class="nomiSezioniProdotti">Più visti</h2>
-    <hr>
-    <div class="container piuVisti">
-        <div class="row prodottiPiuVisti">
-            <div class="col-sm-4">
-                <div class="couponPiuVisto">
-                    <img class="immagineProdottoPiuVisto" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloPiuVisto">
-                            <h4>TITOLO 1</h4>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
-
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="couponPiuVisto">
-                    <img class="immagineProdottoPiuVisto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloPiuVisto">
-                            <h4>TITOLO 1</h4>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="couponPiuVisto">
-                    <img class="immagineProdottoPiuVisto" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloPiuVisto">
-                            <h4>TITOLO 1</h4>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
-                </div>
-            </div>
-        </div>
-        <div class="row prodottiPiuVisti">
-            <div class="col-sm-4">
-                <div class="couponPiuVisto">
-                    <img class="immagineProdottoPiuVisto" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloPiuVisto">
-                            <h4>TITOLO 1</h4>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
-
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="couponPiuVisto">
-                    <img class="immagineProdottoPiuVisto" src="images/productImages/TerraR04_01.jpg" alt="Stanza TerraR04">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloPiuVisto">
-                            <h4>TITOLO 1</h4>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="couponPiuVisto">
-                    <img class="immagineProdottoPiuVisto" src="images/productImages/Sunrise_01.jpg" alt="Letto Sunrise">
-                    <div class="containerTitoloETesto">
-                        <div class="titoloArticoloPiuVisto">
-                            <h4>TITOLO 1</h4>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary bottoneProdottoPiuVisto">Mostra</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <br>
 
     <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
 
@@ -576,6 +394,7 @@
             <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
         </div>
     </footer>
+
 </body>
 
 </html>
