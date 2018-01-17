@@ -251,6 +251,11 @@ body {
     color: rgb(121, 4, 4);
 }
 
+.bottoneProdottoPiuVisto {
+    padding-block-end: 5px;
+    float: right;
+}
+
 
 /* Footer */
 
