@@ -607,3 +607,14 @@ hr {
 .menu_selezione {
     padding-top: 2%;
 }
+
+
+/*Tasto e Barra Ricerca */
+
+.tastoRicerca {
+    padding: 37.5%;
+}
+
+.barraRicerca {
+    padding: 35%;
+}
