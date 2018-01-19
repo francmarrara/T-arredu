@@ -6,3 +6,14 @@ $(document).ready(function() {
         $(this).find("#menuProdotti").hide(250);
     });
 });
+
+/* Abilita bottone laterale */
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('#backToTopMenu').fadeIn(200);
+        } else {
+            $('#backToTopMenu').fadeOut(200);
+        }
+    });
+});
