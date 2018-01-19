@@ -1,7 +1,8 @@
+@charset "UTF-8";
 header {
     z-index: 10;
     top: 0px;
-    position: fixed;
+    position: absolute;
     background-color: rgb(0, 0, 0);
     color: #fff;
     height: 50px;
@@ -18,11 +19,44 @@ header {
 
 .navbar {
     top: 50px;
-    position: fixed;
+    position: absolute;
     border-radius: 0;
     z-index: 10;
     box-shadow: 5px 4px 5px #000;
     width: 100%;
+}
+
+.navbarOggetto {
+    z-index: 1;
+    height: 50px;
+}
+
+
+/* Bottone laterale menu */
+
+#mySidenav a {
+    position: fixed;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    z-index: 9999;
+    display: none;
+}
+
+#mySidenav a:hover {
+    left: 0;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    box-shadow: 5px 4px 5px #000;
+}
+
+#backToTopMenu {
+    top: 140px;
+    background-color: rgb(121, 4, 4);
 }
 
 body {
