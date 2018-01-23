@@ -63,11 +63,17 @@ public interface ProdottoDAO {
 	
 	public ProdottoConImmagini findByPrimaryKeyProdottoConImmagini(Integer idProdotto); // Retrieve
 
-	public List<ProdottoConImmagini> findByVenditoreProdottoConImmagini(String emailVenditore);
+	public List<ProdottoConImmagini> findProductsByVenditoreProdottoConImmagini(String emailVenditore);
 
 	public List<ProdottoConImmagini> findProductsByCarrelloProdottiConImmagini(Carrello carrello);
 
-	public List<ProdottoConImmagini> findByMarcaProdottiConImmagini(String marcaProdotto);
+	public List<ProdottoConImmagini> findProductsByMarcaProdottiConImmagini(String marcaProdotto);
+
+	public List<ProdottoConImmagini> findProductsByPrenventivoProdottiConImmagini(Integer idPreventivo);
+
+	public List<ProdottoConImmagini> findProductsByAmbienteProdottiConImmagini(String ambienteProdotto);
+
+	public List<ProdottoConImmagini> findProductsByTipoProdottiConImmagini(String tippProdotto);
 
 	
 	

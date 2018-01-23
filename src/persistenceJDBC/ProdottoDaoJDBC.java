@@ -969,7 +969,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	
 	
 	@Override
-	public List<ProdottoConImmagini> findByVenditoreProdottoConImmagini(String emailVenditore) {
+	public List<ProdottoConImmagini> findProductsByVenditoreProdottoConImmagini(String emailVenditore) {
 		Connection connection = this.dataSource.getConnection();
 		List<ProdottoConImmagini> prodotti = new LinkedList<>();
 
@@ -1032,7 +1032,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 	
 	@Override
-	public List<ProdottoConImmagini> findByMarcaProdottiConImmagini(String marcaProdotto) {
+	public List<ProdottoConImmagini> findProductsByMarcaProdottiConImmagini(String marcaProdotto) {
 
 		Connection connection = this.dataSource.getConnection();
 		List<ProdottoConImmagini> prodotti = new LinkedList<>();
@@ -1066,5 +1066,114 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
+	
+	
+	@Override
+	public List<ProdottoConImmagini> findProductsByPrenventivoProdottiConImmagini(Integer idPreventivo) {
 
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select id_prodotto from prodottoInPreventivo where id_preventivo = ?";
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setInt(1, idPreventivo);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+				
+				prodotti.add(prodotto);
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+	}
+	
+	@Override
+	public List<ProdottoConImmagini> findProductsByAmbienteProdottiConImmagini(String ambienteProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select id_prodotto from prodotto where ambienteProdotto = ?";
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setString(1, ambienteProdotto);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+				
+				prodotti.add(prodotto);
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+	}
+	
+	@Override
+	public List<ProdottoConImmagini> findProductsByTipoProdottiConImmagini(String tipoProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select id_prodotto from prodotto where tipoProdotto = ?";
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setString(1, tipoProdotto);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+				
+				prodotti.add(prodotto);
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+	}
+	
 }
