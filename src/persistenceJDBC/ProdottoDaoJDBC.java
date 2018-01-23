@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.Carrello;
 import model.OrdinaProdottoPerPrezzo;
+import model.OrdinaProdottoPerVisibilità;
 import model.Prodotto;
 import model.ProdottoConImmagini;
 import persistenceDAO.DataSource;
@@ -520,7 +521,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			String query = "select urlImmagine from urlImmaginiProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(query);
-			statement.setInt(1,idProdotto);
+			statement.setInt(1, idProdotto);
 			ResultSet result = statement.executeQuery();
 
 			result = statement.executeQuery();
@@ -858,7 +859,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			while (result.next()) {
 				ProdottoConImmagini prodotto = findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
 
-			
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -908,7 +908,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	public void visitPlusPlus(Integer idProdotto) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "UPDATE prodotto \r\n" + "  SET numeroVisite = numeroVisite + 1 \r\n" + "  WHERE id_prodotto = ?";
+			String update = "UPDATE prodotto \r\n" + "  SET numeroVisite = numeroVisite + 1 \r\n"
+					+ "  WHERE id_prodotto = ?";
 
 			PreparedStatement statement = connection.prepareStatement(update);
 
@@ -967,8 +968,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotto;
 	}
-	
-	
+
 	@Override
 	public List<ProdottoConImmagini> findProductsByVenditoreProdottoConImmagini(String emailVenditore) {
 		Connection connection = this.dataSource.getConnection();
@@ -988,8 +988,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			while (result.next()) {
 
-				
-				prodotto =findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
+				prodotto = findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -1004,8 +1003,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 		return prodotti;
 	}
-	
-	
+
 	@Override
 	public List<ProdottoConImmagini> findProductsByCarrelloProdottiConImmagini(Carrello carrello) {
 		Connection connection = this.dataSource.getConnection();
@@ -1031,7 +1029,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
-	
+
 	@Override
 	public List<ProdottoConImmagini> findProductsByMarcaProdottiConImmagini(String marcaProdotto) {
 
@@ -1051,8 +1049,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-				
+				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+
 				prodotti.add(prodotto);
 
 			}
@@ -1067,8 +1065,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
-	
-	
+
 	@Override
 	public List<ProdottoConImmagini> findProductsByPrenventivoProdottiConImmagini(Integer idPreventivo) {
 
@@ -1088,8 +1085,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-				
+				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+
 				prodotti.add(prodotto);
 
 			}
@@ -1104,7 +1101,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
-	
+
 	@Override
 	public List<ProdottoConImmagini> findProductsByAmbienteProdottiConImmagini(String ambienteProdotto) {
 
@@ -1124,8 +1121,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-				
+				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+
 				prodotti.add(prodotto);
 
 			}
@@ -1140,7 +1137,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
-	
+
 	@Override
 	public List<ProdottoConImmagini> findProductsByTipoProdottiConImmagini(String tipoProdotto) {
 
@@ -1160,8 +1157,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-				
+				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+
 				prodotti.add(prodotto);
 
 			}
@@ -1176,9 +1173,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
-	
-	
-	public List<ProdottoConImmagini> prodottiInOfferta(){
+
+	public List<ProdottoConImmagini> prodottiInOfferta() {
 
 		Connection connection = this.dataSource.getConnection();
 		List<ProdottoConImmagini> prodotti = new LinkedList<>();
@@ -1191,12 +1187,11 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			String query = "select id_prodotto from prodotto where offertaProdotto = 1";
 			statementProdotto = connection.prepareStatement(query);
 
-
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-				
+				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+
 				prodotti.add(prodotto);
 
 			}
@@ -1212,14 +1207,19 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		prodotti.sort(new OrdinaProdottoPerPrezzo());
 		return prodotti;
 	}
-	
-	public List<ProdottoConImmagini> prodottiPerVisibilità(){
-		return null;
+
+	public List<ProdottoConImmagini> prodottiPerVisibilità() {
+
+		ArrayList<ProdottoConImmagini> piùVisti = new ArrayList<ProdottoConImmagini>();
+		ArrayList<ProdottoConImmagini> tuttiProdotto = (ArrayList<ProdottoConImmagini>) findAllProductWithImages();
+        tuttiProdotto.sort(new OrdinaProdottoPerVisibilità());
+		
+		for (int i = 0; i < 6; i++) {
+			piùVisti.add(tuttiProdotto.get(i));
+		}
+
+		return piùVisti;
+
 	}
-	
-	
-	
-	
-	
-	
+
 }
