@@ -1,3 +1,17 @@
+$(window).on('load', function() { 	
+	
+		$.ajax({
+			type: "GET",		
+			url: "IndexServlet",		
+			success: function(data){
+				$("#corso_laurea").html(data);
+			}	
+		});
+	
+		
+});
+
+
 // Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
 $(document).ready(function() {
     $("#catalogoProdotti").hover(function() {
