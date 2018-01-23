@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c" %> 
+<html>
 <html lang="en">
 
 <head>
@@ -433,7 +436,7 @@ window.smartsupp||(function(d) {
     </div>
 
     <!-- Prodotti piu visti -->
-    <h2 class="nomiSezioniProdotti">Più visti</h2>
+    <h2 class="nomiSezioniProdotti">PiÃ¹ visti</h2>
     <hr>
     <div class="container piuVisti">
         <div class="row prodottiPiuVisti">
