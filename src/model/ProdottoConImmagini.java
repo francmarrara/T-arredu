@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +8,8 @@ public class ProdottoConImmagini {
 	private Integer idProdotto;
 	private String nomeProdotto;
 	private Double prezzoProdotto;
+	private String marcaProdotto;
+	private Integer visiteProdotto;
 	
 	private List<String> urlImmagini;
 	
@@ -61,6 +62,22 @@ public class ProdottoConImmagini {
 
 	public void setPrezzoProdotto(Double prezzoProdotto) {
 		this.prezzoProdotto = prezzoProdotto;
+	}
+
+	public String getMarcaProdotto() {
+		return marcaProdotto;
+	}
+
+	public void setMarcaProdotto(String marcaProdotto) {
+		this.marcaProdotto = marcaProdotto;
+	}
+
+	public Integer getNumeroVisite() {
+		return visiteProdotto;
+	}
+
+	public void setNumeroVisite(Integer visiteProdotto) {
+		this.visiteProdotto = visiteProdotto;
 	}
 
 }

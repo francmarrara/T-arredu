@@ -29,7 +29,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String insert = "insert into prodotto(id_prodotto, marcaProdotto, tipoProdotto, ambienteProdotto, nomeProdotto, "
-					+ "prezzoProdotto, misureProdotto, disponibilitaProdotto, "
+					+ "prezzoProdotto, misureProdotto, offertaProdotto, "
 					+ "descrizioneProdotto, numeroVisite ) values (?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
@@ -40,7 +40,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setString(5, prodotto.getNomeProdotto());
 			statement.setDouble(6, prodotto.getPrezzoProdotto());
 			statement.setString(7, prodotto.getMisureProdotto());
-			statement.setBoolean(8, prodotto.getDisponibilit‡Prodotto());
+			statement.setBoolean(8, prodotto.getOffertaProdotto());
 			statement.setString(9, prodotto.getDescrizioneProdotto());
 			statement.setInt(10, prodotto.getNumeroVisite());
 
@@ -114,7 +114,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setMisureProdotto(result.getString("misureProdotto"));
-				prodotto.setDisponibilit‡Prodotto(result.getBoolean("disponibilitaProdotto"));
+				prodotto.setOffertaProdotto(result.getBoolean("offertaProdotto"));
 				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
@@ -177,7 +177,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			Prodotto prodotto;
 			PreparedStatement statement;
 
-			String query = "select * from prodotto";
+			String query = "select id_prodotto from prodotto";
 
 			statement = connection.prepareStatement(query);
 
@@ -209,7 +209,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String update = "update prodotto SET marcaProdotto = ?, tipoProdotto = ? ,ambienteProdotto = ?, nomeProdotto = ?, "
-					+ "prezzoProdotto = ?, misureProdotto = ?, disponibilitaProdotto = ?, "
+					+ "prezzoProdotto = ?, misureProdotto = ?, offertaProdotto = ?, "
 					+ "descrizioneProdotto = ?, numeroVisite = ? WHERE id_prodotto=?";
 
 			PreparedStatement statement = connection.prepareStatement(update);
@@ -219,7 +219,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setString(3, prodotto.getAmbienteProdotto());
 			statement.setString(4, prodotto.getNomeProdotto());
 			statement.setDouble(5, prodotto.getPrezzoProdotto());
-			statement.setBoolean(6, prodotto.getDisponibilit‡Prodotto());
+			statement.setBoolean(6, prodotto.getOffertaProdotto());
 			statement.setString(7, prodotto.getMisureProdotto());
 			statement.setString(8, prodotto.getDescrizioneProdotto());
 			statement.setInt(9, prodotto.getNumeroVisite());
@@ -267,15 +267,15 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 
 	@Override
-	public void cambioDisponibilit‡(Prodotto prodotto, boolean disponibilit‡) {
+	public void cambioOfferta(Prodotto prodotto, boolean offerta) {
 
 		Connection connection = this.dataSource.getConnection();
 
 		try {
-			String update = "update prodotto SET disponibilitaProdotto = ? where id_prodotto = ?";
+			String update = "update prodotto SET offertaProdotto = ? where id_prodotto = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 
-			statement.setBoolean(1, disponibilit‡);
+			statement.setBoolean(1, offerta);
 			statement.setInt(2, prodotto.getIdProdotto());
 
 			statement.executeUpdate();
@@ -304,7 +304,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			Prodotto prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select * from prodotto where marcaProdotto = ?";
+			String query = "select id_prodotto from prodotto where marcaProdotto = ?";
 			statementProdotto = connection.prepareStatement(query);
 
 			statementProdotto.setString(1, marcaProdotto);
@@ -343,7 +343,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			Prodotto prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select * from coloriPerProdotto where coloreProdotto = ?";
+			String query = "select id_prodotto from coloriPerProdotto where coloreProdotto = ?";
 			statementProdotto = connection.prepareStatement(query);
 
 			statementProdotto.setString(1, coloreProdotto);
@@ -382,7 +382,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			Prodotto prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select * from prodotto where tipoProdotto = ?";
+			String query = "select id_prodotto from prodotto where tipoProdotto = ?";
 			statementProdotto = connection.prepareStatement(query);
 
 			statementProdotto.setString(1, tipoProdotto);
@@ -422,7 +422,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			Prodotto prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select * from prodotto where ambienteProdotto = ?";
+			String query = "select id_prodotto from prodotto where ambienteProdotto = ?";
 			statementProdotto = connection.prepareStatement(query);
 
 			statementProdotto.setString(1, ambienteProdotto);
@@ -458,7 +458,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select * from prodottoInPreventivo where preventivoID = ?";
+			String query = "select prodottoID from prodottoInPreventivo where preventivoID = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, toIntExact(codicePreventivo));
 
@@ -488,7 +488,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		List<Prodotto> prodotti = new LinkedList<>();
 		try {
 			PreparedStatement statement;
-			String query = "select * from prodottoInCarrello where email_utenteCarrello = ?";
+			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ?";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
 			ResultSet result = statement.executeQuery();
@@ -517,7 +517,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			PreparedStatement statement;
 
-			String query = "select * from urlImmaginiProdotto where id_prodotto = ?";
+			String query = "select urlImmagine from urlImmaginiProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1,idProdotto);
 			ResultSet result = statement.executeQuery();
@@ -814,7 +814,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			Prodotto prodotto;
 			PreparedStatement statement;
 
-			String query = "select * from venditorePerProdotto where emailVenditore = ?";
+			String query = "select id_prodotto from venditorePerProdotto where emailVenditore = ?";
 
 			statement = connection.prepareStatement(query);
 			statement.setString(1, emailVenditore);
@@ -849,30 +849,15 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select * from prodotto";
+			String query = "select id_prodotto from prodotto";
 			statement = connection.prepareStatement(query);
 
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
-				ProdottoConImmagini prodotto = new ProdottoConImmagini();
+				ProdottoConImmagini prodotto = findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
 
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-
-				String queryUrl = "select * from urlImmaginiProdotto where id_prodotto = ?";
-				PreparedStatement statementUrl = connection.prepareStatement(queryUrl);
-				statementUrl.setInt(1, prodotto.getIdProdotto());
-
-				ResultSet resultImmagini = statementUrl.executeQuery();
-
-				while (resultImmagini.next()) {
-					prodotto.getUrlImmagini().add(resultImmagini.getString("urlImmagine"));
-
-				}
+			
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -940,6 +925,146 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			}
 		}
 
+	}
+
+	@Override
+	public ProdottoConImmagini findByPrimaryKeyProdottoConImmagini(Integer idProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		ProdottoConImmagini prodotto = null;
+
+		try {
+
+			PreparedStatement statement;
+			String query = "select * from prodotto where id_prodotto = ?";
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, idProdotto);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+
+				prodotto = new ProdottoConImmagini();
+
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
+
+				prodotto.setUrlImmagini(getImages(prodotto.getIdProdotto()));
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotto;
+	}
+	
+	
+	@Override
+	public List<ProdottoConImmagini> findByVenditoreProdottoConImmagini(String emailVenditore) {
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statement;
+
+			String query = "select id_prodotto from venditorePerProdotto where emailVenditore = ?";
+
+			statement = connection.prepareStatement(query);
+			statement.setString(1, emailVenditore);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+
+				
+				prodotto =findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
+				prodotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return prodotti;
+	}
+	
+	
+	@Override
+	public List<ProdottoConImmagini> findProductsByCarrelloProdottiConImmagini(Carrello carrello) {
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+		try {
+			PreparedStatement statement;
+			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+
+				prodotti.add(findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodottoInCarrello")));
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
+	}
+	
+	@Override
+	public List<ProdottoConImmagini> findByMarcaProdottiConImmagini(String marcaProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select id_prodotto from prodotto where marcaProdotto = ?";
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setString(1, marcaProdotto);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+				
+				prodotti.add(prodotto);
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return prodotti;
 	}
 
 }

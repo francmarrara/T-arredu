@@ -202,7 +202,7 @@ public class UtilDAO {
 					+ "  `nomeProdotto` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `prezzoProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `misureProdotto` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `disponibilitaProdotto` TINYINT NOT NULL,\r\n"
+					+ "  `offertaProdotto` TINYINT NOT NULL,\r\n"
 					+ "  `descrizioneProdotto` VARCHAR(255) NOT NULL,\r\n"
 					+ "  PRIMARY KEY (`id_prodotto`),\r\n"
 					+ "  UNIQUE INDEX `id_prodotto_UNIQUE` (`id_prodotto` ASC));\r\n";

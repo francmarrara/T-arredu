@@ -1,14 +1,11 @@
 package test;
 
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
-import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DataBaseManager;
-import persistenceDAO.UtenteDAO;
 
 public class testDB {
 
@@ -70,7 +67,19 @@ public class testDB {
 //		System.out.println("----------------");
 //
 //		System.out.println("----------------");
+//		
+//		Utente utente = new Utente();
+//		utente.setNomeUtente("Francesco");
+//		utente.setCognomeUtente("Marrara");
+//		utente.setEmailUtente("francmarrara@gmail.com");
+//		utente.setPasswordUtente("Cacazza");
+//		utente.setNumeroTelefonoUtente("09666666");
+//		utente.setDatadiNascita(new Date(1, 1, 1998));
+//		dbManager.getUtenteDao().save(utente);
 
+		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(6, "francmarrara@gmail.com");
+		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(7, "francmarrara@gmail.com");
+		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(8, "francmarrara@gmail.com");
 
 	   List<ProdottoConImmagini> prodotti = dbManager.getUtenteDao().getProdottiPreferitiConImmagini("francmarrara@gmail.com");
 

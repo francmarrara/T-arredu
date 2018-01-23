@@ -209,7 +209,12 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	@Override
 	public void aggiungiProdottoInPreferiti(Integer idProdotto, String emailUtente) {
+		
+		if(!giaPreferito(idProdotto, emailUtente)) {
+		
 		Connection connection = this.dataSource.getConnection();
+
+		
 		try {
 
 			String insert = "insert into prodottiPreferiti(id_prodotto, emailUtente) values (?,?)";
@@ -229,7 +234,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-
+		}
 	}
 
 	@Override
@@ -352,5 +357,39 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		}
 
 	}
+	
+	
+	
+	public boolean giaPreferito(Integer idProdotto, String emailUtente) {
+		
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			PreparedStatement statement;
+			String query = "select id_prodotto from prodottiPreferiti where emailUtente = ? ";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, emailUtente);
+
+			ResultSet result = statement.executeQuery();
+
+			if(result==null) {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return true;
+	}
+	
+	
 
 }

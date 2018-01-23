@@ -15,7 +15,7 @@ public class Prodotto {
 	private String ambienteProdotto;
 	private Double prezzoProdotto;
 	private String misureProdotto;
-	private Boolean disponibilit‡Prodotto;
+	private Boolean inOfferta;
 	private String descrizioneProdotto;
 	private ArrayList<String> urlImmaginiProdotto;
 	private ArrayList<String> coloriProdotto;
@@ -78,12 +78,12 @@ public class Prodotto {
 		this.prezzoProdotto = prezzoProdotto;
 	}
 
-	public Boolean getDisponibilit‡Prodotto() {
-		return disponibilit‡Prodotto;
+	public Boolean getOffertaProdotto() {
+		return inOfferta;
 	}
 
-	public void setDisponibilit‡Prodotto(Boolean disponibilit‡Prodotto) {
-		this.disponibilit‡Prodotto = disponibilit‡Prodotto;
+	public void setOffertaProdotto(Boolean offertaProdotto) {
+		this.inOfferta = offertaProdotto;
 	}
 
 	public String getDescrizioneProdotto() {
@@ -127,7 +127,7 @@ public class Prodotto {
 		System.out.println("Ambiente : " + ambienteProdotto);
 		System.out.println("Prezzo : " + prezzoProdotto);
 		System.out.println("Misure : " + misureProdotto);
-		System.out.println("Disponibilit‡ : " + disponibilit‡Prodotto);
+		System.out.println("Disponibilit‡ : " + inOfferta);
 		System.out.println("Descrizione : " + descrizioneProdotto);
 		System.out.println("IMMAGINI : ");
 		System.out.println("----------------");

@@ -29,7 +29,7 @@ public interface ProdottoDAO {
 
 	public void delete(Prodotto prodotto); // Delete
 
-	public void cambioDisponibilità(Prodotto prodotto, boolean disponibilità);// cambia la disponibilità del prodotto
+	public void cambioOfferta(Prodotto prodotto, boolean disponibilità);// cambia la disponibilità del prodotto
 
 	public List<Prodotto> findProductsByPreventivo(Integer codicePreventivo);
 
@@ -60,6 +60,16 @@ public interface ProdottoDAO {
 	public Integer getNumberOfvisit(Integer idProdotto);
 	
 	public void visitPlusPlus(Integer idProdotto);
+	
+	public ProdottoConImmagini findByPrimaryKeyProdottoConImmagini(Integer idProdotto); // Retrieve
+
+	public List<ProdottoConImmagini> findByVenditoreProdottoConImmagini(String emailVenditore);
+
+	public List<ProdottoConImmagini> findProductsByCarrelloProdottiConImmagini(Carrello carrello);
+
+	public List<ProdottoConImmagini> findByMarcaProdottiConImmagini(String marcaProdotto);
+
+	
 	
 	
 	
