@@ -79,9 +79,9 @@ public class testDB {
 //		utente.setDatadiNascita(new Date(1, 1, 1998));
 //		dbManager.getUtenteDao().save(utente);
 
-		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(6, "francmarrara@gmail.com");
-		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(7, "francmarrara@gmail.com");
-		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(8, "francmarrara@gmail.com");
+//		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(6, "francmarrara@gmail.com");
+//		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(7, "francmarrara@gmail.com");
+//		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(8, "francmarrara@gmail.com");
 
 //		dbManager.getProdottoDao().visitPlusPlus(6);
 //		dbManager.getProdottoDao().visitPlusPlus(6);
@@ -90,11 +90,14 @@ public class testDB {
 //		dbManager.getProdottoDao().visitPlusPlus(7);
 //		dbManager.getProdottoDao().visitPlusPlus(8);
 		
-		
-	   List<ProdottoConImmagini> prodotti = dbManager.getUtenteDao().getProdottiPreferitiConImmagini("francmarrara@gmail.com");
+		long startFind = System.currentTimeMillis();
 
-	   prodotti.sort(new OrdinaProdottoPerVisibilità());
-	   
+		
+	   List<ProdottoConImmagini> prodotti = dbManager.getProdottoDao().prodottiInOfferta();
+
+	long endFind = System.currentTimeMillis();
+	System.out.println((endFind-startFind)/1000);
+
 	   for(ProdottoConImmagini p : prodotti) {
 		   p.stampaProdotto();
 	   }

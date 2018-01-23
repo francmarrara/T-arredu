@@ -1181,16 +1181,23 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 		try {
 
-			ProdottoConImmagini prodotto;
+			ProdottoConImmagini prodotto ;
 			PreparedStatement statementProdotto;
 
-			String query = "select id_prodotto from prodotto where offertaProdotto = 1";
+			String query = "select * from prodotto where offertaProdotto = 1 order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
 			statementProdotto = connection.prepareStatement(query);
 
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+				prodotto = new ProdottoConImmagini();
+				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+				prodotto.setMarcaProdotto(resultProdotto.getString("marcaProdotto"));
+				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
+				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
+
+				prodotto.setUrlImmagini(getImages(prodotto.getIdProdotto()));
 
 				prodotti.add(prodotto);
 
@@ -1204,21 +1211,48 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		prodotti.sort(new OrdinaProdottoPerPrezzo());
 		return prodotti;
 	}
 
 	public List<ProdottoConImmagini> prodottiPerVisibilità() {
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
 
-		ArrayList<ProdottoConImmagini> piùVisti = new ArrayList<ProdottoConImmagini>();
-		ArrayList<ProdottoConImmagini> tuttiProdotto = (ArrayList<ProdottoConImmagini>) findAllProductWithImages();
-        tuttiProdotto.sort(new OrdinaProdottoPerVisibilità());
-		
-		for (int i = 0; i < 6; i++) {
-			piùVisti.add(tuttiProdotto.get(i));
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select * from prodotto order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
+			statementProdotto = connection.prepareStatement(query);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+
+				prodotto = new ProdottoConImmagini();
+				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+				prodotto.setMarcaProdotto(resultProdotto.getString("marcaProdotto"));
+				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
+				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
+
+				prodotto.setUrlImmagini(getImages(prodotto.getIdProdotto()));
+
+				prodotti.add(prodotto);
+
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
 		}
-
-		return piùVisti;
+		return prodotti;
 
 	}
 

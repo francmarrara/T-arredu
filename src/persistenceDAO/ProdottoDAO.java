@@ -75,7 +75,8 @@ public interface ProdottoDAO {
 
 	public List<ProdottoConImmagini> findProductsByTipoProdottiConImmagini(String tippProdotto);
 
-	
+	public List<ProdottoConImmagini> prodottiInOfferta();
+	public List<ProdottoConImmagini> prodottiPerVisibilità();
 	
 	
 	
