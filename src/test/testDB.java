@@ -3,6 +3,8 @@ package test;
 import java.util.Date;
 import java.util.List;
 
+import model.OrdinaProdottoPerPrezzo;
+import model.OrdinaProdottoPerVisibilità;
 import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DataBaseManager;
@@ -81,8 +83,17 @@ public class testDB {
 		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(7, "francmarrara@gmail.com");
 		dbManager.getUtenteDao().aggiungiProdottoInPreferiti(8, "francmarrara@gmail.com");
 
+//		dbManager.getProdottoDao().visitPlusPlus(6);
+//		dbManager.getProdottoDao().visitPlusPlus(6);
+//		dbManager.getProdottoDao().visitPlusPlus(6);
+//		dbManager.getProdottoDao().visitPlusPlus(7);
+//		dbManager.getProdottoDao().visitPlusPlus(7);
+//		dbManager.getProdottoDao().visitPlusPlus(8);
+		
+		
 	   List<ProdottoConImmagini> prodotti = dbManager.getUtenteDao().getProdottiPreferitiConImmagini("francmarrara@gmail.com");
 
+	   prodotti.sort(new OrdinaProdottoPerVisibilità());
 	   
 	   for(ProdottoConImmagini p : prodotti) {
 		   p.stampaProdotto();

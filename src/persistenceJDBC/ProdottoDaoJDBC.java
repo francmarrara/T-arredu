@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Carrello;
+import model.OrdinaProdottoPerPrezzo;
 import model.Prodotto;
 import model.ProdottoConImmagini;
 import persistenceDAO.DataSource;
@@ -1175,5 +1176,50 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 		return prodotti;
 	}
+	
+	
+	public List<ProdottoConImmagini> prodottiInOfferta(){
+
+		Connection connection = this.dataSource.getConnection();
+		List<ProdottoConImmagini> prodotti = new LinkedList<>();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select id_prodotto from prodotto where offertaProdotto = 1";
+			statementProdotto = connection.prepareStatement(query);
+
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+                   prodotto=findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+				
+				prodotti.add(prodotto);
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		prodotti.sort(new OrdinaProdottoPerPrezzo());
+		return prodotti;
+	}
+	
+	public List<ProdottoConImmagini> prodottiPerVisibilità(){
+		return null;
+	}
+	
+	
+	
+	
+	
 	
 }

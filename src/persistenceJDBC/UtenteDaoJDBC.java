@@ -315,6 +315,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				prodotto.setIdProdotto(result.getInt("id_prodotto"));
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
 				prodotto.setUrlImmagini(prodottoDao.getImages(prodotto.getIdProdotto()));
 
@@ -367,15 +369,18 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select id_prodotto from prodottiPreferiti where emailUtente = ? ";
+			String query = "select id_prodotto from prodottiPreferiti where emailUtente = ? and id_prodotto = ? ";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, emailUtente);
+			statement.setInt(2, idProdotto);
 
 			ResultSet result = statement.executeQuery();
 
-			if(result==null) {
-				return false;
-			}
+			if (!result.first() == false ) {
+			    System.out.println("no data");
+			    return true;
+			} 
+
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -387,7 +392,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			}
 		}
 
-		return true;
+		return false;
 	}
 	
 	

@@ -16,6 +16,7 @@ public class ProdottoConImmagini {
 
 	public ProdottoConImmagini() {
 		urlImmagini = new LinkedList<String>();
+	visiteProdotto=0;
 	}
 
 	public Integer getIdProdotto() {
@@ -47,6 +48,8 @@ public class ProdottoConImmagini {
 		System.out.println("Id Prodotto : " + idProdotto);
 		System.out.println("Nome Prodotto : " + nomeProdotto);
 		System.out.println("Prezzo Prodotto : " +prezzoProdotto);
+		System.out.println("Numero Visite : " +visiteProdotto);
+		System.out.println("Marca Prodotto : " +marcaProdotto);
 		System.out.println("===IMMAGINI===");
 
 		for (String s : urlImmagini) {
