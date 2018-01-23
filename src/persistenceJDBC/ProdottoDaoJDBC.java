@@ -32,7 +32,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 			String insert = "insert into prodotto(id_prodotto, marcaProdotto, tipoProdotto, ambienteProdotto, nomeProdotto, "
 					+ "prezzoProdotto, misureProdotto, offertaProdotto, "
-					+ "descrizioneProdotto, numeroVisite ) values (?,?,?,?,?,?,?,?,?,?)";
+					+ "descrizioneProdotto, numeroVisite, immaginePrincipale ) values (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
 			statement.setInt(1, prodotto.getIdProdotto());
@@ -45,6 +45,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setBoolean(8, prodotto.getOffertaProdotto());
 			statement.setString(9, prodotto.getDescrizioneProdotto());
 			statement.setInt(10, prodotto.getNumeroVisite());
+			statement.setString(11, prodotto.getUrlImmaginePrincipale());
 
 			statement.executeUpdate();
 
@@ -954,7 +955,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
-				prodotto.setUrlImmagini(getImages(prodotto.getIdProdotto()));
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));;
 
 			}
 		} catch (SQLException e) {
@@ -1197,7 +1198,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
 
-				prodotto.setUrlImmagini(getImages(prodotto.getIdProdotto()));
+				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));;
 
 				prodotti.add(prodotto);
 
@@ -1237,7 +1238,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
 
-				prodotto.setUrlImmagini(getImages(prodotto.getIdProdotto()));
+				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));;
 
 				prodotti.add(prodotto);
 

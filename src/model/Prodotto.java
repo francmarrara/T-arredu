@@ -17,10 +17,12 @@ public class Prodotto {
 	private String misureProdotto;
 	private Boolean inOfferta;
 	private String descrizioneProdotto;
+	private String urlImmaginePrincipale;
 	private ArrayList<String> urlImmaginiProdotto;
 	private ArrayList<String> coloriProdotto;
 	private ArrayList<String> venditoriProdotto;
 	private Integer numeroVisite;
+	
 
 	// costruttore senza Parametri
 	public Prodotto() {
@@ -168,6 +170,14 @@ public class Prodotto {
 
 	public void setNumeroVisite(Integer numeroVisite) {
 		this.numeroVisite = numeroVisite;
+	}
+
+	public String getUrlImmaginePrincipale() {
+		return urlImmaginePrincipale;
+	}
+
+	public void setUrlImmaginePrincipale(String urlImmaginePrincipale) {
+		this.urlImmaginePrincipale = urlImmaginePrincipale;
 	}
 
 }

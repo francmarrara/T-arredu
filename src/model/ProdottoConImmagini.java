@@ -11,11 +11,9 @@ public class ProdottoConImmagini {
 	private String marcaProdotto;
 	private Integer visiteProdotto;
 	
-	private List<String> urlImmagini;
-	
+    private String immaginePrincipale;	
 
 	public ProdottoConImmagini() {
-		urlImmagini = new LinkedList<String>();
 	visiteProdotto=0;
 	}
 
@@ -35,13 +33,7 @@ public class ProdottoConImmagini {
 		this.nomeProdotto = nomeProdotto;
 	}
 
-	public List<String> getUrlImmagini() {
-		return urlImmagini;
-	}
 
-	public void setUrlImmagini(List<String> urlImmagini) {
-		this.urlImmagini = urlImmagini;
-	}
 
 	public void stampaProdotto() {
 		System.out.println("----------");
@@ -52,9 +44,9 @@ public class ProdottoConImmagini {
 		System.out.println("Marca Prodotto : " +marcaProdotto);
 		System.out.println("===IMMAGINI===");
 
-		for (String s : urlImmagini) {
-			System.out.println(s);
-		}
+		
+			System.out.println(immaginePrincipale);
+		
 
 		System.out.println("---------");
 	}
@@ -81,6 +73,14 @@ public class ProdottoConImmagini {
 
 	public void setNumeroVisite(Integer visiteProdotto) {
 		this.visiteProdotto = visiteProdotto;
+	}
+
+	public String getImmaginePrincipale() {
+		return immaginePrincipale;
+	}
+
+	public void setImmaginePrincipale(String immaginePrincipale) {
+		this.immaginePrincipale = immaginePrincipale;
 	}
 
 }

@@ -337,7 +337,7 @@
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
 						<img class="immagineProdottoInOfferta"
-							src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
@@ -372,7 +372,7 @@
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
 						<img class="immagineProdottoInOfferta"
-							src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
@@ -411,7 +411,7 @@
 				<div class="col-sm-4">
 					<div class="couponPiuVisto">
 						<img class="immagineProdottoPiuVisto"
-							src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloPiuVisto">
 								<h4>${prodotto.nomeProdotto }</h4>
@@ -436,7 +436,7 @@
 				<div class="col-sm-4">
 					<div class="couponPiuVisto">
 						<img class="immagineProdottoPiuVisto"
-							src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloPiuVisto">
 								<h4>${prodotto.nomeProdotto }</h4>

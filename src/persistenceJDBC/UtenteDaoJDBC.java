@@ -318,7 +318,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
-				prodotto.setUrlImmagini(prodottoDao.getImages(prodotto.getIdProdotto()));
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));;
 
 				prodotti.add(prodotto);
 			}
