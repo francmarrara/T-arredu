@@ -177,12 +177,9 @@
 
 					<div id="login" class="modal  ">
 
-<<<<<<< HEAD
-						<form class="modal-content animate" id ="formReg"
-							>
-=======
+
+
 						<form class="modal-content animate">
->>>>>>> refs/remotes/origin/master
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('login').style.display='none'"

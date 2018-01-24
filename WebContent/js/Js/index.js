@@ -121,7 +121,7 @@ function registrazione(){
 	
 	
 	$.ajax({
-		type: "POST",		
+		type: "GET",		
 		url: "registrazione",		
 		datatype : "json",
 		data: JSON.stringify(utente),
