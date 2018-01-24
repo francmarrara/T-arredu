@@ -177,8 +177,7 @@
 
 					<div id="login" class="modal  ">
 
-						<form class="modal-content animate" method="post"
-							action="registraze">
+						<form class="modal-content animate">
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('login').style.display='none'"
@@ -188,13 +187,14 @@
 							</div>
 
 							<div class="containerModal">
-								<label><b>Username</b></label> <input class="inputLogIn"
-									type="text" placeholder="Inserire Username" name="uname"
-									required> <label><b>Password</b></label> <input
-									class="inputLogIn" type="password"
+								<label><b>Email Utente</b></label> <input class="inputLogIn EmailUtenteLogin"
+									type="text" placeholder="Inserire Indirizzo Email"
+									name="emailUtente" required> <label><b>Password</b></label>
+								<input class="inputLogIn passwordLogin" type="password"
 									placeholder="Inserire Password" name="psw" required>
 
-								<button class="buttonLog" type="submit">Login</button>
+								<button class="buttonLog" type="submit"
+									onclick="validaCredenziali()">Login</button>
 								<div class="containerCheckbox">
 									<label>Ricordami <input type="checkbox"
 										id="checkRicordami" onclick="controlla()"></label>
@@ -234,19 +234,18 @@
 								<label><b>Nome</b></label> <input type="text"
 									placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
 								<input type="text" placeholder="Inserire Cognome" name="cognome"
-									required> 
-									<label><b>Data di Nascita</b></label> <input  type="date"
-									placeholder="Inserire Data di Nascita" name="dataDiNascita" required>
-									<label><b>Numero di Telefono</b></label> <input type="text"
-									placeholder="Inserire Numero di Telefono" name="numeroDiTelefono" required>
-									
-									<label><b>Email</b></label> <input id="emailUtente"
-									type="text" placeholder="Inserire Indirizzo Email" name="email"
-									required> <label><b>Password</b></label> <input
-									type="password" placeholder="Inserire Password" name="psw"
-									required> <label><b>Ripetere Password</b></label> <input
-									type="password" placeholder="Reinserire Password"
-									name="psw-repeat" required>
+									required> <label><b>Data di Nascita</b></label> <input
+									type="date" placeholder="Inserire Data di Nascita"
+									name="dataDiNascita" required> <label><b>Numero
+										di Telefono</b></label> <input type="text"
+									placeholder="Inserire Numero di Telefono"
+									name="numeroDiTelefono" required> <label><b>Email</b></label>
+								<input id="emailUtente" type="text"
+									placeholder="Inserire Indirizzo Email" name="email" required>
+								<label><b>Password</b></label> <input type="password"
+									placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
+										Password</b></label> <input type="password"
+									placeholder="Reinserire Password" name="psw-repeat" required>
 
 
 							</div>

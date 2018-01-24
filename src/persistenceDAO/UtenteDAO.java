@@ -27,6 +27,7 @@ public interface UtenteDAO {
 	public void rimuoviPreferiti(String emailUtente);
 
 	public boolean giaRegistrato(String email);
+	public boolean credenzialiUtenteGiaPresenti(String email, String password);
 	
 	
 }
