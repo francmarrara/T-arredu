@@ -1,19 +1,15 @@
 package controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import model.Utente;
 import persistenceDAO.DataBaseManager;
 import persistenceDAO.UtenteDAO;
 
@@ -33,26 +29,33 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		StringBuffer jsonRicevuto = new StringBuffer();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(req.getInputStream()));
+		String email = req.getParameter("emailUtente");
+		String passw = req.getParameter("psw");
 
-		String line = reader.readLine();
-		while (line != null) {
-			jsonRicevuto.append(line);
-			line = reader.readLine();
-		}
+		HttpSession session = req.getSession();
 
-		try {
-			JSONObject json = new JSONObject(jsonRicevuto.toString());				
+		DataBaseManager dbManager = new DataBaseManager();
+		UtenteDAO utenteDao = dbManager.getUtenteDao();
+
+		PrintWriter out = resp.getWriter();
+
+		if (utenteDao.credenzialiUtenteGiaPresenti(email, passw)) {
 			
+			System.out.println("VERO  mail " + email + "  pass " + passw);
+
+			session.setAttribute("utenteLoggato", true);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("");
+			dispatcher.forward(req, resp);
+
+		} else {
+
+			System.out.println("FALSO  mail " + email + "  pass " + passw);
 			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			session.setAttribute("utenteLoggato", false);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("");
+			dispatcher.forward(req, resp);
+
 		}
-
-		
-
 	}
 
 }

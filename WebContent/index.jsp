@@ -2,6 +2,7 @@
 
 <jsp:useBean id="prodotto" class="model.ProdottoConImmagini"
 	scope="session" />
+	
 <html>
 <html lang="it">
 
@@ -187,14 +188,14 @@
 							</div>
 
 							<div class="containerModal">
-								<label><b>Email Utente</b></label> <input class="inputLogIn EmailUtenteLogin"
-									type="text" placeholder="Inserire Indirizzo Email"
-									name="emailUtente" required> <label><b>Password</b></label>
-								<input class="inputLogIn passwordLogin" type="password"
+								<label><b>Email Utente</b></label> <input
+									class="inputLogIn EmailUtenteLogin" type="text"
+									placeholder="Inserire Indirizzo Email" name="emailUtente"
+									required> <label><b>Password</b></label> <input
+									class="inputLogIn passwordLogin" type="password"
 									placeholder="Inserire Password" name="psw" required>
 
-								<button class="buttonLog" type="submit"
-									onclick="validaCredenziali()">Login</button>
+								<button class="buttonLog" type="submit" onclick="/validaCredenzialiLogin">Login</button>
 								<div class="containerCheckbox">
 									<label>Ricordami <input type="checkbox"
 										id="checkRicordami" onclick="controlla()"></label>
@@ -325,6 +326,18 @@
 
 	<br>
 	<br>
+
+	<!-- The actual snackbar -->
+	<div id="snackbar">Some text some message..</div>
+
+	<c:if test="${utenteLoggato == true}">
+		<p>LOGGATO</p>
+	</c:if>
+	
+	<c:if test="${utenteLoggato == false}">
+		<p>NON LOGGATO</p>
+	</c:if>
+
 
 	<!-- Area prodotti home -->
 
