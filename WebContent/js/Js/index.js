@@ -23,6 +23,7 @@ $(document).ready(function() {
 });
 
 
+
 /*SNACKBAR*/
 function showSnackbar() {
     var x = document.getElementById("snackbar")
@@ -31,7 +32,6 @@ function showSnackbar() {
 }
 
 /*VALIDATORE EMAIL*/
-
 
 var validate_email = function(email) {
     var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
@@ -42,19 +42,20 @@ var validate_email = function(email) {
     return is_email_valid;
 }
 
+/* Valida Email registrazione */
 $(document).on("focusout", "#emailUtente", function() {
     var input_val = $(this).val();
     var is_success = validate_email(input_val);
 
     if (!is_success) {
+
         
         $("#emailUtente").css({ 'background-color': 'red' });
         $("#snackbar").text("FORMATO EMAIL NON CORRETTO");
         $("#snackbar").css({ 'background-color': 'red' });
         showSnackbar();
-
-
-    } else {
+    }
+ else {
 
         $.ajax({
             type: "GET",
@@ -81,6 +82,7 @@ $(document).on("focusout", "#emailUtente", function() {
 
 });
 
+
 /* Validatore PASSWORD */
 
 $(document).on("focusout", "#psw-repeat", function() {
@@ -105,7 +107,7 @@ $(document).on("focusout", "#psw-repeat", function() {
 
 })
 
-
+/* REGISTRAZIONE */
 function registrazione(){
 	
 	var utente = {
@@ -136,4 +138,58 @@ function registrazione(){
 
 
 
-/* REGISTRAZIONE */
+
+
+/* Controllo LOGIN */
+
+var validaCredenziali = function() {
+
+    var email = $(".EmailUtenteLogin").val();
+    var password = $(".passwordLogin").val();
+
+    var credenziali = {
+        emailUtente : email,
+        passwordUtente : password
+    };
+
+    $.ajax({
+
+        type: "POST",
+        url: "validaCredenzialiLogin",
+        datatype: "json",
+        data: JSON.stringify(credenziali),
+        success: function(data) {
+
+        	var output = JSON.parse(data);
+            alert("credenziali presenti nel db " + output);
+
+        }
+
+
+    });
+
+}
+
+/* Valida email login */
+$(document).on("focusout", ".EmailUtenteLogin", function() {
+    var input_val = $(this).val();
+    var is_success = validate_email(input_val);
+
+    if (!is_success) {
+        alert("Email format wrong");
+    }
+
+    $.ajax({
+        type: "GET",
+        url: "verificaMail",
+
+        data: {
+            email: input_val
+        },
+        success: function(data) {
+            alert(data);
+        }
+    })
+
+});
+

@@ -177,8 +177,12 @@
 
 					<div id="login" class="modal  ">
 
+<<<<<<< HEAD
 						<form class="modal-content animate" id ="formReg"
 							>
+=======
+						<form class="modal-content animate">
+>>>>>>> refs/remotes/origin/master
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('login').style.display='none'"
@@ -188,13 +192,14 @@
 							</div>
 
 							<div class="containerModal">
-								<label><b>Username</b></label> <input class="inputLogIn"
-									type="text" placeholder="Inserire Username" name="uname"
-									required> <label><b>Password</b></label> <input
-									class="inputLogIn" type="password"
+								<label><b>Email Utente</b></label> <input class="inputLogIn EmailUtenteLogin"
+									type="text" placeholder="Inserire Indirizzo Email"
+									name="emailUtente" required> <label><b>Password</b></label>
+								<input class="inputLogIn passwordLogin" type="password"
 									placeholder="Inserire Password" name="psw" required>
 
-								<button class="buttonLog" type="submit">Login</button>
+								<button class="buttonLog" type="submit"
+									onclick="validaCredenziali()">Login</button>
 								<div class="containerCheckbox">
 									<label>Ricordami <input type="checkbox"
 										id="checkRicordami" onclick="controlla()"></label>
@@ -247,6 +252,7 @@
 									required> <label><b>Ripetere Password</b></label> <input id="psw-repeat"
 									type="password" placeholder="Reinserire Password"
 									name="psw-repeat" required>
+
 
 
 							</div>

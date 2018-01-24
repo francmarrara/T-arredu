@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.mysql.jdbc.Statement;
+
 import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
@@ -209,31 +211,30 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	@Override
 	public void aggiungiProdottoInPreferiti(Integer idProdotto, String emailUtente) {
-		
-		if(!giaPreferito(idProdotto, emailUtente)) {
-		
-		Connection connection = this.dataSource.getConnection();
 
-		
-		try {
+		if (!giaPreferito(idProdotto, emailUtente)) {
 
-			String insert = "insert into prodottiPreferiti(id_prodotto, emailUtente) values (?,?)";
-			PreparedStatement statement = connection.prepareStatement(insert);
+			Connection connection = this.dataSource.getConnection();
 
-			statement.setInt(1, idProdotto);
-			statement.setString(2, emailUtente);
-
-			statement.executeUpdate();
-
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
 			try {
-				connection.close();
+
+				String insert = "insert into prodottiPreferiti(id_prodotto, emailUtente) values (?,?)";
+				PreparedStatement statement = connection.prepareStatement(insert);
+
+				statement.setInt(1, idProdotto);
+				statement.setString(2, emailUtente);
+
+				statement.executeUpdate();
+
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new PersistenceException(e.getMessage());
+				}
 			}
-		}
 		}
 	}
 
@@ -318,7 +319,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
-				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));;
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
+				;
 
 				prodotti.add(prodotto);
 			}
@@ -359,11 +361,9 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		}
 
 	}
-	
-	
-	
+
 	public boolean giaPreferito(Integer idProdotto, String emailUtente) {
-		
+
 		Connection connection = this.dataSource.getConnection();
 
 		try {
@@ -376,11 +376,10 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 			ResultSet result = statement.executeQuery();
 
-			if (!result.first() == false ) {
-			    System.out.println("no data");
-			    return true;
-			} 
-
+			if (!result.first() == false) {
+				System.out.println("no data");
+				return true;
+			}
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -409,10 +408,9 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 			ResultSet result = statement.executeQuery();
 
-			if (!result.first() == false ) {
-			    return true;
-			} 
-
+			if (!result.first() == false) {
+				return true;
+			}
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -427,7 +425,34 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		return false;
 
 	}
-	
-	
+
+	@Override
+	public boolean credenzialiUtenteGiaPresenti(String email, String password) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		PreparedStatement statement;
+
+		try {
+
+			String query = "select * FROM utente WHERE email = ? and passwordUtente = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, email);
+			statement.setString(2, password);
+
+			ResultSet result = statement.executeQuery();
+
+			if (!result.first() == false)
+				return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+
+	}
 
 }

@@ -36,4 +36,14 @@
     <servlet-name>VerificaEmail</servlet-name>
     <url-pattern>/verificaMail</url-pattern>
   </servlet-mapping> 
+
+
+ <servlet>
+    <servlet-name>ValidaCredenzialiLogin</servlet-name>
+    <servlet-class>controller.ValidaCredenzialiLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValidaCredenzialiLogin</servlet-name>
+    <url-pattern>/validaCredenzialiLogin</url-pattern>
+  </servlet-mapping> 
 </web-app>
