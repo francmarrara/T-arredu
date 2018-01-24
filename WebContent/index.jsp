@@ -43,7 +43,7 @@
                 s.parentNode.insertBefore(c, s);
             })(document);
         </script>
-
+<link rel="stylesheet" href="css/snackbar.css">
 <link rel="stylesheet" href="css/index.css">
 <script src="js/Js/index.js"></script>
 
@@ -177,8 +177,8 @@
 
 					<div id="login" class="modal  ">
 
-						<form class="modal-content animate" method="post"
-							action="registraze">
+						<form class="modal-content animate" id ="formReg"
+							>
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('login').style.display='none'"
@@ -219,8 +219,8 @@
 
 					<div id="registrazione" class="modal">
 
-						<form class="modal-content animateReg" method="post"
-							action="registrazione">
+						<form class="modal-content animateReg"
+							>
 							<div class="imgcontainerReg">
 								<span
 									onclick="document.getElementById('registrazione').style.display='none'"
@@ -231,20 +231,20 @@
 							<hr>
 							<div class="containerReg">
 
-								<label><b>Nome</b></label> <input type="text"
+								<label><b>Nome</b></label> <input id="nome "type="text"
 									placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
-								<input type="text" placeholder="Inserire Cognome" name="cognome"
+								<input id="cognome" type="text" placeholder="Inserire Cognome" name="cognome"
 									required> 
-									<label><b>Data di Nascita</b></label> <input  type="date"
+									<label><b>Data di Nascita</b></label> <input id="dataDiNascita"  type="date"
 									placeholder="Inserire Data di Nascita" name="dataDiNascita" required>
-									<label><b>Numero di Telefono</b></label> <input type="text"
+									<label><b>Numero di Telefono</b></label> <input id="numeroDiTelefono" type="text"
 									placeholder="Inserire Numero di Telefono" name="numeroDiTelefono" required>
 									
 									<label><b>Email</b></label> <input id="emailUtente"
 									type="text" placeholder="Inserire Indirizzo Email" name="email"
-									required> <label><b>Password</b></label> <input
+									required> <label><b>Password</b></label> <input id="psw"
 									type="password" placeholder="Inserire Password" name="psw"
-									required> <label><b>Ripetere Password</b></label> <input
+									required> <label><b>Ripetere Password</b></label> <input id="psw-repeat"
 									type="password" placeholder="Reinserire Password"
 									name="psw-repeat" required>
 
@@ -261,7 +261,7 @@
 								<button type="button"
 									onclick="document.getElementById('registrazione').style.display='none'"
 									class="cancelbtnReg">Cancel</button>
-								<button class="buttonReg" type="submit">Registrati</button>
+								<button class="buttonReg" type="submit" onclick="registrazione()">Registrati</button>
 							</div>
 						</form>
 					</div>
@@ -524,6 +524,7 @@
 				class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
+	<div id="snackbar"></div>
 </body>
 
 </html>
