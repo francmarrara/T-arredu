@@ -8,12 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.ProdottoConImmagini;
 import persistenceDAO.DataBaseManager;
 import persistenceDAO.ProdottoDAO;
 
-public class IndexServlet extends HttpServlet{
+public class IndexServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -23,24 +24,25 @@ public class IndexServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		HttpSession session = req.getSession();
+		session.setAttribute("utenteLoggato", false);
+
 		List<ProdottoConImmagini> prodottiInOfferta = null;
 		List<ProdottoConImmagini> prodottiPiuVisti = null;
-		
+
 		DataBaseManager dbManager = new DataBaseManager();
-		
+
 		ProdottoDAO prodotto = dbManager.getProdottoDao();
-		
+
 		prodottiInOfferta = prodotto.prodottiInOfferta();
 		prodottiPiuVisti = prodotto.prodottiPerVisibilità();
-		
-		req.setAttribute("prodottiInOfferta", prodottiInOfferta);
-		req.setAttribute("prodottiPiuVisti", prodottiPiuVisti);
-		
-		RequestDispatcher dispacher = 
-				req.getRequestDispatcher
-						("index.jsp");
+
+		session.setAttribute("prodottiInOfferta", prodottiInOfferta);
+		session.setAttribute("prodottiPiuVisti", prodottiPiuVisti);
+
+		RequestDispatcher dispacher = req.getRequestDispatcher("/WEB-INF/index.jsp");
 		dispacher.forward(req, resp);
-		
+
 	}
 
 	@Override
@@ -48,7 +50,7 @@ public class IndexServlet extends HttpServlet{
 		// TODO Auto-generated method stub
 		super.doPost(req, resp);
 	}
-	
+
 	
 
 }

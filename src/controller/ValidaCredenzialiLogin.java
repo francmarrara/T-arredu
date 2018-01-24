@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Utente;
 import persistenceDAO.DataBaseManager;
 import persistenceDAO.UtenteDAO;
 
@@ -28,20 +29,20 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		String email = req.getParameter("emailUtente");
 		String passw = req.getParameter("psw");
-
-		System.out.println(email + "  " + passw);
 
 		HttpSession session = req.getSession();
 
 		DataBaseManager dbManager = new DataBaseManager();
 		UtenteDAO utenteDao = dbManager.getUtenteDao();
-		
+		Utente utente = new Utente();
+
+		utente = utenteDao.findByPrimaryKey(email);
+
 		if (utenteDao.credenzialiUtenteGiaPresenti(email, passw)) {
-			System.out.println("PRIMA");
 			session.setAttribute("utenteLoggato", true);
+			session.setAttribute("nomeUtente", utente.getNomeUtente());
 
 		} else {
 
@@ -49,8 +50,7 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 
 		}
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/index.jsp");
 		dispatcher.forward(req, resp);
 	}
-
 }
