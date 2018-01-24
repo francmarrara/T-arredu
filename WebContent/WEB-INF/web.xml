@@ -18,4 +18,22 @@
     <url-pattern></url-pattern>
   </servlet-mapping> 
 
+ <servlet>
+    <servlet-name>Registrazione</servlet-name>
+    <servlet-class>controller.Registrazione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Registrazione</servlet-name>
+    <url-pattern>/registrazione</url-pattern>
+  </servlet-mapping> 
+
+
+ <servlet>
+    <servlet-name>VerificaEmail</servlet-name>
+    <servlet-class>controller.VerificaEmail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VerificaEmail</servlet-name>
+    <url-pattern>/verificaMail</url-pattern>
+  </servlet-mapping> 
 </web-app>

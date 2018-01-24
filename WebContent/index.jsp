@@ -1,4 +1,3 @@
-<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <jsp:useBean id="prodotto" class="model.ProdottoConImmagini"
@@ -28,22 +27,22 @@
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
-	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
-	window.smartsupp || (function(d) {
-		var s, c, o = smartsupp = function() {
-			o._.push(arguments)
-		};
-		o._ = [];
-		s = d.getElementsByTagName('script')[0];
-		c = d.createElement('script');
-		c.type = 'text/javascript';
-		c.charset = 'utf-8';
-		c.async = true;
-		c.src = 'https://www.smartsuppchat.com/loader.js?';
-		s.parentNode.insertBefore(c, s);
-	})(document);
-</script>
+            var _smartsupp = _smartsupp || {};
+            _smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+            window.smartsupp || (function(d) {
+                var s, c, o = smartsupp = function() {
+                    o._.push(arguments)
+                };
+                o._ = [];
+                s = d.getElementsByTagName('script')[0];
+                c = d.createElement('script');
+                c.type = 'text/javascript';
+                c.charset = 'utf-8';
+                c.async = true;
+                c.src = 'https://www.smartsuppchat.com/loader.js?';
+                s.parentNode.insertBefore(c, s);
+            })(document);
+        </script>
 
 <link rel="stylesheet" href="css/index.css">
 <script src="js/Js/index.js"></script>
@@ -178,7 +177,8 @@
 
 					<div id="login" class="modal  ">
 
-						<form class="modal-content animate" action="------">
+						<form class="modal-content animate" method="post"
+							action="registraze">
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('login').style.display='none'"
@@ -212,14 +212,15 @@
 					</div>
 				</li>
 				<li class="navbarOggetto">
-					<!-- Form per la registrazione --> <a href="#"
+					<!-- Form per la registrazione --> <a href="#registrazione"
 					onclick="document.getElementById('registrazione').style.display='block'">
 						<span class="glyphicon glyphicon-user user"></span> Registrati
 				</a>
 
 					<div id="registrazione" class="modal">
 
-						<form class="modal-content animateReg" action="------">
+						<form class="modal-content animateReg" method="post"
+							action="registrazione">
 							<div class="imgcontainerReg">
 								<span
 									onclick="document.getElementById('registrazione').style.display='none'"
@@ -233,7 +234,13 @@
 								<label><b>Nome</b></label> <input type="text"
 									placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
 								<input type="text" placeholder="Inserire Cognome" name="cognome"
-									required> <label><b>Email</b></label> <input
+									required> 
+									<label><b>Data di Nascita</b></label> <input  type="date"
+									placeholder="Inserire Data di Nascita" name="dataDiNascita" required>
+									<label><b>Numero di Telefono</b></label> <input type="text"
+									placeholder="Inserire Numero di Telefono" name="numeroDiTelefono" required>
+									
+									<label><b>Email</b></label> <input id="emailUtente"
 									type="text" placeholder="Inserire Indirizzo Email" name="email"
 									required> <label><b>Password</b></label> <input
 									type="password" placeholder="Inserire Password" name="psw"
@@ -444,7 +451,8 @@
 						</div>
 						<button type="button"
 							class="btn btn-default bottoneProdottoPiuVisto">
-							<a href="prodotto.html" onclick="alert(${prodotto.idProdotto})"></span> Mostra</a>
+							<a href="prodotto.html" onclick="alert(${prodotto.idProdotto})"></span>
+								Mostra</a>
 						</button>
 
 					</div>
