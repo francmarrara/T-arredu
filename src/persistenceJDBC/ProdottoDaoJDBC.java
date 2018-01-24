@@ -9,8 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Carrello;
-import model.OrdinaProdottoPerPrezzo;
-import model.OrdinaProdottoPerVisibilità;
 import model.Prodotto;
 import model.ProdottoConImmagini;
 import persistenceDAO.DataSource;
@@ -939,7 +937,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select * from prodotto where id_prodotto = ?";
+			String query = "select id_prodotto,marcaProdotto,nomeProdotto,prezzoProdotto,numeriVisite,immaginePrincipale from prodotto where id_prodotto = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, idProdotto);
 

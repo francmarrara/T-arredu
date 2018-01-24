@@ -1,11 +1,6 @@
 package test;
 
 import java.util.Date;
-import java.util.List;
-
-import model.OrdinaProdottoPerPrezzo;
-import model.OrdinaProdottoPerVisibilità;
-import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DataBaseManager;
 
