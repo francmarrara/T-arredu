@@ -25,5 +25,10 @@ public interface UtenteDAO {
 	public List<Prodotto> getProdottiPreferiti(String emailUtente);
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente);
 	public void rimuoviPreferiti(String emailUtente);
+
+	public boolean giaRegistrato(String email);
+	
 	
 }
+
+

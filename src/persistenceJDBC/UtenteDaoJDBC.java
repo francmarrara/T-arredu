@@ -394,6 +394,39 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 		return false;
 	}
+
+	@Override
+	public boolean giaRegistrato(String email) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			PreparedStatement statement;
+			String query = "select email from utente where email = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, email);
+
+			ResultSet result = statement.executeQuery();
+
+			if (!result.first() == false ) {
+			    return true;
+			} 
+
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return false;
+
+	}
 	
 	
 
