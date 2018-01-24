@@ -178,7 +178,7 @@
 
 					<div id="login" class="modal  ">
 
-						<form class="modal-content animate">
+						<form class="modal-content animate" method="post" action="validaCredenzialiLogin">
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('login').style.display='none'"
@@ -195,7 +195,7 @@
 									class="inputLogIn passwordLogin" type="password"
 									placeholder="Inserire Password" name="psw" required>
 
-								<button class="buttonLog" type="submit" onclick="/validaCredenzialiLogin">Login</button>
+								<button class="buttonLog" type="submit">Login</button>
 								<div class="containerCheckbox">
 									<label>Ricordami <input type="checkbox"
 										id="checkRicordami" onclick="controlla()"></label>

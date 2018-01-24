@@ -32,30 +32,25 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 		String email = req.getParameter("emailUtente");
 		String passw = req.getParameter("psw");
 
+		System.out.println(email + "  " + passw);
+
 		HttpSession session = req.getSession();
 
 		DataBaseManager dbManager = new DataBaseManager();
 		UtenteDAO utenteDao = dbManager.getUtenteDao();
-
-		PrintWriter out = resp.getWriter();
-
+		
 		if (utenteDao.credenzialiUtenteGiaPresenti(email, passw)) {
-			
-			System.out.println("VERO  mail " + email + "  pass " + passw);
-
+			System.out.println("PRIMA");
 			session.setAttribute("utenteLoggato", true);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("");
-			dispatcher.forward(req, resp);
 
 		} else {
 
-			System.out.println("FALSO  mail " + email + "  pass " + passw);
-			
 			session.setAttribute("utenteLoggato", false);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("");
-			dispatcher.forward(req, resp);
 
 		}
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+		dispatcher.forward(req, resp);
 	}
 
 }
