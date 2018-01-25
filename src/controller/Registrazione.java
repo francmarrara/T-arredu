@@ -70,7 +70,7 @@ public class Registrazione extends HttpServlet {
 		
 		RequestDispatcher dispacher = 
 				req.getRequestDispatcher
-						("index.jsp");
+						("/WEB-INF/index.jsp");
 		dispacher.forward(req, resp);
 		}	
 	
