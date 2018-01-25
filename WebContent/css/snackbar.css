@@ -8,9 +8,9 @@
     border-radius: 2px;
     padding: 16px;
     position: fixed;
-    z-index: 1;
-    left: 75%;
-    bottom: 50%;
+    z-index: 999;
+    left: 50%;
+    bottom: 30%;
     font-size: 17px;
 }
 
