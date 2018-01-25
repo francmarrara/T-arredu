@@ -258,9 +258,9 @@
 										name="numeroDiTelefono" required> <label><b>Email</b></label>
 									<input id="emailUtente" type="text"
 										placeholder="Inserire Indirizzo Email" name="email" required>
-									<label><b>Password</b></label> <input type="password"
+									<label><b>Password</b></label> <input id="psw" type="password"
 										placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
-											Password</b></label> <input type="password"
+											Password</b></label> <input id="psw-repeat" type="password"
 										placeholder="Reinserire Password" name="psw-repeat" required>
 								</div>
 								<div class="containerRegButton"
