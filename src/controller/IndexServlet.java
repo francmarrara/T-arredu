@@ -25,7 +25,16 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		HttpSession session = req.getSession();
-		session.setAttribute("utenteLoggato", false);
+		
+		if(session.getAttribute("utenteLoggato")==null) {
+			session.setAttribute("utenteLoggato", false);
+
+		}
+		else
+		{
+			session.setAttribute("utenteLoggato", true);
+		}
+		
 
 		List<ProdottoConImmagini> prodottiInOfferta = null;
 		List<ProdottoConImmagini> prodottiPiuVisti = null;

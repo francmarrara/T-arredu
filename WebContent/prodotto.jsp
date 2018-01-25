@@ -1,8 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<jsp:useBean id="prodottoCercato" class="model.Prodotto"
+	scope="session" />
+<html lang="it">
 
 <head>
-    <title>Prodotto</title>
+    <title>${prodottoCercato.nomeProdotto}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -57,7 +61,7 @@ window.smartsupp||(function(d) {
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li class="navbarOggetto"><img id="logoButton" src="images/TarreduLogo.png" width="50" height="50"></li>
-                <li class="navbarOggetto"><a href="index.html">Home</a></li>
+                <li class="navbarOggetto"><a href="index.jsp">Home</a></li>
                 <!-- DropMenu per catalogo prodotti -->
                 <li class="dropdown navbarOggetto" id="catalogoProdotti">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">Catalogo Prodotti
@@ -174,89 +178,114 @@ window.smartsupp||(function(d) {
             </ul>
             <ul class="nav navbar-nav navbar-right menuDestra">
 
-                <li class="navbarOggetto">
-                    <!-- Form per il login -->
-                    <a href="#" onclick="document.getElementById('login').style.display='block'">
-                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+				<c:if test="${utenteLoggato == true}">
 
-                    <div id="login" class="modal">
+					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
-                        <form class="modal-content animate" action="------">
-                            <div class="imgcontainer">
-                                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Chiudi Login">&times;</span>
-                                <img src="images/userLogin.jpg" alt="Avatar" class="avatar" width=150 height=150>
-                            </div>
+					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+							class="glyphicon glyphicon-user user"></span>
+							${nomeUtente}</a></li>
 
-                            <div class="containerModal">
-                                <label><b>Username</b></label>
-                                <input class="inputLogIn" type="text" placeholder="Inserire Username" name="uname" required>
+				</c:if>
 
-                                <label><b>Password</b></label>
-                                <input class="inputLogIn" type="password" placeholder="Inserire Password" name="psw" required>
+				<c:if test="${utenteLoggato == false}">
 
-                                <button class="buttonLog" type="submit">Login</button>
-                                <div class="containerCheckbox">
-                                    <label>Ricordami <input type="checkbox" id="checkRicordami" onclick="controlla()"></label>
-                                </div>
-                            </div>
+					<li class="navbarOggetto">
+						<!-- Form per il login --> <a href="#"
+						onclick="document.getElementById('login').style.display='block'">
+							<span class="glyphicon glyphicon-log-in"></span> Login
+					</a>
 
-                            <div class="containerModalBottom" style="background-color:#ffffff">
-                                <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
-                                <span class="psw"><a href="#">Password dimenticata?</a></span>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-                <li class="navbarOggetto">
-                    <!-- Form per la registrazione -->
-                    <a href="#" onclick="document.getElementById('registrazione').style.display='block'">
-                        <span class="glyphicon glyphicon-user user"></span> Registrati</a>
+						<div id="login" class="modal">
 
-                    <div id="registrazione" class="modal">
+							<form class="modal-content animate" method="post"
+								action="validaCredenzialiLogin">
+								<div class="imgcontainer">
+									<span
+										onclick="document.getElementById('login').style.display='none'"
+										class="close" title="Chiudi Login">&times;</span> <img
+										src="images/userLogin.jpg" alt="Avatar" class="avatar"
+										width=150 height=150>
+								</div>
 
-                        <form class="modal-content animateReg" action="------">
-                            <div class="imgcontainerReg">
-                                <span onclick="document.getElementById('registrazione').style.display='none'" class="closeReg" title="Chiudi Registrazione">&times;</span>
-                            </div>
-                            <h1>Registrazione</h1>
-                            <p>Compila questo modulo per creare un account.</p>
-                            <hr>
-                            <div class="containerReg">
+								<div class="containerModal">
+									<label><b>Email Utente</b></label> <input
+										class="inputLogIn EmailUtenteLogin" type="text"
+										placeholder="Inserire Indirizzo Email" name="emailUtente"
+										required> <label><b>Password</b></label> <input
+										class="inputLogIn passwordLogin" type="password"
+										placeholder="Inserire Password" name="psw" required>
 
-                                <label><b>Nome</b></label>
-                                <input type="text" placeholder="Inserire Nome" name="nome" required>
+									<button class="buttonLog" type="submit">Login</button>
+									<div class="containerCheckbox">
+										<label>Ricordami <input type="checkbox"
+											id="checkRicordami" onclick="controlla()"></label>
+									</div>
+								</div>
 
-                                <label><b>Cognome</b></label>
-                                <input type="text" placeholder="Inserire Cognome" name="cognome" required>
+								<div class="containerModalBottom"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('login').style.display='none'"
+										class="cancelbtn">Cancel</button>
+									<span class="psw"><a href="#">Password dimenticata?</a></span>
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="navbarOggetto">
+						<!-- Form per la registrazione --> <a href="#registrazione"
+						onclick="document.getElementById('registrazione').style.display='block'">
+							<span class="glyphicon glyphicon-user user"></span> Registrati
+					</a>
 
-                                <label><b>Email</b></label>
-                                <input type="text" placeholder="Inserire Indirizzo Email" name="email" required>
+						<div id="registrazione" class="modal">
 
-                                <label><b>Password</b></label>
-                                <input type="password" placeholder="Inserire Password" name="psw" required>
+							<form class="modal-content animateReg" method="post"
+								action="registrazione">
+								<div class="imgcontainerReg">
+									<span
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="closeReg" title="Chiudi Registrazione">&times;</span>
+								</div>
+								<h1>Registrazione</h1>
+								<p>Compila questo modulo per creare un account.</p>
+								<hr>
+								<div class="containerReg">
 
-                                <label><b>Ripetere Password</b></label>
-                                <input type="password" placeholder="Reinserire Password" name="psw-repeat" required>
+									<label><b>Nome</b></label> <input type="text"
+										placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
+									<input type="text" placeholder="Inserire Cognome"
+										name="cognome" required> <label><b>Data di
+											Nascita</b></label> <input type="date"
+										placeholder="Inserire Data di Nascita" name="dataDiNascita"
+										required> <label><b>Numero di Telefono</b></label> <input
+										type="text" placeholder="Inserire Numero di Telefono"
+										name="numeroDiTelefono" required> <label><b>Email</b></label>
+									<input id="emailUtente" type="text"
+										placeholder="Inserire Indirizzo Email" name="email" required>
+									<label><b>Password</b></label> <input id="psw" type="password"
+										placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
+											Password</b></label> <input id="psw-repeat" type="password"
+										placeholder="Reinserire Password" name="psw-repeat" required>
+								</div>
+								<div class="containerRegButton"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="cancelbtnReg">Cancel</button>
+									<button class="buttonReg" type="submit">Registrati</button>
+								</div>
+							</form>
 
+						</div>
+					</li>
+				</c:if>
 
-                            </div>
-                            <div class="containerRegistrazione">
-                                <label>Ricordami
-                                                    <input type="checkbox" checked="checked" style="margin-bottom:15px"> 
-                                                  </label>
-                            </div>
-
-
-                            <div class="containerRegButton" style="background-color:#ffffff">
-                                <button type="button" onclick="document.getElementById('registrazione').style.display='none'" class="cancelbtnReg">Cancel</button>
-                                <button class="buttonReg" type="submit">Registrati</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </li>
-                <li class="carrello navbarOggetto"><a href="carrello.html"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
-            </ul>
+				<li class="carrello navbarOggetto"><a href="carrello.html"><span
+						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+			</ul>
         </div>
     </nav>
 
@@ -268,7 +297,7 @@ window.smartsupp||(function(d) {
     <div class="container mioSlider" style="background-color: aliceblue">
         <div class="row" id="">
             <div class="col-md-7 single-top-left">
-                <h2 class="product_name">Ardiano</h2>
+                <h2 class="product_name">${prodottoCercato.nomeProdotto}</h2>
                 <p class="separatore"></p>
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -319,9 +348,9 @@ window.smartsupp||(function(d) {
             <!-- Div a destra con marca e pulsanti-->
 
             <div class="col-md-5 single-top-right descrizione">
-                <div class="marca_prodotto">Le Fablier</div>
-                <div class="tipo_prodotto">Divano</div>
-                <div class="ambiente_prodotto">Soggiorno</div>
+                <div class="marca_prodotto">${prodottoCercato.marcaProdotto}</div>
+                <div class="tipo_prodotto">${prodottoCercato.tipoProdotto}</div>
+                <div class="ambiente_prodotto">${prodottoCercato.ambienteProdotto}</div>
 
                 <div class="valutazioni_prodotto">
                     <i class="fa fa-star checked"></i>
@@ -331,7 +360,7 @@ window.smartsupp||(function(d) {
                     <span class="fa fa-star"></span> </div>
                 <hr>
                 <hr>
-                <div class="prezzo_prodotto">Prezzo Consigliato : €99.00</div>
+                <div class="prezzo_prodotto">Prezzo Consigliato : ${prodottoCercato.prezzoProdotto}</div>
                 <div class="btn-group button_carrello">
                     <button type="button" class="btn btn-success" title="Aggiungi questo prodotto al tuo carrello">
 							Aggiungi al carrello 
@@ -366,15 +395,15 @@ window.smartsupp||(function(d) {
             <div class="tab-content">
                 <div id="descrizione" class="tab-pane fade in active">
                     <h3>Descrizione</h3>
-                    <p class="descrizione_bassa">Braccioli e schienali hanno la stessa altezza in questo sofà essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
+                    <p class="descrizione_bassa">${prodottoCercato.descrizioneProdotto}.</p>
                 </div>
                 <div id="misure" class="tab-pane fade">
                     <h3>Misure</h3>
-                    <p class="descrizione_bassa">Misure: Larghezza: 196cm, Profondità: 89cm, Altezza: 65cm.</p>
+                    <p class="descrizione_bassa">Misure: ${prodottoCercato.misureProdotto}</p>
                 </div>
                 <div id="colori" class="tab-pane fade">
                     <h3>Colori</h3>
-                    <p class="descrizione_bassa">Rosso.</p>
+                    <p class="descrizione_bassa">${prodottoCercato.coloriProdotto}</p>
                 </div>
                 <div id="venditori" class="tab-pane fade">
                     <h3>Puoi Trovarlo Qui</h3>

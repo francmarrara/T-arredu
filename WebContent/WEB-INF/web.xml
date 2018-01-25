@@ -51,4 +51,15 @@
 		<servlet-name>ValidaCredenzialiLogin</servlet-name>
 		<url-pattern>/validaCredenzialiLogin</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetProdottoServlet</servlet-name>
+		<servlet-class>controller.GetProdottoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetProdottoServlet</servlet-name>
+		<url-pattern>/prodotto</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>

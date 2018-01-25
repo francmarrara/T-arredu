@@ -1183,7 +1183,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ProdottoConImmagini prodotto ;
 			PreparedStatement statementProdotto;
 
-			String query = "select id_prodotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto where offertaProdotto = 1 order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
+			String query = "select id_prodotto, descrizioneProdotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto where offertaProdotto = 1 order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
 			statementProdotto = connection.prepareStatement(query);
 
 			ResultSet resultProdotto = statementProdotto.executeQuery();
@@ -1195,7 +1195,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
 				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
-
+                prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
 				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));;
 
 				prodotti.add(prodotto);

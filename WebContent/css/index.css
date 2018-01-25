@@ -121,8 +121,8 @@ body {
     position: relative;
     top: 0;
     left: 0;
-    width: 0;
-    height: 0;
+width: 100%;
+    height: auto;
 }
 
 #bg img {
@@ -133,6 +133,8 @@ body {
     bottom: 0;
     margin: auto;
     z-index: -10;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -212,11 +214,10 @@ body {
 
 .coupon {
     border: 5px outset #bbb;
-    width: 300px;
-    height: 540px;
     border-radius: 15px;
     margin: 0 0;
     max-width: 600px;
+    
 }
 
 .containerLogo {
@@ -253,6 +254,8 @@ body {
 .prezzo {
     background: #ccc;
     padding: 3px;
+    color:black;
+    
 }
 
 

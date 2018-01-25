@@ -8,7 +8,9 @@ public class ProdottoConImmagini {
 	private String marcaProdotto;
 	private Integer visiteProdotto;
 	
-    private String immaginePrincipale;	
+    private String immaginePrincipale;
+    
+    private String descrizioneProdotto;
 
 	public ProdottoConImmagini() {
 	visiteProdotto=0;
@@ -78,6 +80,14 @@ public class ProdottoConImmagini {
 
 	public void setImmaginePrincipale(String immaginePrincipale) {
 		this.immaginePrincipale = immaginePrincipale;
+	}
+
+	public String getDescrizioneProdotto() {
+		return descrizioneProdotto;
+	}
+
+	public void setDescrizioneProdotto(String descrizioneProdotto) {
+		this.descrizioneProdotto = descrizioneProdotto;
 	}
 
 }

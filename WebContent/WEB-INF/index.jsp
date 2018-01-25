@@ -360,9 +360,7 @@
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
-								<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-									Sea te minim soleat senserit, ex quo luptatum tacimates
-									voluptatum.</p>
+								<p>${prodotto.descrizioneProdotto}</p>
 							</div>
 						</div>
 						<div class="containerPrezzoEData">
@@ -371,7 +369,7 @@
 							</p>
 							<button type="button"
 								class="btn btn-default bottoneProdottoInOfferta">
-								<a href="prodotto.html"></span> Mostra</a>
+								<a href="prodotto?id=${prodotto.idProdotto}"></span> Mostra</a>
 							</button>
 						</div>
 					</div>
@@ -395,9 +393,7 @@
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
-								<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-									Sea te minim soleat senserit, ex quo luptatum tacimates
-									voluptatum.</p>
+								<p>${prodotto.descrizioneProdotto}.</p>
 							</div>
 						</div>
 						<div class="containerPrezzoEData">
@@ -406,7 +402,7 @@
 							</p>
 							<button type="button"
 								class="btn btn-default bottoneProdottoInOfferta">
-								<a href="prodotto.html"></span> Mostra</a>
+								<a href="prodotto?id=${prodotto.idProdotto}"></span> Mostra</a>
 							</button>
 						</div>
 					</div>
@@ -463,7 +459,7 @@
 						</div>
 						<button type="button"
 							class="btn btn-default bottoneProdottoPiuVisto">
-							<a href="prodotto.html" onclick="alert(${prodotto.idProdotto})"></span>
+							<a href="prodotto.html(prodotto="alert(${prodotto.idProdotto})"></span>
 								Mostra</a>
 						</button>
 
