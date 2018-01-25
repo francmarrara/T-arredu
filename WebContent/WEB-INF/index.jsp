@@ -1,7 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <jsp:useBean id="prodotto" class="model.ProdottoConImmagini"
 	scope="session" />
+
 <html>
 <html lang="it">
 
@@ -169,107 +171,111 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
-				<li class="navbarOggetto">
-					<!-- Form per il login --> <a href="#"
-					onclick="document.getElementById('login').style.display='block'">
-						<span class="glyphicon glyphicon-log-in"></span> Login
-				</a>
+				<c:if test="${utenteLoggato == true}">
 
-					<div id="login" class="modal  ">
+					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
+					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+							class="glyphicon glyphicon-user user"></span> Benvenuto,
+							${nomeUtente}</a></li>
 
+				</c:if>
 
-						<form class="modal-content animate">
-							<div class="imgcontainer">
-								<span
-									onclick="document.getElementById('login').style.display='none'"
-									class="close" title="Chiudi Login">&times;</span> <img
-									src="images/userLogin.jpg" alt="Avatar" class="avatar"
-									width=150 height=150>
-							</div>
+				<c:if test="${utenteLoggato == false}">
 
-							<div class="containerModal">
-								<label><b>Email Utente</b></label> <input class="inputLogIn EmailUtenteLogin"
-									type="text" placeholder="Inserire Indirizzo Email"
-									name="emailUtente" required> <label><b>Password</b></label>
-								<input class="inputLogIn passwordLogin" type="password"
-									placeholder="Inserire Password" name="psw" required>
+					<li class="navbarOggetto">
+						<!-- Form per il login --> <a href="#"
+						onclick="document.getElementById('login').style.display='block'">
+							<span class="glyphicon glyphicon-log-in"></span> Login
+					</a>
 
-								<button class="buttonLog" type="submit"
-									onclick="validaCredenziali()">Login</button>
-								<div class="containerCheckbox">
-									<label>Ricordami <input type="checkbox"
-										id="checkRicordami" onclick="controlla()"></label>
+						<div id="login" class="modal">
+
+							<form class="modal-content animate" method="post"
+								action="validaCredenzialiLogin">
+								<div class="imgcontainer">
+									<span
+										onclick="document.getElementById('login').style.display='none'"
+										class="close" title="Chiudi Login">&times;</span> <img
+										src="images/userLogin.jpg" alt="Avatar" class="avatar"
+										width=150 height=150>
 								</div>
-							</div>
 
-							<div class="containerModalBottom"
-								style="background-color: #ffffff">
-								<button type="button"
-									onclick="document.getElementById('login').style.display='none'"
-									class="cancelbtn">Cancel</button>
-								<span class="psw"><a href="#">Password dimenticata?</a></span>
-							</div>
-						</form>
-					</div>
-				</li>
-				<li class="navbarOggetto">
-					<!-- Form per la registrazione --> <a href="#registrazione"
-					onclick="document.getElementById('registrazione').style.display='block'">
-						<span class="glyphicon glyphicon-user user"></span> Registrati
-				</a>
+								<div class="containerModal">
+									<label><b>Email Utente</b></label> <input
+										class="inputLogIn EmailUtenteLogin" type="text"
+										placeholder="Inserire Indirizzo Email" name="emailUtente"
+										required> <label><b>Password</b></label> <input
+										class="inputLogIn passwordLogin" type="password"
+										placeholder="Inserire Password" name="psw" required>
 
-					<div id="registrazione" class="modal">
+									<button class="buttonLog" type="submit">Login</button>
+									<div class="containerCheckbox">
+										<label>Ricordami <input type="checkbox"
+											id="checkRicordami" onclick="controlla()"></label>
+									</div>
+								</div>
 
-						<form class="modal-content animateReg"
-							>
-							<div class="imgcontainerReg">
-								<span
-									onclick="document.getElementById('registrazione').style.display='none'"
-									class="closeReg" title="Chiudi Registrazione">&times;</span>
-							</div>
-							<h1>Registrazione</h1>
-							<p>Compila questo modulo per creare un account.</p>
-							<hr>
-							<div class="containerReg">
+								<div class="containerModalBottom"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('login').style.display='none'"
+										class="cancelbtn">Cancel</button>
+									<span class="psw"><a href="#">Password dimenticata?</a></span>
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="navbarOggetto">
+						<!-- Form per la registrazione --> <a href="#registrazione"
+						onclick="document.getElementById('registrazione').style.display='block'">
+							<span class="glyphicon glyphicon-user user"></span> Registrati
+					</a>
 
-								<label><b>Nome</b></label> <input id="nome "type="text"
-									placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
-								<input id="cognome" type="text" placeholder="Inserire Cognome" name="cognome"
-									required> 
-									<label><b>Data di Nascita</b></label> <input id="dataDiNascita"  type="date"
-									placeholder="Inserire Data di Nascita" name="dataDiNascita" required>
-									<label><b>Numero di Telefono</b></label> <input id="numeroDiTelefono" type="text"
-									placeholder="Inserire Numero di Telefono" name="numeroDiTelefono" required>
-									
-									<label><b>Email</b></label> <input id="emailUtente"
-									type="text" placeholder="Inserire Indirizzo Email" name="email"
-									required> <label><b>Password</b></label> <input id="psw"
-									type="password" placeholder="Inserire Password" name="psw"
-									required> <label><b>Ripetere Password</b></label> <input id="psw-repeat"
-									type="password" placeholder="Reinserire Password"
-									name="psw-repeat" required>
+						<div id="registrazione" class="modal">
 
+							<form class="modal-content animateReg" method="post"
+								action="registrazione">
+								<div class="imgcontainerReg">
+									<span
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="closeReg" title="Chiudi Registrazione">&times;</span>
+								</div>
+								<h1>Registrazione</h1>
+								<p>Compila questo modulo per creare un account.</p>
+								<hr>
+								<div class="containerReg">
 
+									<label><b>Nome</b></label> <input type="text"
+										placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
+									<input type="text" placeholder="Inserire Cognome"
+										name="cognome" required> <label><b>Data di
+											Nascita</b></label> <input type="date"
+										placeholder="Inserire Data di Nascita" name="dataDiNascita"
+										required> <label><b>Numero di Telefono</b></label> <input
+										type="text" placeholder="Inserire Numero di Telefono"
+										name="numeroDiTelefono" required> <label><b>Email</b></label>
+									<input id="emailUtente" type="text"
+										placeholder="Inserire Indirizzo Email" name="email" required>
+									<label><b>Password</b></label> <input type="password"
+										placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
+											Password</b></label> <input type="password"
+										placeholder="Reinserire Password" name="psw-repeat" required>
+								</div>
+								<div class="containerRegButton"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="cancelbtnReg">Cancel</button>
+									<button class="buttonReg" type="submit">Registrati</button>
+								</div>
+							</form>
 
-							</div>
-							<div class="containerRegistrazione">
-								<label>Ricordami <input type="checkbox"
-									checked="checked" style="margin-bottom: 15px">
-								</label>
-							</div>
+						</div>
+					</li>
+				</c:if>
 
-
-							<div class="containerRegButton" style="background-color: #ffffff">
-								<button type="button"
-									onclick="document.getElementById('registrazione').style.display='none'"
-									class="cancelbtnReg">Cancel</button>
-								<button class="buttonReg" type="submit" onclick="registrazione()">Registrati</button>
-							</div>
-						</form>
-					</div>
-
-				</li>
 				<li class="carrello navbarOggetto"><a href="carrello.html"><span
 						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 			</ul>
@@ -329,6 +335,9 @@
 
 	<br>
 	<br>
+
+	<!-- The actual snackbar -->
+	<div id="snackbar">Some text some message..</div>
 
 	<!-- Area prodotti home -->
 

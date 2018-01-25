@@ -428,7 +428,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	@Override
 	public boolean credenzialiUtenteGiaPresenti(String email, String password) {
-
+		
 		Connection connection = this.dataSource.getConnection();
 
 		PreparedStatement statement;

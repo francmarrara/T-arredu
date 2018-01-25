@@ -1,17 +1,14 @@
 package controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import javax.servlet.http.HttpSession;
 
 import model.Utente;
 import persistenceDAO.DataBaseManager;
@@ -32,27 +29,28 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String email = req.getParameter("emailUtente");
+		String passw = req.getParameter("psw");
 
-		StringBuffer jsonRicevuto = new StringBuffer();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(req.getInputStream()));
+		HttpSession session = req.getSession();
 
-		String line = reader.readLine();
-		while (line != null) {
-			jsonRicevuto.append(line);
-			line = reader.readLine();
+		DataBaseManager dbManager = new DataBaseManager();
+		UtenteDAO utenteDao = dbManager.getUtenteDao();
+		Utente utente = new Utente();
+
+		utente = utenteDao.findByPrimaryKey(email);
+
+		if (utenteDao.credenzialiUtenteGiaPresenti(email, passw)) {
+			session.setAttribute("utenteLoggato", true);
+			session.setAttribute("nomeUtente", utente.getNomeUtente());
+
+		} else {
+
+			session.setAttribute("utenteLoggato", false);
+
 		}
 
-		try {
-			JSONObject json = new JSONObject(jsonRicevuto.toString());				
-			
-			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		
-
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/index.jsp");
+		dispatcher.forward(req, resp);
 	}
-
 }
