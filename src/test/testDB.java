@@ -1,6 +1,8 @@
 package test;
 
 import java.util.Date;
+
+import model.Commento;
 import model.Utente;
 import persistenceDAO.DataBaseManager;
 
@@ -97,7 +99,29 @@ public class testDB {
 //		   p.stampaProdotto();
 //	   }
 		
-		System.out.println(dbManager.getUtenteDao().giaRegistrato("francmarrara@gmail.com"));
+		//System.out.println(dbManager.getUtenteDao().giaRegistrato("francmarrara@gmail.com"));
 
+		
+		
+		Commento c = new Commento();
+		c.setIdProdotto(6);
+		c.setEmailUtente("francmarrara@gmail.com");
+		c.setValutazione(5);
+		c.setCommento("Proprio un gran bell'acquisto!!!");
+
+		dbManager.getCommentoDao().save(c);
+		
+		for(Commento comm : dbManager.getCommentoDao().findByProduct(6)) {
+			c.stampaCommento();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }
 }

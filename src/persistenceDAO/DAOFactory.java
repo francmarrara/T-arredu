@@ -55,4 +55,6 @@ public abstract class DAOFactory {
 	
 	public abstract UtenteDAO getUtenteDAO();
 
+	public abstract CommentoDAO getCommentoDAO();
+	
 }

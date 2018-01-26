@@ -13,7 +13,9 @@ public class DataBaseManager {
 	private PreventivoDAO preventivoDao;
 	private CarrelloDAO carrelloDao;
 	private VenditoreDAO venditoreDao;
-
+    private CommentoDAO commentoDao;
+	
+	
 	public DataBaseManager() {
 
 		factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
@@ -24,6 +26,7 @@ public class DataBaseManager {
 		preventivoDao = factory.getPreventivoDAO();
 		carrelloDao = factory.getCarrelloDAO();
 		venditoreDao = factory.getVenditoreDAO();
+		commentoDao = factory.getCommentoDAO();
 
 	}
 
@@ -2179,6 +2182,14 @@ public class DataBaseManager {
 
 	public void setUtilDao(UtilDAO utilDao) {
 		this.utilDao = utilDao;
+	}
+
+	public CommentoDAO getCommentoDao() {
+		return commentoDao;
+	}
+
+	public void setCommentoDao(CommentoDAO commentoDao) {
+		this.commentoDao = commentoDao;
 	}
 
 }

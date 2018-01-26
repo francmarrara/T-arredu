@@ -22,6 +22,7 @@ public class Prodotto {
 	private ArrayList<String> coloriProdotto;
 	private ArrayList<String> venditoriProdotto;
 	private Integer numeroVisite;
+	private ArrayList<Commento> commentiProdotto;
 	
 
 	// costruttore senza Parametri
@@ -35,6 +36,7 @@ public class Prodotto {
 		urlImmaginiProdotto = new ArrayList<String>();
 		coloriProdotto = new ArrayList<String>();
 		venditoriProdotto = new ArrayList<String>();
+		setCommentiProdotto(new ArrayList<Commento>());
 		numeroVisite=0;
 
 	}
@@ -178,6 +180,14 @@ public class Prodotto {
 
 	public void setUrlImmaginePrincipale(String urlImmaginePrincipale) {
 		this.urlImmaginePrincipale = urlImmaginePrincipale;
+	}
+
+	public ArrayList<Commento> getCommentiProdotto() {
+		return commentiProdotto;
+	}
+
+	public void setCommentiProdotto(ArrayList<Commento> commentiProdotto) {
+		this.commentiProdotto = commentiProdotto;
 	}
 
 }
