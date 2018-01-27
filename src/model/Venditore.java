@@ -15,6 +15,12 @@ public class Venditore {
 
 	}
 
+	public Venditore(String emailVenditore) {
+
+		this.emailVenditore = emailVenditore;
+
+	}
+
 	// getter & setter
 
 	public Integer getIdVenditore() {

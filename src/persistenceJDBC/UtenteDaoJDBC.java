@@ -455,4 +455,35 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	}
 
+	@Override
+	public String getNomeUtente(String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		PreparedStatement statement;
+		
+		String nomeUtente = null;
+
+		try {
+
+			String query = "select nome FROM utente WHERE email = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, emailUtente);
+
+			ResultSet result = statement.executeQuery();
+			
+			
+			if (result.next())
+				nomeUtente = result.getString("nome");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return nomeUtente;
+		
+	}
+
 }

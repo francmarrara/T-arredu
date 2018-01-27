@@ -16,4 +16,5 @@ public interface VenditoreDAO {
 	
 	public List<Venditore> findVenditoriByPreventivo(Integer codicePreventivo);// Trova tutti i venditori di un preventivo
 	
+	
 }

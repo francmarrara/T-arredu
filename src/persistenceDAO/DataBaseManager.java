@@ -13,9 +13,8 @@ public class DataBaseManager {
 	private PreventivoDAO preventivoDao;
 	private CarrelloDAO carrelloDao;
 	private VenditoreDAO venditoreDao;
-    private CommentoDAO commentoDao;
-	
-	
+	private CommentoDAO commentoDao;
+
 	public DataBaseManager() {
 
 		factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
@@ -127,7 +126,7 @@ public class DataBaseManager {
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Brahman_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Brahman_02.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -149,7 +148,7 @@ public class DataBaseManager {
 				"Giove è un armadio dalla linea importante, ma allo stesso tempo dal gusto classico \r\n"
 						+ "ed elegante frutto della maestria artigianale made in Le Fablier.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Giove_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Giove_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Giove_02.jpg");
@@ -178,7 +177,7 @@ public class DataBaseManager {
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Astro_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Astro_02.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -203,7 +202,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Cucina ad isola MH6, con basi e fianchi in melaminico lava, top in laminato lava e piano snack in legno invecchiato abete nero.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Mh6_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Mh6_01.jpg");
 		prodottoDao.save(prodotto);
@@ -224,7 +223,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"In resina cemento grigio con lavabo in granito nero assoluto e penisola in legno massello sabbiato.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 
 		prodotto.setUrlImmaginePrincipale("images/productImages/Twenty_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Twenty_01.jpg");
@@ -252,7 +251,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"E' una gamma di armadi caratterizzata da materiali di pregio, accuratezza delle lavorazioni e ampia modularita e varieta di ante e maniglie.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Epoque_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Epoque_01.jpg");
 
@@ -279,7 +278,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Armadio quattro ante scorrevoli in vetro laccato con maniglia integrata nel profilo dell’anta. I pannelli presentano una cornice in alluminio anodizzato naturale.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Fina_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Fina_01.jpg");
 
@@ -312,7 +311,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto("Forma rigorosa e gusto sofisticato del dettaglio, linee che delicatamente \r\n"
 				+ "avvolgono la forma, giochi di trasparenze e di dettagli sussurrati.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Ayurveda_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Ayurveda_01.jpg");
 
@@ -340,7 +339,7 @@ public class DataBaseManager {
 		prodotto.setUrlImmaginePrincipale("images/productImages/Atha_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Atha_01.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -364,7 +363,7 @@ public class DataBaseManager {
 		prodotto.setUrlImmaginePrincipale("images/productImages/Zen_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Zen_01.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -389,7 +388,7 @@ public class DataBaseManager {
 		prodotto.setOffertaProdotto(false);
 		prodotto.setDescrizioneProdotto("Cassettiera molto comoda, stile vintage.");
 
-		prodotto.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@confortiarredamenti.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/SideBoard_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/SideBoard_01.jpg");
 
@@ -416,7 +415,7 @@ public class DataBaseManager {
 		prodotto.setUrlImmaginePrincipale("images/productImages/Piroette_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Piroette_01.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -429,7 +428,7 @@ public class DataBaseManager {
 		cassettieraEileen.setMarcaProdotto("Rimadesio");
 		cassettieraEileen.setNomeProdotto("Eileen");
 		cassettieraEileen.getColoriProdotto().add("Grigio");
-		cassettieraEileen.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cassettieraEileen.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		cassettieraEileen.setPrezzoProdotto(3300.00);
 		cassettieraEileen.setMisureProdotto("200x45x80");
 		cassettieraEileen.setOffertaProdotto(false);
@@ -449,7 +448,7 @@ public class DataBaseManager {
 		cassettieraPitagora.setMarcaProdotto("Novamobili");
 		cassettieraPitagora.setNomeProdotto("Pitagora");
 		cassettieraPitagora.getColoriProdotto().add("Marrone");
-		cassettieraPitagora.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cassettieraPitagora.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		cassettieraPitagora.setPrezzoProdotto(226.00);
 		cassettieraPitagora.setMisureProdotto("110x53x76");
 		cassettieraPitagora.setOffertaProdotto(false);
@@ -468,7 +467,7 @@ public class DataBaseManager {
 		cassettieraDotty.setMarcaProdotto("Novamobili");
 		cassettieraDotty.setNomeProdotto("Dotty");
 		cassettieraDotty.getColoriProdotto().add("Grigio");
-		cassettieraDotty.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cassettieraDotty.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		cassettieraDotty.setPrezzoProdotto(497.00);
 		cassettieraDotty.setMisureProdotto("130x53x72");
 		cassettieraDotty.setOffertaProdotto(false);
@@ -493,7 +492,7 @@ public class DataBaseManager {
 		comodinoSamsara.setMarcaProdotto("Le Fablier");
 		comodinoSamsara.setNomeProdotto("Samsara");
 		comodinoSamsara.getColoriProdotto().add("Bianco");
-		comodinoSamsara.getVenditoriProdotto().add("info@antonellamazzei.it");
+		comodinoSamsara.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		comodinoSamsara.setPrezzoProdotto(516.00);
 		comodinoSamsara.setMisureProdotto("Misure in cm (LxPxH) 55x38x51");
 		comodinoSamsara.setOffertaProdotto(false);
@@ -516,7 +515,7 @@ public class DataBaseManager {
 		comodinoZaffiro.getColoriProdotto().add("Nero");
 		comodinoZaffiro.getColoriProdotto().add("Rosso");
 		comodinoZaffiro.getColoriProdotto().add("Marrone");
-		comodinoZaffiro.getVenditoriProdotto().add("info@antonellamazzei.it");
+		comodinoZaffiro.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		comodinoZaffiro.setPrezzoProdotto(542.00);
 		comodinoZaffiro.setMisureProdotto("Misure in cm (LxPxH) 54x35x66");
 		comodinoZaffiro.setOffertaProdotto(false);
@@ -537,7 +536,7 @@ public class DataBaseManager {
 		comodinoGiglio.getColoriProdotto().add("Nero");
 		comodinoGiglio.getColoriProdotto().add("Grigio");
 		comodinoGiglio.getColoriProdotto().add("Marrone");
-		comodinoGiglio.getVenditoriProdotto().add("info@antonellamazzei.it");
+		comodinoGiglio.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		comodinoGiglio.setPrezzoProdotto(436.00);
 		comodinoGiglio.setMisureProdotto("Misure in cm Ø42x60h");
 		comodinoGiglio.setOffertaProdotto(false);
@@ -565,7 +564,7 @@ public class DataBaseManager {
 		credenzaDyhana.setNomeProdotto("Dyhana");
 		credenzaDyhana.getColoriProdotto().add("Bianco");
 		credenzaDyhana.getColoriProdotto().add("Grigio");
-		credenzaDyhana.getVenditoriProdotto().add("info@antonellamazzei.it");
+		credenzaDyhana.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		credenzaDyhana.setPrezzoProdotto(2156.00);
 		credenzaDyhana.setMisureProdotto("Misure in cm (LxPxH) 194x50x85");
 		credenzaDyhana.setOffertaProdotto(false);
@@ -587,7 +586,7 @@ public class DataBaseManager {
 		credenzaGaya.getColoriProdotto().add("Bianco");
 		credenzaGaya.getColoriProdotto().add("Grigio");
 		credenzaGaya.getColoriProdotto().add("Marrone");
-		credenzaGaya.getVenditoriProdotto().add("info@antonellamazzei.it");
+		credenzaGaya.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		credenzaGaya.setPrezzoProdotto(1701.00);
 		credenzaGaya.setMisureProdotto("Misure in cm (LxPxH) 182x50x85");
 		credenzaGaya.setOffertaProdotto(false);
@@ -610,7 +609,7 @@ public class DataBaseManager {
 		credenzaClematide.getColoriProdotto().add("Bianco");
 		credenzaClematide.getColoriProdotto().add("Grigio");
 		credenzaClematide.getColoriProdotto().add("Marrone");
-		credenzaClematide.getVenditoriProdotto().add("info@antonellamazzei.it");
+		credenzaClematide.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		credenzaClematide.setPrezzoProdotto(2767.00);
 		credenzaClematide.setMisureProdotto("Misure in cm (LxPxH) 197x53x88");
 		credenzaClematide.setOffertaProdotto(false);
@@ -638,7 +637,7 @@ public class DataBaseManager {
 		cucina.getColoriProdotto().add("Bianco");
 		cucina.getColoriProdotto().add("Grigio");
 		cucina.getColoriProdotto().add("Marrone");
-		cucina.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucina.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		cucina.setPrezzoProdotto(7650.00);
 		cucina.setMisureProdotto("Misure in cm (LxPxH) 540x38/59x216");
 		cucina.setOffertaProdotto(false);
@@ -660,7 +659,7 @@ public class DataBaseManager {
 		cucinaICigliegiComp1.setMarcaProdotto("Le Fablier");
 		cucinaICigliegiComp1.setNomeProdotto("Composizione 1 - I Ciliegi");
 		cucinaICigliegiComp1.getColoriProdotto().add("Marrone");
-		cucinaICigliegiComp1.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucinaICigliegiComp1.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		cucinaICigliegiComp1.setPrezzoProdotto(5894.00);
 		cucinaICigliegiComp1.setMisureProdotto("Misure in cm (LxPxH) 360x38/59x216");
 		cucinaICigliegiComp1.setOffertaProdotto(false);
@@ -684,7 +683,7 @@ public class DataBaseManager {
 		cucinaMelogranoComp1.getColoriProdotto().add("Marrone");
 		cucinaMelogranoComp1.getColoriProdotto().add("Bianco");
 		cucinaMelogranoComp1.getColoriProdotto().add("Grigio");
-		cucinaMelogranoComp1.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cucinaMelogranoComp1.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		cucinaMelogranoComp1.setPrezzoProdotto(6419.00);
 		cucinaMelogranoComp1.setMisureProdotto("Misure in cm (LxPxH) 360+90x59/38x215+35");
 		cucinaMelogranoComp1.setOffertaProdotto(false);
@@ -712,7 +711,7 @@ public class DataBaseManager {
 		cucina.setTipoProdotto("Cucina");
 		cucina.setMarcaProdotto("Scavolini");
 		cucina.setNomeProdotto("Madeleiene");
-		cucina.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		cucina.getVenditoriProdotto().add(new Venditore("marazitamobilisas@libero.it"));
 		cucina.setPrezzoProdotto(8043.00);
 		cucina.setMisureProdotto("270x240x254");
 		cucina.setOffertaProdotto(false);
@@ -733,7 +732,7 @@ public class DataBaseManager {
 		cucina.setTipoProdotto("Cucina");
 		cucina.setMarcaProdotto("Scavolini");
 		cucina.setNomeProdotto("Sax");
-		cucina.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		cucina.getVenditoriProdotto().add(new Venditore("marazitamobilisas@libero.it"));
 		cucina.setPrezzoProdotto(9500.00);
 		cucina.setMisureProdotto("245x275x215");
 		cucina.setOffertaProdotto(false);
@@ -753,7 +752,7 @@ public class DataBaseManager {
 		cucina.setTipoProdotto("Cucina");
 		cucina.setMarcaProdotto("Scavolini");
 		cucina.setNomeProdotto("Grand Relais");
-		cucina.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		cucina.getVenditoriProdotto().add(new Venditore("marazitamobilisas@libero.it"));
 		cucina.setPrezzoProdotto(9750.00);
 		cucina.setMisureProdotto("435x225");
 		cucina.setOffertaProdotto(false);
@@ -779,7 +778,7 @@ public class DataBaseManager {
 		cucina.setTipoProdotto("Cucina");
 		cucina.setMarcaProdotto("Pedini");
 		cucina.setNomeProdotto("Arke");
-		cucina.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		cucina.getVenditoriProdotto().add(new Venditore("info@confortiarredamenti.it"));
 		cucina.setPrezzoProdotto(9850.00);
 		cucina.setMisureProdotto("800x300cm");
 		cucina.setOffertaProdotto(false);
@@ -799,7 +798,7 @@ public class DataBaseManager {
 		cucina.setTipoProdotto("Cucina");
 		cucina.setMarcaProdotto("Pedini");
 		cucina.setNomeProdotto("Artika");
-		cucina.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		cucina.getVenditoriProdotto().add(new Venditore("info@confortiarredamenti.it"));
 		cucina.setPrezzoProdotto(11550.00);
 		cucina.setMisureProdotto("750x250cm");
 		cucina.setOffertaProdotto(false);
@@ -825,7 +824,7 @@ public class DataBaseManager {
 		cameraDaLetto.setMarcaProdotto("Giessegi");
 		cameraDaLetto.setNomeProdotto("New Moon");
 		cameraDaLetto.getColoriProdotto().add("Bianco");
-		cameraDaLetto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		cameraDaLetto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		cameraDaLetto.setPrezzoProdotto(4930.00);
 		cameraDaLetto.setMisureProdotto("Misure in cm (LxPxH) 277x66x262");
 		cameraDaLetto.setOffertaProdotto(false);
@@ -849,7 +848,7 @@ public class DataBaseManager {
 		cameraLettoTerraR02.setNomeProdotto("Terra R02");
 		cameraLettoTerraR02.getColoriProdotto().add("Grigio");
 		cameraLettoTerraR02.getColoriProdotto().add("Lilla");
-		cameraLettoTerraR02.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cameraLettoTerraR02.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		cameraLettoTerraR02.setPrezzoProdotto(2025.00);
 		cameraLettoTerraR02.setMisureProdotto("Misure in cm (LxPxH) 168x220x92");
 		cameraLettoTerraR02.setOffertaProdotto(false);
@@ -872,7 +871,7 @@ public class DataBaseManager {
 		cameraDaLetto.setNomeProdotto("Terra R04");
 		cameraDaLetto.getColoriProdotto().add("Lilla");
 		cameraDaLetto.getColoriProdotto().add("Grigio");
-		cameraDaLetto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		cameraDaLetto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		cameraDaLetto.setPrezzoProdotto(3100.00);
 		cameraDaLetto.setMisureProdotto("-");
 		cameraDaLetto.setOffertaProdotto(false);
@@ -902,7 +901,7 @@ public class DataBaseManager {
 		libreriaVeda.getColoriProdotto().add("Marrone");
 		libreriaVeda.getColoriProdotto().add("Bianco");
 		libreriaVeda.getColoriProdotto().add("Grigio");
-		libreriaVeda.getVenditoriProdotto().add("info@antonellamazzei.it");
+		libreriaVeda.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		libreriaVeda.setPrezzoProdotto(3721.00);
 		libreriaVeda.setMisureProdotto("Misure in cm (LxPxH) 147x40x199");
 		libreriaVeda.setOffertaProdotto(true);
@@ -941,7 +940,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto("Lampada da terra e da tavolo con stelo in pirex trasparente e \r\n"
 				+ "paralume in tessuto con filo e prese in coordinato con il paralume.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Hari_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Hari_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Hari_02.jpg");
@@ -966,7 +965,7 @@ public class DataBaseManager {
 		prodotto.setOffertaProdotto(false);
 		prodotto.setDescrizioneProdotto(
 				"Lampada da tavolo con struttra in pirex trasparente e bicchiere interno bianco, ambra o blu.");
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Reishi_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Reishi_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Reishi_02.jpg");
@@ -986,7 +985,7 @@ public class DataBaseManager {
 		prodotto.setMisureProdotto("21cm x 21cm x 52cm");
 		prodotto.setOffertaProdotto(false);
 		prodotto.setDescrizioneProdotto("Lampada da comodino con struttura cromata e paralume in lino avorio.");
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Zeta_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Zeta_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Zeta_02.jpg");
@@ -1010,7 +1009,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Lampada con struttura cromata e stelo sagomato in pirex trasparente e paralume liscio bianco, giallo o nero.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 
 		prodotto.setUrlImmaginePrincipale("images/productImages/Miss_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Miss_01.jpg");
@@ -1040,7 +1039,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"La lampada Harry H. e' un sistema ibrido che affianca LED e OLED valorizzando i pregi delle due tecnologie e combinandoli per offrire il massimo delle performance.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/HarryH_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("HarryH_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1061,7 +1060,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Un’innovativa ottica stampata in policarbonato trasparente permette di guidare il flusso emesso dalla sorgente LED fino alla sezione di uscita.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Lana_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Lana_01.jpg");
 
@@ -1085,7 +1084,7 @@ public class DataBaseManager {
 		prodotto.setUrlImmaginePrincipale("images/productImages/Mendori_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Mendori_01.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -1108,7 +1107,8 @@ public class DataBaseManager {
 		bagno.setTipoProdotto("Bagno");
 		bagno.setMarcaProdotto("Scavolini");
 		bagno.setNomeProdotto("Idro");
-		bagno.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+
+		bagno.getVenditoriProdotto().add(new Venditore("marazitamobilisas@libero.it"));
 		bagno.setPrezzoProdotto(7670.00);
 		bagno.setMisureProdotto("200x250");
 		bagno.setOffertaProdotto(false);
@@ -1128,7 +1128,7 @@ public class DataBaseManager {
 		bagno.setTipoProdotto("Bagno");
 		bagno.setMarcaProdotto("Scavolini");
 		bagno.setNomeProdotto("Lagu");
-		bagno.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		bagno.getVenditoriProdotto().add(new Venditore("marazitamobilisas@libero.it"));
 		bagno.setPrezzoProdotto(4150.00);
 		bagno.setMisureProdotto("275x300");
 		bagno.setOffertaProdotto(false);
@@ -1149,7 +1149,7 @@ public class DataBaseManager {
 		bagno.setTipoProdotto("Bagno");
 		bagno.setMarcaProdotto("Scavolini");
 		bagno.setNomeProdotto("Rivo");
-		bagno.getVenditoriProdotto().add("marazitamobilisas@libero.it");
+		bagno.getVenditoriProdotto().add(new Venditore("marazitamobilisas@libero.it"));
 		bagno.setPrezzoProdotto(5845.00);
 		bagno.setMisureProdotto("320x275");
 		bagno.setOffertaProdotto(false);
@@ -1184,7 +1184,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Un’elegante bordatura in Rovere massello racchiude la preziosità della ricercata imbottitura della testata del letto Deva.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 
 		prodotto.setUrlImmaginePrincipale("images/productImages/Deva_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Deva_01.jpg");
@@ -1206,7 +1206,7 @@ public class DataBaseManager {
 		prodotto.setOffertaProdotto(false);
 		prodotto.setDescrizioneProdotto("Letto con giroletto e testata sagomata imbottiti.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Sunrise_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Sunrise_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Sunrise_02.jpg");
@@ -1233,7 +1233,7 @@ public class DataBaseManager {
 				"Morbidezza e calore esprime il letto Silicio. L’ampia testiera imbottita, che può essere rivestita in tessuto, in pelle o ecopelle, \r\n"
 						+ "richiama le linee morbide e delicatamente voluttuose della testata e della pediera.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Silicio_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Silicio_01.jpg");
 
@@ -1258,7 +1258,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Il letto Ligustro si compone di una testiera dalla forma rettilinea e squadrata, rifinita da una sofisticata imbottitura che avvolge anche la struttura del letto.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Ligustro_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Ligustro_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Ligustro_02.jpg");
@@ -1288,7 +1288,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Letto matrimoniale Angle, previsto in versione semplice o con paravento. La testata imbottita è disponibile in versione liscia o trapuntata capitonné con rivestimento totalmente sfoderabile in tessuto o pelle.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Angle_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Angle_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1309,7 +1309,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Letto matrimoniale Notturno 2 con rivestimento in tessuto e base H 25 cm con piano a doghe regolabili.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Notturno_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Notturno_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1332,7 +1332,7 @@ public class DataBaseManager {
 		scrivaniaAtlas.setMarcaProdotto("Le Fablier");
 		scrivaniaAtlas.setNomeProdotto("Atlas");
 		scrivaniaAtlas.getColoriProdotto().add("Marrone");
-		scrivaniaAtlas.getVenditoriProdotto().add("info@antonellamazzei.it");
+		scrivaniaAtlas.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		scrivaniaAtlas.setPrezzoProdotto(3572.00);
 		scrivaniaAtlas.setMisureProdotto("Misure in cm (LxPxH) 200x90x78");
 		scrivaniaAtlas.setOffertaProdotto(false);
@@ -1355,7 +1355,7 @@ public class DataBaseManager {
 		scrivaniaSummer.setNomeProdotto("Summer");
 		scrivaniaSummer.getColoriProdotto().add("Marrone");
 		scrivaniaSummer.getColoriProdotto().add("Nero");
-		scrivaniaSummer.getVenditoriProdotto().add("info@antonellamazzei.it");
+		scrivaniaSummer.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		scrivaniaSummer.setPrezzoProdotto(4591.00);
 		scrivaniaSummer.setMisureProdotto("MMisure in cm (LxPxH) 180x87x77");
 		scrivaniaSummer.setOffertaProdotto(false);
@@ -1378,7 +1378,7 @@ public class DataBaseManager {
 		scrivaniaYoga.getColoriProdotto().add("Marrone");
 		scrivaniaYoga.getColoriProdotto().add("Bianco");
 		scrivaniaYoga.getColoriProdotto().add("Grigio");
-		scrivaniaYoga.getVenditoriProdotto().add("info@antonellamazzei.it");
+		scrivaniaYoga.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		scrivaniaYoga.setPrezzoProdotto(1436.00);
 		scrivaniaYoga.setMisureProdotto("Misure in cm (LxPxH) 150x70x80");
 		scrivaniaYoga.setOffertaProdotto(false);
@@ -1407,7 +1407,7 @@ public class DataBaseManager {
 		sediaMeissa.setNomeProdotto("Meissa");
 		sediaMeissa.getColoriProdotto().add("Marrone");
 		sediaMeissa.getColoriProdotto().add("Bianco");
-		sediaMeissa.getVenditoriProdotto().add("info@antonellamazzei.it");
+		sediaMeissa.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		sediaMeissa.setPrezzoProdotto(345.00);
 		sediaMeissa.setMisureProdotto("Misure in cm (LxPxH) 46x49x92");
 		sediaMeissa.setOffertaProdotto(false);
@@ -1426,7 +1426,7 @@ public class DataBaseManager {
 		sediaMargherita.setMarcaProdotto("Le Fablier");
 		sediaMargherita.setNomeProdotto("Margherita");
 		sediaMargherita.getColoriProdotto().add("Marrone");
-		sediaMargherita.getVenditoriProdotto().add("info@antonellamazzei.it");
+		sediaMargherita.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		sediaMargherita.setPrezzoProdotto(407.00);
 		sediaMargherita.setMisureProdotto("Misure in cm (LxPxH) 60x53x96");
 		sediaMargherita.setOffertaProdotto(false);
@@ -1447,7 +1447,7 @@ public class DataBaseManager {
 		sediaKunti.setTipoProdotto("Sedia");
 		sediaKunti.setMarcaProdotto("Le Fablier");
 		sediaKunti.setNomeProdotto("Kunti");
-		sediaKunti.getVenditoriProdotto().add("info@antonellamazzei.it");
+		sediaKunti.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		sediaKunti.setPrezzoProdotto(1436.00);
 		sediaKunti.setMisureProdotto("Misure in cm (LxPxH) 55x56x89");
 		sediaKunti.setOffertaProdotto(false);
@@ -1470,7 +1470,7 @@ public class DataBaseManager {
 		sedia.setMarcaProdotto("Lema");
 		sedia.setNomeProdotto("Toa");
 		sedia.getColoriProdotto().add("Nero");
-		sedia.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		sedia.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		sedia.setPrezzoProdotto(270.00);
 		sedia.setMisureProdotto("Misure in cm (LxPxH) 45x51x76");
 		sedia.setOffertaProdotto(false);
@@ -1489,7 +1489,7 @@ public class DataBaseManager {
 		sedia.setMarcaProdotto("Lema");
 		sedia.setNomeProdotto("FillNoir");
 		sedia.getColoriProdotto().add("Beige");
-		sedia.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		sedia.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		sedia.setPrezzoProdotto(199.00);
 		sedia.setMisureProdotto("Misure in cm (LxPxH) 58x83x50");
 		sedia.setOffertaProdotto(false);
@@ -1523,7 +1523,7 @@ public class DataBaseManager {
 		poltrona.setDescrizioneProdotto(
 				"Poltrona con sollevamento, dispone di due motori per muovere indipendentemente schienale e pediera.");
 
-		poltrona.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		poltrona.getVenditoriProdotto().add(new Venditore("info@confortiarredamenti.it"));
 		poltrona.setUrlImmaginePrincipale("images/productImages/SpazioRelax_01.jpg");
 		poltrona.getUrlImmaginiProdotto().add("images/productImages/SpazioRelax_01.jpg");
 		prodottoDao.save(poltrona);
@@ -1543,7 +1543,7 @@ public class DataBaseManager {
 		poltronaPersica.setNomeProdotto("Persica");
 		poltronaPersica.getColoriProdotto().add("Marrone");
 		poltronaPersica.getColoriProdotto().add("Bianco");
-		poltronaPersica.getVenditoriProdotto().add("info@antonellamazzei.it");
+		poltronaPersica.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		poltronaPersica.setPrezzoProdotto(1004.00);
 		poltronaPersica.setMisureProdotto("Misure in cm (LxPxH) 57x66x98/108");
 		poltronaPersica.setOffertaProdotto(false);
@@ -1563,7 +1563,7 @@ public class DataBaseManager {
 		poltronaApollo.setMarcaProdotto("Le Fablier");
 		poltronaApollo.setNomeProdotto("Apollo");
 		poltronaApollo.getColoriProdotto().add("Marrone");
-		poltronaApollo.getVenditoriProdotto().add("info@antonellamazzei.it");
+		poltronaApollo.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		poltronaApollo.setPrezzoProdotto(1251.00);
 		poltronaApollo.setMisureProdotto("Misure in cm (LxPxH) 71x69x88");
 		poltronaApollo.setOffertaProdotto(false);
@@ -1582,7 +1582,7 @@ public class DataBaseManager {
 		poltronaLunetta.setMarcaProdotto("Le Fablier");
 		poltronaLunetta.setNomeProdotto("Lunetta");
 		poltronaLunetta.getColoriProdotto().add("Grigio");
-		poltronaLunetta.getVenditoriProdotto().add("info@antonellamazzei.it");
+		poltronaLunetta.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		poltronaLunetta.setPrezzoProdotto(1338.00);
 		poltronaLunetta.setMisureProdotto("Misure in cm (LxPxH) 68x77x81");
 		poltronaLunetta.setOffertaProdotto(false);
@@ -1606,7 +1606,7 @@ public class DataBaseManager {
 		poltronaMedolla.setNomeProdotto("Medolla");
 		poltronaMedolla.getColoriProdotto().add("Marrone");
 		poltronaMedolla.getColoriProdotto().add("Grigio");
-		poltronaMedolla.getVenditoriProdotto().add("info@poltronesofarende.it");
+		poltronaMedolla.getVenditoriProdotto().add(new Venditore("info@poltronesofarende.it"));
 		poltronaMedolla.setPrezzoProdotto(1020.00);
 		poltronaMedolla.setMisureProdotto("Larghezza: 84cm, Profondità:89cm, Altezza: 100cm");
 		poltronaMedolla.setOffertaProdotto(false);
@@ -1630,7 +1630,7 @@ public class DataBaseManager {
 		poltronaClarissa.setNomeProdotto("Clarissa");
 		poltronaClarissa.getColoriProdotto().add("Bianco");
 		poltronaClarissa.getColoriProdotto().add("Nero");
-		poltronaClarissa.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		poltronaClarissa.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		poltronaClarissa.setPrezzoProdotto(747.00);
 		poltronaClarissa.setMisureProdotto("67x92x89");
 		poltronaClarissa.setOffertaProdotto(false);
@@ -1649,7 +1649,7 @@ public class DataBaseManager {
 		poltronaDaya.setMarcaProdotto("Bontempi casa");
 		poltronaDaya.setNomeProdotto("Daya");
 		poltronaDaya.getColoriProdotto().add("Nero");
-		poltronaDaya.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		poltronaDaya.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		poltronaDaya.setPrezzoProdotto(115.00);
 		poltronaDaya.setMisureProdotto("80x80x90");
 		poltronaDaya.setOffertaProdotto(false);
@@ -1674,7 +1674,7 @@ public class DataBaseManager {
 		divanoAlba.setMarcaProdotto("Le Fablier");
 		divanoAlba.setNomeProdotto("Alba");
 		divanoAlba.getColoriProdotto().add("Grigio");
-		divanoAlba.getVenditoriProdotto().add("info@antonellamazzei.it");
+		divanoAlba.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		divanoAlba.setPrezzoProdotto(6008.00);
 		divanoAlba.setMisureProdotto("Misure (LxPxH) in cm 244x105x98");
 		divanoAlba.setOffertaProdotto(false);
@@ -1700,7 +1700,7 @@ public class DataBaseManager {
 		divanoAlpe.setNomeProdotto("Alpe");
 		divanoAlpe.getColoriProdotto().add("Grigio");
 		divanoAlpe.getColoriProdotto().add("Marrone");
-		divanoAlpe.getVenditoriProdotto().add("info@poltronesofarende.it");
+		divanoAlpe.getVenditoriProdotto().add(new Venditore("info@poltronesofarende.it"));
 		divanoAlpe.setPrezzoProdotto(544.00);
 		divanoAlpe.setMisureProdotto("Misure: Larghezza:210cm , Profondità:	96cm, Altezza:	94cm");
 		divanoAlpe.setOffertaProdotto(false);
@@ -1724,7 +1724,7 @@ public class DataBaseManager {
 		divanoArdiano.setMarcaProdotto("Poltrone & Sofà");
 		divanoArdiano.setNomeProdotto("Ardiano");
 		divanoArdiano.getColoriProdotto().add("Rosso");
-		divanoArdiano.getVenditoriProdotto().add("info@poltronesofarende.it");
+		divanoArdiano.getVenditoriProdotto().add(new Venditore("info@poltronesofarende.it"));
 		divanoArdiano.setPrezzoProdotto(99.00);
 		divanoArdiano.setMisureProdotto("Misure: Larghezza:	196cm, Profondità:	89cm, Altezza:	65cm");
 		divanoArdiano.setOffertaProdotto(false);
@@ -1748,7 +1748,7 @@ public class DataBaseManager {
 		divanoBastiglia.setNomeProdotto("Bastiglia");
 		divanoBastiglia.getColoriProdotto().add("Grigio");
 		divanoBastiglia.getColoriProdotto().add("Bianco");
-		divanoBastiglia.getVenditoriProdotto().add("info@poltronesofarende.it");
+		divanoBastiglia.getVenditoriProdotto().add(new Venditore("info@poltronesofarende.it"));
 		divanoBastiglia.setPrezzoProdotto(1056.00);
 		divanoBastiglia.setMisureProdotto(" Misure: Larghezza:	248cm, Profondità:	154cm, Altezza:	100cm");
 		divanoBastiglia.setOffertaProdotto(false);
@@ -1789,8 +1789,8 @@ public class DataBaseManager {
 				"Design fluido ed armonico per il tavolo Ekanta, caratterizzato da slanciate gambe in legno massello di Rovere che, unite alla struttura del piano del tavolo, \r\n"
 						+ "conferiscono alla composizione una linea morbida ed elegante.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
-	    prodotto.setUrlImmaginePrincipale("images/productImages/Ekanta_01.jpg");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
+		prodotto.setUrlImmaginePrincipale("images/productImages/Ekanta_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Ekanta_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Ekanta_02.jpg");
 		prodottoDao.save(prodotto);
@@ -1811,7 +1811,7 @@ public class DataBaseManager {
 		prodotto.setOffertaProdotto(false);
 		prodotto.setDescrizioneProdotto("Tavolo rettangolare allungabile, struttura in legno massello di ciliegio.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Tulipano_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Tulipano_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Tulipano_02.jpg");
@@ -1835,7 +1835,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Forma quadrata e accuratezza dei dettagli rendono il tavolo Cartesio un elemento di charme che diventa protagonista in ogni ambiente.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Cartesio_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Cartesio_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1857,7 +1857,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Tavolo fisso in rovere dalle linee calde, con dimensioni che rimandano alla lavorazione artigianale.");
 
-		prodotto.getVenditoriProdotto().add("info@antonellamazzei.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Muschio_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Muschio_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1884,7 +1884,7 @@ public class DataBaseManager {
 		prodotto.setUrlImmaginePrincipale("images/productImages/Open90_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Open90_01.jpg");
 
-		prodotto.getVenditoriProdotto().add("info@confortiarredamenti.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@confortiarredamenti.it"));
 
 		prodottoDao.save(prodotto);
 
@@ -1909,9 +1909,9 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Tavolo con piano rettangolare in vetro temperato (spessore 20 mm) poggiante su quattro gambe realizzate con sezioni di vetro scolpite a mano e incollate una sull’altra.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 
-	    prodotto.setUrlImmaginePrincipale("images/productImages/AtlasTavolo_01.jpg");
+		prodotto.setUrlImmaginePrincipale("images/productImages/AtlasTavolo_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/AtlasTavolo_01.jpg");
 		prodottoDao.save(prodotto);
 
@@ -1931,7 +1931,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"La base del tavolo 3-Pod, si ispira al classico tripode: un segno continuo in acciaio cromato che sorregge un piano (rettangolare, tondo o a goccia) in vetro, legno o laccato.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/3Ppod_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/3Ppod_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1952,7 +1952,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Tavolo rettangolare con base in vetro fumè e piano in rovere termotrattato. Pliè è composto da due basi in vetro sagomato e curvato.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Plie_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Plie_01.jpg");
 		prodottoDao.save(prodotto);
@@ -1978,7 +1978,7 @@ public class DataBaseManager {
 		prodotto.setDescrizioneProdotto(
 				"Tavolo allungabile Thera di Marelli e Molteni. Il piano, che parte da 180cm e raggiunge una lunghezza massima di 240cm, è sorretto da gambe posizionate obliquamente rispetto al top in modo da creare un incastro geometrico armonico.");
 
-		prodotto.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/Thera_01.jpg");
 		prodotto.getUrlImmaginiProdotto().add("images/productImages/Thera_01.jpg");
 		prodottoDao.save(prodotto);
@@ -2001,7 +2001,7 @@ public class DataBaseManager {
 		vetrinaAmbrosia.setMarcaProdotto("Le Fablier");
 		vetrinaAmbrosia.setNomeProdotto("Ambrosia");
 		vetrinaAmbrosia.getColoriProdotto().add("Marrone");
-		vetrinaAmbrosia.getVenditoriProdotto().add("info@antonellamazzei.it");
+		vetrinaAmbrosia.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		vetrinaAmbrosia.setPrezzoProdotto(1632.00);
 		vetrinaAmbrosia.setMisureProdotto("Misure in cm (LxPxH) 68x45x207");
 		vetrinaAmbrosia.setOffertaProdotto(true);
@@ -2021,13 +2021,13 @@ public class DataBaseManager {
 		vetrinaBali.setMarcaProdotto("Le Fablier");
 		vetrinaBali.setNomeProdotto("Bali");
 		vetrinaBali.getColoriProdotto().add("Grigio");
-		vetrinaBali.getVenditoriProdotto().add("info@antonellamazzei.it");
+		vetrinaBali.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		vetrinaBali.setPrezzoProdotto(1563.00);
 		vetrinaBali.setMisureProdotto("Misure in cm (LxPxH) 120x43x184");
 		vetrinaBali.setOffertaProdotto(false);
 		vetrinaBali.setDescrizioneProdotto(
 				"Eleganza e design moderno sono" + " racchiuse nell’argentiera a due ante Bali.");
-		
+
 		vetrinaBali.setUrlImmaginePrincipale("images/productImages/Bali_01.jpg");
 		vetrinaBali.getUrlImmaginiProdotto().add("images/productImages/Bali_01.jpg");
 		prodottoDao.save(vetrinaBali);
@@ -2041,7 +2041,7 @@ public class DataBaseManager {
 		vetrinaAbelia.setMarcaProdotto("Le Fablier");
 		vetrinaAbelia.setNomeProdotto("Abelia");
 		vetrinaAbelia.getColoriProdotto().add("Grigio");
-		vetrinaAbelia.getVenditoriProdotto().add("info@antonellamazzei.it");
+		vetrinaAbelia.getVenditoriProdotto().add(new Venditore("info@antonellamazzei.it"));
 		vetrinaAbelia.setPrezzoProdotto(1930.00);
 		vetrinaAbelia.setMisureProdotto("Misure in cm (LxPxH) 69x45x206");
 		vetrinaAbelia.setOffertaProdotto(false);
@@ -2066,7 +2066,7 @@ public class DataBaseManager {
 		vetrinaAlambra.setMarcaProdotto("Lema");
 		vetrinaAlambra.setNomeProdotto("Alambra");
 		vetrinaAlambra.getColoriProdotto().add("Grigio");
-		vetrinaAlambra.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		vetrinaAlambra.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		vetrinaAlambra.setPrezzoProdotto(3600.00);
 		vetrinaAlambra.setMisureProdotto("600x500");
 		vetrinaAlambra.setOffertaProdotto(false);
@@ -2085,7 +2085,7 @@ public class DataBaseManager {
 		vetrinaGlance.setMarcaProdotto("Lema");
 		vetrinaGlance.setNomeProdotto("Glance");
 		vetrinaGlance.getColoriProdotto().add("Marrone");
-		vetrinaGlance.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		vetrinaGlance.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		vetrinaGlance.setPrezzoProdotto(2500.00);
 		vetrinaGlance.setMisureProdotto("120x45x170 ");
 		vetrinaGlance.setOffertaProdotto(false);
@@ -2104,7 +2104,7 @@ public class DataBaseManager {
 		vetrinaGalerist.setMarcaProdotto("Lema");
 		vetrinaGalerist.setNomeProdotto("Galerist");
 		vetrinaGalerist.getColoriProdotto().add("Argento");
-		vetrinaGalerist.getVenditoriProdotto().add("info@arredamentiduepi.it");
+		vetrinaGalerist.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		vetrinaGalerist.setPrezzoProdotto(6866.00);
 		vetrinaGalerist.setMisureProdotto("110x250");
 		vetrinaGalerist.setOffertaProdotto(false);

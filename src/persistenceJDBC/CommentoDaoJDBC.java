@@ -9,17 +9,19 @@ import java.util.List;
 
 import model.Commento;
 import persistenceDAO.CommentoDAO;
+import persistenceDAO.DAOFactory;
+import persistenceDAO.DataBaseManager;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
+import persistenceDAO.UtenteDAO;
 
 public class CommentoDaoJDBC implements CommentoDAO {
-	
+
 	private DataSource dataSource;
 
-      public CommentoDaoJDBC(DataSource ds) {
+	public CommentoDaoJDBC(DataSource ds) {
 		this.dataSource = ds;
 	}
-	
 
 	@Override
 	public void save(Commento commento) {
@@ -34,10 +36,8 @@ public class CommentoDaoJDBC implements CommentoDAO {
 			statement.setInt(3, commento.getIdProdotto());
 			statement.setString(4, commento.getCommento());
 			statement.setInt(5, commento.getValutazione());
-			
 
 			statement.executeUpdate();
-
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -62,8 +62,7 @@ public class CommentoDaoJDBC implements CommentoDAO {
 		List<Commento> commenti = new LinkedList<>();
 
 		try {
-            Commento c;
-
+			Commento c;
 
 			PreparedStatement statement;
 
@@ -75,15 +74,20 @@ public class CommentoDaoJDBC implements CommentoDAO {
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
-              c = new Commento();
-              c.setIdCommento(result.getInt("id_commentoProdotto"));
-              c.setCommento(result.getString("commentoProdotto"));
-              c.setValutazione(result.getInt("valutazioneProdotto"));
-              c.setEmailUtente(result.getString("utenteEmail"));
-              c.setIdProdotto(idProdotto);
-              
-              commenti.add(c);
-				
+				c = new Commento();
+				c.setIdCommento(result.getInt("id_commentoProdotto"));
+				c.setCommento(result.getString("commentoProdotto"));
+				c.setValutazione(result.getInt("valutazioneProdotto"));
+				c.setEmailUtente(result.getString("utenteEmail"));
+				c.setIdProdotto(idProdotto);
+
+				DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+				UtenteDAO utenteDao = factory.getUtenteDAO();
+
+				c.setNomeUtente(utenteDao.getNomeUtente(c.getEmailUtente()));
+
+				commenti.add(c);
+
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -95,9 +99,7 @@ public class CommentoDaoJDBC implements CommentoDAO {
 			}
 		}
 		return commenti;
-		
-		
-		
+
 	}
 
 	@Override

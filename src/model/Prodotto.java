@@ -20,10 +20,9 @@ public class Prodotto {
 	private String urlImmaginePrincipale;
 	private ArrayList<String> urlImmaginiProdotto;
 	private ArrayList<String> coloriProdotto;
-	private ArrayList<String> venditoriProdotto;
+	private ArrayList<Venditore> venditoriProdotto;
 	private Integer numeroVisite;
 	private ArrayList<Commento> commentiProdotto;
-	
 
 	// costruttore senza Parametri
 	public Prodotto() {
@@ -35,9 +34,9 @@ public class Prodotto {
 
 		urlImmaginiProdotto = new ArrayList<String>();
 		coloriProdotto = new ArrayList<String>();
-		venditoriProdotto = new ArrayList<String>();
+		venditoriProdotto = new ArrayList<Venditore>();
 		setCommentiProdotto(new ArrayList<Commento>());
-		numeroVisite=0;
+		numeroVisite = 0;
 
 	}
 
@@ -158,11 +157,11 @@ public class Prodotto {
 		this.coloriProdotto = coloriProdotto;
 	}
 
-	public ArrayList<String> getVenditoriProdotto() {
+	public ArrayList<Venditore> getVenditoriProdotto() {
 		return venditoriProdotto;
 	}
 
-	public void setVenditoriProdotto(ArrayList<String> venditoriProdotto) {
+	public void setVenditoriProdotto(ArrayList<Venditore> venditoriProdotto) {
 		this.venditoriProdotto = venditoriProdotto;
 	}
 

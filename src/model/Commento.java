@@ -8,6 +8,7 @@ import persistenceDAO.MySqlDAOFactory;
 public class Commento {
 	private Integer idCommento;
 	private String emailUtente;
+	private String nomeUtente;
 	private Integer idProdotto;
 	private Integer valutazione;
 	private String commento;
@@ -74,6 +75,14 @@ public class Commento {
 		
 		
 		
+	}
+
+	public String getNomeUtente() {
+		return nomeUtente;
+	}
+
+	public void setNomeUtente(String nomeUtente) {
+		this.nomeUtente = nomeUtente;
 	}
 	
 	

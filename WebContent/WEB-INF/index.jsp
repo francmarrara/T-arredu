@@ -434,7 +434,7 @@
 						</div>
 						<button type="button"
 							class="btn btn-default bottoneProdottoPiuVisto">
-							<a href="prodotto.html"></span> Mostra</a>
+							<a href="prodotto?id=${prodotto.idProdotto}"></span> Mostra</a>
 						</button>
 
 					</div>
@@ -459,7 +459,7 @@
 						</div>
 						<button type="button"
 							class="btn btn-default bottoneProdottoPiuVisto">
-							<a href="prodotto.html(prodotto="alert(${prodotto.idProdotto})"></span>
+							<a href="prodotto?id=${prodotto.idProdotto}"></span>
 								Mostra</a>
 						</button>
 

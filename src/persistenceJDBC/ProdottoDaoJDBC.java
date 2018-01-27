@@ -9,8 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Carrello;
+import model.Commento;
 import model.Prodotto;
 import model.ProdottoConImmagini;
+import model.Venditore;
+import persistenceDAO.DAOFactory;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
@@ -67,12 +70,12 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			}
 
-			for (String v : prodotto.getVenditoriProdotto()) {
+			for (Venditore v : prodotto.getVenditoriProdotto()) {
 
 				insert = "insert into venditorePerProdotto(id_prodotto, emailVenditore) values(?,?)";
 				statement = connection.prepareStatement(insert);
 				statement.setInt(1, prodotto.getIdProdotto());
-				statement.setString(2, v);
+				statement.setString(2, v.getEmailVenditore());
 				statement.executeUpdate();
 
 			}
@@ -127,7 +130,10 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				while (resultVenditori.next()) {
 
-					prodotto.getVenditoriProdotto().add(resultVenditori.getString("emailVenditore"));
+					DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+
+					prodotto.getVenditoriProdotto().add(
+							factory.getVenditoreDAO().findByPrimaryKey(resultVenditori.getString("emailVenditore")));
 
 				}
 
@@ -153,7 +159,30 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				}
 
+				String queryCommenti = "select * from commentoProdotto where idProdotto = ?";
+				PreparedStatement statementCommenti = connection.prepareStatement(queryCommenti);
+				statementCommenti.setInt(1, prodotto.getIdProdotto());
+
+				ResultSet resultCommenti = statementCommenti.executeQuery();
+
+				if (resultCommenti.first() == true) {
+
+					while (resultCommenti.next()) {
+
+						Commento c = new Commento();
+
+						c.setIdCommento(resultCommenti.getInt("id_commentoProdotto"));
+						c.setEmailUtente((resultCommenti.getString("utenteEmail")));
+						c.setIdProdotto((resultCommenti.getInt("idProdotto")));
+						c.setCommento((resultCommenti.getString("commentoProdotto")));
+						c.setValutazione((resultCommenti.getInt("valutazioneProdotto")));
+
+						prodotto.getCommentiProdotto().add(c);
+
+					}
+				}
 			}
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -953,7 +982,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
 
-				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));;
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
+				;
 
 			}
 		} catch (SQLException e) {
@@ -1180,7 +1210,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 		try {
 
-			ProdottoConImmagini prodotto ;
+			ProdottoConImmagini prodotto;
 			PreparedStatement statementProdotto;
 
 			String query = "select id_prodotto, descrizioneProdotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto where offertaProdotto = 1 order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
@@ -1195,8 +1225,9 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
 				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
-                prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
-				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));;
+				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
+				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));
+				;
 
 				prodotti.add(prodotto);
 
@@ -1236,10 +1267,10 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setPrezzoProdotto(resultProdotto.getDouble("prezzoProdotto"));
 				prodotto.setNumeroVisite(resultProdotto.getInt("numeroVisite"));
 
-				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));;
+				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));
+				;
 
 				prodotti.add(prodotto);
-
 
 			}
 		} catch (SQLException e) {
