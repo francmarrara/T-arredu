@@ -43,6 +43,7 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 		if (utenteDao.credenzialiUtenteGiaPresenti(email, passw)) {
 			session.setAttribute("utenteLoggato", true);
 			session.setAttribute("nomeUtente", utente.getNomeUtente());
+			session.setAttribute("emailUtenteLoggato", utente.getEmailUtente());
 
 		} else {
 

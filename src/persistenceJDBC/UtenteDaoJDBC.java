@@ -212,7 +212,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	@Override
 	public void aggiungiProdottoInPreferiti(Integer idProdotto, String emailUtente) {
 
-		if (!giaPreferito(idProdotto, emailUtente)) {
+		
 
 			Connection connection = this.dataSource.getConnection();
 
@@ -236,7 +236,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				}
 			}
 		}
-	}
+	
 
 	@Override
 	public void rimuoviProdottoInPreferiti(Integer idProdotto, String emailUtente) {
@@ -361,7 +361,9 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		}
 
 	}
-
+	
+	
+    @Override
 	public boolean giaPreferito(Integer idProdotto, String emailUtente) {
 
 		Connection connection = this.dataSource.getConnection();
@@ -393,6 +395,42 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 		return false;
 	}
+    
+    @Override
+   	public boolean giaInCarrello(Integer idProdotto, String emailUtente) {
+
+   		Connection connection = this.dataSource.getConnection();
+
+   		try {
+
+   			PreparedStatement statement;
+   			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ? and id_prodottoInCarrello = ? ";
+   			statement = connection.prepareStatement(query);
+   			statement.setString(1, emailUtente);
+   			statement.setInt(2, idProdotto);
+
+   			ResultSet result = statement.executeQuery();
+
+   			if (!result.first() == false) {
+   				
+   				return true;
+   			}
+
+   		} catch (SQLException e) {
+   			throw new PersistenceException(e.getMessage());
+   		} finally {
+   			try {
+   				connection.close();
+   			} catch (SQLException e) {
+   				throw new PersistenceException(e.getMessage());
+   			}
+   		}
+
+   		return false;
+   	}
+    
+    
+    
 
 	@Override
 	public boolean giaRegistrato(String email) {
@@ -486,6 +524,57 @@ System.out.println("SUCA");
 
 		return null;
 
+	}
+
+	@Override
+	public void aggiungiProdottoInCarrello(Integer idProdotto, String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			String insert = "insert into prodottoInCarrello(id_prodottoInCarrello, email_utenteCarrello) values (?,?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+
+			statement.setInt(1, idProdotto);
+			statement.setString(2, emailUtente);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+	}
+
+	@Override
+	public void rimuoviProdottoInCarrello(Integer idProdotto, String emailUtente) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+
+			String delete = "delete FROM prodottoInCarrello WHERE id_prodottoInCarrello = ? and email_utenteCarrello = ?";
+			PreparedStatement statement = connection.prepareStatement(delete);
+
+			statement.setInt(1, idProdotto);
+			statement.setString(2, emailUtente);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 	}
 
 }

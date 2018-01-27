@@ -22,6 +22,11 @@ public interface UtenteDAO {
 	
 	public void aggiungiProdottoInPreferiti(Integer idProdotto, String emailUtente);
 	public void rimuoviProdottoInPreferiti(Integer idProdotto, String emailUtente);
+	
+	public void aggiungiProdottoInCarrello(Integer idProdotto, String emailUtente);
+	public void rimuoviProdottoInCarrello(Integer idProdotto, String emailUtente);
+	
+	
 	public List<Prodotto> getProdottiPreferiti(String emailUtente);
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente);
 	public void rimuoviPreferiti(String emailUtente);
@@ -30,6 +35,9 @@ public interface UtenteDAO {
 
 	public boolean giaRegistrato(String email);
 	public boolean credenzialiUtenteGiaPresenti(String email, String password);
+	boolean giaPreferito(Integer idProdotto, String emailUtente);
+	boolean giaInCarrello(Integer idProdotto, String emailUtente);
+	
 	
 	
 }

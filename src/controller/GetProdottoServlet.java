@@ -35,7 +35,6 @@ public class GetProdottoServlet extends HttpServlet{
 	HttpSession session = req.getSession();
 	
 	req.setAttribute("prodottoCercato", p);
-	session.setAttribute("utenteLoggato", true);
 	
 	//LISTA FOTO
 	

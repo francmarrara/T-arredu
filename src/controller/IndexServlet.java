@@ -30,10 +30,7 @@ public class IndexServlet extends HttpServlet {
 			session.setAttribute("utenteLoggato", false);
 
 		}
-		else
-		{
-			session.setAttribute("utenteLoggato", true);
-		}
+	
 		
 
 		List<ProdottoConImmagini> prodottiInOfferta = null;

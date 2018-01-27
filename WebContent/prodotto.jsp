@@ -19,8 +19,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/Footer-with-social-icons.css">
 <link rel="stylesheet" href="css/prodotto.css">
+<link rel="stylesheet" href="css/snackbar.css">
 
-<script src="js/Js/index.js"></script>
+<script src="js/Js/prodotto.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 
@@ -353,12 +354,12 @@
 				<c:if test="${utenteLoggato == true}">
 					<div class="btn-group button_carrello">
 						<button type="button" class="btn btn-success"
-							title="Aggiungi questo prodotto al tuo carrello">
+							title="Aggiungi questo prodotto al tuo carrello" onclick="aggiungiNelCarrello('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">
 							Aggiungi al carrello</button>
 					</div>
 					<div class="btn-group button_favoriti">
 						<button type="button" class="btn btn-danger"
-							title="Aggiungi ai favoriti">Aggiungi ai favoriti</button>
+							title="Aggiungi ai favoriti" onclick="aggiungiPreferito('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">Aggiungi ai favoriti</button>
 					</div>
 				</c:if>
 
@@ -366,12 +367,12 @@
 				<c:if test="${utenteLoggato == false}">
 					<div class="btn-group button_carrello">
 						<button type="button" class="btn btn-success"
-							title="Aggiungi questo prodotto al tuo carrello">
+							title="Aggiungi questo prodotto al tuo carrello" onclick="chiediLogin()">
 							Aggiungi al carrello</button>
 					</div>
 					<div class="btn-group button_favoriti">
 						<button type="button" class="btn btn-danger"
-							title="Aggiungi ai favoriti">Aggiungi ai favoriti</button>
+							title="Aggiungi ai favoriti" onclick="chiediLogin()">Aggiungi ai favoriti</button>
 					</div>
 				</c:if>
 
@@ -410,6 +411,7 @@
 				<div id="colori" class="tab-pane fade">
 					<h3>Colori</h3>
 					<p class="descrizione_bassa">${prodottoCercato.coloriProdotto}</p>
+					<p class="descrizione_bassa">${prodottoCercato.idProdotto} , ${emailUtenteLoggato}</p>
 				</div>
 				<div id="venditori" class="tab-pane fade">
 					<h3>Puoi Trovarlo Qui</h3>
@@ -505,6 +507,7 @@
 			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
+	<div id="snackbar"></div>
 </body>
 
 </html>

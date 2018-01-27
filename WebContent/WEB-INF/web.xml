@@ -62,4 +62,43 @@
 	</servlet-mapping>
 	
 	
+	<servlet>
+		<servlet-name>ProdottoGiaInPreferiti</servlet-name>
+		<servlet-class>controller.ProdottoGiaInPreferiti</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProdottoGiaInPreferiti</servlet-name>
+		<url-pattern>/prodottoGiaInPreferiti</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AggiungiPreferito</servlet-name>
+		<servlet-class>controller.AggiungiPreferito</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiPreferito</servlet-name>
+		<url-pattern>/aggiungiPreferito</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>ProdottoGiaInCarrello</servlet-name>
+		<servlet-class>controller.ProdottoGiaInCarrello</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProdottoGiaInCarrello</servlet-name>
+		<url-pattern>/prodottoGiaInCarrello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AggiungiNelCarrello</servlet-name>
+		<servlet-class>controller.AggiungiNelCarrello</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiNelCarrello</servlet-name>
+		<url-pattern>/aggiungiNelCarrello</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
 </web-app>
