@@ -34,14 +34,14 @@ public class GetProdottoServlet extends HttpServlet{
 	
 	HttpSession session = req.getSession();
 	
-	System.out.println(session.getAttribute("utenteLoggato"));
-	session.setAttribute("prodottoCercato", p);
+	req.setAttribute("prodottoCercato", p);
 	session.setAttribute("utenteLoggato", true);
 	
 	//LISTA FOTO
 	
 	List<String> immaginiProdotto = p.getUrlImmaginiProdotto();
 	req.setAttribute("listaImmaginiProdotto", immaginiProdotto);
+	req.setAttribute("dimensioneListaImmagini", immaginiProdotto.size());
 	
 	//LISTA COMMENTI
 	

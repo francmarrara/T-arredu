@@ -15,12 +15,11 @@ public class Commento {
 
 	public Commento() {
 
-
 		Connection connection = MySqlDAOFactory.getDataSource().getConnection();
 
 		Integer id = IdBuilder.getId(connection);
 		setIdCommento(id);
-		
+
 	}
 
 	public Integer getIdCommento() {
@@ -63,18 +62,15 @@ public class Commento {
 		this.commento = commento;
 	}
 
-	
-	
 	public void stampaCommento() {
-		
-		System.out.println("idCommento : "+idCommento);
-		System.out.println("idProdotto : "+idProdotto);
-		System.out.println("emailUtente : "+emailUtente);
-		System.out.println("Commento : "+commento);
-		System.out.println("Valutazione : "+valutazione+"/5");
-		
-		
-		
+
+		System.out.println("idCommento : " + idCommento);
+		System.out.println("idProdotto : " + idProdotto);
+		System.out.println("emailUtente : " + emailUtente);
+		System.out.println("nomeUtente : " + nomeUtente);
+		System.out.println("Commento : " + commento);
+		System.out.println("Valutazione : " + valutazione + "/5");
+
 	}
 
 	public String getNomeUtente() {
@@ -84,8 +80,5 @@ public class Commento {
 	public void setNomeUtente(String nomeUtente) {
 		this.nomeUtente = nomeUtente;
 	}
-	
-	
-	
-	
+
 }

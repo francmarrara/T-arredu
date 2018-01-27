@@ -17,6 +17,8 @@ import persistenceDAO.DAOFactory;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
+import persistenceDAO.UtenteDAO;
+
 import static java.lang.Math.toIntExact;
 
 public class ProdottoDaoJDBC implements ProdottoDAO {
@@ -165,23 +167,28 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 				ResultSet resultCommenti = statementCommenti.executeQuery();
 
-				if (resultCommenti.first() == true) {
+				// if (resultCommenti.first() == true) {
 
-					while (resultCommenti.next()) {
+				while (resultCommenti.next()) {
 
-						Commento c = new Commento();
+					Commento c = new Commento();
 
-						c.setIdCommento(resultCommenti.getInt("id_commentoProdotto"));
-						c.setEmailUtente((resultCommenti.getString("utenteEmail")));
-						c.setIdProdotto((resultCommenti.getInt("idProdotto")));
-						c.setCommento((resultCommenti.getString("commentoProdotto")));
-						c.setValutazione((resultCommenti.getInt("valutazioneProdotto")));
+					c.setIdCommento(resultCommenti.getInt("id_commentoProdotto"));
+					c.setEmailUtente((resultCommenti.getString("utenteEmail")));
+					c.setIdProdotto((resultCommenti.getInt("idProdotto")));
+					c.setCommento((resultCommenti.getString("commentoProdotto")));
+					c.setValutazione((resultCommenti.getInt("valutazioneProdotto")));
 
-						prodotto.getCommentiProdotto().add(c);
+					DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+					UtenteDAO utenteDao = factory.getUtenteDAO();
 
-					}
+					c.setNomeUtente(utenteDao.getNomeUtente(c.getEmailUtente()));
+
+					prodotto.getCommentiProdotto().add(c);
+
 				}
 			}
+			// }
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

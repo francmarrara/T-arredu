@@ -83,7 +83,7 @@ public class CommentoDaoJDBC implements CommentoDAO {
 
 				DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 				UtenteDAO utenteDao = factory.getUtenteDAO();
-
+				
 				c.setNomeUtente(utenteDao.getNomeUtente(c.getEmailUtente()));
 
 				commenti.add(c);

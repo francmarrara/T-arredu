@@ -428,7 +428,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	@Override
 	public boolean credenzialiUtenteGiaPresenti(String email, String password) {
-		
+
 		Connection connection = this.dataSource.getConnection();
 
 		PreparedStatement statement;
@@ -461,7 +461,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		Connection connection = this.dataSource.getConnection();
 
 		PreparedStatement statement;
-		
+
 		String nomeUtente = null;
 
 		try {
@@ -472,18 +472,20 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			statement.setString(1, emailUtente);
 
 			ResultSet result = statement.executeQuery();
-			
-			
-			if (result.next())
+
+			if (result.next()) {
 				nomeUtente = result.getString("nome");
+System.out.println("SUCA");
+				return nomeUtente;
+			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return nomeUtente;
-		
+		return null;
+
 	}
 
 }
