@@ -119,7 +119,7 @@
 	
 			<servlet>
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
-		<servlet-class>controller.RimuoviProdottoDalCarrello</servlet-class>
+		<servlet-class>controller.rimuoviProdottoDalCarrello</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>

@@ -172,7 +172,7 @@ function chiediLogin() {
 
 function rimuoviDalCarrello(idProdotto, emailUtente) {			
 			
-	alert(idProdotto);
+	
 				$.ajax({
 					type : "GET",
 					url : "rimuoviDalCarrello",
@@ -196,6 +196,13 @@ function rimuoviDalCarrello(idProdotto, emailUtente) {
 				})
 				
 	}
+
+
+
+function test(id,email){
+	alert(id);
+	alert(email);
+}
 
 
 

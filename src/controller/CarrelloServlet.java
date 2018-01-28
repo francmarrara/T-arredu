@@ -30,10 +30,6 @@ public class CarrelloServlet extends HttpServlet {
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
 		Carrello carrello = factory.getCarrelloDAO().findByPrimaryKey(emailUtente);
-
-		for(ProdottoConImmagini p : carrello.getProdottiNelCarrello()) {
-			p.stampaProdotto();
-		}
 		
 		req.setAttribute("prodottiNelCarrello", carrello.getProdottiNelCarrello());
 

@@ -304,10 +304,10 @@ window.smartsupp||(function(d) {
                             <td class="col-sm-1 col-md-1" style="text-align: center">
                                 <input type="checkbox" id="exampleInputEmail1" value="true">
                             </td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong>${prodotto.prezzoProdotto}</strong></td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong>${prodotto.prezzoProdotto} Euro</strong></td>
                             
                             <td class="col-sm-1 col-md-1">
-                                <button type="button" class="btn btn-danger" onclick="rimuoviProdottoDalCarrello('${prodotto.idProdotto}','${emailUtenteLoggato}')">
+                                <button type="button" class="btn btn-danger" onclick="rimuoviDalCarrello('${prodotto.idProdotto}','${emailUtenteLoggato}')">
                                 <span class="glyphicon glyphicon-remove"></span> Rimuovi dal Carrello
                             </button></td>
                         </tr>
