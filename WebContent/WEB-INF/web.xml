@@ -108,4 +108,23 @@
 	</servlet-mapping>
 	
 	
+		<servlet>
+		<servlet-name>CarrelloServlet</servlet-name>
+		<servlet-class>controller.CarrelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CarrelloServlet</servlet-name>
+		<url-pattern>/carrello</url-pattern>
+	</servlet-mapping>
+	
+			<servlet>
+		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
+		<servlet-class>controller.RimuoviProdottoDalCarrello</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
+		<url-pattern>/rimuoviDalCarrello</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>

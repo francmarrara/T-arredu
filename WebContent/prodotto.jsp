@@ -173,6 +173,10 @@
 
 					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> ${nomeUtente}</a></li>
+								
+					
+					<li class="carrello navbarOggetto"><a href="carrello?email=${emailUtenteLoggato}"><span
+						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -268,10 +272,13 @@
 
 						</div>
 					</li>
+					
+						<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer;"><span
+						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					
 				</c:if>
 
-				<li class="carrello navbarOggetto"><a href="carrello.html"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+			
 			</ul>
 		</div>
 	</nav>
