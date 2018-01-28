@@ -527,7 +527,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			PreparedStatement statement;
 			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ?";
 			statement = connection.prepareStatement(query);
-			statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
+			statement.setString(1, carrello.getUtenteCarrello());
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 
@@ -973,7 +973,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select id_prodotto,marcaProdotto,nomeProdotto,prezzoProdotto,numeriVisite,immaginePrincipale from prodotto where id_prodotto = ?";
+			String query = "select id_prodotto,marcaProdotto,nomeProdotto,prezzoProdotto,numeroVisite,immaginePrincipale from prodotto where id_prodotto = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, idProdotto);
 
@@ -1048,7 +1048,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			PreparedStatement statement;
 			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ?";
 			statement = connection.prepareStatement(query);
-			statement.setString(1, carrello.getUtenteCarrello().getEmailUtente());
+			statement.setString(1, carrello.getUtenteCarrello());
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 

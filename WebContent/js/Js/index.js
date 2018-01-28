@@ -25,6 +25,18 @@ $(document).ready(function() {
 });
 
 
+//Errore sullo snackbar che ti invita a registrati
+
+function chiediLogin() {
+	$("#snackbar")
+			.text(
+					"PER EFFETTUARE QUESTA AZIONE DEVI ESSERE REGISTRATO ED EFFETTUARE IL LOGIN");
+	$("#snackbar").css({
+		'background-color' : 'red'
+	});
+	showSnackbar();
+};
+
 
 /*SNACKBAR*/
 function showSnackbar() {

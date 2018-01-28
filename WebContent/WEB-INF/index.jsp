@@ -1,8 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<jsp:useBean id="prodotto" class="model.ProdottoConImmagini"
-	scope="session" />
+
 
 <html>
 <html lang="it">
@@ -179,6 +178,9 @@
 					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
+							
+				<li class="carrello navbarOggetto"><a href="carrello?email=${emailUtenteLoggato}"><span
+				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -274,10 +276,11 @@
 
 						</div>
 					</li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
+						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				<li class="carrello navbarOggetto"><a href="carrello.html"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+				
 			</ul>
 		</div>
 	</nav>

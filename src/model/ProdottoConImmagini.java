@@ -10,7 +10,15 @@ public class ProdottoConImmagini {
 	
     private String immaginePrincipale;
     
-    private String descrizioneProdotto;
+    public Integer getVisiteProdotto() {
+		return visiteProdotto;
+	}
+
+	public void setVisiteProdotto(Integer visiteProdotto) {
+		this.visiteProdotto = visiteProdotto;
+	}
+
+	private String descrizioneProdotto;
 
 	public ProdottoConImmagini() {
 	visiteProdotto=0;

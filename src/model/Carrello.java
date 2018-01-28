@@ -5,38 +5,34 @@ import java.util.List;
 
 public class Carrello {
 	
-	private Integer idCarello;
-	private Utente utenteCarello;
-	private List<Prodotto> prodottiNelCarrello;
-	
-	//costruttore senza parametri
-	public Carrello() {
-		prodottiNelCarrello = new ArrayList<Prodotto>();
-	}
-	
-	
 
-	public Integer getIdCarello() {
-		return idCarello;
-	}
-
-	public void setIdCarello(Integer idCarello) {
-		this.idCarello = idCarello;
-	}
-
-	public Utente getUtenteCarrello() {
+	public String getUtenteCarello() {
 		return utenteCarello;
 	}
 
-	public void setUtenteCarello(Utente utenteCarello) {
+	private String utenteCarello;
+	private List<ProdottoConImmagini> prodottiNelCarrello;
+	
+	//costruttore senza parametri
+	public Carrello() {
+		prodottiNelCarrello = new ArrayList<ProdottoConImmagini>();
+	}
+	
+
+
+	public String getUtenteCarrello() {
+		return utenteCarello;
+	}
+
+	public void setUtenteCarello(String utenteCarello) {
 		this.utenteCarello = utenteCarello;
 	}
 
-	public List<Prodotto> getProdottiNelCarrello() {
+	public List<ProdottoConImmagini> getProdottiNelCarrello() {
 		return prodottiNelCarrello;
 	}
 
-	public void setProdottiNelCarrello(List<Prodotto> prodottiNelCarrello) {
+	public void setProdottiNelCarrello(List<ProdottoConImmagini> prodottiNelCarrello) {
 		this.prodottiNelCarrello = prodottiNelCarrello;
 	}
 	
