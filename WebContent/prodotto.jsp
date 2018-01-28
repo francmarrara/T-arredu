@@ -465,7 +465,6 @@
 												<strong>Inserire una valutazione del prodotto (da 1
 													a 5)</strong>
 											</p>
-											<form>
 												<label class="containerLabel">1/5 <input
 													type="radio" checked="checked" name="radio"
 													class="messageCheckbox" value="1"> <span
@@ -483,7 +482,6 @@
 													type="radio" name="radio" class="messageCheckbox" value="5">
 													<span class="checkmark"></span>
 												</label>
-											</form>
 										</div>
 
 										<label>Recensione</label> <br>
