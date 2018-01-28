@@ -83,7 +83,7 @@ public class CommentoDaoJDBC implements CommentoDAO {
 
 				DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 				UtenteDAO utenteDao = factory.getUtenteDAO();
-				
+
 				c.setNomeUtente(utenteDao.getNomeUtente(c.getEmailUtente()));
 
 				commenti.add(c);
@@ -111,6 +111,52 @@ public class CommentoDaoJDBC implements CommentoDAO {
 	@Override
 	public void delete(Integer idCommento) {
 		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Commento getCommentoUtentePerProdotto(Integer idProdotto, String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+		Commento commento = null;
+
+		try {
+			
+
+			PreparedStatement statement;
+
+			String query = "select * from commentoProdotto where idProdotto = ? and utenteEmail = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setInt(1, idProdotto);
+			statement.setString(2, emailUtente);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+				commento = new Commento();
+				commento.setIdCommento(result.getInt("id_commentoProdotto"));
+				commento.setCommento(result.getString("commentoProdotto"));
+				commento.setValutazione(result.getInt("valutazioneProdotto"));
+				commento.setEmailUtente(result.getString("utenteEmail"));
+				commento.setIdProdotto(idProdotto);
+
+				DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+				UtenteDAO utenteDao = factory.getUtenteDAO();
+
+				commento.setNomeUtente(utenteDao.getNomeUtente(commento.getEmailUtente()));
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return commento;
 
 	}
 

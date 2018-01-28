@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-	<jsp:useBean id="commentoProdotto" class="model.Commento"
+<jsp:useBean id="commentoProdotto" class="model.Commento"
 	scope="session" />
 
 <html lang="it">
@@ -354,12 +354,15 @@
 				<c:if test="${utenteLoggato == true}">
 					<div class="btn-group button_carrello">
 						<button type="button" class="btn btn-success"
-							title="Aggiungi questo prodotto al tuo carrello" onclick="aggiungiNelCarrello('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">
+							title="Aggiungi questo prodotto al tuo carrello"
+							onclick="aggiungiNelCarrello('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">
 							Aggiungi al carrello</button>
 					</div>
 					<div class="btn-group button_favoriti">
 						<button type="button" class="btn btn-danger"
-							title="Aggiungi ai favoriti" onclick="aggiungiPreferito('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">Aggiungi ai favoriti</button>
+							title="Aggiungi ai favoriti"
+							onclick="aggiungiPreferito('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">Aggiungi
+							ai favoriti</button>
 					</div>
 				</c:if>
 
@@ -367,12 +370,13 @@
 				<c:if test="${utenteLoggato == false}">
 					<div class="btn-group button_carrello">
 						<button type="button" class="btn btn-success"
-							title="Aggiungi questo prodotto al tuo carrello" onclick="chiediLogin()">
-							Aggiungi al carrello</button>
+							title="Aggiungi questo prodotto al tuo carrello"
+							onclick="chiediLogin()">Aggiungi al carrello</button>
 					</div>
 					<div class="btn-group button_favoriti">
 						<button type="button" class="btn btn-danger"
-							title="Aggiungi ai favoriti" onclick="chiediLogin()">Aggiungi ai favoriti</button>
+							title="Aggiungi ai favoriti" onclick="chiediLogin()">Aggiungi
+							ai favoriti</button>
 					</div>
 				</c:if>
 
@@ -411,7 +415,9 @@
 				<div id="colori" class="tab-pane fade">
 					<h3>Colori</h3>
 					<p class="descrizione_bassa">${prodottoCercato.coloriProdotto}</p>
-					<p class="descrizione_bassa">${prodottoCercato.idProdotto} , ${emailUtenteLoggato}</p>
+					<p class="descrizione_bassa">${prodottoCercato.idProdotto},
+						${emailUtenteLoggato}</p>
+					<p>${cognomeUtente}</p>
 				</div>
 				<div id="venditori" class="tab-pane fade">
 					<h3>Puoi Trovarlo Qui</h3>
@@ -423,22 +429,92 @@
 						</c:forEach>
 					</ul>
 				</div>
+
 				<div id="recensioni" class="tab-pane fade">
 					<h3>Recensioni</h3>
 					<ul class="recensioni">
-					
+
+
 						<c:forEach var="commentoProdotto" items="${listaCommentiProdotto}">
 
 							<li>
-							<p>${commentoProdotto.commento} -> Utente: ${commentoProdotto.nomeUtente}</p>
+								<p>${commentoProdotto.commento}->Utente:
+									${commentoProdotto.nomeUtente}</p>
 							</li>
 
 						</c:forEach>
+
 					</ul>
 				</div>
 				<div id="aggiungiRecensione" class="tab-pane fade">
-					<h3>Form Recensione</h3>
-					<br> <br>
+					<h3>Inserire Recensione</h3>
+
+					<c:if test="${utenteLoggato == true}">
+
+						<c:choose>
+							<c:when test="${empty commentoPresente}">
+
+								<div class="containerFormRecensione">
+									<form>
+										<label for="fname">Nome</label> <input type="text" id="fname"
+											name="firstname" value="${nomeUtente}" readonly> <label
+											for="lname">Cognome</label> <input type="text" id="lname"
+											name="lastname" value="${cognomeUtente}" readonly> <br>
+										<div class="containerCheckbox">
+											<p>
+												<strong>Inserire una valutazione del prodotto (da 1
+													a 5)</strong>
+											</p>
+											<form>
+												<label class="containerLabel">1/5 <input
+													type="radio" checked="checked" name="radio"
+													class="messageCheckbox" value="1"> <span
+													class="checkmark"></span>
+												</label> <label class="containerLabel">2/5 <input
+													type="radio" name="radio" class="messageCheckbox" value="2">
+													<span class="checkmark"></span>
+												</label> <label class="containerLabel">3/5 <input
+													type="radio" name="radio" class="messageCheckbox" value="3">
+													<span class="checkmark"></span>
+												</label> <label class="containerLabel">4/5 <input
+													type="radio" name="radio" class="messageCheckbox" value="4">
+													<span class="checkmark"></span>
+												</label> <label class="containerLabel">5/5 <input
+													type="radio" name="radio" class="messageCheckbox" value="5">
+													<span class="checkmark"></span>
+												</label>
+											</form>
+										</div>
+
+										<label>Recensione</label> <br>
+										<textarea id="subject" name="subject"
+											placeholder="Write something.."
+											style="height: 50%; width: 100%;"></textarea>
+										<br> <br>
+
+										<button type="button" class="btn btn-danger inviaRecensione"
+											title="nvia recensione"
+											onclick="registraCommentoProdotto('${prodottoCercato.idProdotto}','${emailUtenteLoggato}')">Salva
+											commento</button>
+
+
+									</form>
+								</div>
+
+							</c:when>
+							<c:otherwise>
+								<li>${commentoPresente.commento}->Utente:
+									${commentoPresente.nomeUtente} -> Prodotto:
+									${commentoPresente.idProdotto}</li>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
+					
+					<c:if test="${utenteLoggato == false}">
+					
+						<p><strong>Registrarsi per poter rilasciare una recensione.</strong></p>
+					
+					</c:if>
 
 				</div>
 			</div>

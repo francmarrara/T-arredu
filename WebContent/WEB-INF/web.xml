@@ -98,7 +98,14 @@
 		<url-pattern>/aggiungiNelCarrello</url-pattern>
 	</servlet-mapping>
 	
-	
+	<servlet>
+		<servlet-name>AggiungiCommentoProdotto</servlet-name>
+		<servlet-class>controller.AggiungiCommentoProdotto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiCommentoProdotto</servlet-name>
+		<url-pattern>/aggiungiCommento</url-pattern>
+	</servlet-mapping>
 	
 	
 </web-app>

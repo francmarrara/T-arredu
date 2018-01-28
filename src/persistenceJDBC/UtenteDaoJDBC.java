@@ -279,7 +279,6 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
-				System.out.println(result.getInt("id_prodotto"));
 				prodotti.add(prodottoDao.findByPrimaryKey(result.getInt("id_prodotto")));
 			}
 
@@ -513,7 +512,6 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 			if (result.next()) {
 				nomeUtente = result.getString("nome");
-System.out.println("SUCA");
 				return nomeUtente;
 			}
 
