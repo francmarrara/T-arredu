@@ -19,7 +19,8 @@
     
 
     <script src="js/Js/carrello.js"></script>
-
+    <script src="js/Js/login.js"></script>
+    
     <link rel="shortcut icon" href="images/TarreduLogo.png">
 
     <!-- Start WOWSlider.com HEAD section -->
@@ -159,7 +160,7 @@ window.smartsupp||(function(d) {
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span

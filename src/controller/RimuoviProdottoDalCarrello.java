@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.UtenteDAO;
 
-public class rimuoviProdottoDalCarrello extends HttpServlet {
+public class RimuoviProdottoDalCarrello extends HttpServlet {
 
 	/**
 	 * 

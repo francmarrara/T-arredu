@@ -119,11 +119,21 @@
 	
 			<servlet>
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
-		<servlet-class>controller.rimuoviProdottoDalCarrello</servlet-class>
+		<servlet-class>controller.RimuoviProdottoDalCarrello</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
 		<url-pattern>/rimuoviDalCarrello</url-pattern>
+	</servlet-mapping>
+	
+	
+			<servlet>
+		<servlet-name>EffettuaLogout</servlet-name>
+		<servlet-class>controller.EffettuaLogout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EffettuaLogout</servlet-name>
+		<url-pattern>/effettuaLogout</url-pattern>
 	</servlet-mapping>
 	
 	

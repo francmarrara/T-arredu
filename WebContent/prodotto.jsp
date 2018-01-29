@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="css/snackbar.css">
 
 <script src="js/Js/prodotto.js"></script>
+<script src="js/Js/login.js"></script>
+
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 
@@ -168,7 +170,7 @@
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span

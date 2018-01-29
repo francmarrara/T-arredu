@@ -52,7 +52,10 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 
 		}
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/index.jsp");
-		dispatcher.forward(req, resp);
+		resp.sendRedirect("index.jsp");
+
+		
+		//RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/index.jsp");
+		//dispatcher.forward(req, resp);
 	}
 }
