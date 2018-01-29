@@ -199,12 +199,6 @@ function rimuoviDalCarrello(idProdotto, emailUtente) {
 
 
 
-function test(id,email){
-	alert(id);
-	alert(email);
-}
-
-
 
 
 
