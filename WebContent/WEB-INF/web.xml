@@ -41,7 +41,7 @@
 		<servlet-name>IndexServlet</servlet-name>
 		<url-pattern>/index.jsp</url-pattern>
 	</servlet-mapping>
-	
+
 
 	<servlet>
 		<servlet-name>ValidaCredenzialiLogin</servlet-name>
@@ -51,7 +51,7 @@
 		<servlet-name>ValidaCredenzialiLogin</servlet-name>
 		<url-pattern>/validaCredenzialiLogin</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetProdottoServlet</servlet-name>
 		<servlet-class>controller.GetProdottoServlet</servlet-class>
@@ -60,8 +60,8 @@
 		<servlet-name>GetProdottoServlet</servlet-name>
 		<url-pattern>/prodotto</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>ProdottoGiaInPreferiti</servlet-name>
 		<servlet-class>controller.ProdottoGiaInPreferiti</servlet-class>
@@ -70,7 +70,7 @@
 		<servlet-name>ProdottoGiaInPreferiti</servlet-name>
 		<url-pattern>/prodottoGiaInPreferiti</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AggiungiPreferito</servlet-name>
 		<servlet-class>controller.AggiungiPreferito</servlet-class>
@@ -79,8 +79,8 @@
 		<servlet-name>AggiungiPreferito</servlet-name>
 		<url-pattern>/aggiungiPreferito</url-pattern>
 	</servlet-mapping>
-	
-		<servlet>
+
+	<servlet>
 		<servlet-name>ProdottoGiaInCarrello</servlet-name>
 		<servlet-class>controller.ProdottoGiaInCarrello</servlet-class>
 	</servlet>
@@ -88,7 +88,7 @@
 		<servlet-name>ProdottoGiaInCarrello</servlet-name>
 		<url-pattern>/prodottoGiaInCarrello</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AggiungiNelCarrello</servlet-name>
 		<servlet-class>controller.AggiungiNelCarrello</servlet-class>
@@ -97,7 +97,7 @@
 		<servlet-name>AggiungiNelCarrello</servlet-name>
 		<url-pattern>/aggiungiNelCarrello</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AggiungiCommentoProdotto</servlet-name>
 		<servlet-class>controller.AggiungiCommentoProdotto</servlet-class>
@@ -106,9 +106,9 @@
 		<servlet-name>AggiungiCommentoProdotto</servlet-name>
 		<url-pattern>/aggiungiCommento</url-pattern>
 	</servlet-mapping>
-	
-	
-		<servlet>
+
+
+	<servlet>
 		<servlet-name>CarrelloServlet</servlet-name>
 		<servlet-class>controller.CarrelloServlet</servlet-class>
 	</servlet>
@@ -116,8 +116,8 @@
 		<servlet-name>CarrelloServlet</servlet-name>
 		<url-pattern>/carrello</url-pattern>
 	</servlet-mapping>
-	
-			<servlet>
+
+	<servlet>
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
 		<servlet-class>controller.RimuoviProdottoDalCarrello</servlet-class>
 	</servlet>
@@ -125,9 +125,9 @@
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
 		<url-pattern>/rimuoviDalCarrello</url-pattern>
 	</servlet-mapping>
-	
-	
-			<servlet>
+
+
+	<servlet>
 		<servlet-name>EffettuaLogout</servlet-name>
 		<servlet-class>controller.EffettuaLogout</servlet-class>
 	</servlet>
@@ -135,6 +135,15 @@
 		<servlet-name>EffettuaLogout</servlet-name>
 		<url-pattern>/effettuaLogout</url-pattern>
 	</servlet-mapping>
-	
-	
+
+	<servlet>
+		<servlet-name>CreaListaProdottiPerPreventivo</servlet-name>
+		<servlet-class>controller.CreaListaProdottiPerPreventivo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreaListaProdottiPerPreventivo</servlet-name>
+		<url-pattern>/prodottiPreventivo</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>

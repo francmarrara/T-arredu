@@ -303,7 +303,7 @@ window.smartsupp||(function(d) {
                                 </div>
                             </td>
                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                                <input type="checkbox" id="exampleInputEmail1" value="true">
+                                <input type="checkbox" class="selezionatoPerPreventivo" value="${prodotto.idProdotto}">
                             </td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>${prodotto.prezzoProdotto} Euro</strong></td>
                             
@@ -318,7 +318,7 @@ window.smartsupp||(function(d) {
                                 <span class="glyphicon glyphicon-shopping-cart"></span> <a href="index.jsp">Home</a>
                             </button></td>
                             <td>
-                                <button type="button" class="btn btn-success" onclick="richiediPreventivo()")>
+                                <button type="button" class="btn btn-success" onclick="richiediPreventivo()">
                                 RichiediPreventivo<span class="glyphicon glyphicon-play"></span>
                             </button></td>
                         </tr>

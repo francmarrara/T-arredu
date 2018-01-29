@@ -198,6 +198,57 @@ function rimuoviDalCarrello(idProdotto, emailUtente) {
 	}
 
 
+function richiediPreventivo(){
+	
+	var prodottiPerPreventivo = [];
+	
+	$('.selezionatoPerPreventivo:checkbox:checked').each(function() {
+    	prodottiPerPreventivo.push($(this).val());
+    });
+    
+	$.ajax({
+		type : "POST",
+		url : "prodottiPreventivo",
+		
+		data : {
+			prodotti : prodottiPerPreventivo,
+		},
+
+		success : function() {
+			
+			window.setTimeout(location.reload(), 1000);
+			
+			$("#snackbar").text("PREVENTIVO INVIATO");
+			$("#snackbar").css({
+				'background-color' : 'green'
+			});
+			
+			showSnackbar();
+		
+			//window.location.replace('index.jsp');
+		
+		}
+
+	})
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
