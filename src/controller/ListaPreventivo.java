@@ -31,17 +31,16 @@ public class ListaPreventivo extends HttpServlet {
 		ProdottoDAO prodottoDao = factory.getProdottoDAO();
 
 		for (int i = 0; i < prodotti.length; i++) {
-			
+
 			ProdottoConImmagini p = prodottoDao.findByPrimaryKeyProdottoConImmagini(Integer.parseInt(prodotti[i]));
-			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
+//			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
 
 			prodottiDaInserireNelPreventivo.add(p);
 
 		}
 
 		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
-		
-		
+
 		}
 
 	}

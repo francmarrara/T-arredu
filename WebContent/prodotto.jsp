@@ -495,7 +495,7 @@
 
 										<label>Recensione</label> <br>
 										<textarea id="subject" name="subject"
-											placeholder="Write something.."
+											placeholder="Scrivi la recensione.."
 											style="height: 50%; width: 100%;"></textarea>
 										<br> <br>
 
