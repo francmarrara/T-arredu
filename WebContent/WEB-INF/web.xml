@@ -137,11 +137,11 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>ListaProdottiPreventivo</servlet-name>
-		<servlet-class>controller.ListaProdottiPreventivo</servlet-class>
+		<servlet-name>ListaPreventivo</servlet-name>
+		<servlet-class>controller.ListaPreventivo</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ListaProdottiPreventivo</servlet-name>
+		<servlet-name>ListaPreventivo</servlet-name>
 		<url-pattern>/prodottiPreventivo</url-pattern>
 	</servlet-mapping>
 

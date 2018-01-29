@@ -201,18 +201,29 @@ function rimuoviDalCarrello(idProdotto, emailUtente) {
 function richiediPreventivo(){
 	
 	var prodottiPerPreventivo = [];
+	var richieste = [];
 	
 	$('.selezionatoPerPreventivo:checkbox:checked').each(function() {
     	prodottiPerPreventivo.push($(this).val());
     });
     
+	$('.idRecensioneSelezionatoPerPreventivo:checkbox:checked').each(function() {
+    	richieste.push($(this).val());
+    });
+	
+	console.log(prodottiPerPreventivo);
+	
+
+	
 	$.ajax({
 		type : "POST",
 		url : "prodottiPreventivo",
-		
+		dataType:"json",
 		data : {
-			prodotti : prodottiPerPreventivo,
-		},
+			    prodotti : prodottiPerPreventivo,
+			    richieste : richieste
+			    
+		        },
 
 		success : function() {
 			

@@ -24,7 +24,7 @@ public interface PreventivoDAO {
 	public void updateVenditoreInPreventivo(Preventivo preventivo);
 	
 	// Aggiunge un prodotto o un venditore al preventivo
-	public void addProductToPreventivo(Prodotto prodotto, Preventivo preventivo);
+	public void addProductToPreventivo(Integer idProdotto, Integer idPreventivo);
 	public void addVenditoreToPreventivo(Venditore venditore, Preventivo preventivo);
 	
 }

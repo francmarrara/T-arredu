@@ -26,7 +26,6 @@ public class CarrelloServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 
 		String emailUtente = (String) session.getAttribute("emailUtenteLoggato");
-		System.out.println(emailUtente);
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
 		Carrello carrello = factory.getCarrelloDAO().findByPrimaryKey(emailUtente);

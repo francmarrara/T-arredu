@@ -7,8 +7,11 @@ public class ProdottoConImmagini {
 	private Double prezzoProdotto;
 	private String marcaProdotto;
 	private Integer visiteProdotto;
+	private String richiestaAggiuntivaInPreventivo;
 	
-    private String immaginePrincipale;
+	
+   
+	private String immaginePrincipale;
     
     public Integer getVisiteProdotto() {
 		return visiteProdotto;
@@ -97,5 +100,13 @@ public class ProdottoConImmagini {
 	public void setDescrizioneProdotto(String descrizioneProdotto) {
 		this.descrizioneProdotto = descrizioneProdotto;
 	}
+
+	 public String getRichiestaAggiuntivaInPreventivo() {
+			return richiestaAggiuntivaInPreventivo;
+		}
+
+		public void setRichiestaAggiuntivaInPreventivo(String richiestaAggiuntivaInPreventivo) {
+			this.richiestaAggiuntivaInPreventivo = richiestaAggiuntivaInPreventivo;
+		}
 
 }

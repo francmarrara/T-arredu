@@ -256,7 +256,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 				for (Prodotto p : preventivo.getListaProdotti()) {
 
-					addProductToPreventivo(p, preventivo);
+					//addProductToPreventivo(p, preventivo);
 
 				}
 			}
@@ -335,7 +335,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 	}
 
 	@Override
-	public void addProductToPreventivo(Prodotto prodotto, Preventivo preventivo) {
+	public void addProductToPreventivo(Integer idProdotto, Integer  idPreventivo) {
 
 		Connection connection = dataSource.getConnection();
 
@@ -348,8 +348,8 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 			Integer id = IdBuilder.getId(connection);
 			statement.setInt(1, id);
 
-			statement.setInt(2, preventivo.getIdPreventivo());
-			statement.setInt(3, prodotto.getIdProdotto());
+			statement.setInt(2, idPreventivo);
+			statement.setInt(3, idProdotto);
 
 			statement.executeUpdate();
 
