@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CreaListaProdottiPerPreventivo extends HttpServlet{
+public class ListaProdottiPreventivo extends HttpServlet{
 
 	/**
 	 * 
