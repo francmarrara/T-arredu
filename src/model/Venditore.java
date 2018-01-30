@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Venditore {
 
 	private Integer idVenditore;
@@ -10,8 +12,12 @@ public class Venditore {
 	private String emailVenditore;
 	private String numeroTelefonicoVenditore;
 
+	private ArrayList<ProdottoConImmagini> prodottiInPreventivo;
+	
+	
 	// costruttore senza parametri
 	public Venditore() {
+		setProdottiInPreventivo(new ArrayList<ProdottoConImmagini>());
 
 	}
 
@@ -77,6 +83,14 @@ public class Venditore {
 
 	public void setNumeroTelefonicoVenditore(String numeroTelefonicoVenditore) {
 		this.numeroTelefonicoVenditore = numeroTelefonicoVenditore;
+	}
+
+	public ArrayList<ProdottoConImmagini> getProdottiInPreventivo() {
+		return prodottiInPreventivo;
+	}
+
+	public void setProdottiInPreventivo(ArrayList<ProdottoConImmagini> prodottiInPreventivo) {
+		this.prodottiInPreventivo = prodottiInPreventivo;
 	}
 
 }

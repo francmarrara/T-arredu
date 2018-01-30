@@ -221,12 +221,18 @@ function rimuoviDalCarrello(idProdotto, emailUtente) {
 function richiediPreventivo() {
 
 	var prodottiPerPreventivo = [];
-
+    
+	var richiesteAggiuntive= [];
+	
 	$('.selezionatoPerPreventivo:checkbox:checked').each(function() {
 		prodottiPerPreventivo.push($(this).val());
 	});
+	
+	$('.richiesta').each(function() {
+		richiesteAggiuntive.push($(this).val());
+	});
 
-	console.log(prodottiPerPreventivo.length)
+	console.log(richiesteAggiuntive);
 	
 if(prodottiPerPreventivo.length > 0 ){	
 	$.ajax({
@@ -234,6 +240,7 @@ if(prodottiPerPreventivo.length > 0 ){
 		url : "prodottiPreventivo",
 		data : {
 			prodotti : prodottiPerPreventivo,
+			richieste : richiesteAggiuntive,
 		},
 
 		success : function() {

@@ -8,7 +8,7 @@ public class ProdottoConImmagini {
 	private String marcaProdotto;
 	private Integer visiteProdotto;
 	private String richiestaAggiuntivaInPreventivo;
-	
+	private String emailVenditore;
 	
    
 	private String immaginePrincipale;
@@ -52,13 +52,14 @@ public class ProdottoConImmagini {
 		System.out.println("Prezzo Prodotto : " +prezzoProdotto);
 		System.out.println("Numero Visite : " +visiteProdotto);
 		System.out.println("Marca Prodotto : " +marcaProdotto);
-		System.out.println("===IMMAGINI===");
+		System.out.println("===IMMAGINE PRINCIPALE===");
 
 		
 			System.out.println(immaginePrincipale);
 		
-
+System.out.println("RICHIESTA : "+richiestaAggiuntivaInPreventivo);
 		System.out.println("---------");
+		
 	}
 
 	public Double getPrezzoProdotto() {
@@ -107,6 +108,14 @@ public class ProdottoConImmagini {
 
 		public void setRichiestaAggiuntivaInPreventivo(String richiestaAggiuntivaInPreventivo) {
 			this.richiestaAggiuntivaInPreventivo = richiestaAggiuntivaInPreventivo;
+		}
+
+		public String getEmailVenditore() {
+			return emailVenditore;
+		}
+
+		public void setEmailVenditore(String emailVenditore) {
+			this.emailVenditore = emailVenditore;
 		}
 
 }
