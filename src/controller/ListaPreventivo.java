@@ -39,13 +39,13 @@ public class ListaPreventivo extends HttpServlet {
 
 		for (int i = 0; i < prodotti.length; i++) {
 
-			ProdottoConImmagini p = prodottoDao.getProdottoPerPreventivo(Integer.parseInt(prodotti[i]));
+			ProdottoConImmagini prodotto = prodottoDao.getProdottoPerPreventivo(Integer.parseInt(prodotti[i]));
 
-			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
+			prodotto.setRichiestaAggiuntivaInPreventivo(richieste[i]);
 
-			prodottiDaInserireNelPreventivo.add(p);
+			prodottiDaInserireNelPreventivo.add(prodotto);
 
-			listaVenditori.add(p.getEmailVenditore());
+			listaVenditori.add(prodotto.getEmailVenditore());
 
 		}
 
@@ -60,9 +60,9 @@ public class ListaPreventivo extends HttpServlet {
 
 		System.out.println(venditoriEProdotti.toString());
 
-		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
+		for (ProdottoConImmagini prodotto : prodottiDaInserireNelPreventivo) {
 
-			venditoriEProdotti.get(p.getEmailVenditore()).add(p);
+			venditoriEProdotti.get(prodotto.getEmailVenditore()).add(prodotto);
 
 		}
 		
