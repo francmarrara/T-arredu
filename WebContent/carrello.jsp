@@ -298,7 +298,6 @@
 						<tr>
 							<th>Prodotto</th>
 							<th>Seleziona Per Preventivo</th>
-							<th>Richieste aggiuntive</th>
 							<th class="text-center">Prezzo Consigliato</th>
 							<th class="text-center">Rimuovi</th>
 							<th></th>
@@ -326,32 +325,7 @@
 								<td class="col-sm-1 col-md-1" style="text-align: center"><input
 									type="checkbox" class="selezionatoPerPreventivo"
 									value="${prodotto.idProdotto}"></td>
-								<td class="containerListaRichiesta"><button type="button"
-										class="btn btn-primary" data-toggle="modal"
-										data-target="#myModal">
-										Richiesta <span class="glyphicon glyphicon-modal-window"></span>
-									</button> <!-- Modal -->
-									<div class="modal fade" id="myModal" role="dialog">
-										<div class="modal-dialog"></div>
-
-										<!-- Modal content-->
-										<div class="modal-content">
-											<h2>Inserire richiesta aggiuntiva</h2>
-											<div class="containerFormRecensione">
-												<form class = "formRichiesta">
-													<label>Richiesta</label> <br>
-													<textarea id="subject" name="subject"
-														placeholder="Scrivi la richiesta aggiuntiva"
-														style="height: 50%; width: 100%;"></textarea>
-													<br> <br>
-
-													<button type="button" class="btn btn-danger"
-														title="nvia richiestaAggiuntiva"
-														>Click fuori dalla finestra per uscire</button>
-
-												</form>
-											</div>
-										</div></td>
+								
 								<td class="col-sm-1 col-md-1 text-center"><strong>${prodotto.prezzoProdotto}
 										Euro</strong></td>
 
