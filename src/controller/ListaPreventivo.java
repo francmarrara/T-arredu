@@ -23,25 +23,24 @@ public class ListaPreventivo extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String[] prodotti = req.getParameterValues("prodotti[]");
-		String[] richieste = req.getParameterValues("richieste[]");
 
-		ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo = new ArrayList<ProdottoConImmagini>();
-
-		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		ProdottoDAO prodottoDao = factory.getProdottoDAO();
-
+//		ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo = new ArrayList<ProdottoConImmagini>();
+//
+//		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+//		ProdottoDAO prodottoDao = factory.getProdottoDAO();
+//
 		for (int i = 0; i < prodotti.length; i++) {
 
-			ProdottoConImmagini p = prodottoDao.findByPrimaryKeyProdottoConImmagini(Integer.parseInt(prodotti[i]));
-//			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
+		//	ProdottoConImmagini p = prodottoDao.findByPrimaryKeyProdottoConImmagini(Integer.parseInt(prodotti[i]));
 
-			prodottiDaInserireNelPreventivo.add(p);
-
+System.out.println(prodotti[i]);
 		}
-
-		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
-
-		}
+//
+//		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
+//
+//		}
+		
+resp.sendRedirect("index.jsp");
 
 	}
 
