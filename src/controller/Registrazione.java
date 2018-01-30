@@ -8,7 +8,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -62,6 +70,15 @@ public class Registrazione extends HttpServlet {
 
 			req.setAttribute("utente", utente);
 
+			StringBuilder messaggio = new StringBuilder();
+			messaggio.append("Gentile, " + utente.getNomeUtente() + " " + utente.getCognomeUtente() + ",\n");
+			messaggio.append("la informiamo che la registrazione è stata effettuata con successo. \n\n");
+			messaggio.append("Di seguito le credenziali di registrazione: \n");
+			messaggio.append("Indirizzo email : " + utente.getEmailUtente() + "\n");
+			messaggio.append("Password : " + utente.getPasswordUtente() + "\n");
+
+			sendEmail(utente.getEmailUtente(), "Conferma registrazione", messaggio.toString());
+
 			RequestDispatcher dispacher = req.getRequestDispatcher("/WEB-INF/index.jsp");
 			dispacher.forward(req, resp);
 		}
@@ -70,6 +87,40 @@ public class Registrazione extends HttpServlet {
 
 		}
 
+	}
+
+	public void sendEmail(String destinatario, String oggetto, String messaggio) {
+		final String username = "tarredu.arredamenti@gmail.com";
+		final String password = "Cacazza01!";
+
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("tarredu.arredamenti@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+			message.setSubject(oggetto);
+			message.setText(messaggio);
+
+			Transport.send(message);
+
+			System.out.println("Done");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

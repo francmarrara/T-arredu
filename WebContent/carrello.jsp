@@ -20,7 +20,6 @@
 
 
 <script src="js/Js/carrello.js"></script>
-<script src="js/Js/login.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 

@@ -220,52 +220,79 @@ function rimuoviDalCarrello(idProdotto, emailUtente) {
 
 function richiediPreventivo() {
 
+	$("#snackbar").text("ELABORAZIONE DELLA RICHIESTA, ATTENDERE...");
+	$("#snackbar").css({
+		'background-color' : 'orange'
+	});
+
+	showSnackbar();
+
 	var prodottiPerPreventivo = [];
-    
-	var richiesteAggiuntive= [];
-	
+
+	var richiesteAggiuntive = [];
+
 	$('.selezionatoPerPreventivo:checkbox:checked').each(function() {
 
 		prodottiPerPreventivo.push($(this).val());
 	});
-	
+
 	$('.richiesta').each(function() {
 		richiesteAggiuntive.push($(this).val());
 	});
 
-	console.log(richiesteAggiuntive);
-	
-if(prodottiPerPreventivo.length > 0 ){	
+	if (prodottiPerPreventivo.length > 0) {
+		$.ajax({
+			type : "GET",
+			url : "prodottiPreventivo",
+			data : {
+				prodotti : prodottiPerPreventivo,
+				richieste : richiesteAggiuntive,
+			},
+
+			success : function() {
+
+				$("#snackbar").text("PREVENTIVO INVIATO CON SUCCESSO");
+				$("#snackbar").css({
+					'background-color' : 'green'
+				});
+
+				showSnackbar();
+
+				window.setTimeout(location.reload(), 1000);
+
+			}
+
+		})
+	} else {
+		$("#snackbar").text("DEVI SELEZIONARE ALMENO UN PRODOTTO");
+		$("#snackbar").css({
+			'background-color' : 'cyan'
+		});
+
+		showSnackbar();
+	}
+
+}
+
+function effettuaLogout(){
+
 	$.ajax({
 		type : "GET",
-		url : "prodottiPreventivo",
-		data : {
-			prodotti : prodottiPerPreventivo,
-			richieste : richiesteAggiuntive,
-		},
+		url : "effettuaLogout",
 
 		success : function() {
-
-			$("#snackbar").text("PREVENTIVO INVIATO");
+			$("#snackbar").text("LOGOUT EFFETTUATO");
 			$("#snackbar").css({
 				'background-color' : 'green'
 			});
-
 			showSnackbar();
-
-			window.setTimeout(location.reload(), 1000);
-
+		
+			//window.setTimeout(location.reload(), 1000);
+			window.location.replace('index.jsp');
+		
 		}
 
 	})
-}
-else{
-	$("#snackbar").text("DEVI SELEZIONARE ALMENO UN PRODOTTO");
-	$("#snackbar").css({
-		'background-color' : 'cyan'
-	});
-
-	showSnackbar();
+	
 }
 
-}

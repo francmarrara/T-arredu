@@ -25,7 +25,10 @@ import persistenceDAO.DAOFactory;
 import persistenceDAO.ProdottoDAO;
 
 public class ListaPreventivo extends HttpServlet {
+
 	private String emailUtente;
+	private String credenzialiUtente;
+
 	/**
 	 * 
 	 */
@@ -35,8 +38,10 @@ public class ListaPreventivo extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		setEmailUtente((String) req.getSession().getAttribute("emailUtenteLoggato"));
-		
-		
+
+		setCredenzialiUtente((String) (req.getSession().getAttribute("nomeUtente") + " "
+				+ req.getSession().getAttribute("cognomeUtente")));
+
 		String[] prodotti = req.getParameterValues("prodotti[]");
 		String[] richieste = req.getParameterValues("richieste[]");
 
@@ -76,10 +81,27 @@ public class ListaPreventivo extends HttpServlet {
 
 		}
 
-		// System.out.println(venditoriEProdotti.toString());
-		HttpSession session = req.getSession();
-		//sendEmail();
-		
+		// Inizia a creare il messaggio di notifica per il cliente
+		StringBuilder messaggioUtente = new StringBuilder();
+
+		messaggioUtente.append("Gentile " + credenzialiUtente + ",\n");
+		messaggioUtente.append(
+				"le inviamo una copia delle richieste di preventivo mandate attraverso il nostro sito ai/al venditori/e: \n");
+
+		messaggioUtente.append("------------------\n\n");
+
+		for (String venditore : listaVenditori) {
+
+			String mess = buildMessage(venditoriEProdotti, venditore);
+			sendEmail(venditore, "Richiesta di preventivo", mess);
+
+			messaggioUtente.append(mess);
+
+		}
+
+		messaggioUtente.append("------------------\n\n");
+		sendEmail(emailUtente, "Conferma invio richieste di preventivo", messaggioUtente.toString());
+
 	}
 
 	public void sendEmail(String destinatario, String oggetto, String messaggio) {
@@ -90,21 +112,20 @@ public class ListaPreventivo extends HttpServlet {
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
 
-		Session session = Session.getInstance(props,
-		  new javax.mail.Authenticator() {
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
-		  });
+		});
 
 		try {
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("tarredu.arredamenti@gmail.com"));
-			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse(destinatario));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
 			message.setSubject(oggetto);
 			message.setText(messaggio);
 
@@ -117,12 +138,58 @@ public class ListaPreventivo extends HttpServlet {
 		}
 	}
 
+	public String buildMessage(HashMap<String, List<ProdottoConImmagini>> prodottiVenditore, String emailVenditore) {
+
+		String nomeVenditore = prodottiVenditore.get(emailVenditore).get(0).getNomeNegozioVenditore();
+
+		StringBuilder builder = new StringBuilder();
+		builder.append("Salve, " + nomeVenditore + ",\n");
+		builder.append("la contattiamo a nome di " + getCredenzialiUtente()
+				+ " per sottoporle una richiesta di preventivo effettuata dal nostro sito Tarredu Arredamenti. \n");
+		builder.append("Il preventivo contiene i seguenti articoli: \n\n");
+
+		for (ProdottoConImmagini prodotto : prodottiVenditore.get(emailVenditore)) {
+
+			builder.append("ARTICOLO\n");
+			builder.append("---------------------\n");
+			builder.append("Id -> " + prodotto.getIdProdotto() + ".\n");
+			builder.append("Nome -> " + prodotto.getNomeProdotto() + ".\n");
+
+			if (!(prodotto.getRichiestaAggiuntivaInPreventivo().equals(""))) {
+				builder.append("Richiesta aggiuntiva del cliente sull'articolo in questione -> "
+						+ prodotto.getRichiestaAggiuntivaInPreventivo() + ".\n");
+			} else {
+				builder.append("Richiesta aggiuntiva del cliente sull'articolo in questione -> Nessuna. \n");
+			}
+
+			builder.append("---------------------\n");
+
+		}
+
+		builder.append(
+				"La preghiamo di rispondere con tutte le informazioni richieste dal cliente per i precedenti prodotti.\n");
+		builder.append("Contattare il cliente al seguente indirizzo di posta elettronica: " + emailUtente + ".\n\n");
+		builder.append("Distinti saluti.\n");
+		builder.append("Staff di Tarredu Arredamenti.\n");
+
+		return builder.toString();
+
+	}
+
 	public String getEmailUtente() {
 		return emailUtente;
 	}
 
 	public void setEmailUtente(String emailUtente) {
 		this.emailUtente = emailUtente;
+	}
+
+	public String getCredenzialiUtente() {
+		return credenzialiUtente;
+	}
+
+	public void setCredenzialiUtente(String credenzialiUtente) {
+		this.credenzialiUtente = credenzialiUtente;
 	}
 
 }
