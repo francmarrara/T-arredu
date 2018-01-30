@@ -43,7 +43,8 @@ public class ListaPreventivo extends HttpServlet {
 			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
 			
 			prodottiDaInserireNelPreventivo.add(p);
-                 
+                
+			
 		
 		}
 	
