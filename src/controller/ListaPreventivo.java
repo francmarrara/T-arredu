@@ -3,7 +3,9 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ProdottoConImmagini;
+import model.Venditore;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.ProdottoDAO;
 
@@ -36,13 +39,34 @@ public class ListaPreventivo extends HttpServlet {
 
 		for (int i = 0; i < prodotti.length; i++) {
 
-			ProdottoConImmagini p = prodottoDao.findByPrimaryKeyProdottoConImmagini(Integer.parseInt(prodotti[i]));
+			ProdottoConImmagini p = prodottoDao.getProdottoPerPreventivo(Integer.parseInt(prodotti[i]));
 
 			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
 
 			prodottiDaInserireNelPreventivo.add(p);
 
+			listaVenditori.add(p.getEmailVenditore());
+
 		}
+
+		HashMap<String, List<ProdottoConImmagini>> venditoriEProdotti = new HashMap<String, List<ProdottoConImmagini>>();
+
+		for (String venditori : listaVenditori) {
+
+			List<ProdottoConImmagini> lista = new ArrayList<>();
+			venditoriEProdotti.put(venditori, lista);
+
+		}
+
+		System.out.println(venditoriEProdotti.toString());
+
+		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
+
+			venditoriEProdotti.get(p.getEmailVenditore()).add(p);
+
+		}
+		
+		System.out.println(venditoriEProdotti.toString());
 
 	}
 

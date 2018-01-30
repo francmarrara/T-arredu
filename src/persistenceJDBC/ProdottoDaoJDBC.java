@@ -1293,6 +1293,48 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	}
 
-	
+	@Override
+	public ProdottoConImmagini getProdottoPerPreventivo(Integer idProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			ProdottoConImmagini prodotto;
+			PreparedStatement statementProdotto;
+
+			String query = "select prod.id_prodotto, prod.nomeProdotto, vend.emailVenditore, vend.nomeNegozio from tarreduDB.prodotto as prod, tarreduDB.venditore as vend, \r\n"
+					+ "tarreduDB.venditorePerProdotto as vendPrev\r\n"
+					+ "where prod.id_prodotto = vendPrev.id_prodotto and vend.emailVenditore = vendPrev.emailVenditore and prod.id_prodotto=?;";
+
+			statementProdotto = connection.prepareStatement(query);
+			statementProdotto.setInt(1, idProdotto);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			if (resultProdotto.next()) {
+
+				prodotto = new ProdottoConImmagini();
+				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+				prodotto.setNomeProdotto(resultProdotto.getString("nomeProdotto"));
+				prodotto.setNomeNegozioVenditore((resultProdotto.getString("nomeNegozio")));
+				prodotto.setEmailVenditore((resultProdotto.getString("emailVenditore")));
+
+				return prodotto;
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return null;
+	}
 
 }

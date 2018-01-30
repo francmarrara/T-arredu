@@ -78,6 +78,8 @@ public interface ProdottoDAO {
 	public List<ProdottoConImmagini> prodottiInOfferta();
 	public List<ProdottoConImmagini> prodottiPerVisibilità();
 	
+	public ProdottoConImmagini getProdottoPerPreventivo(Integer idProdotto);
+	
 	
 	
 	

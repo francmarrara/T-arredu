@@ -9,11 +9,34 @@ public class ProdottoConImmagini {
 	private Integer visiteProdotto;
 	private String richiestaAggiuntivaInPreventivo;
 	private String emailVenditore;
-	
-   
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+
+		builder.append("----------\n");
+		builder.append("Id Prodotto : " + idProdotto + "\n");
+		builder.append("Nome Prodotto : " + nomeProdotto + "\n");
+		builder.append("Prezzo Prodotto : " + prezzoProdotto + "\n");
+		builder.append("Numero Visite : " + visiteProdotto + "\n");
+		builder.append("Marca Prodotto : " + marcaProdotto + "\n");
+		builder.append("Nome Negozio : " + nomeNegozioVenditore + "\n");
+		builder.append("Email venditore : " + emailVenditore + "\n");
+		builder.append("===IMMAGINE PRINCIPALE===\n");
+
+		builder.append(immaginePrincipale + "\n");
+
+		builder.append("RICHIESTA : " + richiestaAggiuntivaInPreventivo + "\n");
+		builder.append("---------\n");
+
+		return builder.toString();
+
+	}
+
+	private String nomeNegozioVenditore;
 	private String immaginePrincipale;
-    
-    public Integer getVisiteProdotto() {
+
+	public Integer getVisiteProdotto() {
 		return visiteProdotto;
 	}
 
@@ -24,7 +47,7 @@ public class ProdottoConImmagini {
 	private String descrizioneProdotto;
 
 	public ProdottoConImmagini() {
-	visiteProdotto=0;
+		visiteProdotto = 0;
 	}
 
 	public Integer getIdProdotto() {
@@ -43,23 +66,22 @@ public class ProdottoConImmagini {
 		this.nomeProdotto = nomeProdotto;
 	}
 
-
-
 	public void stampaProdotto() {
 		System.out.println("----------");
 		System.out.println("Id Prodotto : " + idProdotto);
 		System.out.println("Nome Prodotto : " + nomeProdotto);
-		System.out.println("Prezzo Prodotto : " +prezzoProdotto);
-		System.out.println("Numero Visite : " +visiteProdotto);
-		System.out.println("Marca Prodotto : " +marcaProdotto);
+		System.out.println("Prezzo Prodotto : " + prezzoProdotto);
+		System.out.println("Numero Visite : " + visiteProdotto);
+		System.out.println("Marca Prodotto : " + marcaProdotto);
+		System.out.println("Nome Negozio : " + nomeNegozioVenditore);
+		System.out.println("Email venditore : " + emailVenditore);
 		System.out.println("===IMMAGINE PRINCIPALE===");
 
-		
-			System.out.println(immaginePrincipale);
-		
-System.out.println("RICHIESTA : "+richiestaAggiuntivaInPreventivo);
+		System.out.println(immaginePrincipale);
+
+		System.out.println("RICHIESTA : " + richiestaAggiuntivaInPreventivo);
 		System.out.println("---------");
-		
+
 	}
 
 	public Double getPrezzoProdotto() {
@@ -102,20 +124,28 @@ System.out.println("RICHIESTA : "+richiestaAggiuntivaInPreventivo);
 		this.descrizioneProdotto = descrizioneProdotto;
 	}
 
-	 public String getRichiestaAggiuntivaInPreventivo() {
-			return richiestaAggiuntivaInPreventivo;
-		}
+	public String getRichiestaAggiuntivaInPreventivo() {
+		return richiestaAggiuntivaInPreventivo;
+	}
 
-		public void setRichiestaAggiuntivaInPreventivo(String richiestaAggiuntivaInPreventivo) {
-			this.richiestaAggiuntivaInPreventivo = richiestaAggiuntivaInPreventivo;
-		}
+	public void setRichiestaAggiuntivaInPreventivo(String richiestaAggiuntivaInPreventivo) {
+		this.richiestaAggiuntivaInPreventivo = richiestaAggiuntivaInPreventivo;
+	}
 
-		public String getEmailVenditore() {
-			return emailVenditore;
-		}
+	public String getEmailVenditore() {
+		return emailVenditore;
+	}
 
-		public void setEmailVenditore(String emailVenditore) {
-			this.emailVenditore = emailVenditore;
-		}
+	public void setEmailVenditore(String emailVenditore) {
+		this.emailVenditore = emailVenditore;
+	}
+
+	public String getNomeNegozioVenditore() {
+		return nomeNegozioVenditore;
+	}
+
+	public void setNomeNegozioVenditore(String nomeNegozioVenditore) {
+		this.nomeNegozioVenditore = nomeNegozioVenditore;
+	}
 
 }
