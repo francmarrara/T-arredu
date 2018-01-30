@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -23,25 +24,32 @@ public class ListaPreventivo extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String[] prodotti = req.getParameterValues("prodotti[]");
-		String[] richieste = req.getParameterValues("richieste[]");
+//		String[] richieste = req.getParameterValues("richieste[]");
 
-		ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo = new ArrayList<ProdottoConImmagini>();
-
-		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		ProdottoDAO prodottoDao = factory.getProdottoDAO();
-
+		
+		
+//		ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo = new ArrayList<ProdottoConImmagini>();
+//
+//		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+//		ProdottoDAO prodottoDao = factory.getProdottoDAO();
+		
 		for (int i = 0; i < prodotti.length; i++) {
-
-			ProdottoConImmagini p = prodottoDao.findByPrimaryKeyProdottoConImmagini(Integer.parseInt(prodotti[i]));
+			System.out.println(prodotti[i]);
+//			ProdottoConImmagini p = prodottoDao.findByPrimaryKeyProdottoConImmagini(Integer.parseInt(prodotti[i]));
 //			p.setRichiestaAggiuntivaInPreventivo(richieste[i]);
 
-			prodottiDaInserireNelPreventivo.add(p);
+//			prodottiDaInserireNelPreventivo.add(p);
 
 		}
-
-		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
-
-		}
+//
+//		for (ProdottoConImmagini p : prodottiDaInserireNelPreventivo) {
+//
+//		}
+		
+		PrintWriter out = resp.getWriter();
+		out.println(prodotti[0]);
+		
+		
 
 	}
 
