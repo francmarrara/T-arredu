@@ -226,28 +226,38 @@ function richiediPreventivo() {
 		prodottiPerPreventivo.push($(this).val());
 	});
 
-	console.log(prodottiPerPreventivo.length);
-//	
-//	$.ajax({
-//		type : "POST",
-//		url : "prodottiPreventivo",
-//		dataType : "json",
-//		data : {
-//			prodotti : prodottiPerPreventivo,
-//		},
-//
-//		success : function() {
-//			$("#snackbar").text("PREVENTIVO INVIATO");
-//			$("#snackbar").css({
-//				'background-color' : 'green'
-//			});
-//
-//			showSnackbar();
-//
-//			// window.location.replace('index.jsp');
-//
-//		}
-//
-//	})
+	console.log(prodottiPerPreventivo.length)
+	
+if(prodottiPerPreventivo.length > 0 ){	
+	$.ajax({
+		type : "GET",
+		url : "prodottiPreventivo",
+		data : {
+			prodotti : prodottiPerPreventivo,
+		},
+
+		success : function() {
+
+			$("#snackbar").text("PREVENTIVO INVIATO");
+			$("#snackbar").css({
+				'background-color' : 'green'
+			});
+
+			showSnackbar();
+
+			window.setTimeout(location.reload(), 1000);
+
+		}
+
+	})
+}
+else{
+	$("#snackbar").text("DEVI SELEZIONARE ALMENO UN PRODOTTO");
+	$("#snackbar").css({
+		'background-color' : 'cyan'
+	});
+
+	showSnackbar();
+}
 
 }
