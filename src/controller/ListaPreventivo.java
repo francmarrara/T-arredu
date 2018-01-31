@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Preventivo;
 import model.ProdottoConImmagini;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.ProdottoDAO;
@@ -28,6 +29,8 @@ public class ListaPreventivo extends HttpServlet {
 
 	private String emailUtente;
 	private String credenzialiUtente;
+	private ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo;
+	private HashSet<String> listaVenditori;
 
 	/**
 	 * 
@@ -45,9 +48,9 @@ public class ListaPreventivo extends HttpServlet {
 		String[] prodotti = req.getParameterValues("prodotti[]");
 		String[] richieste = req.getParameterValues("richieste[]");
 
-		ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo = new ArrayList<ProdottoConImmagini>();
+		prodottiDaInserireNelPreventivo = new ArrayList<ProdottoConImmagini>();
 
-		HashSet<String> listaVenditori = new HashSet<String>();
+		listaVenditori = new HashSet<String>();
 
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		ProdottoDAO prodottoDao = factory.getProdottoDAO();
@@ -102,6 +105,11 @@ public class ListaPreventivo extends HttpServlet {
 		messaggioUtente.append("------------------\n\n");
 		sendEmail(emailUtente, "Conferma invio richieste di preventivo", messaggioUtente.toString());
 
+		System.out.println(prodottiDaInserireNelPreventivo.toString());
+		
+	inserisciPreventivoInDB();
+	rimuoviProdottiDalCarrello();
+
 	}
 
 	public void sendEmail(String destinatario, String oggetto, String messaggio) {
@@ -151,7 +159,6 @@ public class ListaPreventivo extends HttpServlet {
 		for (ProdottoConImmagini prodotto : prodottiVenditore.get(emailVenditore)) {
 
 			builder.append("ARTICOLO\n");
-			builder.append("---------------------\n");
 			builder.append("Id -> " + prodotto.getIdProdotto() + ".\n");
 			builder.append("Nome -> " + prodotto.getNomeProdotto() + ".\n");
 
@@ -173,6 +180,25 @@ public class ListaPreventivo extends HttpServlet {
 		builder.append("Staff di Tarredu Arredamenti.\n");
 
 		return builder.toString();
+
+	}
+
+	public void inserisciPreventivoInDB() {
+		Preventivo p = new Preventivo();
+		p.setUtente(emailUtente);
+		p.setListaProdotti(prodottiDaInserireNelPreventivo);
+		p.setListaVenditori(listaVenditori);
+		System.out.println(listaVenditori.toString());
+
+		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		factory.getPreventivoDAO().save(p);
+
+	}
+
+	public void rimuoviProdottiDalCarrello() {
+
+		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		factory.getCarrelloDAO().rimuoviProdotti(prodottiDaInserireNelPreventivo, emailUtente);
 
 	}
 

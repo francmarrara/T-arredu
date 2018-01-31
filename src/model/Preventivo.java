@@ -1,8 +1,9 @@
 package model;
 
 import java.sql.Connection;
-import java.util.ArrayList;
+
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import persistenceDAO.IdBuilder;
@@ -12,21 +13,19 @@ public class Preventivo {
 
 	private Integer idPreventivo;
 	private Date dataOraPreventivo;
-	private List<Venditore> listaVenditori;
-	private Utente utente;
-	private List<Prodotto> listaProdotti;
-	private String richiesteAggiuntiveUtente;
-	
+	private String utente;
+	private List<ProdottoConImmagini> listaProdotti;
+	private HashSet<String> listaVenditori;
+
 	public Preventivo() {
 
 		Connection connection = MySqlDAOFactory.getDataSource().getConnection();
-		
+
 		Integer id = IdBuilder.getId(connection);
 		setIdPreventivo(id);
+		dataOraPreventivo = new Date();
 		
-		listaVenditori = new ArrayList<>();
-		listaProdotti = new ArrayList<>();
-		
+
 	}
 
 	public Integer getIdPreventivo() {
@@ -45,48 +44,34 @@ public class Preventivo {
 		this.dataOraPreventivo = dataOraPreventivo;
 	}
 
-	public List<Venditore> getListaVenditori() {
-		return listaVenditori;
-	}
-
-	public void setListaVenditori(List<Venditore> idVenditore) {
-		this.listaVenditori = idVenditore;
-	}
-
-	public Utente getUtente() {
+	public String getUtente() {
 		return utente;
 	}
 
-	public void setUtente(Utente idUtente) {
+	public void setUtente(String idUtente) {
 		this.utente = idUtente;
 	}
 
-	public List<Prodotto> getListaProdotti() {
+	public List<ProdottoConImmagini> getListaProdotti() {
 		return listaProdotti;
 	}
 
-	public void setListaProdotti(List<Prodotto> listaProdotti) {
+	public void setListaProdotti(List<ProdottoConImmagini> listaProdotti) {
 		this.listaProdotti = listaProdotti;
 	}
 
-	public String getRichiesteAggiuntiveUtente() {
-		return richiesteAggiuntiveUtente;
-	}
-
-	public void setRichiesteAggiuntiveUtente(String richiesteAggiuntiveUtente) {
-		this.richiesteAggiuntiveUtente = richiesteAggiuntiveUtente;
-	}
-
-	public void addProdotto(Prodotto prodotto) {
+	public void addProdotto(ProdottoConImmagini prodotto) {
 
 		listaProdotti.add(prodotto);
 
 	}
 
-	public void addVenditore(Venditore venditore) {
+	public HashSet<String> getListaVenditori() {
+		return listaVenditori;
+	}
 
-		listaVenditori.add(venditore);
-
+	public void setListaVenditori(HashSet<String> listaVenditori) {
+		this.listaVenditori = listaVenditori;
 	}
 
 }

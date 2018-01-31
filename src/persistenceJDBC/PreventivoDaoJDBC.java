@@ -1,6 +1,7 @@
 package persistenceJDBC;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import javax.print.attribute.SetOfIntegerSyntax;
 
 import model.Preventivo;
 import model.Prodotto;
+import model.ProdottoConImmagini;
 import model.Utente;
 import model.Venditore;
 import persistenceDAO.DataSource;
@@ -44,19 +46,25 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 
 			statement.setInt(1, preventivo.getIdPreventivo());
 
-			long secs = preventivo.getDataOraPreventivo().getTime();
-			statement.setDate(2, new java.sql.Date(secs));
+			
+		    java.sql.Date sqlDate = new java.sql.Date(preventivo.getDataOraPreventivo().getTime());
+			
+			statement.setDate(2,sqlDate);
 
-			Utente utente = new Utente();
-			UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
-
-			utente = utenteDao.findByPrimaryKey(preventivo.getUtente().getEmailUtente());
-			statement.setString(3, utente.getEmailUtente());
+		
+			statement.setString(3, preventivo.getUtente());
 
 			statement.executeUpdate();
 
-			updateProdottoInPreventivo(preventivo);
-			updateVenditoreInPreventivo(preventivo);
+			for(ProdottoConImmagini p : preventivo.getListaProdotti()) {
+				addProductToPreventivo(p, preventivo.getIdPreventivo());
+			}
+			
+			for(String s : preventivo.getListaVenditori()) {
+				addVenditoreToPreventivo(s, preventivo);
+			}
+			
+			
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -335,21 +343,22 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 	}
 
 	@Override
-	public void addProductToPreventivo(Integer idProdotto, Integer  idPreventivo) {
+	public void addProductToPreventivo(ProdottoConImmagini prodotto, Integer  idPreventivo) {
 
 		Connection connection = dataSource.getConnection();
 
 		try {
 
 			String addProduct = "insert into prodottoInPreventivo (id_prodottoInPreventivo, preventivoID, "
-					+ "prodottoID) values (?,?,?)";
+					+ "prodottoID, richiestaAggiuntiva) values (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(addProduct);
 
 			Integer id = IdBuilder.getId(connection);
 			statement.setInt(1, id);
 
 			statement.setInt(2, idPreventivo);
-			statement.setInt(3, idProdotto);
+			statement.setInt(3, prodotto.getIdProdotto());
+			statement.setString(4, prodotto.getRichiestaAggiuntivaInPreventivo());
 
 			statement.executeUpdate();
 
@@ -368,7 +377,7 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 	}
 
 	@Override
-	public void addVenditoreToPreventivo(Venditore venditore, Preventivo preventivo) {
+	public void addVenditoreToPreventivo(String venditore, Preventivo preventivo) {
 
 		Connection connection = dataSource.getConnection();
 
@@ -381,12 +390,11 @@ public class PreventivoDaoJDBC implements PreventivoDAO {
 			Integer id = IdBuilder.getId(connection);
 			statement.setInt(1, id);
 
-			statement.setString(2, venditore.getEmailVenditore());
+			statement.setString(2, venditore);
 			statement.setInt(3, preventivo.getIdPreventivo());
 
 			statement.executeUpdate();
 
-//			preventivo.addVenditore(venditore);
 
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Preventivo;
 import model.Prodotto;
+import model.ProdottoConImmagini;
 import model.Utente;
 import model.Venditore;
 
@@ -24,7 +25,7 @@ public interface PreventivoDAO {
 	public void updateVenditoreInPreventivo(Preventivo preventivo);
 	
 	// Aggiunge un prodotto o un venditore al preventivo
-	public void addProductToPreventivo(Integer idProdotto, Integer idPreventivo);
-	public void addVenditoreToPreventivo(Venditore venditore, Preventivo preventivo);
+	public void addProductToPreventivo(ProdottoConImmagini prodotto, Integer idPreventivo);
+	public void addVenditoreToPreventivo(String venditore, Preventivo preventivo);
 	
 }
