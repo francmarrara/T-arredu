@@ -38,7 +38,7 @@
 	})(document);
 </script>
 <link rel="stylesheet" type="text/css" href="css/profiloUtente.css" />
-
+<link rel="stylesheet" type="text/css" href="css/snackbar.css" />
 <script src="js/Js/profiloUtente.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
@@ -293,7 +293,7 @@
 			<li><a data-toggle="tab" href="#menu2">Storico Preventivi</a></li>
 			<li><a data-toggle="tab" href="#menu3">Modifica dati
 					personali</a></li>
-					<li><a data-toggle="tab" href="#menu4">Modifica Password</a></li>
+			<li><a data-toggle="tab" href="#menu4">Modifica Password</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -581,7 +581,7 @@
 																				</div>
 																				<div class="valoreLabelProdotto">
 																					<p>
-																					<p>${prodotto.prezzoProdotto}0 €</p>
+																					<p>${prodotto.prezzoProdotto}0€</p>
 																					</p>
 																				</div>
 																				<button type="button" class="btn btn-primary"
@@ -627,7 +627,8 @@
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="nomeUtente" name="nome"
-										placeholder="Inserire nuovo nome utente" value="${utente.nomeUtente}">
+										placeholder="Inserire nuovo nome utente"
+										value="${utente.nomeUtente}">
 								</div>
 							</div>
 							<div class="row">
@@ -636,7 +637,8 @@
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="cognomeUtente" name="cognome"
-										placeholder="Inserire nuovo cognome utente" value="${utente.cognomeUtente}">
+										placeholder="Inserire nuovo cognome utente"
+										value="${utente.cognomeUtente}">
 								</div>
 							</div>
 							<div class="row">
@@ -645,7 +647,8 @@
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="emailUtente" name="email"
-										placeholder="Inserire nuova email utente" value="${utente.emailUtente}">
+										placeholder="Inserire nuova email utente"
+										value="${utente.emailUtente}">
 								</div>
 							</div>
 							<div class="row">
@@ -663,7 +666,8 @@
 								<div class="col-md-8">
 									<input type="text" id="recapitoTelefonico"
 										name="recapitoTelefonicoUtente"
-										placeholder="Inserire nuovo recapito telefonico" value="${utente.numeroTelefonoUtente}">
+										placeholder="Inserire nuovo recapito telefonico"
+										value="${utente.numeroTelefonoUtente}">
 								</div>
 							</div>
 						</div>
@@ -688,17 +692,18 @@
 					</h3>
 				</div>
 				<hr>
-				<div class="containerFormDatipersonali">
+				<div class="containerFormDatipersonali cambiaPassword">
 					<form action="">
 						<div class="containerDatiForm">
-				
+
 							<div class="row">
 								<div class="col-md-1">
 									<label for="passwordUtente">Vecchia Password</label>
 								</div>
 								<div class="col-md-8">
 									<input type="password" id="oldPassword"
-										placeholder="Inserire vecchia Password" name="oldPassword" required>
+										placeholder="Inserire vecchia Password" name="oldPassword"
+										required>
 								</div>
 							</div>
 							<div class="row">
@@ -707,7 +712,8 @@
 								</div>
 								<div class="col-md-8">
 									<input type="password" id="newPassword"
-										placeholder="Inserire nuova Password" name="newPassword" required>
+										placeholder="Inserire nuova Password" name="newPassword"
+										required>
 								</div>
 							</div>
 							<div class="row">
@@ -716,11 +722,12 @@
 								</div>
 								<div class="col-md-8">
 									<input type="password" id="confirmNewPassword"
-										placeholder="Confermare nuova Password" name="confirm-newPassword" required>
+										placeholder="Confermare nuova Password"
+										name="confirm-newPassword" required>
 								</div>
 							</div>
-						
-							
+
+
 						</div>
 
 						<div class="row containerSubmitButton">
@@ -744,8 +751,12 @@
 	<button type="button" class="btn btn-primary bottoneTornaSu">
 		<a href="#top" style="color: #ffffff">Torna su...</a>
 	</button>
+	
+	<button type="button" class="btn btn-primary prova" onclick="prova()">
+		<a style="color: #ffffff">Torna su...</a>
+	</button>
 
-
+	<div id="snackbar"></div>
 	<div class="content"></div>
 
 	<!-- Footer -->

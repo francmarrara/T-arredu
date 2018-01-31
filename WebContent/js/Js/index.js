@@ -1,9 +1,3 @@
-$(window).on('load', function() {
-
-	
-	
-});
-
 // Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
 $(document).ready(function() {
 	$("#catalogoProdotti").hover(function() {
