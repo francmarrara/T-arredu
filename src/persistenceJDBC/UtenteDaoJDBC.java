@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Statement;
 
+import model.Preventivo;
 import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
@@ -573,6 +574,36 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
+	}
+
+	@Override
+	public List<Preventivo> getPreventiviUtente(String emailUtente) {
+		
+		Connection connection = this.dataSource.getConnection();
+
+		PreparedStatement statement;
+
+		List<Preventivo> preventivi = new ArrayList<>();
+
+		try {
+
+			String query = "select * FROM preventivo WHERE id_utente = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, emailUtente);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return preventivi;
 	}
 
 }

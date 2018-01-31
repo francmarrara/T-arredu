@@ -799,13 +799,6 @@ label {
 }
 
 .valoreLabelProdotto p,
-.coloriProdotto {
+.venditoriProdotto {
     padding-left: 10%;
-}
-
-.square {
-    height: 25px;
-    width: 25px;
-    background-color: rgb(255, 0, 0);
-    margin-right: 1px;
 }

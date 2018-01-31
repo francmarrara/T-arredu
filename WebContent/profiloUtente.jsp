@@ -160,15 +160,16 @@
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -264,11 +265,12 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
@@ -280,7 +282,8 @@
 	</div>
 
 	<!-- Container con Dati personali, preventivi, preferiti e modififa dati personali -->
-	<div class="container" style="padding-top:10%; background-color: white; height:auto; width: 95.3%;">
+	<div class="container"
+		style="padding-top: 10%; background-color: white; height: auto; width: 95.3%;">
 		<h2>Il mio account</h2>
 
 		<ul class="nav nav-tabs">
@@ -320,7 +323,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Email</div>
-								<div class="panel-body">Email Utente</div>
+								<div class="panel-body">${utente.emailUtente}</div>
 							</div>
 						</div>
 					</div>
@@ -328,7 +331,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Password</div>
-								<div class="panel-body">Password Utente</div>
+								<div class="panel-body">${utente.passwordUtente}</div>
 							</div>
 						</div>
 					</div>
@@ -336,7 +339,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Data di nascita</div>
-								<div class="panel-body">Data di nascita Utente</div>
+								<div class="panel-body">${utente.datadiNascita}</div>
 							</div>
 						</div>
 					</div>
@@ -344,7 +347,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Recapito telefonico</div>
-								<div class="panel-body">Numero di telefono Utente</div>
+								<div class="panel-body">${utente.numeroTelefonoUtente}</div>
 							</div>
 						</div>
 					</div>
@@ -499,12 +502,106 @@
 									<tr>
 										<th>Codice Preventivo</th>
 										<th>Data Preventivo</th>
-										<th class="text-center">Id Utente</th>
 										<th class="text-center">Lista Prodotti in preventivo</th>
-										<th>Â </th>
 									</tr>
 								</thead>
 								<tbody>
+									<c:forEach items="${listaPreventivi}" var="preventivo">
+										<tr>
+											<td class="col-sm-8 col-md-8">
+												<div class="media">
+													<div class="immaginePreventivo">
+														<a class="thumbnail pull-left" href="#"> <img
+															class="media-object" src="images/bustapreventivo.png"
+															style="width: 72px; height: 72px;">
+														</a>
+													</div>
+													<div class="media-body">
+														<br>
+														<h4 class="media-heading">
+															<a href="#"> Cod: ${preventivo.idPreventivo}</a>
+														</h4>
+													</div>
+												</div>
+											</td>
+											<td class="col-sm-1 col-md-1 text-left"><strong>${preventivo.dataOraPreventivo}</strong></td>
+
+											<td
+												class="col-sm-1 col-md-1 text-center containerListaProdotti">
+												<button type="button" class="btn btn-primary"
+													data-toggle="modal" data-target="#myModal">
+													Prodotti <span class="glyphicon glyphicon-modal-window"></span>
+												</button> <!-- Modal -->
+												<div class="modal fade" id="myModal" role="dialog">
+													<div class="modal-dialog">
+
+														<!-- Modal content-->
+														<div class="modal-content">
+															<div class="modal-header">
+																<h3 class="modal-title">Lista dei prodotti in
+																	preventivo</h3>
+															</div>
+															<div class="modal-body">
+																<c:forEach items="${preventivo.listaProdotti}"
+																	var="prodotto">
+																	<div class="row">
+																		<h4>${prodotto.nomeProdotto}</h4>
+																		<div class="col-md-6">
+																			<img href="prodotto?id=${prodotto.idProdotto}"
+																				class="img img-responsive immagineProdotto"
+																				style="width: 300px; height: 200px;"
+																				src="${prodotto.immaginePrincipale}"
+																				alt="Stanza TerraR04">
+																		</div>
+																		<div class="col-md-6">
+																			<div class="containerCaratteristiche">
+																				<div class="labelProdotto">
+																					<label>Id: </label>
+																				</div>
+																				<div class="valoreLabelProdotto">
+																					<p>${prodotto.idProdotto}</p>
+																				</div>
+																				<div class="labelProdotto">
+																					<label>Marca: </label>
+																				</div>
+																				<div class="valoreLabelProdotto">
+																					<p>${prodotto.marcaProdotto}</p>
+																				</div>
+																				<div class="labelProdotto">
+																					<label>Venditore: </label>
+																				</div>
+																				<div class="valoreLabelProdotto">
+																					<div class="row venditoriProdotto">
+																						<p>${prodotto.nomeNegozioVenditore}</p>
+																					</div>
+																				</div>
+																				<div class="labelProdotto">
+																					<label>Prezzo: </label>
+																				</div>
+																				<div class="valoreLabelProdotto">
+																					<p>
+																					<p>${prodotto.prezzoProdotto}</p>
+																					</p>
+																				</div>
+																				<button type="button" class="btn btn-primary"
+																					data-toggle="modal" data-target="#myModal"
+																					onclick="prodotto?id=${prodotto.idProdotto}">Apri</button>
+																			</div>
+																		</div>
+																		<hr>
+																	</div>
+																</c:forEach>
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+											</td>
+
+										</tr>
+									</c:forEach>
 									<tr>
 										<td class="col-sm-8 col-md-8">
 											<div class="media">
@@ -523,8 +620,7 @@
 											</div>
 										</td>
 										<td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
-										<td class="col-sm-1 col-md-1 text-center"><strong>Id:
-												#123</strong></td>
+
 										<td
 											class="col-sm-1 col-md-1 text-center containerListaProdotti">
 											<button type="button" class="btn btn-primary"
@@ -730,11 +826,6 @@
 													</div>
 
 												</div>
-										</td>
-										<td class="col-sm-1 col-md-1">
-											<button type="button" class="btn btn-danger">
-												<span class="glyphicon glyphicon-remove"></span> Rimuovi
-											</button>
 										</td>
 
 									</tr>
@@ -756,8 +847,7 @@
 											</div>
 										</td>
 										<td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
-										<td class="col-sm-1 col-md-1 text-center"><strong>Id:
-												#123</strong></td>
+
 										<td
 											class="col-sm-1 col-md-1 text-center containerListaProdotti">
 											<button type="button" class="btn btn-primary"
@@ -963,11 +1053,6 @@
 													</div>
 
 												</div>
-										</td>
-										<td class="col-sm-1 col-md-1">
-											<button type="button" class="btn btn-danger">
-												<span class="glyphicon glyphicon-remove"></span> Rimuovi
-											</button>
 										</td>
 
 									</tr>
@@ -989,8 +1074,7 @@
 											</div>
 										</td>
 										<td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
-										<td class="col-sm-1 col-md-1 text-center"><strong>Id:
-												#123</strong></td>
+
 										<td
 											class="col-sm-1 col-md-1 text-center containerListaProdotti">
 											<button type="button" class="btn btn-primary"
@@ -1196,11 +1280,6 @@
 													</div>
 
 												</div>
-										</td>
-										<td class="col-sm-1 col-md-1">
-											<button type="button" class="btn btn-danger">
-												<span class="glyphicon glyphicon-remove"></span> Rimuovi
-											</button>
 										</td>
 
 									</tr>
@@ -1222,8 +1301,7 @@
 											</div>
 										</td>
 										<td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
-										<td class="col-sm-1 col-md-1 text-center"><strong>Id:
-												#123</strong></td>
+
 										<td
 											class="col-sm-1 col-md-1 text-center containerListaProdotti">
 											<button type="button" class="btn btn-primary"
@@ -1429,244 +1507,6 @@
 													</div>
 
 												</div>
-										</td>
-										<td class="col-sm-1 col-md-1">
-											<button type="button" class="btn btn-danger">
-												<span class="glyphicon glyphicon-remove"></span> Rimuovi
-											</button>
-										</td>
-
-									</tr>
-									<tr>
-										<td class="col-sm-8 col-md-8">
-											<div class="media">
-												<div class="immaginePreventivo">
-													<a class="thumbnail pull-left" href="#"> <img
-														class="media-object" src="images/bustapreventivo.png"
-														style="width: 72px; height: 72px;">
-													</a>
-												</div>
-												<div class="media-body">
-													<br>
-													<h4 class="media-heading">
-														<a href="#"> Cod: #12345</a>
-													</h4>
-												</div>
-											</div>
-										</td>
-										<td class="col-sm-1 col-md-1 text-left"><strong>gg/mm/aaaa</strong></td>
-										<td class="col-sm-1 col-md-1 text-center"><strong>Id:
-												#123</strong></td>
-										<td
-											class="col-sm-1 col-md-1 text-center containerListaProdotti">
-											<button type="button" class="btn btn-primary"
-												data-toggle="modal" data-target="#myModal">
-												Prodotti <span class="glyphicon glyphicon-modal-window"></span>
-											</button> <!-- Modal -->
-											<div class="modal fade" id="myModal" role="dialog">
-												<div class="modal-dialog">
-
-													<!-- Modal content-->
-													<div class="modal-content">
-														<div class="modal-header">
-															<h3 class="modal-title">Lista dei prodotti in
-																preventivo</h3>
-														</div>
-														<div class="modal-body">
-															<div class="row">
-																<h4>Nome Prodotto</h4>
-																<div class="col-md-6">
-																	<img href="prodotto.html" class="immagineProdotto"
-																		src="images/productImages/TerraR04_01.jpg"
-																		alt="Stanza TerraR04">
-																</div>
-																<div class="col-md-6">
-																	<div class="containerCaratteristiche">
-																		<div class="labelProdotto">
-																			<label>Nome: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Nome Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Marca: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Marca Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Colori: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<div class="row coloriProdotto">
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Prezzo: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>2314,34 â¬</p>
-																		</div>
-																		<button type="button" class="btn btn-primary"
-																			data-toggle="modal" data-target="#myModal">Apri</button>
-																	</div>
-																</div>
-																<hr>
-															</div>
-															<div class="row">
-																<h4>Nome Prodotto</h4>
-																<div class="col-md-6">
-																	<img href="prodotto.html" class="immagineProdotto"
-																		src="images/productImages/TerraR04_01.jpg"
-																		alt="Stanza TerraR04">
-																</div>
-																<div class="col-md-6">
-																	<div class="containerCaratteristiche">
-																		<div class="labelProdotto">
-																			<label>Nome: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Nome Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Marca: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Marca Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Colori: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<div class="row coloriProdotto">
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Prezzo: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>2314,34 â¬</p>
-																		</div>
-																		<button type="button" class="btn btn-primary"
-																			data-toggle="modal" data-target="#myModal">Apri</button>
-																	</div>
-																</div>
-																<hr>
-															</div>
-															<div class="row">
-																<h4>Nome Prodotto</h4>
-																<div class="col-md-6">
-																	<img href="prodotto.html" class="immagineProdotto"
-																		src="images/productImages/TerraR04_01.jpg"
-																		alt="Stanza TerraR04">
-																</div>
-																<div class="col-md-6">
-																	<div class="containerCaratteristiche">
-																		<div class="labelProdotto">
-																			<label>Nome: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Nome Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Marca: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Marca Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Colori: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<div class="row coloriProdotto">
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Prezzo: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>2314,34 â¬</p>
-																		</div>
-																		<button type="button" class="btn btn-primary"
-																			data-toggle="modal" data-target="#myModal">Apri</button>
-																	</div>
-																</div>
-																<hr>
-															</div>
-															<div class="row">
-																<h4>Nome Prodotto</h4>
-																<div class="col-md-6">
-																	<img href="prodotto.html" class="immagineProdotto"
-																		src="images/productImages/TerraR04_01.jpg"
-																		alt="Stanza TerraR04">
-																</div>
-																<div class="col-md-6">
-																	<div class="containerCaratteristiche">
-																		<div class="labelProdotto">
-																			<label>Nome: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Nome Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Marca: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>Marca Prodotto</p>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Colori: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<div class="row coloriProdotto">
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																				<div class="col-sm-1">
-																					<div class="square"></div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="labelProdotto">
-																			<label>Prezzo: </label>
-																		</div>
-																		<div class="valoreLabelProdotto">
-																			<p>2314,34 â¬</p>
-																		</div>
-																		<button type="button" class="btn btn-primary"
-																			data-toggle="modal" data-target="#myModal">Apri</button>
-																	</div>
-																</div>
-																<hr>
-															</div>
-														</div>
-
-													</div>
-
-												</div>
-										</td>
-										<td class="col-sm-1 col-md-1">
-											<button type="button" class="btn btn-danger">
-												<span class="glyphicon glyphicon-remove"></span> Rimuovi
-											</button>
 										</td>
 
 									</tr>
@@ -1768,7 +1608,7 @@
 
 	<div class="content"></div>
 
-<!-- Footer -->
+	<!-- Footer -->
 	<footer id="myFooter">
 		<div class="container">
 			<div class="row">

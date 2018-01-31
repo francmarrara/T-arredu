@@ -1,4 +1,4 @@
-package model;
+ package model;
 
 public class ProdottoConImmagini {
 
@@ -9,6 +9,8 @@ public class ProdottoConImmagini {
 	private Integer visiteProdotto;
 	private String richiestaAggiuntivaInPreventivo;
 	private String emailVenditore;
+	private String nomeNegozioVenditore;
+	private String immaginePrincipale;
 
 	@Override
 	public String toString() {
@@ -33,8 +35,7 @@ public class ProdottoConImmagini {
 
 	}
 
-	private String nomeNegozioVenditore;
-	private String immaginePrincipale;
+	
 
 	public Integer getVisiteProdotto() {
 		return visiteProdotto;
