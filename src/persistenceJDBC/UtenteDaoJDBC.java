@@ -213,31 +213,28 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	@Override
 	public void aggiungiProdottoInPreferiti(Integer idProdotto, String emailUtente) {
 
-		
+		Connection connection = this.dataSource.getConnection();
 
-			Connection connection = this.dataSource.getConnection();
+		try {
 
+			String insert = "insert into prodottiPreferiti(id_prodotto, emailUtente) values (?,?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+
+			statement.setInt(1, idProdotto);
+			statement.setString(2, emailUtente);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
 			try {
-
-				String insert = "insert into prodottiPreferiti(id_prodotto, emailUtente) values (?,?)";
-				PreparedStatement statement = connection.prepareStatement(insert);
-
-				statement.setInt(1, idProdotto);
-				statement.setString(2, emailUtente);
-
-				statement.executeUpdate();
-
+				connection.close();
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
-			} finally {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					throw new PersistenceException(e.getMessage());
-				}
 			}
 		}
-	
+	}
 
 	@Override
 	public void rimuoviProdottoInPreferiti(Integer idProdotto, String emailUtente) {
@@ -361,9 +358,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		}
 
 	}
-	
-	
-    @Override
+
+	@Override
 	public boolean giaPreferito(Integer idProdotto, String emailUtente) {
 
 		Connection connection = this.dataSource.getConnection();
@@ -395,42 +391,39 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 		return false;
 	}
-    
-    @Override
-   	public boolean giaInCarrello(Integer idProdotto, String emailUtente) {
 
-   		Connection connection = this.dataSource.getConnection();
+	@Override
+	public boolean giaInCarrello(Integer idProdotto, String emailUtente) {
 
-   		try {
+		Connection connection = this.dataSource.getConnection();
 
-   			PreparedStatement statement;
-   			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ? and id_prodottoInCarrello = ? ";
-   			statement = connection.prepareStatement(query);
-   			statement.setString(1, emailUtente);
-   			statement.setInt(2, idProdotto);
+		try {
 
-   			ResultSet result = statement.executeQuery();
+			PreparedStatement statement;
+			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ? and id_prodottoInCarrello = ? ";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, emailUtente);
+			statement.setInt(2, idProdotto);
 
-   			if (!result.first() == false) {
-   				
-   				return true;
-   			}
+			ResultSet result = statement.executeQuery();
 
-   		} catch (SQLException e) {
-   			throw new PersistenceException(e.getMessage());
-   		} finally {
-   			try {
-   				connection.close();
-   			} catch (SQLException e) {
-   				throw new PersistenceException(e.getMessage());
-   			}
-   		}
+			if (!result.first() == false) {
 
-   		return false;
-   	}
-    
-    
-    
+				return true;
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return false;
+	}
 
 	@Override
 	public boolean giaRegistrato(String email) {
@@ -549,7 +542,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		
+
 	}
 
 	@Override
@@ -578,29 +571,77 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	@Override
 	public List<Preventivo> getPreventiviUtente(String emailUtente) {
-		
+
 		Connection connection = this.dataSource.getConnection();
 
 		PreparedStatement statement;
 
 		List<Preventivo> preventivi = new ArrayList<>();
+		List<Integer> idPreventivi = new ArrayList();
 
 		try {
 
-			String query = "select * FROM preventivo WHERE id_utente = ?";
+			String query = "select id_preventivo FROM preventivo WHERE id_utente = ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, emailUtente);
 
 			ResultSet result = statement.executeQuery();
 
-			if (result.next()) {
-				
+			while (result.next()) {
+				idPreventivi.add(result.getInt("id_preventivo"));
+
 			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+
+		for (Integer idPreventivo : idPreventivi) {
+			try {
+
+				Preventivo p = new Preventivo();
+
+				p.setListaProdotti(new ArrayList<ProdottoConImmagini>());
+
+				String query = "SELECT preventivo.id_preventivo, preventivo.data_ora_preventivo, preventivo.id_utente, "
+						+ "prodotto.id_prodotto, prodotto.nomeProdotto, prodotto.marcaProdotto,prodotto.immaginePrincipale,"
+						+ "prodotto.prezzoProdotto, venditore.emailVenditore, "
+						+ "venditore.nomeNegozio FROM tarreduDB.preventivo JOIN prodottoInPreventivo, prodotto, venditorePerProdotto, "
+						+ "venditore where id_preventivo = preventivoID and prodottoID = prodotto.id_prodotto and "
+						+ "prodotto.id_prodotto = venditorePerProdotto.id_prodotto and "
+						+ "venditorePerProdotto.emailVenditore = venditore.emailVenditore and preventivo.id_preventivo = ?";
+				statement = connection.prepareStatement(query);
+
+				statement.setInt(1, idPreventivo);
+
+				ResultSet result = statement.executeQuery();
+
+				while (result.next()) {
+					p.setIdPreventivo(result.getInt("id_preventivo"));
+					p.setDataOraPreventivo(result.getDate("data_ora_preventivo"));
+					p.setUtente(result.getString("id_utente"));
+
+					ProdottoConImmagini prod = new ProdottoConImmagini();
+					prod.setIdProdotto(result.getInt("id_prodotto"));
+					prod.setNomeProdotto(result.getString("nomeProdotto"));
+					prod.setMarcaProdotto(result.getString("marcaProdotto"));
+					prod.setEmailVenditore(result.getString("emailVenditore"));
+					prod.setNomeNegozioVenditore(result.getString("nomeNegozio"));
+					prod.setImmaginePrincipale(result.getString("immaginePrincipale"));
+					prod.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+
+					p.getListaProdotti().add(prod);
+
+				}
+                preventivi.add(p);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 
 		return preventivi;
