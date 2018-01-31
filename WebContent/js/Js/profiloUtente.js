@@ -27,6 +27,47 @@ function showSnackbar() {
 	}, 3000);
 }
 
+/* VALIDATORE EMAIL */
+
+var validate_email = function(email) {
+	var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
+	var is_email_valid = false;
+	if (email.match(pattern) != null) {
+		is_email_valid = true;
+	}
+	return is_email_valid;
+}
+
+/* Valida Email registrazione */
+$(document).on("focusout", "#emailUtente", function() {
+	var input_val = $(this).val();
+	var is_success = validate_email(input_val);
+
+	if (!is_success) {
+
+		$("#emailUtente").css({
+			'background-color' : 'red'
+		});
+		$("#snackbar").text("FORMATO EMAIL NON CORRETTO");
+		$("#snackbar").css({
+			'background-color' : 'red'
+		});
+		showSnackbar();
+	} else {
+
+		$("#emailUtente").css({
+			'background-color' : '#7FFF00'
+		});
+		$("#snackbar").text("FORMATO EMAIL CORRETTO");
+		$("#snackbar").css({
+			'background-color' : '#7FFF00'
+		});
+		showSnackbar();
+
+	}
+
+});
+
 // /* Validatore PASSWORD */
 $(document).on("focusout", "#confirmNewPassword", function() {
 
@@ -148,7 +189,7 @@ function cambiaDati() {
 				showSnackbar();
 
 				window.setTimeout(window.location.replace('utente'), 1000);
-				
+
 			}
 		})
 

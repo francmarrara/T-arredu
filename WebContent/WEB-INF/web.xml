@@ -171,6 +171,15 @@
 		<servlet-name>CambiaPasswordUtente</servlet-name>
 		<url-pattern>/cambiaPassword</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AggiornaDatiPersonali</servlet-name>
+		<servlet-class>controller.AggiornaDatiPersonali</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiornaDatiPersonali</servlet-name>
+		<url-pattern>/aggiornaDatiPersonali</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>

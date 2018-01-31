@@ -619,7 +619,7 @@
 				</div>
 				<hr>
 				<div class="containerFormDatipersonali">
-					<form action="">
+					<form action="aggiornaDatiPersonali">
 						<div class="containerDatiForm">
 							<div class="row">
 								<div class="col-md-1">
@@ -678,7 +678,7 @@
 									tutto</button>
 							</div>
 							<div class="col-md-6">
-								<button class="submitButton" onclick="cambiaDati()">Salva</button>
+								<button class="submitButton">Salva</button>
 							</div>
 						</div>
 					</form>

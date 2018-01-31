@@ -134,11 +134,11 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	}
 
 	@Override
-	public void update(Utente utente) {
+	public void update(Utente utente, String vecchiaEmail) {
 
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update utente SET nome = ?, cognome = ?, dataNascita = ?, email = ?, numeroTelefonico = ?, passwordUtente = ?  WHERE email=?";
+			String update = "update utente SET nome = ?, cognome = ?, dataNascita = ?, email = ?, numeroTelefonico = ? WHERE email=?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, utente.getNomeUtente());
 			statement.setString(2, utente.getCognomeUtente());
@@ -146,8 +146,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			statement.setDate(3, new java.sql.Date(secs));
 			statement.setString(4, utente.getEmailUtente());
 			statement.setString(5, utente.getNumeroTelefonoUtente());
-			statement.setString(6, utente.getPasswordUtente());
-			statement.setString(7, utente.getEmailUtente());
+			statement.setString(6, vecchiaEmail);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

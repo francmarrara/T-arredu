@@ -15,7 +15,7 @@ public interface UtenteDAO {
 
 	public List<Utente> findAll();
 
-	public void update(Utente utente); // Update
+	public void update(Utente utente, String vecchiaEmail); // Update
 
 	public void delete(Utente utente); // Delete
 
