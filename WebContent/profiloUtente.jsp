@@ -274,7 +274,7 @@
 			</ul>
 		</div>
 	</nav>
-
+<input id="passwordPerVerifica" value="${utente.passwordUtente}">
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
@@ -332,7 +332,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Password</div>
-								<div class="panel-body" id="passwordPerVerifica">${utente.passwordUtente}</div>
+								<div class="panel-body" >${utente.passwordUtente}</div>
 							</div>
 						</div>
 					</div>

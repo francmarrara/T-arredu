@@ -68,6 +68,8 @@ $(document).on("focusout", "#emailUtente", function() {
 
 });
 
+
+
 // /* Validatore PASSWORD */
 $(document).on("focusout", "#confirmNewPassword", function() {
 
@@ -131,8 +133,7 @@ $(document).on(
 
 			console.log(password);
 
-			var confirmPassword = document.getElementById(
-					"#passwordPerVerifica").val();
+			var confirmPassword = $("#passwordPerVerifica").val();
 
 			console.log(confirmPassword);
 
