@@ -154,5 +154,14 @@
 		<url-pattern>/utente</url-pattern>
 	</servlet-mapping>
 
+<servlet>
+		<servlet-name>VenditoreServlet</servlet-name>
+		<servlet-class>controller.VenditoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VenditoreServlet</servlet-name>
+		<url-pattern>/venditore</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>

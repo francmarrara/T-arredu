@@ -510,7 +510,7 @@
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
-						<li><a href="#">FAQ</a></li>
+						<li><a href="venditore">FAQ</a></li>
 						<li><a href="#">Help desk</a></li>
 					</ul>
 				</div>

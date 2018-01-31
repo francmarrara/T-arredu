@@ -1,3 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 
 <head>
@@ -272,10 +275,10 @@ window.smartsupp||(function(d) {
                 <h2 class="vendor_name">Antonella Mazzei Arredamenti</h2>
                 <p class="separatore"></p>
                 <div class="descrizione">
-                    <p><b>Antonella Mazzei Arredamenti</b> è un nome che ha dietro una storia fondata sulla passione per il mobile, per il legno, per il gusto di arredare.</p>
-                    <p>Quarant'anni nel settore hanno portato l'azienda a crescere anno dopo anno, identificandosi in tre caratteristiche: cortesia, qualità e professionalità.</p>
+                    <p><b>Antonella Mazzei Arredamenti</b> Ã¨ un nome che ha dietro una storia fondata sulla passione per il mobile, per il legno, per il gusto di arredare.</p>
+                    <p>Quarant'anni nel settore hanno portato l'azienda a crescere anno dopo anno, identificandosi in tre caratteristiche: cortesia, qualitÃ  e professionalitÃ .</p>
                     <p>Da Antonella Mazzei Arredamenti potrai trovare uno staff di professionisti capace di prendersi cura delle tue esigenze, ma soprattutto in grado di valorizzare i tuoi spazi andando incontro ai tuoi desideri.</p>
-                    <p>Perchè la casa esprime il tuo gusto personale, che la rende unica ed eclusiva.</p>
+                    <p>PerchÃ¨ la casa esprime il tuo gusto personale, che la rende unica ed eclusiva.</p>
                 </div>
 
                 <div class="info">
@@ -367,7 +370,7 @@ window.smartsupp||(function(d) {
                     <div>
                         <h4 class="titolo_prodotto">Ardiano</h4>
                         <div class="testo_prodotto">
-                            <p>Braccioli e schienali hanno la stessa altezza in questo sofà essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
+                            <p>Braccioli e schienali hanno la stessa altezza in questo sofÃ  essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
                         </div>
                         <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button>
                     </div>

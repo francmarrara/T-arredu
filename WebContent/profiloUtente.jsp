@@ -65,7 +65,7 @@
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
-				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
+				<li class="navbarOggetto"><a href="#">Home</a></li>
 				<!-- DropMenu per catalogo prodotti -->
 				<li class="dropdown navbarOggetto" id="catalogoProdotti"><a
 					class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo
@@ -158,14 +158,121 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
+				<c:if test="${utenteLoggato == true}">
 
-				<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
-						class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-				<li class="carrello navbarOggetto"><a href="carrello.html"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
+							class="glyphicon glyphicon-user user"></span> Benvenuto,
+							${nomeUtente}</a></li>
+							
+				<li class="carrello navbarOggetto"><a href="carrello"><span
+				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+				</c:if>
+
+				<c:if test="${utenteLoggato == false}">
+
+					<li class="navbarOggetto">
+						<!-- Form per il login --> <a href="#"
+						onclick="document.getElementById('login').style.display='block'">
+							<span class="glyphicon glyphicon-log-in"></span> Login
+					</a>
+
+						<div id="login" class="modal">
+
+							<form class="modal-content animate" method="post"
+								action="validaCredenzialiLogin">
+								<div class="imgcontainer">
+									<span
+										onclick="document.getElementById('login').style.display='none'"
+										class="close" title="Chiudi Login">&times;</span> <img
+										src="images/userLogin.jpg" alt="Avatar" class="avatar"
+										width=150 height=150>
+								</div>
+
+								<div class="containerModal">
+									<label><b>Email Utente</b></label> <input
+										class="inputLogIn EmailUtenteLogin" type="text"
+										placeholder="Inserire Indirizzo Email" name="emailUtente"
+										required> <label><b>Password</b></label> <input
+										class="inputLogIn passwordLogin" type="password"
+										placeholder="Inserire Password" name="psw" required>
+
+									<button class="buttonLog" type="submit">Login</button>
+									<div class="containerCheckbox">
+										<label>Ricordami <input type="checkbox"
+											id="checkRicordami" onclick="controlla()"></label>
+									</div>
+								</div>
+
+								<div class="containerModalBottom"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('login').style.display='none'"
+										class="cancelbtn">Cancel</button>
+									<span class="psw"><a href="#">Password dimenticata?</a></span>
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="navbarOggetto">
+						<!-- Form per la registrazione --> <a href="#registrazione"
+						onclick="document.getElementById('registrazione').style.display='block'">
+							<span class="glyphicon glyphicon-user user"></span> Registrati
+					</a>
+
+						<div id="registrazione" class="modal">
+
+							<form class="modal-content animateReg" method="post"
+								action="registrazione">
+								<div class="imgcontainerReg">
+									<span
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="closeReg" title="Chiudi Registrazione">&times;</span>
+								</div>
+								<h1>Registrazione</h1>
+								<p>Compila questo modulo per creare un account.</p>
+								<hr>
+								<div class="containerReg">
+
+									<label><b>Nome</b></label> <input type="text"
+										placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
+									<input type="text" placeholder="Inserire Cognome"
+										name="cognome" required> <label><b>Data di
+											Nascita</b></label> <input type="date"
+										placeholder="Inserire Data di Nascita" name="dataDiNascita"
+										required> <label><b>Numero di Telefono</b></label> <input
+										type="text" placeholder="Inserire Numero di Telefono"
+										name="numeroDiTelefono" required> <label><b>Email</b></label>
+									<input id="emailUtente" type="text"
+										placeholder="Inserire Indirizzo Email" name="email" required>
+									<label><b>Password</b></label> <input id="psw" type="password"
+										placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
+											Password</b></label> <input id="psw-repeat" type="password"
+										placeholder="Reinserire Password" name="psw-repeat" required>
+								</div>
+								<div class="containerRegButton"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="cancelbtnReg">Cancel</button>
+									<button class="buttonReg" type="submit">Registrati</button>
+								</div>
+							</form>
+
+						</div>
+					</li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
 						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+				</c:if>
+
+				
 			</ul>
 		</div>
 	</nav>
+
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
@@ -173,7 +280,7 @@
 	</div>
 
 	<!-- Container con Dati personali, preventivi, preferiti e modififa dati personali -->
-	<div class="centerContainer">
+	<div class="container" style="padding-top:10%; background-color: white; height:auto; width: 95.3%;">
 		<h2>Il mio account</h2>
 
 		<ul class="nav nav-tabs">
@@ -1661,7 +1768,7 @@
 
 	<div class="content"></div>
 
-	<!-- Footer -->
+<!-- Footer -->
 	<footer id="myFooter">
 		<div class="container">
 			<div class="row">
@@ -1689,7 +1796,7 @@
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
-						<li><a href="#">FAQ</a></li>
+						<li><a href="venditore">FAQ</a></li>
 						<li><a href="#">Help desk</a></li>
 					</ul>
 				</div>
@@ -1707,11 +1814,15 @@
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
-			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+			<a href="www.twitter.com" class="twitter"><i
+				class="fa fa-twitter"></i></a> <a
+				href="http://www.facebook.com/sharer.php?u=index.jsp"
+				class="facebook"><i class="fa fa-facebook-official"></i></a> <a
+				href="www.googleplus.com" class="google"><i
+				class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
+	<div id="snackbar"></div>
 
 </body>
 
