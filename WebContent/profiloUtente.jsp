@@ -293,6 +293,7 @@
 			<li><a data-toggle="tab" href="#menu2">Storico Preventivi</a></li>
 			<li><a data-toggle="tab" href="#menu3">Modifica dati
 					personali</a></li>
+					<li><a data-toggle="tab" href="#menu4">Modifica Password</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -331,7 +332,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Password</div>
-								<div class="panel-body">${utente.passwordUtente}</div>
+								<div class="panel-body" id="passwordPerVerifica">${utente.passwordUtente}</div>
 							</div>
 						</div>
 					</div>
@@ -512,7 +513,7 @@
 												<div class="media">
 													<div class="immaginePreventivo">
 														<a class="thumbnail pull-left" href="#"> <img
-															class="media-object" src="images/bustapreventivo.png"
+															class="media-object" src="images/preventivo.jpg"
 															style="width: 72px; height: 72px;">
 														</a>
 													</div>
@@ -580,7 +581,7 @@
 																				</div>
 																				<div class="valoreLabelProdotto">
 																					<p>
-																					<p>${prodotto.prezzoProdotto}</p>
+																					<p>${prodotto.prezzoProdotto}0 €</p>
 																					</p>
 																				</div>
 																				<button type="button" class="btn btn-primary"
@@ -618,7 +619,7 @@
 				</div>
 				<hr>
 				<div class="containerFormDatipersonali">
-					<form action="/action_page.php">
+					<form action="">
 						<div class="containerDatiForm">
 							<div class="row">
 								<div class="col-md-1">
@@ -626,7 +627,7 @@
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="nomeUtente" name="nome"
-										placeholder="Inserire nuovo nome utente">
+										placeholder="Inserire nuovo nome utente" value="${utente.nomeUtente}">
 								</div>
 							</div>
 							<div class="row">
@@ -635,7 +636,7 @@
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="cognomeUtente" name="cognome"
-										placeholder="Inserire nuovo cognome utente">
+										placeholder="Inserire nuovo cognome utente" value="${utente.cognomeUtente}">
 								</div>
 							</div>
 							<div class="row">
@@ -644,16 +645,7 @@
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="emailUtente" name="email"
-										placeholder="Inserire nuova email utente">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-1">
-									<label for="passwordUtente">Password Utente</label>
-								</div>
-								<div class="col-md-8">
-									<input type="password" id="passwordUtente"
-										placeholder="Inserire nuova Password" name="password" required>
+										placeholder="Inserire nuova email utente" value="${utente.emailUtente}">
 								</div>
 							</div>
 							<div class="row">
@@ -661,7 +653,7 @@
 									<label for="dataNascita">Data di nascita Utente</label>
 								</div>
 								<div class="col-md-8">
-									<input type="date" name="bday">
+									<input type="date" name="bday" value="${utente.datadiNascita}">
 								</div>
 							</div>
 							<div class="row">
@@ -671,7 +663,7 @@
 								<div class="col-md-8">
 									<input type="text" id="recapitoTelefonico"
 										name="recapitoTelefonicoUtente"
-										placeholder="Inserire nuovo recapito telefonico">
+										placeholder="Inserire nuovo recapito telefonico" value="${utente.numeroTelefonoUtente}">
 								</div>
 							</div>
 						</div>
@@ -682,7 +674,62 @@
 									tutto</button>
 							</div>
 							<div class="col-md-6">
-								<button class="submitButton" type="submit">Salva</button>
+								<button class="submitButton" onclick="cambiaDati()">Salva</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- Modifica password utente -->
+			<div id="menu4" class="tab-pane fade">
+				<div class="containerTitoloForm">
+					<h3>
+						Modifica Password <span class="glyphicon glyphicon-pencil"></span>
+					</h3>
+				</div>
+				<hr>
+				<div class="containerFormDatipersonali">
+					<form action="">
+						<div class="containerDatiForm">
+				
+							<div class="row">
+								<div class="col-md-1">
+									<label for="passwordUtente">Vecchia Password</label>
+								</div>
+								<div class="col-md-8">
+									<input type="password" id="oldPassword"
+										placeholder="Inserire vecchia Password" name="oldPassword" required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="passwordUtente">Nuova Password</label>
+								</div>
+								<div class="col-md-8">
+									<input type="password" id="newPassword"
+										placeholder="Inserire nuova Password" name="newPassword" required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="passwordUtente">Conferma Nuova Password</label>
+								</div>
+								<div class="col-md-8">
+									<input type="password" id="confirmNewPassword"
+										placeholder="Confermare nuova Password" name="confirm-newPassword" required>
+								</div>
+							</div>
+						
+							
+						</div>
+
+						<div class="row containerSubmitButton">
+							<div class="col-md-6">
+								<button class="cancelButton" type="reset">Cancella
+									tutto</button>
+							</div>
+							<div class="col-md-6">
+								<button class="submitButton" onclick="cambiaDati()">Salva</button>
 							</div>
 						</div>
 					</form>
