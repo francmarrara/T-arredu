@@ -180,7 +180,7 @@
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
 							
-				<li class="carrello navbarOggetto"><a href="carrello?email=${emailUtenteLoggato}"><span
+				<li class="carrello navbarOggetto"><a href="carrello"><span
 				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>

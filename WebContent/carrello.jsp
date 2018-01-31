@@ -177,7 +177,7 @@
 							class="glyphicon glyphicon-user user"></span> ${nomeUtente}</a></li>
 
 					<li class="carrello navbarOggetto"><a
-						href="carrello?email=${emailUtenteLoggato}"><span
+						href="carrello"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>

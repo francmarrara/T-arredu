@@ -73,7 +73,8 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 		Carrello carrello = null;
 		try {
 			PreparedStatement statement;
-			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ?";
+			String query = "select id_prodotto,nomeProdotto,marcaProdotto,prezzoProdotto,immaginePrincipale from prodottoInCarrello as ProdCarrello , prodotto as prod where email_utenteCarrello "
+					+ "= ? and prod.id_prodotto = id_prodottoInCarrello";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, emailUtenteCarrello);
 			ResultSet result = statement.executeQuery();
@@ -85,9 +86,14 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 
 		
 			while (result.next()) {
+				ProdottoConImmagini p = new ProdottoConImmagini();
+				p.setIdProdotto(result.getInt("id_prodotto"));
+				p.setNomeProdotto(result.getString("nomeProdotto"));
+				p.setMarcaProdotto(result.getString("marcaProdotto"));
+				p.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+				p.setImmaginePrincipale(result.getString("immaginePrincipale"));
 				
-				
-                carrello.getProdottiNelCarrello().add(factory.getProdottoDAO().findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodottoInCarrello")));
+                carrello.getProdottiNelCarrello().add(p);
 				
 
 			}
