@@ -18,10 +18,6 @@ $(document).ready(function() {
 	});
 });
 
-function prova() {
-	console.log("PREMUTO");
-}
-
 /* SNACKBAR */
 function showSnackbar() {
 	var x = document.getElementById("snackbar")
@@ -86,36 +82,97 @@ $(document).on("focusout", "#confirmNewPassword", function() {
 });
 
 // Valida email vecchia confrontata alla nuova
-$(document).on("focusout", "#oldPassword", function() {
-	var password = $("#oldPassword").val();
+$(document).on(
+		"focusout",
+		"#oldPassword",
+		function() {
+			var password = $("#oldPassword").val();
 
-	console.log(password);
+			console.log(password);
 
-	var confirmPassword = $("#passwordPerVerifica").val();
+			var confirmPassword = document.getElementById(
+					"#passwordPerVerifica").val();
 
-	console.log(confirmPassword);
+			console.log(confirmPassword);
 
-	if (password == confirmPassword) {
-		$("#oldPassword").css({
-			'background-color' : '#7FFF00'
+			if (password == confirmPassword) {
+				$("#oldPassword").css({
+					'background-color' : '#7FFF00'
+				});
+
+				$("#snackbar").css({
+					'background-color' : '#7FFF00'
+				});
+				$("#snackbar").text("LA VECCHIA PASSWORD E' CONFERMATA");
+				showSnackbar();
+
+			} else {
+				$("#oldPassword").css({
+					'background-color' : 'red'
+				});
+
+				$("#snackbar").css({
+					'background-color' : 'red'
+				});
+				$("#snackbar").text("VECCHIA PASSWORD ERRATA");
+				showSnackbar();
+			}
+
 		});
 
-		$("#snackbar").css({
-			'background-color' : '#7FFF00'
-		});
-		$("#snackbar").text("LA VECCHIA PASSWORD E' CONFERMATA");
-		showSnackbar();
+function cambiaDati() {
 
-	} else {
-		$("#oldPassword").css({
-			'background-color' : 'red'
-		});
+	var userPassword = $("#passwordPerVerifica").val();
+	var oldPassword = $("#oldPassword").val();
 
-		$("#snackbar").css({
-			'background-color' : 'red'
-		});
-		$("#snackbar").text("VECCHIA PASSWORD ERRATA");
-		showSnackbar();
+	var newPassword = $("#newPassword").val();
+	var confirmPassword = $("#confirmNewPassword").val();
+
+	if (newPassword == confirmPassword) {
+
+		$.ajax({
+			type : "GET",
+			url : "cambiaPassword",
+
+			data : {
+				nuovaPassword : newPassword,
+			},
+			success : function() {
+				$("#emailUtente").css({
+					'background-color' : '#7FFF00'
+				});
+				$("#snackbar").css({
+					'background-color' : '#7FFF00'
+				});
+				$("#snackbar").text("PASSWORD MODIFICATA CON SUCCESSO");
+				showSnackbar();
+
+				window.setTimeout(window.location.replace('utente'), 1000);
+				
+			}
+		})
+
 	}
 
-});
+}
+
+function effettuaLogout() {
+
+	$.ajax({
+		type : "GET",
+		url : "effettuaLogout",
+
+		success : function() {
+			$("#snackbar").text("LOGOUT EFFETTUATO");
+			$("#snackbar").css({
+				'background-color' : 'green'
+			});
+			showSnackbar();
+
+			// window.setTimeout(location.reload(), 1000);
+			window.location.replace('index.jsp');
+
+		}
+
+	})
+}

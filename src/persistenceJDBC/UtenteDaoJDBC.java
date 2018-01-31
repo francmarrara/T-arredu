@@ -182,13 +182,13 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	}
 
 	@Override
-	public void changePassword(Utente utente, String password) {
+	public void changePassword(String utente, String password) {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String update = "update utente SET passwordUtente = ? WHERE email = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, password);
-			statement.setString(2, utente.getEmailUtente());
+			statement.setString(2, utente);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -635,8 +635,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 					p.getListaProdotti().add(prod);
 
 				}
-                preventivi.add(p);
-				
+				preventivi.add(p);
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

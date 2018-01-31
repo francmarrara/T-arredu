@@ -693,7 +693,7 @@
 				</div>
 				<hr>
 				<div class="containerFormDatipersonali cambiaPassword">
-					<form action="">
+					<form onsubmit="cambiaDati(); return false;">
 						<div class="containerDatiForm">
 
 							<div class="row">
@@ -736,7 +736,7 @@
 									tutto</button>
 							</div>
 							<div class="col-md-6">
-								<button class="submitButton" onclick="cambiaDati()">Salva</button>
+								<button class="submitButton">Salva</button>
 							</div>
 						</div>
 					</form>
@@ -750,10 +750,6 @@
 
 	<button type="button" class="btn btn-primary bottoneTornaSu">
 		<a href="#top" style="color: #ffffff">Torna su...</a>
-	</button>
-	
-	<button type="button" class="btn btn-primary prova" onclick="prova()">
-		<a style="color: #ffffff">Torna su...</a>
 	</button>
 
 	<div id="snackbar"></div>

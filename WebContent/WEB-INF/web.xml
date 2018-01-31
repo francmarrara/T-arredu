@@ -144,7 +144,7 @@
 		<servlet-name>ListaPreventivo</servlet-name>
 		<url-pattern>/prodottiPreventivo</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>UtenteServlet</servlet-name>
 		<servlet-class>controller.UtenteServlet</servlet-class>
@@ -154,13 +154,22 @@
 		<url-pattern>/utente</url-pattern>
 	</servlet-mapping>
 
-<servlet>
+	<servlet>
 		<servlet-name>VenditoreServlet</servlet-name>
 		<servlet-class>controller.VenditoreServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>VenditoreServlet</servlet-name>
 		<url-pattern>/venditore</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CambiaPasswordUtente</servlet-name>
+		<servlet-class>controller.CambiaPasswordUtente</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiaPasswordUtente</servlet-name>
+		<url-pattern>/cambiaPassword</url-pattern>
 	</servlet-mapping>
 
 
