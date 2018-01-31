@@ -144,6 +144,15 @@
 		<servlet-name>ListaPreventivo</servlet-name>
 		<url-pattern>/prodottiPreventivo</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UtenteServlet</servlet-name>
+		<servlet-class>controller.UtenteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UtenteServlet</servlet-name>
+		<url-pattern>/utente</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>

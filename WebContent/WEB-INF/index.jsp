@@ -176,7 +176,7 @@
 					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
-					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
+					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
 							
