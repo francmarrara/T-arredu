@@ -886,13 +886,18 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select id_prodotto from prodotto";
+			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, descrizioneProdotto from prodotto";
 			statement = connection.prepareStatement(query);
 
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
-				ProdottoConImmagini prodotto = findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
+				ProdottoConImmagini prodotto = new ProdottoConImmagini();
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
+				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
+				
 
 				prodotti.add(prodotto);
 			}

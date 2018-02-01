@@ -164,10 +164,9 @@
 							</ul>
 						</li>
 					</ul></li>
-				<li class="navbarOggetto"><a href="prodotti.html">Tutti i
+				<li class="navbarOggetto"><a href="prodotti">Tutti i
 						Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
-				<li class="navbarOggetto"><a href="profiloUtente.html">Utente</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 

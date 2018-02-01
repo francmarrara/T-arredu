@@ -40,6 +40,11 @@ window.smartsupp||(function(d) {
     <link rel="shortcut icon" href="images/TarreduLogo.png">
 
 
+
+
+
+
+
     <!-- Start WOWSlider.com HEAD section -->
     <link rel="stylesheet" type="text/css" href="engine1/style.css" />
     <script type="text/javascript" src="engine1/jquery.js"></script>
@@ -321,10 +326,10 @@ window.smartsupp||(function(d) {
 
         <!--Inizio Box Prodotti -->
 
-        <div class="container ">
-            <div class="grid " style="margin:auto;"> 
-                <div class="grid-item ">
-                    <img class="img img_grid" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+        <div class="container prodotti" style="padding-top : 2%;">
+            <div class="row"> 
+                <div class="col-md-4 grid-item">
+                    <img class="img img-responsive img_grid" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto">Ardiano</h4>
@@ -335,7 +340,7 @@ window.smartsupp||(function(d) {
                         </div>
                     </div>
                 </div>
-                <div class="grid-item "> <img class="img img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+                <div class="col-md-4 grid-item"> <img class="img img-responsive img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto ">TITOLO 1</h4>
@@ -345,7 +350,7 @@ window.smartsupp||(function(d) {
                             <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
                     </div>
                 </div>
-                <div class="grid-item "> <img class="img img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+                <div class="col-md-4 grid-item"> <img class="img img-responsive img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto ">TITOLO 1</h4>
@@ -355,7 +360,22 @@ window.smartsupp||(function(d) {
                             <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
                     </div>
                 </div>
-                <div class="grid-item "> <img class="img img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+                
+                </div>
+                 <div class="row"> 
+                <div class="col-md-4 grid-item">
+                    <img class="img img_grid img-responsive" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+                    <div>
+                        <div>
+                            <h4 class="titolo_prodotto">Ardiano</h4>
+                            <div class="testo_prodotto">
+                                <p>Braccioli e schienali hanno la stessa altezza in questo sofÃ  essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
+                            </div>
+                            <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 grid-item"> <img class="img img_grid img-responsive" src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto ">TITOLO 1</h4>
@@ -365,8 +385,7 @@ window.smartsupp||(function(d) {
                             <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
                     </div>
                 </div>
-                <div class="grid-item "> <img class="img img_grid" src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-
+                <div class="col-md-4 grid-item"> <img class="img img_grid img-responsive" src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto ">TITOLO 1</h4>
@@ -376,7 +395,22 @@ window.smartsupp||(function(d) {
                             <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
                     </div>
                 </div>
-                <div class="grid-item "> <img class="img  img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+                
+                </div>
+                 <div class="row"> 
+                <div class="col-md-4 grid-item">
+                    <img class="img img_grid img-responsive" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+                    <div>
+                        <div>
+                            <h4 class="titolo_prodotto">Ardiano</h4>
+                            <div class="testo_prodotto">
+                                <p>Braccioli e schienali hanno la stessa altezza in questo sofÃ  essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
+                            </div>
+                            <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 grid-item"> <img class="img img_grid img-responsive" src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto ">TITOLO 1</h4>
@@ -385,9 +419,20 @@ window.smartsupp||(function(d) {
                             </div>
                             <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
                     </div>
+                </div>
+                <div class="col-md-4 grid-item"> <img class="img img_grid img-responsive" src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+                    <div>
+                        <div>
+                            <h4 class="titolo_prodotto ">TITOLO 1</h4>
+                            <div class="testo_prodotto ">
+                                <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
+                            </div>
+                            <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
+                    </div>
+                </div>
+                
                 </div>
             </div>
-        </div>
 
 
 

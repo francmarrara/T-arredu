@@ -1,4 +1,24 @@
 @charset "UTF-8";
+
+
+/* allineo prima griglia prodotti
+.inOfferta .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.inOfferta .row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+  margin : 3px;
+}
+
+
+
+*/
+
 header {
     z-index: 10;
     top: 0px;
@@ -274,8 +294,10 @@ width: 100%;
 }
 
 .couponPiuVisto img {
+    padding-top :5%;
     width: 290px;
     height: 300px;
+    
 }
 
 .titoloArticoloPiuVisto {

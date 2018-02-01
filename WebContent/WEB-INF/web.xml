@@ -181,5 +181,15 @@
 		<url-pattern>/aggiornaDatiPersonali</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>TuttiProdotti</servlet-name>
+		<servlet-class>controller.TuttiProdotti</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TuttiProdotti</servlet-name>
+		<url-pattern>/prodotti</url-pattern>
+	</servlet-mapping>
+
+
 
 </web-app>
