@@ -360,7 +360,7 @@
 
 			<div class="row">
 				<c:forEach var="prodotto" items="${prodotti}">
-					<div class="col-md-4 grid-item ${prodotto.tipoProdotto}" id="prodottoDaNascondere">
+					<div class="col-md-4 grid-item visibile" id="prodottoDaNascondere">
 						<img class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
 							alt="${prodotto.nomeProdotto}">
