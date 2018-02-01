@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,16 +24,18 @@ public class TuttiProdotti extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		List<String> marcheProdotti = new ArrayList<>();
+		List<String> ambientiProdotti = new ArrayList<>();
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		
 		List<ProdottoConImmagini> prodotti = factory.getProdottoDAO().findAllProductWithImages();
 		
 		
 		req.setAttribute("prodotti", prodotti);
-
-		for(ProdottoConImmagini p : prodotti) {
-			p.stampaProdotto();
-		}
+		
+		marcheProdotti = factory.getProdottoDAO().getTutteLeMarche();
+		req.setAttribute("marcheProdotti", marcheProdotti);
+		req.setAttribute("ambientiProdotti", ambientiProdotti);
 		
 		
 		RequestDispatcher dispacher = req.getRequestDispatcher("prodotti.jsp");

@@ -11,6 +11,8 @@ public class ProdottoConImmagini {
 	private String emailVenditore;
 	private String nomeNegozioVenditore;
 	private String immaginePrincipale;
+	private String tipoProdotto;
+	private String ambienteProdotto;
 
 	@Override
 	public String toString() {
@@ -147,6 +149,30 @@ public class ProdottoConImmagini {
 
 	public void setNomeNegozioVenditore(String nomeNegozioVenditore) {
 		this.nomeNegozioVenditore = nomeNegozioVenditore;
+	}
+
+
+
+	public String getAmbienteProdotto() {
+		return ambienteProdotto;
+	}
+
+
+
+	public void setAmbienteProdotto(String ambienteProdotto) {
+		this.ambienteProdotto = ambienteProdotto;
+	}
+
+
+
+	public String getTipoProdotto() {
+		return tipoProdotto;
+	}
+
+
+
+	public void setTipoProdotto(String tipoProdotto) {
+		this.tipoProdotto = tipoProdotto;
 	}
 
 }

@@ -79,8 +79,10 @@ public interface ProdottoDAO {
 	public List<ProdottoConImmagini> prodottiPerVisibilità();
 	
 	public ProdottoConImmagini getProdottoPerPreventivo(Integer idProdotto);
+
+	public List<String> getTutteLeMarche();
 	
-	
+	public List<String> getMarchePerAmbiente(String ambiente);
 	
 	
 	

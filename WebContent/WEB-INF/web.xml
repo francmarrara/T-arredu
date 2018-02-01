@@ -189,6 +189,15 @@
 		<servlet-name>TuttiProdotti</servlet-name>
 		<url-pattern>/prodotti</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TuttiProdottiPerTipo</servlet-name>
+		<servlet-class>controller.TuttiProdottiPerTipo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TuttiProdottiPerTipo</servlet-name>
+		<url-pattern>/prodottiPerTipo</url-pattern>
+	</servlet-mapping>
 
 
 

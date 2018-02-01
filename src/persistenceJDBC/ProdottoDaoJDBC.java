@@ -886,7 +886,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, descrizioneProdotto from prodotto";
+			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, descrizioneProdotto, tipoProdotto, marcaProdotto, ambienteProdotto from prodotto";
 			statement = connection.prepareStatement(query);
 
 			ResultSet result = statement.executeQuery();
@@ -897,7 +897,9 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
 				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
-				
+				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
+				prodotto.setAmbienteProdotto(result.getString("ambientePrincipale"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
 
 				prodotti.add(prodotto);
 			}
@@ -1153,19 +1155,23 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			ProdottoConImmagini prodotto;
 			PreparedStatement statementProdotto;
+			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, "
+					+ "descrizioneProdotto from prodotto where ambienteProdotto = ?";
 
-			String query = "select id_prodotto from prodotto where ambienteProdotto = ?";
 			statementProdotto = connection.prepareStatement(query);
 
 			statementProdotto.setString(1, ambienteProdotto);
 
-			ResultSet resultProdotto = statementProdotto.executeQuery();
+			ResultSet result = statementProdotto.executeQuery();
 
-			while (resultProdotto.next()) {
-				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+			while (result.next()) {
+				prodotto = new ProdottoConImmagini();
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
+				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 
 				prodotti.add(prodotto);
-
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -1190,7 +1196,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ProdottoConImmagini prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select id_prodotto from prodotto where tipoProdotto = ?";
+			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, "
+					+ "descrizioneProdotto from prodotto where tipoProdotto = ?";
 			statementProdotto = connection.prepareStatement(query);
 
 			statementProdotto.setString(1, tipoProdotto);
@@ -1198,7 +1205,13 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ResultSet resultProdotto = statementProdotto.executeQuery();
 
 			while (resultProdotto.next()) {
-				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
+
+				prodotto = new ProdottoConImmagini();
+
+				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
+				prodotto.setNomeProdotto(resultProdotto.getString("nomeprodotto"));
+				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));
+				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
 
 				prodotti.add(prodotto);
 
@@ -1340,6 +1353,77 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		}
 
 		return null;
+	}
+
+	@Override
+	public List<String> getTutteLeMarche() {
+
+		Connection connection = this.dataSource.getConnection();
+		List<String> marche = new ArrayList<>();
+
+		try {
+
+			PreparedStatement statementProdotto;
+
+			String query = "select distinct marcaProdotto from prodotto;";
+
+			statementProdotto = connection.prepareStatement(query);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+
+				marche.add(resultProdotto.getString("marcaProdotto"));
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return marche;
+
+	}
+
+	@Override
+	public List<String> getMarchePerAmbiente(String ambiente) {
+
+		Connection connection = this.dataSource.getConnection();
+		List<String> marche = new LinkedList<>();
+
+		try {
+
+			PreparedStatement statementProdotto;
+			String query = "SELECT DISTINCT marcaProdotto FROM tarreduDB.prodotto where ambienteProdotto = ?;";
+
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setString(1, ambiente);
+
+			ResultSet result = statementProdotto.executeQuery();
+
+			while (result.next()) {
+
+				marche.add(result.getString("marcaProdotto"));
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return marche;
+
 	}
 
 }
