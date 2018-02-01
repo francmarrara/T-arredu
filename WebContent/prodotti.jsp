@@ -1,3 +1,7 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <html>
 
 <head>
@@ -318,14 +322,14 @@ window.smartsupp||(function(d) {
         <!--Inizio Box Prodotti -->
 
         <div class="container ">
-            <div class="grid ">
+            <div class="grid " style="margin:auto;"> 
                 <div class="grid-item ">
                     <img class="img img_grid" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
                     <div>
                         <div>
                             <h4 class="titolo_prodotto">Ardiano</h4>
                             <div class="testo_prodotto">
-                                <p>Braccioli e schienali hanno la stessa altezza in questo sofà essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
+                                <p>Braccioli e schienali hanno la stessa altezza in questo sofÃ  essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
                             </div>
                             <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button>
                         </div>

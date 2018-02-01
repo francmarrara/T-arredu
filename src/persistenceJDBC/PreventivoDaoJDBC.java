@@ -1,27 +1,19 @@
 package persistenceJDBC;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
 import java.util.List;
 
-import javax.print.attribute.SetOfIntegerSyntax;
-
 import model.Preventivo;
-import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
-import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.PreventivoDAO;
-import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
-import persistenceDAO.VenditoreDAO;
 
 public class PreventivoDaoJDBC implements PreventivoDAO {
 
