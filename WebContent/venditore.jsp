@@ -4,87 +4,99 @@
 <html>
 
 <head>
-    <title>Venditore</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venditore</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/Footer-with-social-icons.css">
-    <link rel="stylesheet" href="css/venditore.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/Footer-with-social-icons.css">
+<link rel="stylesheet" href="css/venditore.css">
+<link rel="stylesheet" href="css/snackbar.css">
 
-    <script src="js/Js/venditore.js"></script>
+<script src="js/Js/venditore.js"></script>
 
-    <link rel="shortcut icon" href="images/TarreduLogo.png">
+<link rel="shortcut icon" href="images/TarreduLogo.png">
 
-    <!-- Start WOWSlider.com HEAD section -->
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
-    <!-- End WOWSlider.com HEAD section -->
+<!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
 
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
+	var _smartsupp = _smartsupp || {};
+	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	window.smartsupp || (function(d) {
+		var s, c, o = smartsupp = function() {
+			o._.push(arguments)
+		};
+		o._ = [];
+		s = d.getElementsByTagName('script')[0];
+		c = d.createElement('script');
+		c.type = 'text/javascript';
+		c.charset = 'utf-8';
+		c.async = true;
+		c.src = 'https://www.smartsuppchat.com/loader.js?';
+		s.parentNode.insertBefore(c, s);
+	})(document);
 </script>
 
 </head>
 
 <body>
-    <!-- Sfondo -->
-    <div id="bg">
-        <img src="images/sfondoLegno.png" alt="">
-    </div>
+	<!-- Sfondo -->
+	<div id="bg">
+		<img src="images/sfondoLegno.png" alt="">
+	</div>
 
-    <!-- Header -->
-    <header class="container-fluid headerImage" name="top">
-        <div class="headerContainer">
-            <img src="images/headerImage.png" alt="headerImage" width="1318px" height="50px">
-        </div>
-    </header>
+	<!-- Header -->
+	<header class="container-fluid headerImage" name="top">
+		<div class="headerContainer">
+			<img src="images/headerImage.png" alt="headerImage" width="1318px"
+				height="50px">
+		</div>
+	</header>
 
 
-    <!-- Menu di navigazione principale -->
+	<!-- Menu di navigazione principale -->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				
-				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
+						Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
 				<c:if test="${utenteLoggato == false}">
 
 					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="login"
+						<!-- Form per il login --> <a href="#login"
 						onclick="document.getElementById('login').style.display='block'">
 							<span class="glyphicon glyphicon-log-in"></span> Login
 					</a>
@@ -126,7 +138,7 @@ window.smartsupp||(function(d) {
 						</div>
 					</li>
 					<li class="navbarOggetto">
-						<!-- Form per la registrazione --> <a href="registrazione"
+						<!-- Form per la registrazione --> <a href="#registrazione"
 						onclick="document.getElementById('registrazione').style.display='block'">
 							<span class="glyphicon glyphicon-user user"></span> Registrati
 					</a>
@@ -172,208 +184,205 @@ window.smartsupp||(function(d) {
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
 
-    <!-- Bottone laterale a scomparsa -->
-    <div id="mySidenav" class="sidenav">
-        <a href="#top" id="backToTopMenu">Torna su</a>
-    </div>
+	<!-- Bottone laterale a scomparsa -->
+	<div id="mySidenav" class="sidenav">
+		<a href="#top" id="backToTopMenu">Torna su</a>
+	</div>
 
-    <div class="container box_venditore">
-        <div class="row" id="">
-            <!-- Div a sinistra con descrizione Venditore e Contatti-->
+	<div class="container box_venditore">
+		<div class="row" id="">
+			<!-- Div a sinistra con descrizione Venditore e Contatti-->
 
-            <div class="col-md-7 single-top-left">
-                <h2 class="vendor_name">Antonella Mazzei Arredamenti</h2>
-                <p class="separatore"></p>
-                <div class="descrizione">
-                    <p><b>Antonella Mazzei Arredamenti</b> Ã¨ un nome che ha dietro una storia fondata sulla passione per il mobile, per il legno, per il gusto di arredare.</p>
-                    <p>Quarant'anni nel settore hanno portato l'azienda a crescere anno dopo anno, identificandosi in tre caratteristiche: cortesia, qualitÃ  e professionalitÃ .</p>
-                    <p>Da Antonella Mazzei Arredamenti potrai trovare uno staff di professionisti capace di prendersi cura delle tue esigenze, ma soprattutto in grado di valorizzare i tuoi spazi andando incontro ai tuoi desideri.</p>
-                    <p>PerchÃ¨ la casa esprime il tuo gusto personale, che la rende unica ed eclusiva.</p>
-                </div>
+			<div class="col-md-7 single-top-left">
+				<h2 class="vendor_name">${venditore.nomeNegozio}</h2>
+				<p class="separatore"></p>
+				<div class="descrizione">
+					<p id="descrizioneVenditore" style="">${venditore.descrizioneVenditore}</p>
+				</div>
 
-                <div class="info">
-                    <div class="col-sm-10">
-                        <h5 style="font-style: oblique"><b>Contatti :</b></h5>
-                        <ul class="contatti">
-                            <li>Antonella Mazzei</li>
-                            <li><a href="mailto:info@antonellamazzei.it">info@antonellamazzei.it</a></li>
-                            <li>Viale Cosmai 32, 87100 Cosenza (di fronte Guardia di Finanza)</li>
-                            <li>
-                                <a href="skype:+39 338 5378178">+39 338 5378178</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+				<div class="info">
+					<div class="col-sm-10">
+						<h5 style="font-style: oblique">
+							<b>Contatti :</b>
+						</h5>
+						<ul class="contatti">
+							<li>${venditore.nomeTitolare}${venditore.cognomeTitolare}</li>
+							<li><a href="mailto:${venditore.emailVenditore}">${venditore.emailVenditore}</a></li>
+							<li>${venditore.indirizzoVenditore}</li>
+							<li><a href="skype:${venditore.numeroTelefonicoVenditore}">${venditore.numeroTelefonicoVenditore}</a></li>
+						</ul>
+					</div>
+				</div>
 
-            </div>
-            <!-- Fine Div a sinistra con descrizione Venditore e Contatti-->
+			</div>
+			<!-- Fine Div a sinistra con descrizione Venditore e Contatti-->
 
-            <!-- Fine Div a Destra con Mappa-->
-            <div class="col-md-5 single-top-right">
-                <h2 style="padding-top:2%; padding-left:10%;">Come Raggiungerci : </h2>
-                <div class="mappa">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12346.557015984656!2d16.248965!3d39.3191!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9b5c190b92bc84ac!2sAntonella+Mazzei+Arredamenti!5e0!3m2!1sit!2sit!4v1515843884042" width="100%" height="50%"
-                        frameborder="0" style="border:0" allowfullscreen></iframe>
+			<!-- Fine Div a Destra con Mappa-->
+			<div class="col-md-5 single-top-right">
+				<h2 style="padding-top: 2%; padding-left: 10%;">Come
+					Raggiungerci</h2>
+				<div class="mappa">
+					<iframe src="${venditore.mappaVenditore}" width="100%" height="50%"
+						style="border: 0" allowfullscreen></iframe>
 
 
-                </div>
+				</div>
 
-            </div>
-            <!--Fine  Div a destra con mappa-->
+			</div>
+			<!--Fine  Div a destra con mappa-->
 
-        </div>
-    </div>
-
-
-    <p class="titolo_sopra_prodotti">
-        PRODOTTI </p>
-
-    <hr>
-
-    <!--Inizio Menu di selezione Tipo prodotti e Prezzo-->
+		</div>
+	</div>
 
 
-    <div class="container menu_selezione">
-        <div class="row ">
-            <div class="col-md-3 single-top-left ">
-                <h4 class="titolo_menu_selezione">Seleziona Tipologia di Prodotti</h4>
-                <select name="tipoProdotto " class="form-control ">
-                      <option value="1 ">Armadi</option> 
-                      <option value="2 ">Cassettiere</option> 
-                      <option value="3 ">Comodi</option> 
-                      <option value="4 ">Credenze</option> 
-                      <option value="5 ">Cucine</option>
-                      <option value="6 ">Librerie</option>                      
-                      <option value="7 ">Illuminazione</option> 
-                      <option value="8 ">Letti</option> 
-                      <option value="9 ">Scrivanie</option>
-                      <option value="10 ">Sedie</option>
-                      <option value="11 ">Divani</option>
-                      <option value="12 ">Poltrone</option>
-                      <option value="13 ">Tavolo</option>
-                      <option value="14 ">Vetrine</option>
+	<p class="titolo_sopra_prodotti" style="padding-top: 4%;">PRODOTTI</p>
 
-             </select>
-            </div>
-            <div class="col-md-9 single-top-right ">
-                <div style="padding-left:75%; ">
-                    <h4 class="titolo_menu_selezione">Prezzo</h4>
-                    <select name="indirizzo " class="form-control ">
-                 <option value="1 ">Crescente</option>
-                 <option value="2 ">Decrescente</option>
-           </select>
-                </div>
-            </div>
+	<hr>
+
+	<!--Inizio Menu di selezione Tipo prodotti e Prezzo-->
+
+	<div class="container" style="text-align: center">
+		<div class="container menu_selezione">
+			<div class="row ">
+				<div class="col-md-3 single-top-left ">
+					<h4 class="titolo_menu_selezione">Seleziona Tipologia di
+						Prodotti</h4>
+					<select name="tipoProdotto " class="form-control "
+						id="tipoProdotto">
+						<option value="">---</option>
+						<option value="Armadio">Armadio</option>
+						<option value="Cassettiera">Cassettiera</option>
+						<option value="Comodino">Comodino</option>
+						<option value="Credenza">Credenza</option>
+						<option value="Cucina">Cucina</option>
+						<option value="Libreria">Libreria</option>
+						<option value="Illuminazione">Illuminazione</option>
+						<option value="Letto">Letto</option>
+						<option value="Scrivania">Scrivania</option>
+						<option value="Sedia">Sedia</option>
+						<option value="Divano">Divano</option>
+						<option value="Poltrona">Poltrona</option>
+						<option value="Tavolo">Tavolo</option>
+						<option value="Bagno">Bagno</option>
+						<option value="Vetrina">Vetrina</option>
+						<option value="Camera da Letto">Camera da Letto</option>
 
 
-        </div>
-    </div>
-    <!--Fine Menu di selezione Tipo prodotti e Prezzo-->
+					</select>
+				</div>
+				<div class="col-md-3 single-top-left ">
+					<h4 class="titolo_menu_selezione">Seleziona Ambiente di
+						Prodotti</h4>
+					<select name="ambienteProdotto" class="form-control"
+						id="ambienteProdotto">
+						<option value="---">---</option>
+						<option value="Cucina">Cucina</option>
+						<option value="Bagno">Bagno</option>
+						<option value="Soggiorno">Soggiorno</option>
+						<option value="Studio">Studio</option>
+						<option value="Camera da Letto">Camera da letto</option>
+						<option value="Sala da Pranzo">Sala da pranzo</option>
+						<option value="Salotto">Salotto</option>
+						<option value="Tutti">Tutti gli ambienti</option>
+					</select>
+				</div>
+				<div class="col-md-3 single-top-left ">
+					<h4 class="titolo_menu_selezione">Seleziona Marca</h4>
+					<select name="marcaProdotto" class="form-control"
+						id="marcaProdotto">
 
-    <!--Inizio Box Prodotti -->
+						<option value="---">---</option>
+						<c:forEach var="marca" items="${marcheProdotti}">
+							<option value="${marca}">${marca}</option>
+						</c:forEach>
+						<option value="Tutti">Tutte le marche</option>
 
-    <div class="container ">
-        <div class="grid ">
-            <div class="grid-item ">
-                <img class="img img_grid" src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
-                <div>
-                    <div>
-                        <h4 class="titolo_prodotto">Ardiano</h4>
-                        <div class="testo_prodotto">
-                            <p>Braccioli e schienali hanno la stessa altezza in questo sofÃ  essenziale, con un'immagine giovane ed informale, che appare rigoroso ma equilibrato nelle sue linee a pozzetto.</p>
-                        </div>
-                        <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item "> <img class="img img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-                <div>
-                    <div>
-                        <h4 class="titolo_prodotto ">TITOLO 1</h4>
-                        <div class="testo_prodotto ">
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                        <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
-                </div>
-            </div>
-            <div class="grid-item "> <img class="img img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-                <div>
-                    <div>
-                        <h4 class="titolo_prodotto ">TITOLO 1</h4>
-                        <div class="testo_prodotto ">
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                        <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
-                </div>
-            </div>
-            <div class="grid-item "> <img class="img img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-                <div>
-                    <div>
-                        <h4 class="titolo_prodotto ">TITOLO 1</h4>
-                        <div class="testo_prodotto ">
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                        <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
-                </div>
-            </div>
-            <div class="grid-item "> <img class="img img_grid" src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+					</select>
+				</div>
+				<div class="col-md-3 single-top-right ">
+					<div>
+						<h4 class="titolo_menu_selezione">Prezzo</h4>
+						<select name="indirizzo " class="form-control" id="ordinaPrezzo">
+							<option value="---">---</option>
+							<option value="1 ">Crescente</option>
+							<option value="2 ">Decrescente</option>
+						</select>
+					</div>
+				</div>
 
-                <div>
-                    <div>
-                        <h4 class="titolo_prodotto ">TITOLO 1</h4>
-                        <div class="testo_prodotto ">
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                        <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
-                </div>
-            </div>
-            <div class="grid-item "> <img class="img  img_grid " src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-                <div>
-                    <div>
-                        <h4 class="titolo_prodotto ">TITOLO 1</h4>
-                        <div class="testo_prodotto ">
-                            <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum.</p>
-                        </div>
-                        <button type=" button " class="btn btn-default"><a href="prodotto.html">Vai</a></button> </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+			</div>
+		</div>
+		<!--Fine Menu di selezione Tipo prodotti e Prezzo-->
+
+
+		<!--Inizio Box Prodotti -->
+
+		<div class="container prodotti" style="padding-top: 2%;">
+
+			<div class="row">
+				<c:forEach var="prodotto" items="${prodotti}">
+					<div
+						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"
+						data-percentage="${prodotto.prezzoProdotto}"
+						id="prodottoDaNascondere">
+						<img class="img img-responsive img_grid"
+							src="${prodotto.immaginePrincipale}"
+							alt="${prodotto.nomeProdotto}">
+						<div>
+							<div>
+								<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
+								<div class="testo_prodotto">
+									<p>${prodotto.descrizioneProdotto}.</p>
+								</div>
+								<button type=" button " class="btn btn-default">
+									<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
+								</button>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+
+			</div>
+
+		</div>
 
 
 
-    <div class="text-center">
-        <ul class="pagination ">
-            <li class="page-item "><a class="page-link " href="# ">Previous</a></li>
-            <li class="page-item "><a class="page-link " href="# ">1</a></li>
-            <li class="page-item "><a class="page-link " href="# ">2</a></li>
-            <li class="page-item "><a class="page-link " href="# ">3</a></li>
-            <li class="page-item "><a class="page-link " href="# ">Next</a></li>
-        </ul>
-    </div>
+		<div class="text-center">
+			<ul class="pagination ">
+				<li class="page-item "><a class="page-link " href="# ">Previous</a></li>
+				<li class="page-item "><a class="page-link " href="# ">1</a></li>
+				<li class="page-item "><a class="page-link " href="# ">2</a></li>
+				<li class="page-item "><a class="page-link " href="# ">3</a></li>
+				<li class="page-item "><a class="page-link " href="# ">Next</a></li>
+			</ul>
+		</div>
+	</div>
 
-    <button type="button" class="btn btn-primary bottoneTornaSu"><a href="#top" style="color:#ffffff">Torna su...</a></button>
+	<button type="button" class="btn btn-primary bottoneTornaSu">
+		<a href="#top" style="color: #ffffff">Torna su...</a>
+	</button>
 
 
 
 
-    <div class="content">
-    </div>
-    <!-- Footer -->
+	<div class="content"></div>
+	<!-- Footer -->
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
@@ -385,7 +394,7 @@ window.smartsupp||(function(d) {
 						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
@@ -393,17 +402,17 @@ window.smartsupp||(function(d) {
 						<li><a href="aboutUs.html">Help desk</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-3 myCols">
-				</div>
-				
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
-			<a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
 			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
+	<div id="snackbar"></div>
 
 </body>
 

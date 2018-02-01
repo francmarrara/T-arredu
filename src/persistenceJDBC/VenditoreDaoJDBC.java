@@ -86,6 +86,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setIndirizzoVenditore(result.getString("indirizzoVenditore"));
 				venditore.setEmailVenditore(result.getString("emailVenditore"));
 				venditore.setNumeroTelefonicoVenditore(result.getString("numeroTelefonicoVenditore"));
+				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
+				venditore.setMappaVenditore(result.getString("mappaVenditore"));
 
 			}
 		} catch (SQLException e) {

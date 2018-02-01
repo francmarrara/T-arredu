@@ -11,6 +11,8 @@ public class Venditore {
 	private String indirizzoVenditore;
 	private String emailVenditore;
 	private String numeroTelefonicoVenditore;
+	private String descrizioneVenditore;
+	private String mappaVenditore;
 
 	private ArrayList<ProdottoConImmagini> prodottiInPreventivo;
 	
@@ -91,6 +93,22 @@ public class Venditore {
 
 	public void setProdottiInPreventivo(ArrayList<ProdottoConImmagini> prodottiInPreventivo) {
 		this.prodottiInPreventivo = prodottiInPreventivo;
+	}
+
+	public String getDescrizioneVenditore() {
+		return descrizioneVenditore;
+	}
+
+	public void setDescrizioneVenditore(String descrizioneVenditore) {
+		this.descrizioneVenditore = descrizioneVenditore;
+	}
+
+	public String getMappaVenditore() {
+		return mappaVenditore;
+	}
+
+	public void setMappaVenditore(String mappaVenditore) {
+		this.mappaVenditore = mappaVenditore;
 	}
 
 }

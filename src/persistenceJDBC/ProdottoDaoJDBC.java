@@ -1015,6 +1015,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@Override
 	public List<ProdottoConImmagini> findProductsByVenditoreProdottoConImmagini(String emailVenditore) {
+
 		Connection connection = this.dataSource.getConnection();
 		List<ProdottoConImmagini> prodotti = new LinkedList<>();
 
@@ -1023,7 +1024,10 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ProdottoConImmagini prodotto;
 			PreparedStatement statement;
 
-			String query = "select id_prodotto from venditorePerProdotto where emailVenditore = ?";
+			String query = "select prodotto.nomeProdotto, prodotto.id_prodotto, prodotto.immaginePrincipale, "
+					+ "prodotto.descrizioneProdotto, prodotto.marcaProdotto, prodotto.ambienteProdotto, prodotto.tipoProdotto from prodotto,venditorePerProdotto where "
+					+ "prodotto.id_prodotto = venditorePerProdotto.id_prodotto and "
+					+ "venditorePerProdotto.emailVenditore = ?";
 
 			statement = connection.prepareStatement(query);
 			statement.setString(1, emailVenditore);
@@ -1032,8 +1036,18 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			while (result.next()) {
 
-				prodotto = findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodotto"));
+				prodotto = new ProdottoConImmagini();
+
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
+				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+
 				prodotti.add(prodotto);
+
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

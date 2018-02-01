@@ -99,7 +99,7 @@
 				<c:if test="${utenteLoggato == false}">
 
 					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="login"
+						<!-- Form per il login --> <a href="#login"
 						onclick="document.getElementById('login').style.display='block'">
 							<span class="glyphicon glyphicon-log-in"></span> Login
 					</a>
@@ -141,7 +141,7 @@
 						</div>
 					</li>
 					<li class="navbarOggetto">
-						<!-- Form per la registrazione --> <a href="registrazione"
+						<!-- Form per la registrazione --> <a href="#registrazione"
 						onclick="document.getElementById('registrazione').style.display='block'">
 							<span class="glyphicon glyphicon-user user"></span> Registrati
 					</a>

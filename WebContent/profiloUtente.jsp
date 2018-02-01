@@ -91,7 +91,7 @@
 				<c:if test="${utenteLoggato == false}">
 
 					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="login"
+						<!-- Form per il login --> <a href="#login"
 						onclick="document.getElementById('login').style.display='block'">
 							<span class="glyphicon glyphicon-log-in"></span> Login
 					</a>
