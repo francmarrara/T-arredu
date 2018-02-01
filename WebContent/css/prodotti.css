@@ -602,10 +602,7 @@ hr {
 
 
 
-.titolo_menu_selezione {
-    color: antiquewhite;
-    text-align: center;
-}
+
 
 .img_grid {
     width:300px;
@@ -613,7 +610,10 @@ hr {
     text-align: center;
     padding-left: 11%;
 }
-
+.titolo_menu_selezione {
+    color: antiquewhite;
+    text-align: center;
+}
 .testo_prodotto {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;

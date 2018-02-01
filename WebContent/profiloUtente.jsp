@@ -65,96 +65,11 @@
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
-				<li class="navbarOggetto"><a href="#">Home</a></li>
-				<!-- DropMenu per catalogo prodotti -->
-				<li class="dropdown navbarOggetto" id="catalogoProdotti"><a
-					class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo
-						Prodotti <span class="caret"></span>
-				</a>
-					<ul class="dropdown-menu row" id="menuProdotti">
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Ambienti</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Cucina</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Bagno</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Soggiorno</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Studio</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Camera
-										da letto</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Salotto</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Stanza
-										da pranzo</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Categorie</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Armadi</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Cassettiere</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Comodini</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Illuminazioni</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Credenze</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Letti</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Tavoli</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Librerie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Scrivanie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Sedie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Poltrone</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Divani</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Vetrine</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Bagni</a>
-								</li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Marche</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										2</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										3</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Marche</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										2</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										3</a></li>
-							</ul>
-						</li>
-					</ul></li>
-				<li class="navbarOggetto"><a href="prodotti.html">Tutti i
+				<li class="navbarOggetto"><a href="">Home</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
 						Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
-				<li class="navbarOggetto"><a href="profiloUtente.html">Utente</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
@@ -176,7 +91,7 @@
 				<c:if test="${utenteLoggato == false}">
 
 					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="#"
+						<!-- Form per il login --> <a href="login"
 						onclick="document.getElementById('login').style.display='block'">
 							<span class="glyphicon glyphicon-log-in"></span> Login
 					</a>
@@ -213,7 +128,6 @@
 									<button type="button"
 										onclick="document.getElementById('login').style.display='none'"
 										class="cancelbtn">Cancel</button>
-									<span class="psw"><a href="#">Password dimenticata?</a></span>
 								</div>
 							</form>
 						</div>
@@ -274,7 +188,8 @@
 			</ul>
 		</div>
 	</nav>
-<input id="passwordPerVerifica" value="${utente.passwordUtente}">
+
+	<input id="passwordPerVerifica" value="${utente.passwordUtente}">
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
@@ -332,7 +247,7 @@
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Password</div>
-								<div class="panel-body" >${utente.passwordUtente}</div>
+								<div class="panel-body">${utente.passwordUtente}</div>
 							</div>
 						</div>
 					</div>
@@ -357,133 +272,32 @@
 			</div>
 			<!-- Prodotti preferiti utente -->
 			<div id="menu1" class="tab-pane fade">
-				<div class="containerPreferiti">
-					<h3>
-						Preferiti <span class="glyphicon glyphicon-star-empty"></span>
-					</h3>
-					<hr>
-					<!--Inizio Box Prodotti -->
+				<!--Inizio Box Prodotti -->
 
-					<div class="container ">
-						<div class="grid ">
-							<div class="grid-item ">
-								<img class="img img_grid"
-									src="images/productImages/Ardiano_01.jpg" alt="Divano Ardiano">
+				<div class="container prodotti" style="padding-top: 2%;">
+
+					<div class="row">
+						<c:forEach var="prodotto" items="${prodottiPreferiti}">
+							<div class="col-md-4 grid-item">
+								<img class="img img-responsive img_grid"
+									src="${prodotto.immaginePrincipale}"
+									alt="${prodotto.nomeProdotto}">
 								<div>
 									<div>
-										<h4 class="titolo_prodotto">Ardiano</h4>
+										<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
 										<div class="testo_prodotto">
-											<p>Braccioli e schienali hanno la stessa altezza in
-												questo sofÃ  essenziale, con un'immagine giovane ed
-												informale, che appare rigoroso ma equilibrato nelle sue
-												linee a pozzetto.</p>
+											<p>${prodotto.descrizioneProdotto}.</p>
 										</div>
 										<button type=" button " class="btn btn-default">
-											<a href="prodotto.html">Vai</a>
+											<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
 										</button>
 									</div>
 								</div>
 							</div>
-							<div class="grid-item ">
-								<img class="img img_grid "
-									src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-								<div>
-									<div>
-										<h4 class="titolo_prodotto ">TITOLO 1</h4>
-										<div class="testo_prodotto ">
-											<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-												Sea te minim soleat senserit, ex quo luptatum tacimates
-												voluptatum.</p>
-										</div>
-										<button type=" button " class="btn btn-default">
-											<a href="prodotto.html">Vai</a>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="grid-item ">
-								<img class="img img_grid "
-									src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-								<div>
-									<div>
-										<h4 class="titolo_prodotto ">TITOLO 1</h4>
-										<div class="testo_prodotto ">
-											<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-												Sea te minim soleat senserit, ex quo luptatum tacimates
-												voluptatum.</p>
-										</div>
-										<button type=" button " class="btn btn-default">
-											<a href="prodotto.html">Vai</a>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="grid-item ">
-								<img class="img img_grid "
-									src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-								<div>
-									<div>
-										<h4 class="titolo_prodotto ">TITOLO 1</h4>
-										<div class="testo_prodotto ">
-											<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-												Sea te minim soleat senserit, ex quo luptatum tacimates
-												voluptatum.</p>
-										</div>
-										<button type=" button " class="btn btn-default">
-											<a href="prodotto.html">Vai</a>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="grid-item ">
-								<img class="img img_grid"
-									src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
+						</c:forEach>
 
-								<div>
-									<div>
-										<h4 class="titolo_prodotto ">TITOLO 1</h4>
-										<div class="testo_prodotto ">
-											<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-												Sea te minim soleat senserit, ex quo luptatum tacimates
-												voluptatum.</p>
-										</div>
-										<button type=" button " class="btn btn-default">
-											<a href="prodotto.html">Vai</a>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="grid-item ">
-								<img class="img  img_grid "
-									src="images/productImages/Sunrise_01.jpg " alt="Letto Sunrise ">
-								<div>
-									<div>
-										<h4 class="titolo_prodotto ">TITOLO 1</h4>
-										<div class="testo_prodotto ">
-											<p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur.
-												Sea te minim soleat senserit, ex quo luptatum tacimates
-												voluptatum.</p>
-										</div>
-										<button type=" button " class="btn btn-default">
-											<a href="prodotto.html">Vai</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 
-
-
-					<div class="text-center">
-						<ul class="pagination ">
-							<li class="page-item "><a class="page-link " href="# ">Previous</a></li>
-							<li class="page-item "><a class="page-link " href="# ">1</a></li>
-							<li class="page-item "><a class="page-link " href="# ">2</a></li>
-							<li class="page-item "><a class="page-link " href="# ">3</a></li>
-							<li class="page-item "><a class="page-link " href="# ">Next</a></li>
-						</ul>
-					</div>
 				</div>
 			</div>
 			<!-- Lista di preventivi richiesti dall' utente -->
@@ -757,56 +571,36 @@
 
 	<!-- Footer -->
 	<footer id="myFooter">
-		<div class="container">
+		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-					<h5>Ambienti</h5>
-					<ul>
-						<li><a href="prodotti.html">Cucina</a></li>
-						<li><a href="prodotti.html">Bagno</a></li>
-						<li><a href="prodotti.html">Soggiorno</a></li>
-						<li><a href="prodotti.html">Studio</a></li>
-						<li><a href="prodotti.html">Camera da Letto</a></li>
-						<li><a href="prodotti.html">Salotto</a></li>
-						<li><a href="prodotti.html">Sala da Pranzo</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 myCols">
-					<h5>Marche</h5>
-					<ul>
-						<li><a href="prodotti.html">Marca 1</a></li>
-						<li><a href="prodotti.html">Marca 2</a></li>
-						<li><a href="prodotti.html">Marca 3</a></li>
-						<li><a href="prodotti.html">Marca 4</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 myCols">
-					<h5>Supporto</h5>
-					<ul>
-						<li><a href="venditore">FAQ</a></li>
-						<li><a href="#">Help desk</a></li>
-					</ul>
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
-						<li><a href="#">Francesco Marrara</a></li>
-						<li><a href="#">francmarrara@gmail.com</a></li>
-						<li><a href="#">Tel. 347 31 39 840</a></li>
-						<li><a href="#">Simone Crisafi</a></li>
-						<li><a href="#">xblack90@hotmail.it</a></li>
-						<li><a href="#">Tel: 347 73 53 491</a></li>
+						<li><a>Francesco Marrara</a></li>
+						<li><a>francmarrara@gmail.com</a></li>
+						<li><a>Tel. 347 31 39 840</a></li>
+						<li><a>Simone Crisafi</a></li>
+						<li><a>xblack90@hotmail.it</a></li>
+						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
+
+				<div class="col-sm-3 myCols">
+					<h5>Supporto</h5>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="aboutUs.html">Help desk</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="www.twitter.com" class="twitter"><i
-				class="fa fa-twitter"></i></a> <a
-				href="http://www.facebook.com/sharer.php?u=index.jsp"
-				class="facebook"><i class="fa fa-facebook-official"></i></a> <a
-				href="www.googleplus.com" class="google"><i
-				class="fa fa-google-plus"></i></a>
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
 	<div id="snackbar"></div>

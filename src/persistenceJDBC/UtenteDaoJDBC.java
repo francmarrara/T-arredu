@@ -301,7 +301,9 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "SELECT * FROM prodottiPreferiti JOIN prodotto where prodottiPreferiti.id_prodotto = prodotto.id_prodotto and prodottiPreferiti.emailUtente=?";
+			String query = "SELECT prodotto.id_prodotto, nomeProdotto, immaginePrincipale, descrizioneProdotto "
+					+ "FROM tarreduDB.prodottiPreferiti JOIN tarreduDB.prodotto where "
+					+ "prodottiPreferiti.id_prodotto = prodotto.id_prodotto and " + "prodottiPreferiti.emailUtente=?;";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, emailUtente);
 
@@ -311,12 +313,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 				ProdottoConImmagini prodotto = new ProdottoConImmagini();
 				prodotto.setIdProdotto(result.getInt("id_prodotto"));
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
-				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
-				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
-
+				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
-				;
 
 				prodotti.add(prodotto);
 			}

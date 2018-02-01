@@ -96,7 +96,7 @@
 				<c:if test="${utenteLoggato == false}">
 
 					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="#"
+						<!-- Form per il login --> <a href="login"
 						onclick="document.getElementById('login').style.display='block'">
 							<span class="glyphicon glyphicon-log-in"></span> Login
 					</a>
@@ -133,13 +133,12 @@
 									<button type="button"
 										onclick="document.getElementById('login').style.display='none'"
 										class="cancelbtn">Cancel</button>
-									<span class="psw"><a href="#">Password dimenticata?</a></span>
 								</div>
 							</form>
 						</div>
 					</li>
 					<li class="navbarOggetto">
-						<!-- Form per la registrazione --> <a href="#registrazione"
+						<!-- Form per la registrazione --> <a href="registrazione"
 						onclick="document.getElementById('registrazione').style.display='block'">
 							<span class="glyphicon glyphicon-user user"></span> Registrati
 					</a>
@@ -308,12 +307,12 @@
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
-						<li><a href="#">Francesco Marrara</a></li>
-						<li><a href="#">francmarrara@gmail.com</a></li>
-						<li><a href="#">Tel. 347 31 39 840</a></li>
-						<li><a href="#">Simone Crisafi</a></li>
-						<li><a href="#">xblack90@hotmail.it</a></li>
-						<li><a href="#">Tel: 347 73 53 491</a></li>
+						<li><a>Francesco Marrara</a></li>
+						<li><a>francmarrara@gmail.com</a></li>
+						<li><a>Tel. 347 31 39 840</a></li>
+						<li><a>Simone Crisafi</a></li>
+						<li><a>xblack90@hotmail.it</a></li>
+						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
 				
@@ -321,7 +320,7 @@
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Help desk</a></li>
+						<li><a href="aboutUs.html">Help desk</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-3 myCols">

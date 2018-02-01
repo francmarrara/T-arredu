@@ -78,7 +78,7 @@
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
-				<li class="navbarOggetto"><a href="">Home</a></li>
+				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
 				
 				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
@@ -102,7 +102,7 @@
 				<c:if test="${utenteLoggato == false}">
 
 					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="#"
+						<!-- Form per il login --> <a href="login"
 						onclick="document.getElementById('login').style.display='block'">
 							<span class="glyphicon glyphicon-log-in"></span> Login
 					</a>
@@ -139,13 +139,12 @@
 									<button type="button"
 										onclick="document.getElementById('login').style.display='none'"
 										class="cancelbtn">Cancel</button>
-									<span class="psw"><a href="#">Password dimenticata?</a></span>
 								</div>
 							</form>
 						</div>
 					</li>
 					<li class="navbarOggetto">
-						<!-- Form per la registrazione --> <a href="#registrazione"
+						<!-- Form per la registrazione --> <a href="registrazione"
 						onclick="document.getElementById('registrazione').style.display='block'">
 							<span class="glyphicon glyphicon-user user"></span> Registrati
 					</a>
@@ -405,12 +404,12 @@
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
-						<li><a href="#">Francesco Marrara</a></li>
-						<li><a href="#">francmarrara@gmail.com</a></li>
-						<li><a href="#">Tel. 347 31 39 840</a></li>
-						<li><a href="#">Simone Crisafi</a></li>
-						<li><a href="#">xblack90@hotmail.it</a></li>
-						<li><a href="#">Tel: 347 73 53 491</a></li>
+						<li><a>Francesco Marrara</a></li>
+						<li><a>francmarrara@gmail.com</a></li>
+						<li><a>Tel. 347 31 39 840</a></li>
+						<li><a>Simone Crisafi</a></li>
+						<li><a>xblack90@hotmail.it</a></li>
+						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
 				
@@ -418,7 +417,7 @@
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Help desk</a></li>
+						<li><a href="aboutUs.html">Help desk</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-3 myCols">
@@ -427,8 +426,8 @@
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+			<a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
 			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
