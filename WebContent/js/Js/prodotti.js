@@ -18,31 +18,78 @@ $(document).ready(function() {
 	});
 });
 
-// $(window).on('load', function() {
-// $("#tipoProdotto").change(function() {
-//		
-// var str1 = "prodottiPerTipo?tipo=";
-// var tipo = $("#tipoProdotto option:selected").attr("value");
-// var res = str1.concat(tipo);
-//
-// if (tipo != "Tutti") {
-// $("#ambienteProdotto option:selected").text(tipo);
-//
-// window.setTimeout(window.location.replace(res), 1000);
-// }
-// else{
-// window.setTimeout(window.location.replace("prodotti"), 1000);
-// }
-// })
-// })
 
 $(window).on('load', function() {
 	$("#tipoProdotto").change(function() {
+	var tipo = $("#tipoProdotto option:selected").attr("value");
 		
-		
-		
-		
-	}
-}
-		
-	}
+		$('.grid-item').each(function(i, obj) {
+			
+			if(!$(this).hasClass(tipo)){
+			$(this).hide();
+		}
+			else{
+				$(this).show();
+				
+				}				   
+			   });
+			
+})
+
+})
+
+$(window).on('load', function() {
+	$("#ambienteProdotto").change(function() {
+	var tipo = $("#ambienteProdotto option:selected").attr("value");
+	
+	if(tipo == 'Tutti'){
+		$('.grid-item').each(function(i, obj) {
+			$(this).show();})
+		}
+	else{
+		$('.grid-item').each(function(i, obj) {
+			
+			if(!$(this).hasClass(tipo)){
+			$(this).hide();
+		}
+			else{
+				$(this).show();
+				
+				}				   
+			   });
+	}	
+})
+
+})
+
+$(window).on('load', function() {
+	$("#marcaProdotto").change(function() {
+	var tipo = $("#marcaProdotto option:selected").attr("value");
+	
+	if(tipo == 'Tutti'){
+		$('.grid-item').each(function(i, obj) {
+			$(this).show();})
+		}
+	else{
+		$('.grid-item').each(function(i, obj) {
+			
+			if(!$(this).hasClass(tipo)){
+			console.log($(this).attr("class"));
+			$(this).hide();
+		}
+			else{
+				$(this).show();
+				
+				}				   
+			   });
+	}	
+})
+
+})
+
+
+
+
+
+
+

@@ -290,22 +290,22 @@
 						Prodotti</h4>
 					<select name="tipoProdotto " class="form-control " id="tipoProdotto">
 						<option value="">---</option>
-						<option value="1 ">Armadio</option>
-						<option value="2 ">Cassettiera</option>
-						<option value="3 ">Comodino</option>
-						<option value="4 ">Credenza</option>
-						<option value="5 ">Cucina</option>
-						<option value="6 ">Libreria</option>
-						<option value="7 ">Illuminazione</option>
-						<option value="8 ">Letto</option>
-						<option value="9 ">Scrivania</option>
-						<option value="10 ">Sedia</option>
-						<option value="11 ">Divano</option>
-						<option value="12 ">Poltrona</option>
-						<option value="13 ">Tavolo</option>
-						<option value="14 ">Bagno</option>
-						<option value="15 ">Vetrina</option>
-						<option value="16 ">Camera da Letto</option>
+						<option value="Armadio">Armadio</option>
+						<option value="Cassettiera">Cassettiera</option>
+						<option value="Comodino">Comodino</option>
+						<option value="Credenza">Credenza</option>
+						<option value="Cucina">Cucina</option>
+						<option value="Libreria">Libreria</option>
+						<option value="Illuminazione">Illuminazione</option>
+						<option value="Letto">Letto</option>
+						<option value="Scrivania">Scrivania</option>
+						<option value="Sedia">Sedia</option>
+						<option value="Divano">Divano</option>
+						<option value="Poltrona">Poltrona</option>
+						<option value="Tavolo">Tavolo</option>
+						<option value="Bagno">Bagno</option>
+						<option value="Vetrina">Vetrina</option>
+						<option value="Camera da Letto">Camera da Letto</option>
 
 
 					</select>
@@ -328,11 +328,11 @@
 				</div>
 				<div class="col-md-3 single-top-left ">
 					<h4 class="titolo_menu_selezione">Seleziona Marca</h4>
-					<select name="marcaProdotto " class="form-control ">
+					<select name="marcaProdotto" class="form-control" id="marcaProdotto">
 
 						<option value="---">---</option>
-						<c:forEach var="marca" items="${marcheProdotti}" varStatus="loop">
-							<option value="${loop.index} ">${marca}</option>
+						<c:forEach var="marca" items="${marcheProdotti}">
+							<option value="${marca}">${marca}</option>
 						</c:forEach>
 						<option value="Tutti">Tutte le marche</option>
 
@@ -341,7 +341,8 @@
 				<div class="col-md-3 single-top-right ">
 					<div>
 						<h4 class="titolo_menu_selezione">Prezzo</h4>
-						<select name="indirizzo " class="form-control ">
+						<select name="indirizzo " class="form-control" id="ordinaPrezzo">
+						    <option value="---">---</option>
 							<option value="1 ">Crescente</option>
 							<option value="2 ">Decrescente</option>
 						</select>
@@ -360,7 +361,7 @@
 
 			<div class="row">
 				<c:forEach var="prodotto" items="${prodotti}">
-					<div class="col-md-4 grid-item visibile" id="prodottoDaNascondere">
+					<div class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}" data-percentage="${prodotto.prezzoProdotto}" id="prodottoDaNascondere">
 						<img class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
 							alt="${prodotto.nomeProdotto}">

@@ -886,7 +886,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 		try {
 
 			PreparedStatement statement;
-			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, descrizioneProdotto, tipoProdotto, marcaProdotto, ambienteProdotto from prodotto";
+			String query = "select id_prodotto, prezzoProdotto, nomeProdotto, immaginePrincipale, descrizioneProdotto, tipoProdotto, marcaProdotto, ambienteProdotto from prodotto";
 			statement = connection.prepareStatement(query);
 
 			ResultSet result = statement.executeQuery();
@@ -898,8 +898,9 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
 				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
-				prodotto.setAmbienteProdotto(result.getString("ambientePrincipale"));
+				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
 				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 
 				prodotti.add(prodotto);
 			}
@@ -1238,7 +1239,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ProdottoConImmagini prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select id_prodotto, descrizioneProdotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto where offertaProdotto = 1 order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
+			String query = "select id_prodotto, descrizioneProdotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto where offertaProdotto = 1 order by ABS(prezzoProdotto) desc LIMIT 6";
 			statementProdotto = connection.prepareStatement(query);
 
 			ResultSet resultProdotto = statementProdotto.executeQuery();
@@ -1278,7 +1279,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ProdottoConImmagini prodotto;
 			PreparedStatement statementProdotto;
 
-			String query = "select id_prodotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto order by numeroVisite desc, prezzoProdotto desc LIMIT 6";
+			String query = "select id_prodotto, marcaProdotto,numeroVisite,nomeProdotto, prezzoProdotto, numeroVisite, immaginePrincipale from prodotto order by ABS(numeroVisite) desc LIMIT 6";
 			statementProdotto = connection.prepareStatement(query);
 
 			ResultSet resultProdotto = statementProdotto.executeQuery();
