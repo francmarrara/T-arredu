@@ -78,94 +78,9 @@
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
-				<li class="navbarOggetto"><a href="#">Home</a></li>
-				<!-- DropMenu per catalogo prodotti -->
-				<li class="dropdown navbarOggetto" id="catalogoProdotti"><a
-					class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogo
-						Prodotti <span class="caret"></span>
-				</a>
-					<ul class="dropdown-menu row" id="menuProdotti">
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Ambienti</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Cucina</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Bagno</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Soggiorno</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Studio</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Camera
-										da letto</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Salotto</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Stanza
-										da pranzo</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Categorie</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Armadi</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Cassettiere</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Comodini</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Illuminazioni</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Credenze</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Letti</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Tavoli</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Librerie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Scrivanie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Sedie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Poltrone</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Divani</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Vetrine</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Bagni</a>
-								</li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Marche</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										2</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										3</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Marche</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										2</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										3</a></li>
-							</ul>
-						</li>
-					</ul></li>
-				<li class="navbarOggetto"><a href="prodotti">Tutti i
-						Prodotti</a></li>
+				<li class="navbarOggetto"><a href="">Home</a></li>
+				
+				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
@@ -483,35 +398,9 @@
 
 	<!-- Footer -->
 	<footer id="myFooter">
-		<div class="container">
+		<div class="container" style="text-align: center">
 			<div class="row">
 				<div class="col-sm-3 myCols">
-					<h5>Ambienti</h5>
-					<ul>
-						<li><a href="prodotti.html">Cucina</a></li>
-						<li><a href="prodotti.html">Bagno</a></li>
-						<li><a href="prodotti.html">Soggiorno</a></li>
-						<li><a href="prodotti.html">Studio</a></li>
-						<li><a href="prodotti.html">Camera da Letto</a></li>
-						<li><a href="prodotti.html">Salotto</a></li>
-						<li><a href="prodotti.html">Sala da Pranzo</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 myCols">
-					<h5>Marche</h5>
-					<ul>
-						<li><a href="prodotti.html">Marca 1</a></li>
-						<li><a href="prodotti.html">Marca 2</a></li>
-						<li><a href="prodotti.html">Marca 3</a></li>
-						<li><a href="prodotti.html">Marca 4</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 myCols">
-					<h5>Supporto</h5>
-					<ul>
-						<li><a href="venditore">FAQ</a></li>
-						<li><a href="#">Help desk</a></li>
-					</ul>
 				</div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
@@ -524,15 +413,23 @@
 						<li><a href="#">Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
+				
+				<div class="col-sm-3 myCols">
+					<h5>Supporto</h5>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Help desk</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3 myCols">
+				</div>
+				
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="www.twitter.com" class="twitter"><i
-				class="fa fa-twitter"></i></a> <a
-				href="http://www.facebook.com/sharer.php?u=index.jsp"
-				class="facebook"><i class="fa fa-facebook-official"></i></a> <a
-				href="www.googleplus.com" class="google"><i
-				class="fa fa-google-plus"></i></a>
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
 	<div id="snackbar"></div>

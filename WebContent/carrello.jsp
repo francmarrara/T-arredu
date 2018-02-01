@@ -66,118 +66,30 @@
 	</header>
 
 
-
-	<!-- Menu di navigazione principale -->
+<!-- Menu di navigazione principale -->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				<!-- DropMenu per catalogo prodotti -->
-				<li class="dropdown navbarOggetto" id="catalogoProdotti"><a
-					class="dropdown-toggle" data-toggle="dropdown" href="">Catalogo
-						Prodotti <span class="caret"></span>
-				</a>
-					<ul class="dropdown-menu row" id="menuProdotti">
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Ambienti</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Cucina</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Bagno</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Soggiorno</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Studio</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Camera
-										da letto</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Salotto</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Stanza
-										da pranzo</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Categorie</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Armadi</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Cassettiere</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Comodini</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Illuminazioni</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Credenze</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Letti</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Tavoli</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Librerie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Scrivanie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Sedie</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Poltrone</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Divani</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Vetrine</a>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Bagni</a>
-								</li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Marche</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										2</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										3</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3" id="listaMenu">
-							<ul class="list-unstyled">
-								<li>
-									<h4 class="NomiCategorie">Marche</h4>
-								</li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										2</a></li>
-								<li><a class="oggettiCategorie" href="prodotti.html">Prodotti
-										3</a></li>
-							</ul>
-						</li>
-					</ul></li>
-				<li class="navbarOggetto"><a href="prodotti.html">Tutti i
-						Prodotti</a></li>
+				
+				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
-				<li class="navbarOggetto"><a href="profiloUtente.html">Utente</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()"
-						class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
-					<li class="navbarOggetto"><a href="#" class="nomeUtente"><span
-							class="glyphicon glyphicon-user user"></span> ${nomeUtente}</a></li>
-
-					<li class="carrello navbarOggetto"><a
-						href="carrello"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
+							class="glyphicon glyphicon-user user"></span> Benvenuto,
+							${nomeUtente}</a></li>
+							
+				<li class="carrello navbarOggetto"><a href="carrello"><span
+				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -273,16 +185,14 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
-						style="cursor: pointer;"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
+						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-
+				
 			</ul>
 		</div>
 	</nav>
-
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
 		<a href="#top" id="backToTopMenu">Torna su</a>
@@ -389,36 +299,11 @@
 	</button>
 
 	<div class="content"></div>
+	<!-- Footer -->
 	<footer id="myFooter">
-		<div class="container">
+		<div class="container" style="text-align: center">
 			<div class="row">
 				<div class="col-sm-3 myCols">
-					<h5>Ambienti</h5>
-					<ul>
-						<li><a href="prodotti.html">Cucina</a></li>
-						<li><a href="prodotti.html">Bagno</a></li>
-						<li><a href="prodotti.html">Soggiorno</a></li>
-						<li><a href="prodotti.html">Studio</a></li>
-						<li><a href="prodotti.html">Camera da Letto</a></li>
-						<li><a href="prodotti.html">Salotto</a></li>
-						<li><a href="prodotti.html">Sala da Pranzo</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 myCols">
-					<h5>Marche</h5>
-					<ul>
-						<li><a href="prodotti.html">Marca 1</a></li>
-						<li><a href="prodotti.html">Marca 2</a></li>
-						<li><a href="prodotti.html">Marca 3</a></li>
-						<li><a href="prodotti.html">Marca 4</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 myCols">
-					<h5>Supporto</h5>
-					<ul>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Help desk</a></li>
-					</ul>
 				</div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
@@ -431,6 +316,17 @@
 						<li><a href="#">Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
+				
+				<div class="col-sm-3 myCols">
+					<h5>Supporto</h5>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Help desk</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3 myCols">
+				</div>
+				
 			</div>
 		</div>
 		<div class="social-networks">
