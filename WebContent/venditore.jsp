@@ -256,7 +256,7 @@
 			<div class="row ">
 				<div class="col-md-3 single-top-left ">
 					<h4 class="titolo_menu_selezione">Seleziona Tipologia di
-						Prodotti</h4>
+						Prodotto</h4>
 					<select name="tipoProdotto " class="form-control "
 						id="tipoProdotto">
 						<option value="">---</option>
@@ -281,8 +281,7 @@
 					</select>
 				</div>
 				<div class="col-md-3 single-top-left ">
-					<h4 class="titolo_menu_selezione">Seleziona Ambiente di
-						Prodotti</h4>
+					<h4 class="titolo_menu_selezione">Seleziona Ambiente</h4>
 					<select name="ambienteProdotto" class="form-control"
 						id="ambienteProdotto">
 						<option value="---">---</option>
