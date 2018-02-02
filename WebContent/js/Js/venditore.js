@@ -243,3 +243,54 @@ $(window).on('load', function() {
 	})
 
 })
+
+
+
+
+
+/* ordinamento per prezzo */
+$(window).on('load',function() {
+
+	$("#ordinaPrezzo").change(function() {
+
+		var tipo = $("#ordinaPrezzo option:selected").attr("value");
+
+		
+		var mylist = $('.rigaProdotto');
+	    var listitems = mylist.children('.grid-item').get();
+
+	    
+		
+	if(tipo == '1'){
+		//crescente
+		listitems.sort(function(a, b) {
+		   var compA = parseFloat($(a).attr("value"));
+		   var compB = parseFloat($(b).attr("value"));
+		   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+		})
+		}
+	else if(tipo =='2'){
+		//decrescente
+		
+		listitems.sort(function(a, b) {
+			   var compA = parseFloat($(a).attr("value"));
+			   var compB = parseFloat($(b).attr("value"));
+			   return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+			})
+	}   
+
+
+		
+   mylist.append(listitems);
+
+						
+	})
+	})
+
+
+
+
+
+
+
+

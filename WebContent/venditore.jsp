@@ -314,8 +314,8 @@
 						<h4 class="titolo_menu_selezione">Prezzo</h4>
 						<select name="indirizzo " class="form-control" id="ordinaPrezzo">
 							<option value="---">---</option>
-							<option value="1 ">Crescente</option>
-							<option value="2 ">Decrescente</option>
+							<option value="1">Crescente</option>
+							<option value="2">Decrescente</option>
 						</select>
 					</div>
 				</div>
@@ -330,12 +330,10 @@
 
 		<div class="container prodotti" style="padding-top: 2%;">
 
-			<div class="row">
+			<div class="row rigaProdotto">
 				<c:forEach var="prodotto" items="${prodotti}">
 					<div
-						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"
-						data-percentage="${prodotto.prezzoProdotto}"
-						id="prodottoDaNascondere">
+						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"  value="${prodotto.prezzoProdotto}">>
 						<img class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
 							alt="${prodotto.nomeProdotto}">
@@ -345,6 +343,7 @@
 								<div class="testo_prodotto">
 									<p>${prodotto.descrizioneProdotto}.</p>
 								</div>
+								<p><strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €</p>
 								<button type=" button " class="btn btn-default">
 									<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
 								</button>

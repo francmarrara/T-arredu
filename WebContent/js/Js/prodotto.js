@@ -299,6 +299,8 @@ $(document).on("focusout", ".EmailUtenteLogin", function() {
 
 /* CheckBox votazione */
 
-
+$(document).on("change",".messageCheckbox", function() {
+    $('input.messageCheckbox').not(this).prop('checked', false);  
+});
 
 

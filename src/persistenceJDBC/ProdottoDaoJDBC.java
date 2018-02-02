@@ -1024,7 +1024,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ProdottoConImmagini prodotto;
 			PreparedStatement statement;
 
-			String query = "select prodotto.nomeProdotto, prodotto.id_prodotto, prodotto.immaginePrincipale, "
+			String query = "select prodotto.prezzoProdotto, prodotto.nomeProdotto, prodotto.id_prodotto, prodotto.immaginePrincipale, "
 					+ "prodotto.descrizioneProdotto, prodotto.marcaProdotto, prodotto.ambienteProdotto, prodotto.tipoProdotto from prodotto,venditorePerProdotto where "
 					+ "prodotto.id_prodotto = venditorePerProdotto.id_prodotto and "
 					+ "venditorePerProdotto.emailVenditore = ?";
@@ -1045,6 +1045,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
 				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
 				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 
 				prodotti.add(prodotto);
 
