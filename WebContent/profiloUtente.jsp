@@ -65,7 +65,7 @@
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
-				<li class="navbarOggetto"><a href="">Home</a></li>
+				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
 
 				<li class="navbarOggetto"><a href="prodotti">Catalogo
 						Prodotti</a></li>

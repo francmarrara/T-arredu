@@ -427,7 +427,8 @@
 							<c:otherwise>
 							<p style="font-family: cursive;font-size: medium; ">Hai Già Recensito Questo prodotto</p>
 								<li style="font-family: sans-serif;">Recensione : </li>
-								<li>${commentoPresente.commento}</li>
+								<li>${commentoPresente.commento}  Valutazione : <strong>${commentoPresente.valutazione}/5</strong></li>
+								
 							</c:otherwise>
 						</c:choose>
 					</c:if>
