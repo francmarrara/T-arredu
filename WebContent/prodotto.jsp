@@ -358,8 +358,7 @@
 						<c:forEach var="commentoProdotto" items="${listaCommentiProdotto}">
 
 							<li>
-								<p>${commentoProdotto.commento}->Utente:
-									${commentoProdotto.nomeUtente}</p>
+								<p style="font-family: cursive;">${commentoProdotto.commento}. Di : <strong>${commentoProdotto.nomeUtente}</strong></p>
 							</li>
 
 						</c:forEach>
@@ -426,9 +425,9 @@
 
 							</c:when>
 							<c:otherwise>
-								<li>${commentoPresente.commento}->Utente:
-									${commentoPresente.nomeUtente} -> Prodotto:
-									${commentoPresente.idProdotto}</li>
+							<p style="font-family: cursive;font-size: medium; ">Hai Già Recensito Questo prodotto</p>
+								<li style="font-family: sans-serif;">Recensione : </li>
+								<li>${commentoPresente.commento}</li>
 							</c:otherwise>
 						</c:choose>
 					</c:if>
