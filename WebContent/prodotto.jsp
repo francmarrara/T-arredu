@@ -338,9 +338,6 @@
 				<div id="colori" class="tab-pane fade">
 					<h3>Colori</h3>
 					<p class="descrizione_bassa">${prodottoCercato.coloriProdotto}</p>
-					<p class="descrizione_bassa">${prodottoCercato.idProdotto},
-						${emailUtenteLoggato}</p>
-					<p>${cognomeUtente}</p>
 				</div>
 				<div id="venditori" class="tab-pane fade">
 					<h3>Puoi Trovarlo Qui</h3>
