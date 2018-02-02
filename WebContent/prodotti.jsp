@@ -294,17 +294,17 @@
 
 			<div class="row rigaProdotto">
 				<c:forEach var="prodotto" items="${prodotti}">
-					<div class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} ${prodotto.prezzoProdotto}">
+					<div class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "  value="${prodotto.prezzoProdotto}">
 						<img class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
 							alt="${prodotto.nomeProdotto}">
-							<div class="prezzo" style="display: hidden" value="${prodotto.prezzoProdotto}"> ${prodotto.prezzoProdotto} </div>
 						<div>
 							<div>
 								<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
 								<div class="testo_prodotto">
 									<p>${prodotto.descrizioneProdotto}.</p>
 								</div>
+								<p><strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €</p>
 								<button type=" button " class="btn btn-default">
 									<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
 								</button>

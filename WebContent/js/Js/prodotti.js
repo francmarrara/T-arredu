@@ -257,27 +257,36 @@ $(window).on('load',function() {
 
 	$("#ordinaPrezzo").change(function() {
 
-		var mylist = [];
-//		var listitems = mylist.children('grid-item').get();
+		var tipo = $("#ordinaPrezzo option:selected").attr("value");
+
 		
-		$('.rigaProdotto .grid-item .prezzo').each(function(i, obj) {
-			mylist.push($(this).attr("value"));
-			
-		});
+		var mylist = $('.rigaProdotto');
+	    var listitems = mylist.children('.grid-item').get();
+
+	    
 		
-		console.log(mylist);
+	if(tipo == '1'){
+		//crescente
+		listitems.sort(function(a, b) {
+		   var compA = parseFloat($(a).attr("value"));
+		   var compB = parseFloat($(b).attr("value"));
+		   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+		})
+		}
+	else if(tipo =='2'){
+		//decrescente
 		
-//		$('.grid-item').each(function(i, obj) {
-//			console.log($(this));
-//		});
+		listitems.sort(function(a, b) {
+			   var compA = parseFloat($(a).attr("value"));
+			   var compB = parseFloat($(b).attr("value"));
+			   return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+			})
+	}   
+
+
 		
-		
-//		listitems.sort(function(a, b) {
-//		   var compA = $(a).("#prezzoProdotto").text();
-//		   var compB = $(b).("#prezzoProdotto").text();
-//		   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
-//		})
-//		$.each(listitems, function(idx, itm) { mylist.append(itm); });
+   mylist.append(listitems);
+
 						
 	})
 	})
