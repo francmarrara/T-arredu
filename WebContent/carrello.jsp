@@ -54,9 +54,10 @@
 
 
 <body>
+
 	<!-- Sfondo -->
 	<div id="bg">
-		<img src="images/sfondoLegno.png" alt="">
+		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
 	</div>
 
 	<!-- Header -->
@@ -75,7 +76,7 @@
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
 				
 				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
-				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
+				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
@@ -320,7 +321,7 @@
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="aboutUs.html">Help desk</a></li>
+						<li><a href="aboutUs.jsp">Help desk</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-3 myCols">

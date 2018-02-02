@@ -171,7 +171,7 @@
 		<servlet-name>CambiaPasswordUtente</servlet-name>
 		<url-pattern>/cambiaPassword</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AggiornaDatiPersonali</servlet-name>
 		<servlet-class>controller.AggiornaDatiPersonali</servlet-class>
@@ -189,7 +189,7 @@
 		<servlet-name>TuttiProdotti</servlet-name>
 		<url-pattern>/prodotti</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>TuttiProdottiPerTipo</servlet-name>
 		<servlet-class>controller.TuttiProdottiPerTipo</servlet-class>
@@ -198,6 +198,7 @@
 		<servlet-name>TuttiProdottiPerTipo</servlet-name>
 		<url-pattern>/prodottiPerTipo</url-pattern>
 	</servlet-mapping>
+
 
 
 

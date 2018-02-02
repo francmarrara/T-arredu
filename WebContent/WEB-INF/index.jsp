@@ -28,22 +28,22 @@
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
-            var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
-            window.smartsupp || (function(d) {
-                var s, c, o = smartsupp = function() {
-                    o._.push(arguments)
-                };
-                o._ = [];
-                s = d.getElementsByTagName('script')[0];
-                c = d.createElement('script');
-                c.type = 'text/javascript';
-                c.charset = 'utf-8';
-                c.async = true;
-                c.src = 'https://www.smartsuppchat.com/loader.js?';
-                s.parentNode.insertBefore(c, s);
-            })(document);
-        </script>
+	var _smartsupp = _smartsupp || {};
+	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	window.smartsupp || (function(d) {
+		var s, c, o = smartsupp = function() {
+			o._.push(arguments)
+		};
+		o._ = [];
+		s = d.getElementsByTagName('script')[0];
+		c = d.createElement('script');
+		c.type = 'text/javascript';
+		c.charset = 'utf-8';
+		c.async = true;
+		c.src = 'https://www.smartsuppchat.com/loader.js?';
+		s.parentNode.insertBefore(c, s);
+	})(document);
+</script>
 <link rel="stylesheet" href="css/snackbar.css">
 <link rel="stylesheet" href="css/index.css">
 <script src="js/Js/index.js"></script>
@@ -59,9 +59,23 @@
 </head>
 
 <body>
+
+	<c:if test="${passwordCorretta == false}">
+		<script type=text/javascript>
+			$(document).ready(function() {
+
+				$("#snackbar").css({
+					'background-color' : 'red'
+				});
+				$("#snackbar").text("PASSWORD O INDIRIZZO ERRATO");
+				showSnackbar();
+			});
+		</script>
+	</c:if>
+
 	<!-- Sfondo -->
 	<div id="bg">
-		<img src="images/sfondoLegno.png" alt="">
+		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
 	</div>
 
 	<!-- Header -->
@@ -79,27 +93,29 @@
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				
-				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
-				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
+						Prodotti</a></li>
+				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
-				<c:if test="${utenteLoggato == false}">
+				<c:if test="${utenteLoggato == false || utenteLoggato == null}">
 
 					<li class="navbarOggetto">
 						<!-- Form per il login --> <a href="#login"
@@ -190,11 +206,12 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
@@ -376,8 +393,7 @@
 						</div>
 						<button type="button"
 							class="btn btn-default bottoneProdottoPiuVisto">
-							<a href="prodotto?id=${prodotto.idProdotto}"></span>
-								Mostra</a>
+							<a href="prodotto?id=${prodotto.idProdotto}"></span> Mostra</a>
 						</button>
 
 					</div>
@@ -399,8 +415,7 @@
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
@@ -412,22 +427,21 @@
 						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="aboutUs.html">Help desk</a></li>
+						<li><a href="aboutUs.jsp">Help desk</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-3 myCols">
-				</div>
-				
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
-			<a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
 			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>

@@ -58,7 +58,7 @@
 
 	<!-- Sfondo -->
 	<div id="bg">
-		<img src="images/sfondoLegno.png" alt="">
+		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
 	</div>
 
 	<!-- Header -->
@@ -76,23 +76,25 @@
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				
-				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
-				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
+						Prodotti</a></li>
+				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -187,11 +189,12 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
@@ -385,25 +388,30 @@
 												<strong>Inserire una valutazione del prodotto (da 1
 													a 5)</strong>
 											</p>
-												<label class="containerLabel">1/5 <input
-													type="radio" checked="checked" name="radio"
-													class="messageCheckbox" value="1"> <span
-													class="checkmark"></span>
-												</label> <label class="containerLabel">2/5 <input
-													type="radio" name="radio" class="messageCheckbox" value="2">
-													<span class="checkmark"></span>
-												</label> <label class="containerLabel">3/5 <input
-													type="radio" name="radio" class="messageCheckbox" value="3">
-													<span class="checkmark"></span>
-												</label> <label class="containerLabel">4/5 <input
-													type="radio" name="radio" class="messageCheckbox" value="4">
-													<span class="checkmark"></span>
-												</label> <label class="containerLabel">5/5 <input
-													type="radio" name="radio" class="messageCheckbox" value="5">
-													<span class="checkmark"></span>
-												</label>
+											<label class="containerLabel">1/5<input
+												type="checkbox" checked="checked" name="radio"
+												class="messageCheckbox" value="1">
+												
+											</label> <label class="containerLabel">2/5 <input
+												type="checkbox" name="radio" class="messageCheckbox"
+												value="2">
+
+											</label> <label class="containerLabel">3/5 <input
+												type="checkbox" name="radio" class="messageCheckbox"
+												value="3">
+
+											</label> <label class="containerLabel">4/5 <input
+												type="checkbox" name="radio" class="messageCheckbox"
+												value="4">
+
+											</label> <label class="containerLabel">5/5 <input
+												type="checkbox" name="radio" class="messageCheckbox"
+												value="5">
+
+											</label>
 										</div>
 
+										<hr>
 										<label>Recensione</label> <br>
 										<textarea id="subject" name="subject"
 											placeholder="Scrivi la recensione.."
@@ -427,11 +435,13 @@
 							</c:otherwise>
 						</c:choose>
 					</c:if>
-					
+
 					<c:if test="${utenteLoggato == false}">
-					
-						<p><strong>Registrarsi per poter rilasciare una recensione.</strong></p>
-					
+
+						<p>
+							<strong>Registrarsi per poter rilasciare una recensione.</strong>
+						</p>
+
 					</c:if>
 
 				</div>
@@ -454,8 +464,7 @@
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
@@ -467,22 +476,21 @@
 						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="aboutUs.html">Help desk</a></li>
+						<li><a href="aboutUs.jsp">Help desk</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-3 myCols">
-				</div>
-				
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
-			<a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
 			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>

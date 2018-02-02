@@ -19,7 +19,7 @@ $(document).ready(function() {
 });
 
 
-//Errore sullo snackbar che ti invita a registrati
+// Errore sullo snackbar che ti invita a registrati
 
 function chiediLogin() {
 	$("#snackbar")
@@ -32,14 +32,14 @@ function chiediLogin() {
 };
 
 
-/*SNACKBAR*/
+/* SNACKBAR */
 function showSnackbar() {
     var x = document.getElementById("snackbar")
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-/*VALIDATORE EMAIL*/
+/* VALIDATORE EMAIL */
 
 var validate_email = function(email) {
 	var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
@@ -162,9 +162,10 @@ $(document).on("focusout", ".EmailUtenteLogin", function() {
 			email : input_val
 		},
 		success : function(data) {
-			/*alert(data);*/
+			/* alert(data); */
 		}
 	})
 
 });
+
 

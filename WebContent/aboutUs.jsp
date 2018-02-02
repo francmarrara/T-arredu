@@ -1,11 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-<html>
+<html lang="it">
 
 <head>
-<title>Prodotti</title>
+<title>About us</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,7 +21,6 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
@@ -43,25 +41,16 @@
 	})(document);
 </script>
 
-<link rel="stylesheet" href="css/prodotti.css">
+<link rel="stylesheet" href="css/aboutUs.css">
 <link rel="stylesheet" href="css/snackbar.css">
-<script src="js/Js/prodotti.js"></script>
+<script src="js/Js/aboutUs.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 
-
-
-
-
-
-
-<!-- Start WOWSlider.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
-<!-- End WOWSlider.com HEAD section -->
 </head>
 
 <body>
+
 	<!-- Sfondo -->
 	<div id="bg">
 		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
@@ -82,23 +71,25 @@
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				
-				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
-				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
+						Prodotti</a></li>
+				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -193,142 +184,116 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
+
+	<br>
+	<br>
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
 		<a href="#top" id="backToTopMenu">Torna su</a>
 	</div>
 
-	<p class="titolo_sopra_prodotti" style="padding-top: 10%;">
-		PRODOTTI</p>
+	<div class="containerAboutUs">
+		<div style="background-color: white; margin-bottom: 40%;">
+			<div class="containerSezioneSuperiore">
+				<h2>Chi siamo</h2>
+				<hr>
+				<div class="row">
 
-	<hr>
-
-	<!--Inizio Menu di selezione Tipo prodotti e Prezzo-->
-
-	<div class="container" style="text-align: center">
-
-		<div class="container menu_selezione">
-			<div class="row ">
-				<div class="col-md-3 single-top-left ">
-					<h4 class="titolo_menu_selezione">Seleziona Tipologia di
-						Prodotti</h4>
-					<select name="tipoProdotto " class="form-control " id="tipoProdotto">
-						<option value="">---</option>
-						<option value="Armadio">Armadio</option>
-						<option value="Cassettiera">Cassettiera</option>
-						<option value="Comodino">Comodino</option>
-						<option value="Credenza">Credenza</option>
-						<option value="Cucina">Cucina</option>
-						<option value="Libreria">Libreria</option>
-						<option value="Illuminazione">Illuminazione</option>
-						<option value="Letto">Letto</option>
-						<option value="Scrivania">Scrivania</option>
-						<option value="Sedia">Sedia</option>
-						<option value="Divano">Divano</option>
-						<option value="Poltrona">Poltrona</option>
-						<option value="Tavolo">Tavolo</option>
-						<option value="Bagno">Bagno</option>
-						<option value="Vetrina">Vetrina</option>
-						<option value="Camera da Letto">Camera da Letto</option>
-
-
-					</select>
-				</div>
-				<div class="col-md-3 single-top-left ">
-					<h4 class="titolo_menu_selezione">Seleziona Ambiente di
-						Prodotti</h4>
-					<select name="ambienteProdotto" class="form-control"
-						id="ambienteProdotto">
-						<option value="---">---</option>
-						<option value="Cucina">Cucina</option>
-						<option value="Bagno">Bagno</option>
-						<option value="Soggiorno">Soggiorno</option>
-						<option value="Studio">Studio</option>
-						<option value="Camera da Letto">Camera da letto</option>
-						<option value="Sala da Pranzo">Sala da pranzo</option>
-						<option value="Salotto">Salotto</option>
-						<option value="Tutti">Tutti gli ambienti</option>
-					</select>
-				</div>
-				<div class="col-md-3 single-top-left ">
-					<h4 class="titolo_menu_selezione">Seleziona Marca</h4>
-					<select name="marcaProdotto" class="form-control" id="marcaProdotto">
-
-						<option value="---">---</option>
-						<c:forEach var="marca" items="${marcheProdotti}">
-							<option value="${marca}">${marca}</option>
-						</c:forEach>
-						<option value="Tutti">Tutte le marche</option>
-
-					</select>
-				</div>
-				<div class="col-md-3 single-top-right ">
-					<div>
-						<h4 class="titolo_menu_selezione">Prezzo</h4>
-						<select name="indirizzo " class="form-control" id="ordinaPrezzo">
-						    <option value="---">---</option>
-							<option value="1">Crescente</option>
-							<option value="2">Decrescente</option>
-						</select>
+					<div class="col-md-4 immagine">
+						<img id="logoButton" src="images/TarreduLogo.png" width="200"
+							height="200">
 					</div>
+
+					<div class="col-md-8 descrizione">
+						<h3>T'ARREDU (Ti Arredo)</h3>
+						<p>Web App che permette allâUtente di poter scegliere,
+							configurare, richiedere un preventivo.</p>
+						<p>Scelto il prodotto da acquistare l'utente potrà richiedere un preventivo o
+							contattare il venditore per l'acquisto.</p>
+						<p>L'utente può lasciare feedback sul singolo prodotto o
+							sul venditore dopo aver effettuato l'acquisto. Il sito prevede</p>
+						<p>anche una chat live per assistenza e supporto.</p>
+					</div>
+
 				</div>
+				<div class="containerSezioneInferiore">
+					<h2>Sviluppatori</h2>
+					<hr>
+					<div class="row">
 
+						<p>Hanno creato il sito:</p>
 
-			</div>
-		</div>
-		<!--Fine Menu di selezione Tipo prodotti e Prezzo-->
-
-
-		<!--Inizio Box Prodotti -->
-
-		<div class="container prodotti" style="padding-top: 2%;">
-
-			<div class="row rigaProdotto">
-				<c:forEach var="prodotto" items="${prodotti}">
-					<div class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} ${prodotto.prezzoProdotto}">
-						<img class="img img-responsive img_grid"
-							src="${prodotto.immaginePrincipale}"
-							alt="${prodotto.nomeProdotto}">
-							<div class="prezzo" style="display: hidden" value="${prodotto.prezzoProdotto}"> ${prodotto.prezzoProdotto} </div>
-						<div>
-							<div>
-								<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
-								<div class="testo_prodotto">
-									<p>${prodotto.descrizioneProdotto}.</p>
+						<div class="col-md-6 immagineComponente">
+							<div class="card">
+								<img src="images/fotoFrancesco.jpg" alt="Francesco Marrara">
+								<h2>Francesco Marrara</h2>
+								<p class="title">Sviluppatore/Studente</p>
+								<p>Università della Calabria</p>
+								<div style="background-color: black; padding-top: 2%;">
+									<a href="https://twitter.com/francmarrara"><i
+										class="fa fa-twitter"></i></a> <a
+										href="https://www.linkedin.com/in/francesco-marrara-34985253/"><i
+										class="fa fa-linkedin"></i></a> <a
+										href="https://www.facebook.com/francmarrara"><i
+										class="fa fa-facebook"></i></a>
 								</div>
-								<button type=" button " class="btn btn-default">
-									<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
-								</button>
+								<p>
+									<button>
+										<a href="mailto:francmarrara@gmail.com"
+											class="componentiContatti">E-mail</a>
+									</button>
+								</p>
+								<p>
+									<button>
+										<a class="componentiContatti">Tel: 347 31 39 840</a>
+									</button>
+								</p>
 							</div>
 						</div>
+
+						<div class="col-md-6 immagineComponente">
+							<div class="card">
+								<img src="images/fotoSimone.jpg" alt="Simone Crisafi">
+								<h2>Simone Crisafi</h2>
+								<p class="title">Sviluppatore/Studente</p>
+								<p>Università della Calabria</p>
+								<div style="background-color: black; padding-top: 2%;">
+									<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
+										class="fa fa-linkedin"></i></a> <a
+										href="https://www.facebook.com/simon.cris"><i
+										class="fa fa-facebook"></i></a>
+								</div>
+								<p>
+									<button>
+										<a href="mailto:xblack90@hotmail.it"
+											class="componentiContatti">E-mail</a>
+									</button>
+								</p>
+								<p>
+									<button>
+										<a class="componentiContatti">Tel: 347 73 53 491</a>
+									</button>
+								</p>
+							</div>
+						</div>
+
 					</div>
-				</c:forEach>
-
+				</div>
 			</div>
-
 		</div>
 
-
-
-		<div class="text-center">
-			<ul class="pagination ">
-				<li class="page-item "><a class="page-link " href="# ">Previous</a></li>
-				<li class="page-item "><a class="page-link " href="# ">1</a></li>
-				<li class="page-item "><a class="page-link " href="# ">2</a></li>
-				<li class="page-item "><a class="page-link " href="# ">3</a></li>
-				<li class="page-item "><a class="page-link " href="# ">Next</a></li>
-			</ul>
-		</div>
 	</div>
+
 	<button type="button" class="btn btn-primary bottoneTornaSu">
 		<a href="#top" style="color: #ffffff">Torna su...</a>
 	</button>
@@ -337,8 +302,7 @@
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
@@ -350,17 +314,16 @@
 						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="aboutUs.jsp">Help desk</a></li>
+						<li><a href="aboutUs.html">Help desk</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-3 myCols">
-				</div>
-				
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">
@@ -369,7 +332,9 @@
 			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
+
 	<div id="snackbar"></div>
+
 </body>
 
 </html>

@@ -297,6 +297,8 @@ $(document).on("focusout", ".EmailUtenteLogin", function() {
 
 });
 
+/* CheckBox votazione */
+
 
 
 
