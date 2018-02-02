@@ -289,7 +289,7 @@
 						<div class="containerLogo">
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
-						<img class="immagineProdottoInOfferta"
+						<img class="immagineProdottoInOfferta img img-responsive"
 							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloInOfferta">
@@ -322,7 +322,7 @@
 						<div class="containerLogo">
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
-						<img class="immagineProdottoInOfferta"
+						<img class="immagineProdottoInOfferta img img-responsive"
 							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloInOfferta">
