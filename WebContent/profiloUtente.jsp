@@ -96,7 +96,7 @@ window.smartsupp||(function(d) {
 
 				</c:if>
 
-				<c:if test="${utenteLoggato == false}">
+				<c:if test="${utenteLoggato == false || empty utenteLoggato}">
 
 					<li class="navbarOggetto">
 						<!-- Form per il login --> <a href="#login"
