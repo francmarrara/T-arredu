@@ -77,8 +77,7 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 			session.setAttribute("cognomeUtente", utente.getCognomeUtente());
 			session.setAttribute("emailUtenteLoggato", utente.getEmailUtente());
 
-			resp.sendRedirect("index.jsp");
-
+			
 		} else {
 
 			req.setAttribute("passwordCorretta", false);
@@ -88,6 +87,8 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 			dispatcher.forward(req, resp);
 
 		}
+
+		resp.sendRedirect("index.jsp");
 
 	}
 }
