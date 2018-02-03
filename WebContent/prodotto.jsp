@@ -303,7 +303,7 @@
 				</c:if>
 
 				<!-- AGGIUNGERE SNACKBAR PER BOTTONI QUANDO NON SEI LOGGATO -->
-				<c:if test="${utenteLoggato == false}">
+				<c:if test="${utenteLoggato == false || empty utenteLoggato}}">
 					<div class="btn-group button_carrello">
 						<button type="button" class="btn btn-success"
 							title="Aggiungi questo prodotto al tuo carrello"
@@ -454,7 +454,7 @@
 						</c:choose>
 					</c:if>
 
-					<c:if test="${utenteLoggato == false}">
+					<c:if test="${utenteLoggato == false || empty utenteLoggato}}">
 
 						<p>
 							<strong>Registrarsi per poter rilasciare una recensione.</strong>
