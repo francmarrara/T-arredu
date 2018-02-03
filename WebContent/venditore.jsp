@@ -31,7 +31,7 @@
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
 	window.smartsupp || (function(d) {
 		var s, c, o = smartsupp = function() {
 			o._.push(arguments)
@@ -46,7 +46,6 @@
 		s.parentNode.insertBefore(c, s);
 	})(document);
 </script>
-
 <script>
 	window.onload = function() {
 		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
@@ -346,17 +345,21 @@
 			<div class="row rigaProdotto">
 				<c:forEach var="prodotto" items="${prodotti}">
 					<div
-						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"  value="${prodotto.prezzoProdotto}">>
-						<img class="img img-responsive img_grid"
+						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"
+						value="${prodotto.prezzoProdotto}">
+						> <a href="prodotto?id=${prodotto.idProdotto}"><img
+							class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
-							alt="${prodotto.nomeProdotto}">
+							alt="${prodotto.nomeProdotto}"></a>
 						<div>
 							<div>
 								<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
 								<div class="testo_prodotto">
 									<p>${prodotto.descrizioneProdotto}.</p>
 								</div>
-								<p><strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €</p>
+								<p>
+									<strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €
+								</p>
 								<button type=" button " class="btn btn-default">
 									<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
 								</button>

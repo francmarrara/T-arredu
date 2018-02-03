@@ -27,7 +27,7 @@
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
 	window.smartsupp || (function(d) {
 		var s, c, o = smartsupp = function() {
 			o._.push(arguments)
@@ -96,23 +96,25 @@
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				
-				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
+						Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -207,11 +209,12 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
@@ -235,7 +238,8 @@
 				<div class="col-md-3 single-top-left ">
 					<h4 class="titolo_menu_selezione">Seleziona Tipologia di
 						Prodotto</h4>
-					<select name="tipoProdotto " class="form-control " id="tipoProdotto">
+					<select name="tipoProdotto " class="form-control "
+						id="tipoProdotto">
 						<option value="">---</option>
 						<option value="Armadio">Armadio</option>
 						<option value="Cassettiera">Cassettiera</option>
@@ -258,7 +262,7 @@
 					</select>
 				</div>
 				<div class="col-md-3 single-top-left ">
-					<h4 class="titolo_menu_selezione">Seleziona Ambiente </h4>
+					<h4 class="titolo_menu_selezione">Seleziona Ambiente</h4>
 					<select name="ambienteProdotto" class="form-control"
 						id="ambienteProdotto">
 						<option value="---">---</option>
@@ -274,7 +278,8 @@
 				</div>
 				<div class="col-md-3 single-top-left ">
 					<h4 class="titolo_menu_selezione">Seleziona Marca</h4>
-					<select name="marcaProdotto" class="form-control" id="marcaProdotto">
+					<select name="marcaProdotto" class="form-control"
+						id="marcaProdotto">
 
 						<option value="---">---</option>
 						<c:forEach var="marca" items="${marcheProdotti}">
@@ -288,7 +293,7 @@
 					<div>
 						<h4 class="titolo_menu_selezione">Prezzo</h4>
 						<select name="indirizzo " class="form-control" id="ordinaPrezzo">
-						    <option value="---">---</option>
+							<option value="---">---</option>
 							<option value="1">Crescente</option>
 							<option value="2">Decrescente</option>
 						</select>
@@ -307,17 +312,22 @@
 
 			<div class="row rigaProdotto">
 				<c:forEach var="prodotto" items="${prodotti}">
-					<div class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "  value="${prodotto.prezzoProdotto}">
-						<img class="img img-responsive img_grid"
+					<div
+						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "
+						value="${prodotto.prezzoProdotto}">
+						<a href="prodotto?id=${prodotto.idProdotto}"> <img
+							class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
-							alt="${prodotto.nomeProdotto}">
+							alt="${prodotto.nomeProdotto}"></a>
 						<div>
 							<div>
 								<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
 								<div class="testo_prodotto">
 									<p>${prodotto.descrizioneProdotto}.</p>
 								</div>
-								<p><strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €</p>
+								<p>
+									<strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €
+								</p>
 								<button type=" button " class="btn btn-default">
 									<a href="prodotto?id=${prodotto.idProdotto}">Vai</a>
 								</button>
@@ -350,8 +360,7 @@
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
@@ -363,7 +372,7 @@
 						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
@@ -371,9 +380,8 @@
 						<li><a href="aboutUs.jsp">Help desk</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-3 myCols">
-				</div>
-				
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">

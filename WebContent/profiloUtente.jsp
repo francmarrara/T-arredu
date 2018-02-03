@@ -21,21 +21,14 @@
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
-	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
-	window.smartsupp || (function(d) {
-		var s, c, o = smartsupp = function() {
-			o._.push(arguments)
-		};
-		o._ = [];
-		s = d.getElementsByTagName('script')[0];
-		c = d.createElement('script');
-		c.type = 'text/javascript';
-		c.charset = 'utf-8';
-		c.async = true;
-		c.src = 'https://www.smartsuppchat.com/loader.js?';
-		s.parentNode.insertBefore(c, s);
-	})(document);
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
 </script>
 
 <script>
@@ -294,9 +287,10 @@
 					<div class="row">
 						<c:forEach var="prodotto" items="${prodottiPreferiti}">
 							<div class="col-md-4 grid-item">
-								<img class="img img-responsive img_grid"
+								<a href="prodotto?id=${prodotto.idProdotto}"><img
+									class="img img-responsive img_grid"
 									src="${prodotto.immaginePrincipale}"
-									alt="${prodotto.nomeProdotto}">
+									alt="${prodotto.nomeProdotto}"></a>
 								<div>
 									<div>
 										<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>

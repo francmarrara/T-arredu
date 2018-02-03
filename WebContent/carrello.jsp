@@ -32,7 +32,7 @@
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
 	window.smartsupp || (function(d) {
 		var s, c, o = smartsupp = function() {
 			o._.push(arguments)
@@ -47,7 +47,6 @@
 		s.parentNode.insertBefore(c, s);
 	})(document);
 </script>
-
 <script>
 	window.onload = function() {
 		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
@@ -79,30 +78,32 @@
 	</header>
 
 
-<!-- Menu di navigazione principale -->
+	<!-- Menu di navigazione principale -->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 				<li class="navbarOggetto"><img id="logoButton"
 					src="images/TarreduLogo.png" width="50" height="50"></li>
 				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
-				
-				<li class="navbarOggetto"><a href="prodotti">Catalogo Prodotti</a></li>
+
+				<li class="navbarOggetto"><a href="prodotti">Catalogo
+						Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 
 				<c:if test="${utenteLoggato == true}">
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()" class="nomeUtente" style="cursor: pointer;"><span
+					<li class="navbarOggetto"><a onclick="effettuaLogout()"
+						class="nomeUtente" style="cursor: pointer;"><span
 							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
 							class="glyphicon glyphicon-user user"></span> Benvenuto,
 							${nomeUtente}</a></li>
-							
-				<li class="carrello navbarOggetto"><a href="carrello"><span
-				class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+
+					<li class="carrello navbarOggetto"><a href="carrello"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
 				</c:if>
 
@@ -197,11 +198,12 @@
 
 						</div>
 					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()" style="cursor:pointer"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+						style="cursor: pointer"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 				</c:if>
 
-				
+
 			</ul>
 		</div>
 	</nav>
@@ -219,7 +221,7 @@
 						<tr>
 							<th>Prodotto</th>
 							<th>Seleziona Per Preventivo</th>
-				            <th>Richieste aggiuntive</th>
+							<th>Richieste aggiuntive</th>
 							<th class="text-center">Prezzo Consigliato</th>
 							<th class="text-center">Rimuovi</th>
 							<th></th>
@@ -247,34 +249,35 @@
 								<td class="col-sm-1 col-md-1" style="text-align: center"><input
 									type="checkbox" class="selezionatoPerPreventivo"
 									value="${prodotto.idProdotto}"></td>
-									<td class="containerListaRichiesta"><button type="button"
+								<td class="containerListaRichiesta"><button type="button"
 										class="btn btn-primary" data-toggle="modal"
 										data-target="#<c:out value="${prodotto.idProdotto}"/>myModal">
 										Richiesta <span class="glyphicon glyphicon-modal-window"></span>
 									</button> <!-- Modal -->
-									<div class="modal fade" id="${prodotto.idProdotto}myModal" role="dialog">
+									<div class="modal fade" id="${prodotto.idProdotto}myModal"
+										role="dialog">
 										<div class="modal-dialog"></div>
 
 										<!-- Modal content-->
 										<div class="modal-content">
 											<h2>Inserire richiesta aggiuntiva</h2>
 											<div class="containerFormRecensione">
-												<form class = "formRichiesta">
+												<form class="formRichiesta">
 													<label>Richiesta</label> <br>
-													<textarea class ="richiesta" id="subject" name="subject"
+													<textarea class="richiesta" id="subject" name="subject"
 														placeholder="Scrivi la richiesta aggiuntiva"
 														style="height: 50%; width: 100%;"></textarea>
 													<br> <br>
 
 													<button type="button" class="btn btn-danger"
-														title="nvia richiestaAggiuntiva"
-														>Click fuori dalla finestra per uscire</button>
+														title="nvia richiestaAggiuntiva">Click
+														fuori dalla finestra per uscire</button>
 
 												</form>
 											</div>
 										</div>
-										</div></td>
-								
+									</div></td>
+
 								<td class="col-sm-1 col-md-1 text-center"><strong>${prodotto.prezzoProdotto}
 										Euro</strong></td>
 
@@ -315,8 +318,7 @@
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
 			<div class="row">
-				<div class="col-sm-3 myCols">
-				</div>
+				<div class="col-sm-3 myCols"></div>
 				<div class="col-sm-3 myCols">
 					<h5>Contatti</h5>
 					<ul id="contattiFooter">
@@ -328,7 +330,7 @@
 						<li><a>Tel: 347 73 53 491</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-3 myCols">
 					<h5>Supporto</h5>
 					<ul>
@@ -336,9 +338,8 @@
 						<li><a href="aboutUs.jsp">Help desk</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-3 myCols">
-				</div>
-				
+				<div class="col-sm-3 myCols"></div>
+
 			</div>
 		</div>
 		<div class="social-networks">

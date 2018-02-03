@@ -25,7 +25,7 @@
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
 	window.smartsupp || (function(d) {
 		var s, c, o = smartsupp = function() {
 			o._.push(arguments)
@@ -250,7 +250,8 @@
 
 						<div class="col-md-6 immagineComponente">
 							<div class="card">
-								<img class="img img-responsive" src="images/fotoFrancesco.jpg" alt="Francesco Marrara">
+								<img class="img img-responsive" src="images/fotoFrancesco.jpg"
+									alt="Francesco Marrara">
 								<h2>Francesco Marrara</h2>
 								<p class="title">Sviluppatore/Studente</p>
 								<p>Università della Calabria</p>
@@ -278,7 +279,8 @@
 
 						<div class="col-md-6 immagineComponente">
 							<div class="card">
-								<img class="img img-responsive" src="images/fotoSimone.jpg" alt="Simone Crisafi">
+								<img class="img img-responsive" src="images/fotoSimone.jpg"
+									alt="Simone Crisafi">
 								<h2>Simone Crisafi</h2>
 								<p class="title">Sviluppatore/Studente</p>
 								<p>Università della Calabria</p>

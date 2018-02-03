@@ -105,6 +105,7 @@ body {
 .jumbotron {
     margin-top: 10%;
     box-shadow: 5px 4px 5px #000;
+background-size: cover;
 }
 
 
@@ -261,9 +262,12 @@ width: 100%;
 }
 
 .prezzo {
-    background: #ccc;
-    padding: 3px;
-    color:black;
+	font-style : italic;
+    background: white;
+    padding: 5px;
+    color: red;
+    font-size: medium;
+    border-radius: 5%;
     
 }
 

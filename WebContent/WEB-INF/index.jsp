@@ -29,7 +29,7 @@
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
 	window.smartsupp || (function(d) {
 		var s, c, o = smartsupp = function() {
 			o._.push(arguments)
@@ -307,8 +307,9 @@
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
 						<div class="containerImmagine" style="text-align: center;">
-							<img class="immagineProdottoInOfferta img img-responsive"
-								src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
+							<a href="prodotto?id=${prodotto.idProdotto}"><img
+								class="immagineProdottoInOfferta img img-responsive"
+								src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
 						</div>
 						<div class="containerTitoloETestoOfferta">
 							<div class="titoloArticoloInOfferta">
@@ -318,7 +319,8 @@
 						</div>
 						<div class="containerPrezzoEData">
 							<p>
-								Prezzo: <span class="prezzo">${prodotto.prezzoProdotto}</span>
+								Prezzo: <span class="prezzo">${prodotto.prezzoProdotto}0
+									€</span>
 							</p>
 							<button type="button"
 								class="btn btn-default bottoneProdottoInOfferta">
@@ -341,8 +343,9 @@
 						<div class="containerLogo">
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
-						<img class="immagineProdottoInOfferta img img-responsive"
-							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
+						<a href="prodotto?id=${prodotto.idProdotto}"><img
+							class="immagineProdottoInOfferta img img-responsive"
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
 						<div class="containerTitoloETestoOfferta">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
@@ -351,7 +354,7 @@
 						</div>
 						<div class="containerPrezzoEData">
 							<p>
-								Prezzo: <span class="prezzo">${prodotto.prezzoProdotto}</span>
+								Prezzo: <span class="prezzo">${prodotto.prezzoProdotto}0 €</span>
 							</p>
 							<button type="button"
 								class="btn btn-default bottoneProdottoInOfferta">
@@ -378,8 +381,9 @@
 
 				<div class="col-sm-4">
 					<div class="couponPiuVisto">
-						<img class="immagineProdottoPiuVisto"
-							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
+						<a href="prodotto?id=${prodotto.idProdotto}"><img
+							class="immagineProdottoPiuVisto"
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloPiuVisto">
 								<h4>${prodotto.nomeProdotto }</h4>
@@ -403,8 +407,9 @@
 
 				<div class="col-sm-4">
 					<div class="couponPiuVisto">
-						<img class="immagineProdottoPiuVisto"
-							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
+						<a href="prodotto?id=${prodotto.idProdotto}"><img
+							class="immagineProdottoPiuVisto"
+							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloPiuVisto">
 								<h4>${prodotto.nomeProdotto }</h4>

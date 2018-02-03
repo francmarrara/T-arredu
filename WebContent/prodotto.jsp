@@ -35,7 +35,7 @@
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 	var _smartsupp = _smartsupp || {};
-	_smartsupp.key = '58229b18ee887d3746828189216580bbcf663a18';
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
 	window.smartsupp || (function(d) {
 		var s, c, o = smartsupp = function() {
 			o._.push(arguments)
@@ -371,9 +371,14 @@
 						<c:forEach var="commentoProdotto" items="${listaCommentiProdotto}">
 
 							<li>
-								<p style="font-family: cursive;">${commentoProdotto.commento} </p>
-								<p style="font-family: cursive;">Valutazione prodotto: <strong>${commentoProdotto.valutazione}/5</strong></p>
-								<p>Recensione rilasciata da : <strong>${commentoProdotto.nomeUtente}</strong></p>
+								<p style="font-family: cursive;">${commentoProdotto.commento}
+								</p>
+								<p style="font-family: cursive;">
+									Valutazione prodotto: <strong>${commentoProdotto.valutazione}/5</strong>
+								</p>
+								<p>
+									Recensione rilasciata da : <strong>${commentoProdotto.nomeUtente}</strong>
+								</p>
 							</li>
 
 						</c:forEach>
@@ -402,7 +407,7 @@
 											<label class="containerLabel">1/5<input
 												type="checkbox" checked="checked" name="radio"
 												class="messageCheckbox" value="1">
-												
+
 											</label> <label class="containerLabel">2/5 <input
 												type="checkbox" name="radio" class="messageCheckbox"
 												value="2">
@@ -440,10 +445,11 @@
 
 							</c:when>
 							<c:otherwise>
-							<p style="font-family: cursive;font-size: medium; ">Hai Già Recensito Questo prodotto</p>
-								<li style="font-family: sans-serif;">Recensione : </li>
-								<li>${commentoPresente.commento}  Valutazione : <strong>${commentoPresente.valutazione}/5</strong></li>
-								
+								<p style="font-family: cursive; font-size: medium;">Hai Già
+									Recensito Questo prodotto</p>
+								<li style="font-family: sans-serif;">Recensione :</li>
+								<li>${commentoPresente.commento}Valutazione : <strong>${commentoPresente.valutazione}/5</strong></li>
+
 							</c:otherwise>
 						</c:choose>
 					</c:if>
