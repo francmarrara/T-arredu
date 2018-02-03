@@ -41,6 +41,20 @@
 	})(document);
 </script>
 
+<script>
+	window.onload = function() {
+		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
+				+ encodeURIComponent(location.href);
+
+		tw_share.href = 'http://twitter.com/share?text=vieni a trovarci su Tarredu arredamenti&url='
+				+ encodeURIComponent(location.href)
+				+ '&hashtags=#tarredu,#unical,#ingsw,#ricca';
+
+		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
+				+ encodeURIComponent(location.href);
+	}
+</script>
+
 <link rel="stylesheet" href="css/aboutUs.css">
 <link rel="stylesheet" href="css/snackbar.css">
 <script src="js/Js/aboutUs.js"></script>
@@ -202,26 +216,27 @@
 		<a href="#top" id="backToTopMenu">Torna su</a>
 	</div>
 
-	<div class="containerAboutUs">
-		<div style="background-color: white; margin-bottom: 40%;">
+	<div class="container" style="margin-top: 8%;">
+		<div style="background-color: white; margin-bottom: 5%;">
 			<div class="containerSezioneSuperiore">
 				<h2>Chi siamo</h2>
 				<hr>
 				<div class="row">
 
-					<div class="col-md-4 immagine">
-						<img id="logoButton" src="images/TarreduLogo.png" width="200"
-							height="200">
+					<div class="col-md-4 immagine" style="padding-left: 20%;">
+						<img class="img img-responsive" id="logoButton"
+							src="images/TarreduLogo.png" width="80%" height="80%">
 					</div>
 
 					<div class="col-md-8 descrizione">
 						<h3>T'ARREDU (Ti Arredo)</h3>
 						<p>Web App che permette allâUtente di poter scegliere,
 							configurare, richiedere un preventivo.</p>
-						<p>Scelto il prodotto da acquistare l'utente potrà richiedere un preventivo o
-							contattare il venditore per l'acquisto.</p>
-						<p>L'utente può lasciare feedback sul singolo prodotto o
-							sul venditore dopo aver effettuato l'acquisto. Il sito prevede</p>
+						<p>Scelto il prodotto da acquistare l'utente potrà
+							richiedere un preventivo o contattare il venditore per
+							l'acquisto.</p>
+						<p>L'utente può lasciare feedback sul singolo prodotto o sul
+							venditore dopo aver effettuato l'acquisto. Il sito prevede</p>
 						<p>anche una chat live per assistenza e supporto.</p>
 					</div>
 
@@ -235,7 +250,7 @@
 
 						<div class="col-md-6 immagineComponente">
 							<div class="card">
-								<img src="images/fotoFrancesco.jpg" alt="Francesco Marrara">
+								<img class="img img-responsive" src="images/fotoFrancesco.jpg" alt="Francesco Marrara">
 								<h2>Francesco Marrara</h2>
 								<p class="title">Sviluppatore/Studente</p>
 								<p>Università della Calabria</p>
@@ -263,7 +278,7 @@
 
 						<div class="col-md-6 immagineComponente">
 							<div class="card">
-								<img src="images/fotoSimone.jpg" alt="Simone Crisafi">
+								<img class="img img-responsive" src="images/fotoSimone.jpg" alt="Simone Crisafi">
 								<h2>Simone Crisafi</h2>
 								<p class="title">Sviluppatore/Studente</p>
 								<p>Università della Calabria</p>
@@ -327,9 +342,10 @@
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
-			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+			<a href="" id="tw_share" class="twitter"><i class="fa fa-twitter"></i></a>
+			<a href="" id="fb_share" class="facebook"><i
+				class="fa fa-facebook-official"></i></a> <a href="" id="go_share"
+				class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
 

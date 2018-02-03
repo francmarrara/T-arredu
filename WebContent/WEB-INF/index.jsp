@@ -44,6 +44,21 @@
 		s.parentNode.insertBefore(c, s);
 	})(document);
 </script>
+
+<script>
+	window.onload = function() {
+		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
+				+ encodeURIComponent(location.href);
+
+		tw_share.href = 'http://twitter.com/share?text=vieni a trovarci su Tarredu arredamenti&url='
+				+ encodeURIComponent(location.href)
+				+ '&hashtags=#tarredu,#unical,#ingsw,#ricca';
+
+		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
+				+ encodeURIComponent(location.href);
+	}
+</script>
+
 <link rel="stylesheet" href="css/snackbar.css">
 <link rel="stylesheet" href="css/index.css">
 <script src="js/Js/index.js"></script>
@@ -227,19 +242,22 @@
 		<div id="wowslider-container1">
 			<div class="ws_images">
 				<ul>
-					<li><img src="data1/images/arke.jpg" alt="Arke" title="Arke"
-						id="wows1_0" /></li>
-					<li><img src="data1/images/fina.jpg" alt="Fina" title="Fina"
-						id="wows1_1" /></li>
-					<li><img src="data1/images/medolla.jpg" alt="Medolla"
-						title="Medolla" id="wows1_2" /></li>
-					<li><img src="data1/images/bastiglia.jpg" alt="Bastiglia"
-						title="Bastiglia" id="wows1_3" /></li>
+					<li><img class="img img-responsive"
+						src="data1/images/arke.jpg" alt="Arke" title="Arke" id="wows1_0" /></li>
+					<li><img class="img img-responsive"
+						src="data1/images/fina.jpg" alt="Fina" title="Fina" id="wows1_1" /></li>
+					<li><img class="img img-responsive"
+						src="data1/images/medolla.jpg" alt="Medolla" title="Medolla"
+						id="wows1_2" /></li>
+					<li><img class="img img-responsive"
+						src="data1/images/bastiglia.jpg" alt="Bastiglia" title="Bastiglia"
+						id="wows1_3" /></li>
 					<li><a href="http://wowslider.net"><img
 							src="data1/images/rivo.jpg" alt="javascript image slider"
 							title="Rivo" id="wows1_4" /></a></li>
-					<li><img src="data1/images/terra.jpg" alt="Terra"
-						title="Terra" id="wows1_5" /></li>
+					<li><img class="img img-responsive"
+						src="data1/images/terra.jpg" alt="Terra" title="Terra"
+						id="wows1_5" /></li>
 				</ul>
 			</div>
 			<div class="ws_bullets">
@@ -270,8 +288,7 @@
 	<br>
 	<br>
 
-	<!-- The actual snackbar -->
-	<div id="snackbar">Some text some message..</div>
+
 
 	<!-- Area prodotti home -->
 
@@ -289,9 +306,11 @@
 						<div class="containerLogo">
 							<h4>${prodotto.marcaProdotto}</h4>
 						</div>
-						<img class="immagineProdottoInOfferta img img-responsive"
-							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
-						<div class="containerTitoloETesto">
+						<div class="containerImmagine" style="text-align: center;">
+							<img class="immagineProdottoInOfferta img img-responsive"
+								src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
+						</div>
+						<div class="containerTitoloETestoOfferta">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
 								<p>${prodotto.descrizioneProdotto}</p>
@@ -324,7 +343,7 @@
 						</div>
 						<img class="immagineProdottoInOfferta img img-responsive"
 							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano">
-						<div class="containerTitoloETesto">
+						<div class="containerTitoloETestoOfferta">
 							<div class="titoloArticoloInOfferta">
 								<h4>${prodotto.nomeProdotto}</h4>
 								<p>${prodotto.descrizioneProdotto}.</p>
@@ -440,10 +459,12 @@
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
-			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+			<a href="" id="tw_share" class="twitter"><i class="fa fa-twitter"></i></a>
+			<a href="" id="fb_share" class="facebook"><i
+				class="fa fa-facebook-official"></i></a> <a href="" id="go_share"
+				class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
+
 	</footer>
 	<div id="snackbar"></div>
 </body>

@@ -37,6 +37,21 @@
 		s.parentNode.insertBefore(c, s);
 	})(document);
 </script>
+
+<script>
+	window.onload = function() {
+		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
+				+ encodeURIComponent(location.href);
+
+		tw_share.href = 'http://twitter.com/share?text=vieni a trovarci su Tarredu arredamenti&url='
+				+ encodeURIComponent(location.href)
+				+ '&hashtags=#tarredu,#unical,#ingsw,#ricca';
+
+		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
+				+ encodeURIComponent(location.href);
+	}
+</script>
+
 <link rel="stylesheet" type="text/css" href="css/profiloUtente.css" />
 <link rel="stylesheet" type="text/css" href="css/snackbar.css" />
 <script src="js/Js/profiloUtente.js"></script>
@@ -598,9 +613,10 @@
 			</div>
 		</div>
 		<div class="social-networks">
-			<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-				href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
-			<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+			<a href="" id="tw_share" class="twitter"><i class="fa fa-twitter"></i></a>
+			<a href="" id="fb_share" class="facebook"><i
+				class="fa fa-facebook-official"></i></a> <a href="" id="go_share"
+				class="google"><i class="fa fa-google-plus"></i></a>
 		</div>
 	</footer>
 	<div id="snackbar"></div>
