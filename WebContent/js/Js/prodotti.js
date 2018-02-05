@@ -191,6 +191,10 @@ $(window).on('load', function() {
 	$("#tipoProdotto").change(function() {
 		var tipo = $("#tipoProdotto option:selected").attr("value");
 
+		
+		$('#ambienteProdotto').val("---");
+		$('#marcaProdotto').val("---");
+				
 		$('.grid-item').each(function(i, obj) {
 
 			if (!$(this).hasClass(tipo)) {
@@ -208,6 +212,9 @@ $(window).on('load', function() {
 $(window).on('load', function() {
 	$("#ambienteProdotto").change(function() {
 		var tipo = $("#ambienteProdotto option:selected").attr("value");
+		
+		$('#tipoProdotto').val("---");
+		$('#marcaProdotto').val("---");
 
 		if (tipo == 'Tutti') {
 			$('.grid-item').each(function(i, obj) {
@@ -231,6 +238,8 @@ $(window).on('load', function() {
 $(window).on('load', function() {
 	$("#marcaProdotto").change(function() {
 		var tipo = $("#marcaProdotto option:selected").attr("value");
+		$('#ambienteProdotto').val("---");
+		$('#tipoProdotto').val("---");
 
 		if (tipo == 'Tutti') {
 			$('.grid-item').each(function(i, obj) {

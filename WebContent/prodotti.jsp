@@ -240,7 +240,7 @@
 						Prodotto</h4>
 					<select name="tipoProdotto " class="form-control "
 						id="tipoProdotto">
-						<option value="">---</option>
+						<option value="---">---</option>
 						<option value="Armadio">Armadio</option>
 						<option value="Cassettiera">Cassettiera</option>
 						<option value="Comodino">Comodino</option>

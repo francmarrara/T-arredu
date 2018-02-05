@@ -1,5 +1,6 @@
 package persistenceDAO;
 
+import java.util.Date;
 import java.util.List;
 
 import model.Preventivo;
@@ -46,5 +47,7 @@ public interface UtenteDAO {
 	boolean giaPreferito(Integer idProdotto, String emailUtente);
 
 	boolean giaInCarrello(Integer idProdotto, String emailUtente);
+	
+	public Date dataNascitaUtente(String emailUtente);
 
 }

@@ -33,19 +33,28 @@ public class AggiornaDatiPersonali extends HttpServlet {
 		String data = ((req.getParameter("bday")));
 		utente.setEmailUtente(req.getParameter("email"));
 		utente.setNumeroTelefonoUtente((req.getParameter("recapitoTelefonicoUtente")));
-
+System.out.println(data + "DATA ");
+		
+		if(data.equals("")) {
+			System.out.println("NULL");
+			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+			utente.setDatadiNascita(factory.getUtenteDAO().dataNascitaUtente(emailVecchia));
+		}
+		else {
+		
+		
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
 		try {
-			date = format.parse(data);
+			date = format.parse(data);{}
 			utente.setDatadiNascita(date);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		utente.stampaUtente();
-		System.out.println("vec " + emailVecchia);
+		
+		}
 
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		factory.getUtenteDAO().update(utente, emailVecchia);

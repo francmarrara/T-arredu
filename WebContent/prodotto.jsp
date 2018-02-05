@@ -303,7 +303,7 @@
 				</c:if>
 
 				<!-- AGGIUNGERE SNACKBAR PER BOTTONI QUANDO NON SEI LOGGATO -->
-				<c:if test="${utenteLoggato == false || empty utenteLoggato}}">
+				<c:if test="${utenteLoggato == false || empty utenteLoggato}">
 					<div class="btn-group button_carrello">
 						<button type="button" class="btn btn-success"
 							title="Aggiungi questo prodotto al tuo carrello"
@@ -371,8 +371,9 @@
 						<c:forEach var="commentoProdotto" items="${listaCommentiProdotto}">
 
 							<li>
-								<p style="font-family: cursive;">${commentoProdotto.commento}
+								<p style="font-family: cursive;">${commentoProdotto.commento}                        
 								</p>
+								<br>
 								<p style="font-family: cursive;">
 									Valutazione prodotto: <strong>${commentoProdotto.valutazione}/5</strong>
 								</p>
@@ -454,7 +455,7 @@
 						</c:choose>
 					</c:if>
 
-					<c:if test="${utenteLoggato == false || empty utenteLoggato}}">
+					<c:if test="${utenteLoggato == false || empty utenteLoggato}">
 
 						<p>
 							<strong>Registrarsi per poter rilasciare una recensione.</strong>

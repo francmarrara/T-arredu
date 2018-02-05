@@ -6,7 +6,7 @@ public abstract class DAOFactory {
 
 	
 	/**
-	 * Numeric constant '1' corresponds to explicit Hsqldb choice
+	 * Numeric constant '1' corresponds to explicit MYSQL choice
 	 */
 	public static final int MYSQL = 1;
 	

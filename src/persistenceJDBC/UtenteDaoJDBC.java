@@ -4,9 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import com.mysql.jdbc.Statement;
 
@@ -642,6 +647,45 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		}
 
 		return preventivi;
+	}
+
+	@Override
+	public Date dataNascitaUtente(String emailUtente) {
+		Connection connection = this.dataSource.getConnection();
+		
+
+		PreparedStatement statement;
+		try {
+
+			String query = "select dataNascita FROM utente WHERE email = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, emailUtente);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				
+				DateFormat format = new SimpleDateFormat
+						("yyyy-MM-dd");
+				Date date = null;
+				try {
+					date = format.parse(result.getString("dataNascita"));
+					return date;
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+			} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}return null;
 	}
 
 }

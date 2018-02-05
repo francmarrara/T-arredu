@@ -108,13 +108,7 @@ public class testDB {
 		// }
 
 		// System.out.println(dbManager.getUtenteDao().giaRegistrato("francmarrara@gmail.com"));
-
-		Prodotto p = dbManager.getProdottoDao().findByPrimaryKey(6);
-		for (Commento c : p.getCommentiProdotto()) {
-
-			c.stampaCommento();
-
-		}
+System.out.println(dbManager.getUtenteDao().dataNascitaUtente("francmarrara@gmail.com"));
 
 	}
 }
