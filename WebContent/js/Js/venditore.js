@@ -181,6 +181,8 @@ $(document).on("focusout", ".EmailUtenteLogin", function() {
 $(window).on('load', function() {
 	$("#tipoProdotto").change(function() {
 		var tipo = $("#tipoProdotto option:selected").attr("value");
+		$('#ambienteProdotto').val("---");
+		$('#marcaProdotto').val("---");
 
 		$('.grid-item').each(function(i, obj) {
 			console.log($(this).attr("class"));
@@ -200,6 +202,8 @@ $(window).on('load', function() {
 $(window).on('load', function() {
 	$("#ambienteProdotto").change(function() {
 		var tipo = $("#ambienteProdotto option:selected").attr("value");
+		$('#marcaProdotto').val("---");
+		$('#tipoProdotto').val("---");
 
 		if (tipo == 'Tutti') {
 			$('.grid-item').each(function(i, obj) {
@@ -223,6 +227,8 @@ $(window).on('load', function() {
 $(window).on('load', function() {
 	$("#marcaProdotto").change(function() {
 		var tipo = $("#marcaProdotto option:selected").attr("value");
+		$('#ambienteProdotto').val("---");
+		$('#tipoProdotto').val("---");
 
 		if (tipo == 'Tutti') {
 			$('.grid-item').each(function(i, obj) {

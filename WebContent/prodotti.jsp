@@ -60,6 +60,7 @@
 <link rel="stylesheet" href="css/prodotti.css">
 <link rel="stylesheet" href="css/snackbar.css">
 <script src="js/Js/prodotti.js"></script>
+<script src="js/Js/login.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 

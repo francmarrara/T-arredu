@@ -353,10 +353,10 @@ window.smartsupp||(function(d) {
 											<td
 												class="col-sm-1 col-md-1 text-center containerListaProdotti">
 												<button type="button" class="btn btn-primary"
-													data-toggle="modal" data-target="#myModal">
+													data-toggle="modal" data-target="#<c:out value="${preventivo.idPreventivo}"/>myModal">
 													Prodotti <span class="glyphicon glyphicon-modal-window"></span>
 												</button> <!-- Modal -->
-												<div class="modal fade" id="myModal" role="dialog">
+												<div class="modal fade" id="${preventivo.idPreventivo}myModal" role="dialog">
 													<div class="modal-dialog">
 
 														<!-- Modal content-->
