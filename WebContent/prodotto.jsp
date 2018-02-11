@@ -244,8 +244,9 @@
 					<div class="carousel-inner">
 
 						<div class="item active">
+						  <a href="prodotto?id=${prodottoCercato.idProdotto}">
 							<img src="${listaImmaginiProdotto[0]}"
-								alt="${prodotto.nomeProdotto}">
+								alt="${prodottoCercato.nomeProdotto}"></a>
 							<div class="carousel-caption"></div>
 						</div>
 
@@ -253,7 +254,9 @@
 							begin="1" end="${dimensioneListaImmagini}" step="1">
 
 							<div class="item">
-								<img src="${immagineProdotto}" alt="${prodotto.nomeProdotto}'">
+							  <a href="prodotto?id=${prodottoCercato.idProdotto}">
+								<img src="${immagineProdotto}" alt="${prodottoCercato.nomeProdotto}">
+								</a>
 								<div class="carousel-caption"></div>
 							</div>
 

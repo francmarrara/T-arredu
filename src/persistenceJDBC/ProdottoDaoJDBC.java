@@ -19,8 +19,6 @@ import persistenceDAO.PersistenceException;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.UtenteDAO;
 
-import static java.lang.Math.toIntExact;
-
 public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	private DataSource dataSource;
@@ -329,222 +327,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	}
 
-	@SuppressWarnings("resource")
-	@Override
-	public List<Prodotto> findByMarca(String marcaProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-
-		try {
-
-			Prodotto prodotto;
-			PreparedStatement statementProdotto;
-
-			String query = "select id_prodotto from prodotto where marcaProdotto = ?";
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, marcaProdotto);
-
-			ResultSet resultProdotto = statementProdotto.executeQuery();
-
-			while (resultProdotto.next()) {
-
-				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-				prodotto = new Prodotto();
-				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
-				prodotti.add(prodotto);
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
-	@SuppressWarnings("resource")
-	@Override
-	public List<Prodotto> findByColour(String coloreProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-
-		try {
-
-			Prodotto prodotto;
-			PreparedStatement statementProdotto;
-
-			String query = "select id_prodotto from coloriPerProdotto where coloreProdotto = ?";
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, coloreProdotto);
-
-			ResultSet resultProdotto = statementProdotto.executeQuery();
-
-			while (resultProdotto.next()) {
-
-				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-				prodotto = new Prodotto();
-				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
-				prodotti.add(prodotto);
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
-	@SuppressWarnings("resource")
-	@Override
-	public List<Prodotto> findByTipo(String tipoProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-
-		try {
-
-			Prodotto prodotto;
-			PreparedStatement statementProdotto;
-
-			String query = "select id_prodotto from prodotto where tipoProdotto = ?";
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, tipoProdotto);
-
-			ResultSet resultProdotto = statementProdotto.executeQuery();
-
-			while (resultProdotto.next()) {
-
-				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-				prodotto = new Prodotto();
-				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
-				prodotti.add(prodotto);
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-
-	}
-
-	@SuppressWarnings("resource")
-	@Override
-	public List<Prodotto> findByAmbiente(String ambienteProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-
-		try {
-
-			Prodotto prodotto;
-			PreparedStatement statementProdotto;
-
-			String query = "select id_prodotto from prodotto where ambienteProdotto = ?";
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, ambienteProdotto);
-
-			ResultSet resultProdotto = statementProdotto.executeQuery();
-
-			while (resultProdotto.next()) {
-
-				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-				prodotto = new Prodotto();
-				prodotto = prodottoDao.findByPrimaryKey(resultProdotto.getInt("id_prodotto"));
-				prodotti.add(prodotto);
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
-	@Override
-	public List<Prodotto> findProductsByPreventivo(Integer codicePreventivo) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-
-		try {
-
-			PreparedStatement statement;
-			String query = "select prodottoID from prodottoInPreventivo where preventivoID = ?";
-			statement = connection.prepareStatement(query);
-			statement.setInt(1, toIntExact(codicePreventivo));
-
-			ResultSet result = statement.executeQuery();
-
-			while (result.next()) {
-
-				prodotti.add(findByPrimaryKey(result.getInt("prodottoID")));
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-
-		return prodotti;
-	}
-
-	@Override
-	public List<Prodotto> findProductsByCarrello(Carrello carrello) {
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-		try {
-			PreparedStatement statement;
-			String query = "select id_prodottoInCarrello from prodottoInCarrello where email_utenteCarrello = ?";
-			statement = connection.prepareStatement(query);
-			statement.setString(1, carrello.getUtenteCarrello());
-			ResultSet result = statement.executeQuery();
-			while (result.next()) {
-
-				prodotti.add(findByPrimaryKey(result.getInt("id_prodottoInCarrello")));
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
 	@Override
 	public List<String> getImages(Integer idProdotto) {
 		Connection connection = this.dataSource.getConnection();
@@ -577,34 +359,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			}
 		}
 		return immagini;
-	}
-
-	@Override
-	public void addImageToProduct(String url, Prodotto prodotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		try {
-			String insert;
-			PreparedStatement statement;
-
-			insert = "insert into urlImmaginiProdotto(id_prodotto,urlImmagine) values(?,?)";
-			statement = connection.prepareStatement(insert);
-			statement.setInt(1, prodotto.getIdProdotto());
-			statement.setString(2, url);
-			statement.executeUpdate();
-
-		}
-
-		catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-
 	}
 
 	@Override
@@ -645,34 +399,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			delete = "delete FROM urlImmaginiProdotto where id_prodotto = ?";
 			statement = connection.prepareStatement(delete);
 			statement.setInt(1, prodotto.getIdProdotto());
-			statement.executeUpdate();
-
-		}
-
-		catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-
-	}
-
-	@Override
-	public void addColorToProduct(String color, Prodotto prodotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		try {
-			String insert;
-			PreparedStatement statement;
-
-			insert = "insert into coloriPerProdotto(id_prodotto, coloreProdotto) values(?,?)";
-			statement = connection.prepareStatement(insert);
-			statement.setInt(1, prodotto.getIdProdotto());
-			statement.setString(2, color);
 			statement.executeUpdate();
 
 		}
@@ -839,43 +565,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
-	}
-
-	@Override
-	public List<Prodotto> findByVenditore(String emailVenditore) {
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new LinkedList<>();
-
-		try {
-
-			Prodotto prodotto;
-			PreparedStatement statement;
-
-			String query = "select id_prodotto from venditorePerProdotto where emailVenditore = ?";
-
-			statement = connection.prepareStatement(query);
-			statement.setString(1, emailVenditore);
-
-			ResultSet result = statement.executeQuery();
-
-			while (result.next()) {
-
-				ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-				prodotto = new Prodotto();
-				prodotto = prodottoDao.findByPrimaryKey(result.getInt("id_prodotto"));
-				prodotti.add(prodotto);
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-
-		return prodotti;
 	}
 
 	@Override
@@ -1090,42 +779,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 	}
 
 	@Override
-	public List<ProdottoConImmagini> findProductsByMarcaProdottiConImmagini(String marcaProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<ProdottoConImmagini> prodotti = new LinkedList<>();
-
-		try {
-
-			ProdottoConImmagini prodotto;
-			PreparedStatement statementProdotto;
-
-			String query = "select id_prodotto from prodotto where marcaProdotto = ?";
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, marcaProdotto);
-
-			ResultSet resultProdotto = statementProdotto.executeQuery();
-
-			while (resultProdotto.next()) {
-				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-
-				prodotti.add(prodotto);
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
-	@Override
 	public List<ProdottoConImmagini> findProductsByPrenventivoProdottiConImmagini(Integer idPreventivo) {
 
 		Connection connection = this.dataSource.getConnection();
@@ -1145,89 +798,6 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			while (resultProdotto.next()) {
 				prodotto = findByPrimaryKeyProdottoConImmagini(resultProdotto.getInt("id_prodotto"));
-
-				prodotti.add(prodotto);
-
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
-	@Override
-	public List<ProdottoConImmagini> findProductsByAmbienteProdottiConImmagini(String ambienteProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<ProdottoConImmagini> prodotti = new LinkedList<>();
-
-		try {
-
-			ProdottoConImmagini prodotto;
-			PreparedStatement statementProdotto;
-			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, "
-					+ "descrizioneProdotto from prodotto where ambienteProdotto = ?";
-
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, ambienteProdotto);
-
-			ResultSet result = statementProdotto.executeQuery();
-
-			while (result.next()) {
-				prodotto = new ProdottoConImmagini();
-				prodotto.setIdProdotto(result.getInt("id_prodotto"));
-				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
-				prodotto.setImmaginePrincipale(result.getString("immaginePrincipale"));
-				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
-
-				prodotti.add(prodotto);
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return prodotti;
-	}
-
-	@Override
-	public List<ProdottoConImmagini> findProductsByTipoProdottiConImmagini(String tipoProdotto) {
-
-		Connection connection = this.dataSource.getConnection();
-		List<ProdottoConImmagini> prodotti = new LinkedList<>();
-
-		try {
-
-			ProdottoConImmagini prodotto;
-			PreparedStatement statementProdotto;
-
-			String query = "select id_prodotto, nomeProdotto, immaginePrincipale, "
-					+ "descrizioneProdotto from prodotto where tipoProdotto = ?";
-			statementProdotto = connection.prepareStatement(query);
-
-			statementProdotto.setString(1, tipoProdotto);
-
-			ResultSet resultProdotto = statementProdotto.executeQuery();
-
-			while (resultProdotto.next()) {
-
-				prodotto = new ProdottoConImmagini();
-
-				prodotto.setIdProdotto(resultProdotto.getInt("id_prodotto"));
-				prodotto.setNomeProdotto(resultProdotto.getString("nomeprodotto"));
-				prodotto.setImmaginePrincipale(resultProdotto.getString("immaginePrincipale"));
-				prodotto.setDescrizioneProdotto(resultProdotto.getString("descrizioneProdotto"));
 
 				prodotti.add(prodotto);
 

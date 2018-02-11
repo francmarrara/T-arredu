@@ -265,37 +265,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	}
 
-	@Override
-	public List<Prodotto> getProdottiPreferiti(String emailUtente) {
-		Connection connection = this.dataSource.getConnection();
-		List<Prodotto> prodotti = new ArrayList<Prodotto>();
-		ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-
-		try {
-
-			PreparedStatement statement;
-			String query = "select id_prodotto from prodottiPreferiti where emailUtente = ? ";
-			statement = connection.prepareStatement(query);
-			statement.setString(1, emailUtente);
-
-			ResultSet result = statement.executeQuery();
-
-			while (result.next()) {
-				prodotti.add(prodottoDao.findByPrimaryKey(result.getInt("id_prodotto")));
-			}
-
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-
-		return prodotti;
-	}
+	
 
 	@Override
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente) {

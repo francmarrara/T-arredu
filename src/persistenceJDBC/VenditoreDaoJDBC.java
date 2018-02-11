@@ -1,7 +1,5 @@
 package persistenceJDBC;
 
-import static java.lang.Math.toIntExact;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +7,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;

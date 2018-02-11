@@ -30,7 +30,6 @@ public interface UtenteDAO {
 
 	public void rimuoviProdottoInCarrello(Integer idProdotto, String emailUtente);
 
-	public List<Prodotto> getProdottiPreferiti(String emailUtente);
 
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente);
 
