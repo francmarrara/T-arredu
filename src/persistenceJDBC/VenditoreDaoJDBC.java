@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,14 +29,14 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String save = " insert into venditore(id_venditore, nomeTitolare, cognomeTitolare, "
-					+ "nomeNegozio, indirizzoVenditore, emailVenditore, numeroTelefonicoVenditore) values"
-					+ "(?,?,?,?,?,?,?) ";
+					+ "nomeNegozio, indirizzoVenditore, emailVenditore, numeroTelefonicoVenditore, descrizioneVenditore, mappaVenditore) values"
+					+ "(?,?,?,?,?,?,?,?,?) ";
 
 			PreparedStatement statement = connection.prepareStatement(save);
 
 			Integer id = IdBuilder.getId(connection);
 			venditore.setIdVenditore(id);
-			
+
 			statement.setInt(1, id);
 			statement.setString(2, venditore.getNomeTitolare());
 			statement.setString(3, venditore.getCognomeTitolare());
@@ -43,6 +44,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			statement.setString(5, venditore.getIndirizzoVenditore());
 			statement.setString(6, venditore.getEmailVenditore());
 			statement.setString(7, venditore.getNumeroTelefonicoVenditore());
+			statement.setString(8, venditore.getDescrizioneVenditore());
+			statement.setString(9, venditore.getMappaVenditore());
 
 			statement.executeUpdate();
 
@@ -126,6 +129,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setIndirizzoVenditore(result.getString("indirizzoVenditore"));
 				venditore.setEmailVenditore(result.getString("emailVenditore"));
 				venditore.setNumeroTelefonicoVenditore(result.getString("numeroTelefonicoVenditore"));
+				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
+				venditore.setMappaVenditore(result.getString("mappaVenditore"));
 
 				venditori.add(venditore);
 
@@ -142,29 +147,29 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 
 		return venditori;
 	}
-	
+
 	@Override
 	public List<Venditore> findVenditoriByPreventivo(Integer codicePreventivo) {
-		
+
 		Connection connection = this.dataSource.getConnection();
 		List<Venditore> venditori = new LinkedList<>();
-		
+
 		try {
-			
+
 			PreparedStatement statement;
 			String query = "select * from venditoreInPreventivo where preventivoID = ?";
-			
+
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, codicePreventivo);
-			
+
 			ResultSet result = statement.executeQuery();
-			
+
 			while (result.next()) {
 
 				venditori.add(findByPrimaryKey(result.getString("venditoreEmail")));
-				
+
 			}
-			
+
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
@@ -185,7 +190,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String update = "update venditore SET nomeTitolare = ?, cognomeTitolare = ?, nomeNegozio = ?, "
-					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?  "
+					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, mappaVenditore = ?  "
 					+ "WHERE emailVenditore = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 
@@ -196,6 +201,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			statement.setString(5, venditore.getEmailVenditore());
 			statement.setString(6, venditore.getNumeroTelefonicoVenditore());
 			statement.setString(7, venditore.getEmailVenditore());
+			statement.setString(8, venditore.getDescrizioneVenditore());
+			statement.setString(9, venditore.getMappaVenditore());
 
 			statement.executeUpdate();
 
@@ -242,6 +249,32 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
+	}
+
+	@Override
+	public List<String> venditoriCheNonRicevonoPreventiviDa30Giorni() {
+		Connection connection = this.dataSource.getConnection();
+		List<String> emails = new ArrayList<String>();
+		try {
+			String query = "SELECT venditoreEmail from venditoreInPreventivo as V, preventivo as P where V.preventivoID = P.id_preventivo AND P.data_ora_preventivo <(curdate()- INTERVAL 30 DAY);";
+			PreparedStatement statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				emails.add(result.getString("venditoreEmail"));
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return emails;
+	
 	}
 
 }

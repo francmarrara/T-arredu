@@ -265,8 +265,6 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	}
 
-	
-
 	@Override
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente) {
 		Connection connection = this.dataSource.getConnection();
@@ -622,7 +620,6 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	@Override
 	public Date dataNascitaUtente(String emailUtente) {
 		Connection connection = this.dataSource.getConnection();
-		
 
 		PreparedStatement statement;
 		try {
@@ -635,9 +632,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-				
-				DateFormat format = new SimpleDateFormat
-						("yyyy-MM-dd");
+
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = null;
 				try {
 					date = format.parse(result.getString("dataNascita"));
@@ -646,8 +642,8 @@ public class UtenteDaoJDBC implements UtenteDAO {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}
-			} catch (SQLException e) {
+			}
+		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {
 			try {
@@ -655,7 +651,53 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}return null;
+		}
+		return null;
 	}
 
+	@Override
+	public void updateLoginData(String utente) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update utente set dataUltimoAccesso = CURDATE()  where email = ?;";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, utente);
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+	}
+
+	@Override
+	public List<String> utentiCheNonSiLogganoDa30Giorni() {
+		Connection connection = this.dataSource.getConnection();
+		List<String> emails = new ArrayList<String>();
+		try {
+			String query = "select email from utente where dataUltimoAccesso <(curdate()- INTERVAL 30 DAY);";
+			PreparedStatement statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				emails.add(result.getString("email"));
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return emails;
+	}
 }

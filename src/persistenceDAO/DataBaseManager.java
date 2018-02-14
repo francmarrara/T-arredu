@@ -40,7 +40,14 @@ public class DataBaseManager {
 		mazzei.setNumeroTelefonicoVenditore("+39 338 5378178");
 		mazzei.setEmailVenditore("info@antonellamazzei.it");
 		mazzei.setIndirizzoVenditore("Viale Cosmai 32, 87100 Cosenza (di fronte Guardia di Finanza)");
-
+        mazzei.setDescrizioneVenditore("Antonella Mazzei Arredamenti è un nome che ha dietro una storia"
+        		+ " fondata sulla passione per il mobile, per il legno, per il gusto di arredare.Quarant'anni"
+        		+ " nel settore hanno portato l'azienda a crescere anno dopo anno, identificandosi in tre caratteristiche:cortesia,"
+        		+ " qualità  e professionalità.Da Antonella Mazzei Arredamenti potrai trovare uno staff di professionisti capace di prendersi"
+        		+ " cura delle tue esigenze, ma soprattutto in grado di valorizzare i tuoi spazi andando incontro ai tuoi desideri."
+        		+ "Perchè la casa esprime il tuo gusto personale, che la rende unica ed eclusiva.");
+        mazzei.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12346.557015984656!2d16.248965!3d39.3191!3m2!1i1024!2i768!"
+        		+ "4f13.1!3m3!1m2!1s0x0%3A0x9b5c190b92bc84ac!2sAntonella+Mazzei+Arredamenti!5e0!3m2!1sit!2sit!4v1515843884042");
 		venditoreDao.save(mazzei);
 
 		// ----------------------------------------------------------
@@ -54,6 +61,13 @@ public class DataBaseManager {
 		scavoliniCosenza.setNumeroTelefonicoVenditore("0984 839164");
 		scavoliniCosenza.setEmailVenditore("marazitamobilisas@libero.it");
 		scavoliniCosenza.setIndirizzoVenditore("Via Verdi, 87036 Cosenza  (di fronte Guardia di Finanza)");
+		scavoliniCosenza.setDescrizioneVenditore("Scavolini produce cucine da oltre 50 anni. Una lunghissima"
+				+ " esperienza maturata nel tempo insieme ai gusti e alle tendenze di quasi tre generazioni di "
+				+ "consumatori. Da attività artigianale si è trasformata in realtà industriale, percorrendo con tenacia"
+				+ " e determinazione tutte le tappe della sua costruzione aziendale nel pieno rispetto del pubblico, e "
+				+ "in sintonia con le esigenze del territorio in cui si trova ad operare.");
+		scavoliniCosenza.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12341.855887393946!2d16.2437827!3d39."
+				+ "3457285!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c81cc21a288142c!2sScavolini+Store!5e0!3m2!1sit!2sit!4v1517511668218");
 
 		venditoreDao.save(scavoliniCosenza);
 
@@ -68,6 +82,15 @@ public class DataBaseManager {
 		confortiArredamenti.setNumeroTelefonicoVenditore("0984 839164");
 		confortiArredamenti.setEmailVenditore("info@confortiarredamenti.it");
 		confortiArredamenti.setIndirizzoVenditore("S.S 107 Santo Stefano di Rende");
+		confortiArredamenti.setDescrizioneVenditore("L’arte di Arredare La profonda conoscenza"
+				+ " delle essenze del legno e della sua lavorazione, grande gusto estetico e tanta "
+				+ "passione coltivata in famiglia, ci hanno portato nel corso di 40 anni a lavorare"
+				+ " con creatività e voglia di fare per il raggiungimento della qualità dei nostri prodotti "
+				+ "artigianali e nella scelta dei migliori marchi. La nostra azienda non si limita esclusivamente "
+				+ "alla realizzazione ma si impegna ad interpretarla ed aggiornarla sotto gli aspetti più propriamente "
+				+ "formali e stilistici avvalendosi della competenza di consulenti qualificati.");
+		confortiArredamenti.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12341.805645946073!2d16.195811!3d39."
+				+ "346013!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb1682bdb6bdd1604!2sConforti+Arredamenti+show+room!5e0!3m2!1sit!2sit!4v1517511390045");
 
 		venditoreDao.save(confortiArredamenti);
 
@@ -81,6 +104,13 @@ public class DataBaseManager {
 		poltroneSofa.setNumeroTelefonicoVenditore("0984 838196");
 		poltroneSofa.setEmailVenditore("info@poltronesofarende.it");
 		poltroneSofa.setIndirizzoVenditore("Via Giuseppe Verdi, 9, 87036 Quattromiglia CS");
+		poltroneSofa.setDescrizioneVenditore("Nata a Forlì nel 1995, poltronesofà è diventata oggi il marchio leader"
+				+ " in Italia nella produzione e vendita di divani e poltrone in tessuto. Da sempre, il nostro obiettivo"
+				+ " è garantire ai nostri clienti un prodotto di alta qualità, di grande artigianalità, interamente italiano,"
+				+ " al miglior prezzo di mercato possibile. Disponibilità e capillarità sono i capisaldi del nostro servizio."
+				+ " Puntiamo sulla praticità, oltre che sull'estetica. Tutti i nostri divani sono infatti sfoderabili e lavabili.");
+		poltroneSofa.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12342.856379363127!2d16.2434078!3d39.3400627!"
+				+ "3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x809681754ef4d6a2!2sPoltronesof%C3%A0+S.p.A!5e0!3m2!1sit!2sit!4v1517511509464");
 
 		venditoreDao.save(poltroneSofa);
 
@@ -93,6 +123,16 @@ public class DataBaseManager {
 		arredamentiDuePi.setNumeroTelefonicoVenditore("0984 1900082");
 		arredamentiDuePi.setEmailVenditore("info@arredamentiduepi.it");
 		arredamentiDuePi.setIndirizzoVenditore("S.S.19 G.Verdi Rende");
+		arredamentiDuePi.setDescrizioneVenditore("La DuePi Arredamenti opera nel settore degli "
+				+ "arredi da circa 50 anni con un target rivolto ad una clientela che ambisce a realizzare "
+				+ "e personalizzare lo spazio ideale in cui vivere. Il design, la modernità e la qualità dei "
+				+ "marchi proposti dal'Azienda, coadiuvate dalla professionalità di architetti e designer, ne fanno"
+				+ " un gruppo innovativo e competente nella gestione del progetto degli arredi. Lo spazio espositivo"
+				+ " DuePi offre ai clienti una visione variegata e chiara sulla dimensione e gli ambienti da realizzare. "
+				+ "Gli spazi raffinati del living, quelli funzionali e minimalisti dell'area Kitchen, connessi all'universo "
+				+ "intimo dell'area di riposo, offrono soluzioni estetico-funzionali alle molteplici necessità del cliente del nostro tempo.");
+		arredamentiDuePi.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12348.39483027524!2d16.2170517!3d39.308686!3m2!1i1024!2i768!4f13.1!"
+				+ "3m3!1m2!1s0x0%3A0x1108261bc51d732c!2sDue+P+Arredamenti+Di+Polillo+Bruno+%26+C.+Sas!5e0!3m2!1sit!2sit!4v1517511748507");
 
 		venditoreDao.save(arredamentiDuePi);
 
@@ -718,8 +758,8 @@ public class DataBaseManager {
 		cucina.setDescrizioneProdotto(
 				"Cucina Scavolini modello Madeleine angolare in legno castagno con tavolo e n.4 sedie.\n"
 						+ "N.2 pensili a vetrina, colonna frigo comprensiva di frigorifero Ariston. Lavello Franke 2 vasche in Fragranite.");
-		cucina.setUrlImmaginePrincipale("images/productImages/Madeleiene_01.jpg");
-		cucina.getUrlImmaginiProdotto().add("images/productImages/Madeleiene_01.jpg");
+		cucina.setUrlImmaginePrincipale("images/productImages/Madeleine_01.jpg");
+		cucina.getUrlImmaginiProdotto().add("images/productImages/Madeleine_01.jpg");
 		prodottoDao.save(cucina);
 
 		// Sax
@@ -1384,7 +1424,7 @@ public class DataBaseManager {
 		scrivaniaYoga.setOffertaProdotto(false);
 		scrivaniaYoga.setDescrizioneProdotto("Forma sinuosa e ricercata per lo scrittoio Yoga,"
 				+ " che unisce la funzionalità alla ricerca estetica.");
-		scrivaniaYoga.setUrlImmaginePrincipale("images/productImages/Yoga_01.jgp");
+		scrivaniaYoga.setUrlImmaginePrincipale("images/productImages/Yoga_01.jpg");
 		scrivaniaYoga.getUrlImmaginiProdotto().add("images/productImages/Yoga_01.jpg");
 		prodottoDao.save(scrivaniaYoga);
 
@@ -1495,8 +1535,8 @@ public class DataBaseManager {
 		sedia.setOffertaProdotto(false);
 		sedia.setDescrizioneProdotto(
 				"Sedia con struttura in tubolare metallico verniciato nero opaco con dettagli in metallo finitura black-nikel (anche in oro lucido e bronzo chiaro), seduta e schienali imbottiti e rivestiti in tessuto.");
-		sedia.setUrlImmaginePrincipale("images/productImages/FilNoir_1.jpg");
-		sedia.getUrlImmaginiProdotto().add("images/productImages/FilNoir_1.jpg");
+		sedia.setUrlImmaginePrincipale("images/productImages/FillNoir_1.jpg");
+		sedia.getUrlImmaginiProdotto().add("images/productImages/FillNoir_1.jpg");
 		prodottoDao.save(sedia);
 
 		// ----------------------------------------------------------

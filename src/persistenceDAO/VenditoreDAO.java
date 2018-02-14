@@ -16,5 +16,8 @@ public interface VenditoreDAO {
 	
 	public List<Venditore> findVenditoriByPreventivo(Integer codicePreventivo);// Trova tutti i venditori di un preventivo
 	
+	public List <String> venditoriCheNonRicevonoPreventiviDa30Giorni();
+	
+	
 	
 }

@@ -30,7 +30,11 @@ public interface UtenteDAO {
 
 	public void rimuoviProdottoInCarrello(Integer idProdotto, String emailUtente);
 
+	public void updateLoginData(String utente);
 
+	public List <String> utentiCheNonSiLogganoDa30Giorni();
+	
+	
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente);
 
 	public List<Preventivo> getPreventiviUtente(String emailUtente);

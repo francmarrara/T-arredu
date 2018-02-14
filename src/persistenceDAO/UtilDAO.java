@@ -168,7 +168,8 @@ public class UtilDAO {
 					+ "  `utente_id` INT NOT NULL,\r\n"
 					+ "  `nome` VARCHAR(255) NOT NULL,\r\n" 
 					+ "  `cognome` VARCHAR(255) NOT NULL,\r\n"
-					+ "  `dataNascita` DATE NOT NULL,\r\n" 
+					+ "  `dataNascita` DATE NOT NULL,\r\n"
+					+ "  `dataUltimoAccesso` DATE,\r\n"
 					+ "  `email` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `numeroTelefonico` VARCHAR(255) NOT NULL,\r\n"
 					+ "  `passwordUtente` VARCHAR(255) NOT NULL,\r\n"
@@ -184,7 +185,9 @@ public class UtilDAO {
 					"  `cognomeTitolare` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `indirizzoVenditore` VARCHAR(255) NOT NULL,\r\n" + 
-					"  `emailVenditore` VARCHAR(255) NOT NULL,\r\n" + 
+					"  `emailVenditore` VARCHAR(255) NOT NULL,\r\n" +
+					"  `mappaVenditore` VARCHAR(255) NOT NULL,\r\n" +
+					"  `descrizioneVenditore` MEDIUMTEXT NOT NULL,\r\n" +
 					"  `numeroTelefonicoVenditore` VARCHAR(255) NOT NULL,\r\n" + 
 					"  PRIMARY KEY (`emailVenditore`),\r\n" + 
 					"  UNIQUE INDEX `id_venditore_UNIQUE` (`id_venditore` ASC));";

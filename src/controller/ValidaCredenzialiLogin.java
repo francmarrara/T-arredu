@@ -70,6 +70,7 @@ public class ValidaCredenzialiLogin extends HttpServlet {
 		Utente utente = new Utente();
 
 		utente = utenteDao.findByPrimaryKey(email);
+		utenteDao.updateLoginData(email);
 
 		if (utenteDao.credenzialiUtenteGiaPresenti(email, passw)) {
 			session.setAttribute("utenteLoggato", true);
