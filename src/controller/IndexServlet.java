@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.ProdottoConImmagini;
+import model.Venditore;
 import persistenceDAO.DataBaseManager;
 import persistenceDAO.ProdottoDAO;
+import persistenceDAO.VenditoreDAO;
 
 public class IndexServlet extends HttpServlet {
 
@@ -31,7 +33,7 @@ public class IndexServlet extends HttpServlet {
 
 		}
 	
-		
+		List<Venditore> venditori = null;
 
 		List<ProdottoConImmagini> prodottiInOfferta = null;
 		List<ProdottoConImmagini> prodottiPiuVisti = null;
@@ -39,10 +41,13 @@ public class IndexServlet extends HttpServlet {
 		DataBaseManager dbManager = new DataBaseManager();
 
 		ProdottoDAO prodotto = dbManager.getProdottoDao();
-
+		VenditoreDAO venditore = dbManager.getVenditoreDao();
+		
 		prodottiInOfferta = prodotto.prodottiInOfferta();
 		prodottiPiuVisti = prodotto.prodottiPerVisibilità();
-
+		venditori = venditore.findAll();
+		
+		session.setAttribute("listaVenditori", venditori);
 		session.setAttribute("prodottiInOfferta", prodottiInOfferta);
 		session.setAttribute("prodottiPiuVisti", prodottiPiuVisti);
 

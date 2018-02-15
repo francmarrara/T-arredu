@@ -62,13 +62,11 @@ header {
 	z-index: 1;
 }
 
-/*Tasto e Barra Ricerca */
-.tastoRicerca {
-	padding: 37.5%;
-}
+/* Menu dei venditori */
 
-.barraRicerca {
-	padding: 35%;
+.dropdown-menu {
+    height: auto;
+    width: auto;
 }
 
 body {
@@ -136,13 +134,6 @@ footer {
 	bottom: 0;
 	margin: auto;
 	z-index: -10;
-}
-
-/* Menu catalogo prodotti */
-.dropdown-menu {
-	width: 1000px;
-	height: 380px;
-	z-index: 10;
 }
 
 /* Nomi delle catergorie del menu prodotti */

@@ -68,13 +68,11 @@ body {
 	background-color: #cccccc;
 }
 
-/*Tasto e Barra Ricerca */
-.tastoRicerca {
-	padding: 27.5%;
-}
+/* Menu dei venditori */
 
-.barraRicerca {
-	
+.dropdown-menu {
+    height: auto;
+    width: auto;
 }
 
 /* Footer */
@@ -138,12 +136,6 @@ footer {
 	z-index: -10;
 }
 
-/* Menu catalogo prodotti */
-.dropdown-menu {
-	width: 1000px;
-	height: 380px;
-	z-index: 10;
-}
 
 /* Nomi delle catergorie del menu prodotti */
 .NomiCategorie {

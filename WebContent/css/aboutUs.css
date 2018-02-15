@@ -98,6 +98,13 @@ body {
     background-color: #cccccc;
 }
 
+/* Menu dei venditori */
+
+.dropdown-menu {
+    height: auto;
+    width: auto;
+}
+
 
 /* Carrello */
 
@@ -124,15 +131,6 @@ body {
     bottom: 0;
     margin: auto;
     z-index: -10;
-}
-
-
-/* Menu catalogo prodotti */
-
-.dropdown-menu {
-    width: 1000px;
-    height: 380px;
-    z-index: 10;
 }
 
 

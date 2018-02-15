@@ -101,6 +101,17 @@
 				<li class="navbarOggetto"><a href="prodotti">Catalogo
 						Prodotti</a></li>
 				<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
+				<li class="dropdown navbarOggetto"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Venditori </a>
+					<ul class="dropdown-menu">
+						<c:forEach var="venditore" items="${listaVenditori}">
+
+							<li><a class="nomeNegozio" href="venditore?id=${venditore.emailVenditore}" style="color: red;">${venditore.nomeNegozio}</a>
+							</li>
+
+						</c:forEach>
+
+					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right menuDestra">
 

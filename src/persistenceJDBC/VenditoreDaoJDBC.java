@@ -113,7 +113,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 
 			Venditore venditore;
 
-			String query = "select * from utente";
+			String query = "select * from venditore";
 			PreparedStatement statement = connection.prepareStatement(query);
 
 			ResultSet result = statement.executeQuery();

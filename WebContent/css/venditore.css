@@ -76,6 +76,13 @@ footer {
 	padding: 15px;
 }
 
+/* Menu dei venditori */
+
+.dropdown-menu {
+    height: auto;
+    width: auto;
+}
+
 /* Carrello */
 .carrello {
 	background-color: rgb(121, 4, 4);
@@ -134,12 +141,6 @@ footer {
 	z-index: -10;
 }
 
-/* Menu catalogo prodotti */
-.dropdown-menu {
-	width: 1000px;
-	height: 380px;
-	z-index: 10;
-}
 
 /* Nomi delle catergorie del menu prodotti */
 .NomiCategorie {

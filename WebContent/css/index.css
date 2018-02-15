@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 header {
     z-index: 10;
     top: 0px;
@@ -105,7 +104,7 @@ body {
 .jumbotron {
     margin-top: 10%;
     box-shadow: 5px 4px 5px #000;
-background-size: cover;
+    background-size: cover;
 }
 
 
@@ -122,7 +121,7 @@ background-size: cover;
     position: relative;
     top: 0;
     left: 0;
-width: 100%;
+    width: 100%;
     height: auto;
 }
 
@@ -139,71 +138,11 @@ width: 100%;
 }
 
 
-/* Menu catalogo prodotti */
+/* Menu dei venditori */
 
 .dropdown-menu {
-    width: 1000px;
-    height: 380px;
-    z-index: 10;
-}
-
-
-/* Nomi delle catergorie del menu prodotti */
-
-.NomiCategorie {
-    color: rgb(121, 4, 4);
-    font-family: "Century Gothic", Times, serif;
-}
-
-
-/* Singole categorie, marche e ambienti del menu prodotti */
-
-.oggettiCategorie {
-    color: rgb(34, 30, 30);
-    font-family: "Book Antiqua", Times, serif;
-    font-size: 15px;
-}
-
-.oggettiCategorie:hover {
-    color: rgb(121, 4, 4);
-}
-
-
-/* Le colonne del menu dei prodotti */
-
-#listaMenu {
-    height: 340px;
-    border-left: 1px solid rgb(109, 97, 97);
-}
-
-
-/* Quando passo sopra alle colonne del menu dei prodotti */
-
-#listaMenu:hover {
-    border-bottom: 2px solid rgb(255, 255, 255);
-    box-shadow: 5px 4px 5px #000;
-}
-
-
-/* Nomi delle sezioni di prodotti nella home */
-
-.nomiSezioniProdotti {
-    color: wheat;
-    font-family: "Century Gothic", Times, serif;
-    padding-left: 105px;
-    color: white;
-    text-shadow: 2px 2px 4px rgb(121, 4, 4);
-}
-
-
-/*Tasto e Barra Ricerca */
-
-.tastoRicerca {
-    padding: 27%;
-}
-
-.barraRicerca {
-    padding: 35%;
+    height: auto;
+    width: auto;
 }
 
 
@@ -220,8 +159,6 @@ width: 100%;
     max-width: 600px;
     text-align: center;
     background-color: white;
-    
-    
 }
 
 .containerLogo {
@@ -234,12 +171,12 @@ width: 100%;
     height: 300px;
 }
 
-
 .containerTitoloETestoOfferta {
     background-color: #f1f1f1;
     padding: 5px;
     height: 25%;
 }
+
 .containerTitoloETesto {
     background-color: #f1f1f1;
     padding: 5px;
@@ -262,13 +199,12 @@ width: 100%;
 }
 
 .prezzo {
-	font-style : italic;
+    font-style: italic;
     background: white;
     padding: 5px;
     color: red;
     font-size: medium;
     border-radius: 5%;
-    
 }
 
 
@@ -287,10 +223,9 @@ width: 100%;
 }
 
 .couponPiuVisto img {
-    padding-top :5%;
+    padding-top: 5%;
     width: 290px;
     height: 300px;
-    
 }
 
 .titoloArticoloPiuVisto {
@@ -458,7 +393,7 @@ span.psw {
     animation: animatezoom 0.6s
 }
 
-@-webkit-keyframes animatezoom {
+@ -webkit-keyframes animatezoom {
     from {
         -webkit-transform: scale(0)
     }
@@ -467,7 +402,7 @@ span.psw {
     }
 }
 
-@keyframes animatezoom {
+@ keyframes animatezoom {
     from {
         transform: scale(0)
     }
@@ -640,7 +575,7 @@ span.psw {
     animation: animatezoom 0.6s
 }
 
-@-webkit-keyframes animatezoom {
+@ -webkit-keyframes animatezoom {
     from {
         -webkit-transform: scale(0)
     }
@@ -649,7 +584,7 @@ span.psw {
     }
 }
 
-@keyframes animatezoom {
+@ keyframes animatezoom {
     from {
         transform: scale(0)
     }
@@ -679,52 +614,94 @@ hr {
     width: 87%;
 }
 
+
 /* Snackbar */
+
+
 /* The snackbar - position it at the bottom and in the middle of the screen */
+
 #snackbar {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 9999; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 9999;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-    visibility: visible; /* Show the snackbar */
 
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
 However, delay the fade out process for 2.5 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+
 /* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
+
+@ -webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+@ keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
-@-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 0; opacity: 0;}
+@ -webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+@ keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
-
-
