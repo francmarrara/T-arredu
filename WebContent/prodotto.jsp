@@ -299,7 +299,7 @@
 				<hr>
 				<hr>
 				<div class="prezzo_prodotto">Prezzo Consigliato :
-					${prodottoCercato.prezzoProdotto}</div>
+					${prodottoCercato.prezzoProdotto}0 €</div>
 
 				<c:if test="${utenteLoggato == true}">
 					<div class="btn-group button_carrello">

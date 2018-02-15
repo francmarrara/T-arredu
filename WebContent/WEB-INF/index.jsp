@@ -66,11 +66,6 @@
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 
-
-<!-- Start WOWSlider.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
-<!-- End WOWSlider.com HEAD section -->
 </head>
 
 <body>
@@ -118,8 +113,9 @@
 					<ul class="dropdown-menu">
 						<c:forEach var="venditore" items="${listaVenditori}">
 
-							<li><a class="nomeNegozio" href="venditore?id=${venditore.emailVenditore}" style="color: red;">${venditore.nomeNegozio}</a>
-							</li>
+							<li><a class="nomeNegozio"
+								href="venditore?id=${venditore.emailVenditore}"
+								style="color: red;">${venditore.nomeNegozio}</a></li>
 
 						</c:forEach>
 
@@ -251,51 +247,96 @@
 
 	<!-- Slider centrale -->
 	<div class="jumbotron">
-		<!-- Start SLIDER section -->
-		<div id="wowslider-container1">
-			<div class="ws_images">
-				<ul>
-					<li><img class="img img-responsive"
-						src="data1/images/arke.jpg" alt="Arke" title="Arke" id="wows1_0" /></li>
-					<li><img class="img img-responsive"
-						src="data1/images/fina.jpg" alt="Fina" title="Fina" id="wows1_1" /></li>
-					<li><img class="img img-responsive"
-						src="data1/images/medolla.jpg" alt="Medolla" title="Medolla"
-						id="wows1_2" /></li>
-					<li><img class="img img-responsive"
-						src="data1/images/bastiglia.jpg" alt="Bastiglia" title="Bastiglia"
-						id="wows1_3" /></li>
-					<li><a href="http://wowslider.net"><img
-							src="data1/images/rivo.jpg" alt="javascript image slider"
-							title="Rivo" id="wows1_4" /></a></li>
-					<li><img class="img img-responsive"
-						src="data1/images/terra.jpg" alt="Terra" title="Terra"
-						id="wows1_5" /></li>
-				</ul>
-			</div>
-			<div class="ws_bullets">
-				<div>
-					<a href="prodotto.html" title="Arke"><span><img
-							src="data1/tooltips/arke.jpg" alt="Arke" />1</span></a> <a
-						href="prodotto.html" title="Fina"><span><img
-							src="data1/tooltips/fina.jpg" alt="Fina" />2</span></a> <a
-						href="prodotto.html" title="Medolla"><span><img
-							src="data1/tooltips/medolla.jpg" alt="Medolla" />3</span></a> <a
-						href="prodotto.html" title="Bastiglia"><span><img
-							src="data1/tooltips/bastiglia.jpg" alt="Bastiglia" />4</span></a> <a
-						href="prodotto.html" title="Rivo"><span><img
-							src="data1/tooltips/rivo.jpg" alt="Rivo" />5</span></a> <a
-						href="prodotto.html" title="Terra"><span><img
-							src="data1/tooltips/terra.jpg" alt="Terra" />6</span></a>
+		<div class="container">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+					<li data-target="#myCarousel" data-slide-to="4"></li>
+					<li data-target="#myCarousel" data-slide-to="5"></li>
+					<li data-target="#myCarousel" data-slide-to="6"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" style="width: 100%; height: 100%">
+
+					<div class="item active">
+						<a href="prodotto?id=55"> <img class="img img-responsive"
+							src="images/productImages/Arke_01.jpg" alt="Arke">
+						</a>
+						<div class="carousel-caption">
+							<h3 class="nomeProdottoCarousel">Arke</h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<a href="prodotto?id=85"> <img class="img img-responsive"
+							src="images/productImages/Rivo_01.jpg" alt="Rivo"
+							style="height: 100%; width: 100%;">
+						</a>
+						<div class="carousel-caption">
+							<h3 class="nomeProdottoCarousel">Rivo</h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<a href="prodotto?id=56"> <img class="img img-responsive"
+							src="images/productImages/Artika_01.jpg" alt="Artika"
+							style="height: 100%; width: 100%;">
+						</a>
+						<div class="carousel-caption">
+							<h3 class="nomeProdottoCarousel">Artika</h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<a href="prodotto?id=53"> <img class="img img-responsive"
+							src="images/productImages/Sax_01.jpg" alt="Sax"
+							style="height: 100%; width: 100%;">
+						</a>
+						<div class="carousel-caption">
+							<h3 class="nomeProdottoCarousel">Sax</h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<a href="prodotto?id=50"> <img class="img img-responsive"
+							src="images/productImages/iCiliegi_02.jpg" alt="ICiliegi"
+							style="height: 100%; width: 100%;">
+						</a>
+						<div class="carousel-caption">
+							<h3 class="nomeProdottoCarousel">Ciliegi</h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<a href="prodotto?id=12"> <img class="img img-responsive"
+							src="images/productImages/Fina_01.jpg" alt="Fina"
+							style="height: 100%; width: 100%;">
+						</a>
+						<div class="carousel-caption">
+							<h3 class="nomeProdottoCarousel">Fina</h3>
+						</div>
+					</div>
+
+
 				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel"
+					data-slide="prev"> <span
+					class="glyphicon glyphicon-chevron-left"></span> <span
+					class="sr-only">Precedente</span>
+				</a> <a class="right carousel-control" href="#myCarousel"
+					data-slide="next"> <span
+					class="glyphicon glyphicon-chevron-right"></span> <span
+					class="sr-only">Successiva</span>
+				</a>
 			</div>
-			<div class="ws_shadow"></div>
-
-			<script type="text/javascript" src="engine1/wowslider.js"></script>
-			<script type="text/javascript" src="engine1/script.js"></script>
 		</div>
-
-		<!-- End SLIDER section -->
 	</div>
 
 	<br>
