@@ -1,9 +1,11 @@
-// Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
+/* Abilita bottone laterale indietro*/
 $(document).ready(function() {
-	$("#catalogoProdotti").hover(function() {
-		$(this).find("#menuProdotti").show(250);
-	}, function() {
-		$(this).find("#menuProdotti").hide(250);
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 200) {
+			$('#backToPage').fadeIn(200);
+		} else {
+			$('#backToPage').fadeOut(200);
+		}
 	});
 });
 

@@ -1,11 +1,3 @@
-// Menu Catalogo Prodotti - Mostra/Nascondi al passaggio del mouse
-$(document).ready(function() {
-	$("#catalogoProdotti").hover(function() {
-		$(this).find("#menuProdotti").show(250);
-	}, function() {
-		$(this).find("#menuProdotti").hide(250);
-	});
-});
 
 /* Abilita bottone laterale */
 $(document).ready(function() {
@@ -17,6 +9,18 @@ $(document).ready(function() {
 		}
 	});
 });
+
+/* Abilita bottone laterale indietro*/
+$(document).ready(function() {
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 200) {
+			$('#backToPage').fadeIn(200);
+		} else {
+			$('#backToPage').fadeOut(200);
+		}
+	});
+});
+
 
 // Errore sullo snackbar che ti invita a registrati
 

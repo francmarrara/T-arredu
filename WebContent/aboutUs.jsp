@@ -70,161 +70,170 @@
 		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
 	</div>
 
+
 	<!-- Header -->
-	<header class="container-fluid headerImage" name="top">
-		<div class="headerContainer">
-			<img src="images/headerImage.png" alt="headerImage" width="1318px"
-				height="50px">
+	<header class="container-fluid headerImage row" >
+		<div class="headerContainer col-md-12" style="text-align: center; padding-bottom: 0; padding-top: 0;">
+			<img class="img img-responsive" src="images/headerImage.png"
+				alt="headerImage" width="100%" height="100%">
 		</div>
 	</header>
 
-	<!-- Menu di navigazione principale -->
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav">
-				<li class="navbarOggetto"><img id="logoButton"
-					src="images/TarreduLogo.png" width="50" height="50"></li>
-				<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
+	<div class="row">
 
-				<li class="navbarOggetto"><a href="prodotti">Catalogo
-						Prodotti</a></li>
-				<li class="navbarOggetto"><a href="aboutUs.html">About us</a></li>
-				<li class="dropdown navbarOggetto"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Venditori </a>
-					<ul class="dropdown-menu">
-						<c:forEach var="venditore" items="${listaVenditori}">
+		<!-- Menu di navigazione principale -->
+		<nav class="navbar navbar-inverse col-md-12" style="width:100%; margin-left: 0.9%;">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li class="navbarOggetto"><img id="logoButton"
+						src="images/TarreduLogo.png" width="50" height="50"></li>
+					<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
 
-							<li><a class="nomeNegozio" href="venditore?id=${venditore.emailVenditore}" style="color: red;">${venditore.nomeNegozio}</a>
-							</li>
+					<li class="navbarOggetto"><a href="prodotti">Catalogo
+							Prodotti</a></li>
 
-						</c:forEach>
+					<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
+					<li class="dropdown navbarOggetto"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Venditori </a>
+						<ul class="dropdown-menu">
+							<c:forEach var="venditore" items="${listaVenditori}">
 
-					</ul></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right menuDestra">
+								<li><a class="nomeNegozio"
+									href="venditore?id=${venditore.emailVenditore}"
+									style="color: red;">${venditore.nomeNegozio}</a></li>
 
-				<c:if test="${utenteLoggato == true}">
+							</c:forEach>
 
-					<li class="navbarOggetto"><a onclick="effettuaLogout()"
-						class="nomeUtente" style="cursor: pointer;"><span
-							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						</ul></li>
 
-					<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
-							class="glyphicon glyphicon-user user"></span> Benvenuto,
-							${nomeUtente}</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right menuDestra">
 
-					<li class="carrello navbarOggetto"><a href="carrello"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<c:if test="${utenteLoggato == true}">
 
-				</c:if>
+						<li class="navbarOggetto"><a onclick="effettuaLogout()"
+							class="nomeUtente" style="cursor: pointer;"><span
+								class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
-				<c:if test="${utenteLoggato == false || empty utenteLoggato}">
+						<li class="navbarOggetto"><a href="utente" class="nomeUtente"><span
+								class="glyphicon glyphicon-user user"></span> Benvenuto,
+								${nomeUtente}</a></li>
 
-					<li class="navbarOggetto">
-						<!-- Form per il login --> <a href="#login"
-						onclick="document.getElementById('login').style.display='block'">
-							<span class="glyphicon glyphicon-log-in"></span> Login
-					</a>
+						<li class="carrello navbarOggetto"><a href="carrello"><span
+								class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 
-						<div id="login" class="modal">
+					</c:if>
 
-							<form class="modal-content animate" method="post"
-								action="validaCredenzialiLogin">
-								<div class="imgcontainer">
-									<span
-										onclick="document.getElementById('login').style.display='none'"
-										class="close" title="Chiudi Login">&times;</span> <img
-										src="images/userLogin.jpg" alt="Avatar" class="avatar"
-										width=150 height=150>
-								</div>
+					<c:if test="${utenteLoggato == false  || empty utenteLoggato}">
 
-								<div class="containerModal">
-									<label><b>Email Utente</b></label> <input
-										class="inputLogIn EmailUtenteLogin" type="text"
-										placeholder="Inserire Indirizzo Email" name="emailUtente"
-										required> <label><b>Password</b></label> <input
-										class="inputLogIn passwordLogin" type="password"
-										placeholder="Inserire Password" name="psw" required>
+						<li class="navbarOggetto">
+							<!-- Form per il login --> <a href="#login"
+							onclick="document.getElementById('login').style.display='block'">
+								<span class="glyphicon glyphicon-log-in"></span> Login
+						</a>
 
-									<button class="buttonLog" type="submit">Login</button>
-									<div class="containerCheckbox">
-										<label>Ricordami <input type="checkbox"
-											id="checkRicordami" onclick="controlla()"></label>
+							<div id="login" class="modal">
+
+								<form class="modal-content animate" method="post"
+									action="validaCredenzialiLogin">
+									<div class="imgcontainer">
+										<span
+											onclick="document.getElementById('login').style.display='none'"
+											class="close" title="Chiudi Login">&times;</span> <img
+											src="images/userLogin.jpg" alt="Avatar" class="avatar"
+											width=150 height=150>
 									</div>
-								</div>
 
-								<div class="containerModalBottom"
-									style="background-color: #ffffff">
-									<button type="button"
-										onclick="document.getElementById('login').style.display='none'"
-										class="cancelbtn">Cancel</button>
-								</div>
-							</form>
-						</div>
-					</li>
-					<li class="navbarOggetto">
-						<!-- Form per la registrazione --> <a href="#registrazione"
-						onclick="document.getElementById('registrazione').style.display='block'">
-							<span class="glyphicon glyphicon-user user"></span> Registrati
-					</a>
+									<div class="containerModal">
+										<label><b>Email Utente</b></label> <input
+											class="inputLogIn EmailUtenteLogin" type="text"
+											placeholder="Inserire Indirizzo Email" name="emailUtente"
+											required> <label><b>Password</b></label> <input
+											class="inputLogIn passwordLogin" type="password"
+											placeholder="Inserire Password" name="psw" required>
 
-						<div id="registrazione" class="modal">
+										<button class="buttonLog" type="submit">Login</button>
+										<div class="containerCheckbox">
+											<label>Ricordami <input type="checkbox"
+												id="checkRicordami" onclick="controlla()"></label>
+										</div>
+									</div>
 
-							<form class="modal-content animateReg" method="post"
-								action="registrazione">
-								<div class="imgcontainerReg">
-									<span
-										onclick="document.getElementById('registrazione').style.display='none'"
-										class="closeReg" title="Chiudi Registrazione">&times;</span>
-								</div>
-								<h1>Registrazione</h1>
-								<p>Compila questo modulo per creare un account.</p>
-								<hr>
-								<div class="containerReg">
+									<div class="containerModalBottom"
+										style="background-color: #ffffff">
+										<button type="button"
+											onclick="document.getElementById('login').style.display='none'"
+											class="cancelbtn">Cancel</button>
+									</div>
+								</form>
+							</div>
+						</li>
+						<li class="navbarOggetto">
+							<!-- Form per la registrazione --> <a href="#registrazione"
+							onclick="document.getElementById('registrazione').style.display='block'">
+								<span class="glyphicon glyphicon-user user"></span> Registrati
+						</a>
 
-									<label><b>Nome</b></label> <input type="text"
-										placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
-									<input type="text" placeholder="Inserire Cognome"
-										name="cognome" required> <label><b>Data di
-											Nascita</b></label> <input type="date"
-										placeholder="Inserire Data di Nascita" name="dataDiNascita"
-										required> <label><b>Numero di Telefono</b></label> <input
-										type="text" placeholder="Inserire Numero di Telefono"
-										name="numeroDiTelefono" required> <label><b>Email</b></label>
-									<input id="emailUtente" type="text"
-										placeholder="Inserire Indirizzo Email" name="email" required>
-									<label><b>Password</b></label> <input id="psw" type="password"
-										placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
-											Password</b></label> <input id="psw-repeat" type="password"
-										placeholder="Reinserire Password" name="psw-repeat" required>
-								</div>
-								<div class="containerRegButton"
-									style="background-color: #ffffff">
-									<button type="button"
-										onclick="document.getElementById('registrazione').style.display='none'"
-										class="cancelbtnReg">Cancel</button>
-									<button class="buttonReg" type="submit">Registrati</button>
-								</div>
-							</form>
+							<div id="registrazione" class="modal">
 
-						</div>
-					</li>
-					<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
-						style="cursor: pointer"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
-				</c:if>
+								<form class="modal-content animateReg" method="post"
+									action="registrazione">
+									<div class="imgcontainerReg">
+										<span
+											onclick="document.getElementById('registrazione').style.display='none'"
+											class="closeReg" title="Chiudi Registrazione">&times;</span>
+									</div>
+									<h1>Registrazione</h1>
+									<p>Compila questo modulo per creare un account.</p>
+									<hr>
+									<div class="containerReg">
+
+										<label><b>Nome</b></label> <input type="text"
+											placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
+										<input type="text" placeholder="Inserire Cognome"
+											name="cognome" required> <label><b>Data
+												di Nascita</b></label> <input type="date"
+											placeholder="Inserire Data di Nascita" name="dataDiNascita"
+											required> <label><b>Numero di Telefono</b></label> <input
+											type="text" placeholder="Inserire Numero di Telefono"
+											name="numeroDiTelefono" required> <label><b>Email</b></label>
+										<input id="emailUtente" type="text"
+											placeholder="Inserire Indirizzo Email" name="email" required>
+										<label><b>Password</b></label> <input id="psw" type="password"
+											placeholder="Inserire Password" name="psw" required>
+										<label><b>Ripetere Password</b></label> <input id="psw-repeat"
+											type="password" placeholder="Reinserire Password"
+											name="psw-repeat" required>
+									</div>
+									<div class="containerRegButton"
+										style="background-color: #ffffff">
+										<button type="button"
+											onclick="document.getElementById('registrazione').style.display='none'"
+											class="cancelbtnReg">Cancel</button>
+										<button class="buttonReg" type="submit">Registrati</button>
+									</div>
+								</form>
+
+							</div>
+						</li>
+						<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
+							style="cursor: pointer"><span
+								class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					</c:if>
 
 
-			</ul>
-		</div>
-	</nav>
+				</ul>
+			</div>
+		</nav>
+	</div>
 
 	<br>
 	<br>
 
-	<!-- Bottone laterale a scomparsa -->
+		<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
-		<a href="#top" id="backToTopMenu">Torna su</a>
+		<a href="#top" id="backToTopMenu">Torna Su</a> <a
+			href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 	</div>
 
 	<div class="container" style="margin-top: 8%;">
