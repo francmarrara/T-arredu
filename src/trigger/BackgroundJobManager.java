@@ -14,9 +14,9 @@ public class BackgroundJobManager implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-//		scheduler = Executors.newSingleThreadScheduledExecutor();
-//		scheduler.scheduleAtFixedRate(new DailyJobLogin30Days(), 0, 1, TimeUnit.DAYS);
-//		scheduler.scheduleAtFixedRate(new DailyJobVenditore30GiorniSenzaPreventivi(), 0, 1, TimeUnit.DAYS);
+		scheduler = Executors.newSingleThreadScheduledExecutor();
+		scheduler.scheduleAtFixedRate(new DailyJobLogin30Days(), 0, 1, TimeUnit.DAYS);
+		scheduler.scheduleAtFixedRate(new DailyJobVenditore30GiorniSenzaPreventivi(), 0, 1, TimeUnit.DAYS);
 
 		// scheduler.scheduleAtFixedRate(new HourlyJob(), 0, 1, TimeUnit.HOURS);
 		// scheduler.scheduleAtFixedRate(new MinJob(), 0, 1, TimeUnit.MINUTES);
