@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 header {
 	z-index: 10;
 	top: 0px;
@@ -44,6 +49,7 @@ header {
 	/* Rounded corners on the top right and bottom right side */
 	font-style: italic;
 	display: none;
+	z-index: 9999;
 }
 
 #mySidenav a:hover {
@@ -88,12 +94,6 @@ header {
 	border: 0;
 	box-shadow: 0;
 	display: inline;
-}
-
-body {
-	background-image: url("images/bodyBackground.jpg");
-	background-repeat: repeat;
-	background-color: #cccccc;
 }
 
 /* Menu dei venditori */

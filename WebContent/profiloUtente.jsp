@@ -216,7 +216,7 @@ window.smartsupp||(function(d) {
 		</nav>
 	</div>
 
-	<input id="passwordPerVerifica" value="${utente.passwordUtente}">
+	<input id="passwordPerVerifica" value="${utente.passwordUtente}" style="display: none;">
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">

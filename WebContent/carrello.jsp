@@ -23,11 +23,6 @@
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 
-<!-- Start WOWSlider.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
-<!-- End WOWSlider.com HEAD section -->
-
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
@@ -66,6 +61,7 @@
 
 <body>
 
+
 	<!-- Sfondo -->
 	<div id="bg">
 		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
@@ -83,7 +79,8 @@
 	<div class="row" style="">
 
 		<!-- Menu di navigazione principale -->
-		<nav class="navbar navbar-inverse col-md-12" style="width:100%; margin-left: 0.9%;">
+		<nav class="navbar navbar-inverse col-md-12"
+			style="width: 100%; margin-left: 0.9%;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
@@ -227,7 +224,7 @@
 			</div>
 		</nav>
 	</div>
-	
+
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
 		<a href="#top" id="backToTopMenu">Torna Su</a> <a
@@ -292,8 +289,8 @@
 													<br> <br>
 
 													<button type="button" class="btn btn-danger"
-														title="nvia richiestaAggiuntiva">Click
-														fuori dalla finestra per uscire</button>
+														title="nvia richiestaAggiuntiva">Click fuori
+														dalla finestra per uscire</button>
 
 												</form>
 											</div>
@@ -372,6 +369,7 @@
 		</div>
 	</footer>
 	<div id="snackbar"></div>
+
 
 </body>
 

@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 header {
 	z-index: 10;
 	top: 0px;
@@ -17,8 +22,8 @@ header {
 }
 
 .navbar {
-	top: 50px;
-	position: absolute;
+	top: 20%;
+	position: relative;
 	border-radius: 0;
 	z-index: 10;
 	box-shadow: 5px 4px 5px #000;
@@ -26,7 +31,8 @@ header {
 }
 
 .navbarOggetto {
-	z-index: 1;
+	position: relative;
+	z-index: 0;
 	height: 50px;
 }
 
@@ -44,6 +50,7 @@ header {
 	/* Rounded corners on the top right and bottom right side */
 	font-style: italic;
 	display: none;
+	z-index: 9999;
 }
 
 #mySidenav a:hover {
@@ -69,7 +76,7 @@ header {
 }
 
 .menuDestra li {
-	z-index: 1;
+	z-index: 0;
 }
 
 /* Per l'allineamento del navbar */
@@ -90,17 +97,12 @@ header {
 	display: inline;
 }
 
-body {
-	background-image: url("images/sfondoLegno.png");
-
-}
-
 /* Slider */
 .jumbotron {
-	margin-top: 10%;
+	margin-top: 5%;
 	box-shadow: 5px 4px 5px #000;
 	background-size: cover;
-	
+	position: relative;
 }
 
 .nomeProdottoCarousel {

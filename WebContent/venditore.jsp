@@ -46,6 +46,29 @@
 		s.parentNode.insertBefore(c, s);
 	})(document);
 </script>
+
+<script>
+	function initMap() {
+		var posizione = {
+			lat : 39.3191,
+			lng : 16.248965
+		};
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom : 16,
+			center : posizione
+		});
+		var marker = new google.maps.Marker({
+			position : posizione,
+			title : '${venditore.nomeNegozio}',
+			map : map
+		});
+	}
+</script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUvzMYr08iaxtaGH2K31C7lLifLHRL2g4&callback=initMap">
+	
+</script>
+
 <script>
 	window.onload = function() {
 		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
@@ -80,7 +103,8 @@
 	<div class="row" style="">
 
 		<!-- Menu di navigazione principale -->
-		<nav class="navbar navbar-inverse col-md-12" style="width:100%; margin-left: 0.9%;">
+		<nav class="navbar navbar-inverse col-md-12"
+			style="width: 100%; margin-left: 0.9%;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
@@ -230,7 +254,7 @@
 		<a href="#top" id="backToTopMenu">Torna Su</a> <a
 			href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 	</div>
-	
+
 	<div class="container box_venditore">
 		<div class="row" id="">
 			<!-- Div a sinistra con descrizione Venditore e Contatti-->
@@ -260,17 +284,10 @@
 			<!-- Fine Div a sinistra con descrizione Venditore e Contatti-->
 
 			<!-- Fine Div a Destra con Mappa-->
-			<div class="col-md-5 single-top-right">
-				<h2 style="padding-top: 2%; padding-left: 10%;">Come
-					Raggiungerci</h2>
-				<div class="mappa">
-					<iframe src="${venditore.mappaVenditore}" width="100%" height="50%"
-						style="border: 0" allowfullscreen></iframe>
 
-
-				</div>
-
-			</div>
+			<h2 style="padding-top: 2%; padding-left: 10%;">Come
+				Raggiungerci</h2>
+			<div class="col-md-5 mappa single-top-right" id="map"></div>
 			<!--Fine  Div a destra con mappa-->
 
 		</div>
@@ -393,7 +410,7 @@
 
 
 
-		
+
 	</div>
 
 	<button type="button" class="btn btn-primary bottoneTornaSu">
