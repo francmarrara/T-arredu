@@ -81,12 +81,6 @@
 		</script>
 	</c:if>
 
-		<!-- Sfondo -->
-		<div id="bg">
-			<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
-		</div>
-
-
 		<!-- Header -->
 		<header class="container-fluid headerImage row" name="top">
 			<div class="headerContainer col-md-12" style="text-align: center;">
@@ -95,7 +89,7 @@
 			</div>
 		</header>
 
-		<div class="row" style="">
+		<div class="row">
 
 			<!-- Menu di navigazione principale -->
 			<nav class="navbar navbar-inverse col-md-12"

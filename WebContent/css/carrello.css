@@ -22,8 +22,8 @@ header {
 }
 
 .navbar {
-	top: 50px;
-	position: absolute;
+	top: 20%;
+	position: relative;
 	border-radius: 0;
 	z-index: 10;
 	box-shadow: 5px 4px 5px #000;
@@ -496,7 +496,7 @@ to {
 
 /* Box carrello */
 .boxCarrello {
-	margin-top: 10%;
+	margin-bottom: 1%;
 }
 
 /* Modal Box Richiesta aggiuntiva */

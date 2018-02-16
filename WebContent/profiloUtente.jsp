@@ -71,7 +71,7 @@ window.smartsupp||(function(d) {
 	<div class="row" style="">
 
 		<!-- Menu di navigazione principale -->
-		<nav class="navbar navbar-inverse col-md-12" style="width:100%; margin-left: 0.9%;">
+		<nav class="navbar navbar-inverse col-md-12" style="width: 100%;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
@@ -216,17 +216,17 @@ window.smartsupp||(function(d) {
 		</nav>
 	</div>
 
-	<input id="passwordPerVerifica" value="${utente.passwordUtente}" style="display: none;">
+	<input id="passwordPerVerifica" value="${utente.passwordUtente}"
+		style="display: none;">
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
 		<a href="#top" id="backToTopMenu">Torna Su</a> <a
 			href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 	</div>
-	
+
 	<!-- Container con Dati personali, preventivi, preferiti e modififa dati personali -->
-	<div class="container"
-		style="padding-top: 10%; background-color: white; height: auto; width: 95.3%;">
+	<div class="container containerDatiPersonali">
 		<h2>Il mio account</h2>
 
 		<ul class="nav nav-tabs">
@@ -373,10 +373,12 @@ window.smartsupp||(function(d) {
 											<td
 												class="col-sm-1 col-md-1 text-center containerListaProdotti">
 												<button type="button" class="btn btn-primary"
-													data-toggle="modal" data-target="#<c:out value="${preventivo.idPreventivo}"/>myModal">
+													data-toggle="modal"
+													data-target="#<c:out value="${preventivo.idPreventivo}"/>myModal">
 													Prodotti <span class="glyphicon glyphicon-modal-window"></span>
 												</button> <!-- Modal -->
-												<div class="modal fade" id="${preventivo.idPreventivo}myModal" role="dialog">
+												<div class="modal fade"
+													id="${preventivo.idPreventivo}myModal" role="dialog">
 													<div class="modal-dialog">
 
 														<!-- Modal content-->

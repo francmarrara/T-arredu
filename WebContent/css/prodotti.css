@@ -22,8 +22,8 @@ header {
 }
 
 .navbar {
-	top: 50px;
-	position: absolute;
+	top: 20%;
+	position: relative;
 	border-radius: 0;
 	z-index: 10;
 	box-shadow: 5px 4px 5px #000;
@@ -564,25 +564,15 @@ hr {
 	font-size: 20px;
 	color: wheat;
 	font-family: "Century Gothic", Times, serif;
-	padding-left: 105px;
 	color: white;
 	text-shadow: 2px 2px 4px rgb(121, 4, 4);
 }
 
 hr {
 	border: 1px solid rgb(255, 255, 255);
-	width: 87%;
+	width: 100%;
 }
 
 .menu_selezione {
 	padding-top: 2%;
-}
-
-/*Tasto e Barra Ricerca */
-.tastoRicerca {
-	padding: 37.5%;
-}
-
-.barraRicerca {
-	padding: 35%;
 }

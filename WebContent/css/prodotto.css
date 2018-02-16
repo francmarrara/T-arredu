@@ -22,8 +22,8 @@ header {
 }
 
 .navbar {
-	top: 50px;
-	position: absolute;
+	top: 20%;
+	position: relative;
 	border-radius: 0;
 	z-index: 10;
 	box-shadow: 5px 4px 5px #000;
@@ -261,9 +261,9 @@ footer {
 }
 
 .bottoneTornaSu {
-	height: 5%;
+	text-align: center;
+	height: auto;
 	width: 100%;
-	padding: 10px;
 }
 
 /*Login finestra */

@@ -94,7 +94,7 @@
 
 	<!-- Header -->
 	<header class="container-fluid headerImage row" name="top">
-		<div class="headerContainer col-md-12" style="text-align: center;">
+		<div class="headerContainer col-md-12">
 			<img class="img img-responsive" src="images/headerImage.png"
 				alt="headerImage" width="100%" height="100%">
 		</div>
@@ -103,8 +103,7 @@
 	<div class="row" style="">
 
 		<!-- Menu di navigazione principale -->
-		<nav class="navbar navbar-inverse col-md-12"
-			style="width: 100%; margin-left: 0.9%;">
+		<nav class="navbar navbar-inverse col-md-12" style="width: 100%;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
@@ -294,13 +293,13 @@
 	</div>
 
 
-	<p class="titolo_sopra_prodotti" style="padding-top: 4%;">PRODOTTI</p>
-
-	<hr>
+	<p class="titolo_sopra_prodotti">PRODOTTI</p>
 
 	<!--Inizio Menu di selezione Tipo prodotti e Prezzo-->
 
-	<div class="container" style="text-align: center">
+	<div class="container" style="text-align: center;">
+
+		<hr>
 		<div class="container menu_selezione">
 			<div class="row ">
 				<div class="col-md-3 single-top-left ">

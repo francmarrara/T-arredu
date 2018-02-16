@@ -84,7 +84,7 @@
 
 			<!-- Menu di navigazione principale -->
 			<nav class="navbar navbar-inverse col-md-12"
-				style="width: 100%; margin-left: 0.9%;">
+				style="width: 100%;">
 				<div class="container-fluid">
 					<ul class="nav navbar-nav">
 						<li class="navbarOggetto"><img id="logoButton"
@@ -238,7 +238,7 @@
 				href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 		</div>
 
-		<div class="container" style="margin-top: 8%;">
+		<div class="container">
 			<div style="background-color: white; margin-bottom: 5%;">
 				<div class="containerSezioneSuperiore">
 					<h2>Chi siamo</h2>

@@ -21,9 +21,18 @@ header {
 	z-index: 10;
 }
 
+.containerDatiPersonali{
+	
+	background-color: white;
+	height: auto; 
+	width: 95.3%;
+	border: 5px outset #bbb;
+	border-radius: 15px;
+}
+
 .navbar {
-	top: 50px;
-	position: absolute;
+	top: 20%;
+	position: relative;
 	border-radius: 0;
 	z-index: 10;
 	box-shadow: 5px 4px 5px #000;

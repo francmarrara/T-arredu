@@ -80,7 +80,7 @@
 
 		<!-- Menu di navigazione principale -->
 		<nav class="navbar navbar-inverse col-md-12"
-			style="width: 100%; margin-left: 0.9%;">
+			style="width: 100%;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"

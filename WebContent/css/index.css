@@ -1,8 +1,17 @@
 @charset "UTF-8";
 
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+	max-width: 100%;
+	overflow-x: hidden;
+	background: rgb(45, 6, 0); /* Old browsers */
+	background: -moz-linear-gradient(left, rgb(45, 6, 0) 0%, rgb(121, 4, 4)
+		100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgb(45, 6, 0) 0%,
+		rgb(121, 4, 4) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgb(45, 6, 0) 0%, rgb(121, 4, 4)
+		100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d0600',
+		endColorstr='#790404', GradientType=1);
 }
 
 header {
