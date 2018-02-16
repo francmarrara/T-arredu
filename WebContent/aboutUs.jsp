@@ -238,9 +238,8 @@
 				href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 		</div>
 
-		<div class="container">
-			<div style="background-color: white; margin-bottom: 5%;">
-				<div class="containerSezioneSuperiore">
+		<div class="container containerSezioneSuperiore">
+				
 					<h2>Chi siamo</h2>
 					<hr>
 					<div class="row">
@@ -252,14 +251,14 @@
 
 						<div class="col-md-8 descrizione">
 							<h3>T'ARREDU (Ti Arredo)</h3>
-							<p>Web App che permette allâUtente di poter scegliere,
+							<p>Web App che permette all' Utente di poter scegliere,
 								configurare, richiedere un preventivo.</p>
 							<p>Scelto il prodotto da acquistare l'utente potrà
 								richiedere un preventivo o contattare il venditore per
 								l'acquisto.</p>
 							<p>L'utente può lasciare feedback sul singolo prodotto o
-								sul venditore dopo aver effettuato l'acquisto. Il sito prevede</p>
-							<p>anche una chat live per assistenza e supporto.</p>
+								sul venditore dopo aver effettuato l'acquisto. </p>
+							<p>Il sito prevede anche una chat live per assistenza e supporto.</p>
 						</div>
 
 					</div>
@@ -329,9 +328,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-		</div>
+		
 
 		<button type="button" class="btn btn-primary bottoneTornaSu">
 			<a href="#top" style="color: #ffffff">Torna su...</a>

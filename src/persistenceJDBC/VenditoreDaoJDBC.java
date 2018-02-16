@@ -29,8 +29,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String save = " insert into venditore(id_venditore, nomeTitolare, cognomeTitolare, "
-					+ "nomeNegozio, indirizzoVenditore, emailVenditore, numeroTelefonicoVenditore, descrizioneVenditore, mappaVenditore) values"
-					+ "(?,?,?,?,?,?,?,?,?) ";
+					+ "nomeNegozio, indirizzoVenditore, emailVenditore, numeroTelefonicoVenditore, descrizioneVenditore, latitudineVenditore, longitudineVenditore) values"
+					+ "(?,?,?,?,?,?,?,?,?,?) ";
 
 			PreparedStatement statement = connection.prepareStatement(save);
 
@@ -45,7 +45,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			statement.setString(6, venditore.getEmailVenditore());
 			statement.setString(7, venditore.getNumeroTelefonicoVenditore());
 			statement.setString(8, venditore.getDescrizioneVenditore());
-			statement.setString(9, venditore.getMappaVenditore());
+			statement.setString(9, venditore.getLatitudineVenditore());
+			statement.setString(10, venditore.getLongitudineVenditore());
 
 			statement.executeUpdate();
 
@@ -87,7 +88,9 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setEmailVenditore(result.getString("emailVenditore"));
 				venditore.setNumeroTelefonicoVenditore(result.getString("numeroTelefonicoVenditore"));
 				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
-				venditore.setMappaVenditore(result.getString("mappaVenditore"));
+				venditore.setLatitudineVenditore(result.getString("latitudineVenditore"));
+				venditore.setLongitudineVenditore(result.getString("longitudineVenditore"));
+
 
 			}
 		} catch (SQLException e) {
@@ -130,7 +133,9 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setEmailVenditore(result.getString("emailVenditore"));
 				venditore.setNumeroTelefonicoVenditore(result.getString("numeroTelefonicoVenditore"));
 				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
-				venditore.setMappaVenditore(result.getString("mappaVenditore"));
+				venditore.setLatitudineVenditore(result.getString("latitudineVenditore"));
+				venditore.setLongitudineVenditore(result.getString("longitudineVenditore"));
+
 
 				venditori.add(venditore);
 
@@ -190,7 +195,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String update = "update venditore SET nomeTitolare = ?, cognomeTitolare = ?, nomeNegozio = ?, "
-					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, mappaVenditore = ?  "
+					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, latitudineVenditore = ?,"
+					+ "longitudineVenditore=? "
 					+ "WHERE emailVenditore = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 
@@ -200,10 +206,10 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			statement.setString(4, venditore.getIndirizzoVenditore());
 			statement.setString(5, venditore.getEmailVenditore());
 			statement.setString(6, venditore.getNumeroTelefonicoVenditore());
-			statement.setString(7, venditore.getEmailVenditore());
-			statement.setString(8, venditore.getDescrizioneVenditore());
-			statement.setString(9, venditore.getMappaVenditore());
-
+			statement.setString(7, venditore.getDescrizioneVenditore());
+			statement.setString(8, venditore.getLatitudineVenditore());
+			statement.setString(9, venditore.getLongitudineVenditore());
+			statement.setString(10, venditore.getEmailVenditore());
 			statement.executeUpdate();
 
 		} catch (SQLException e) {

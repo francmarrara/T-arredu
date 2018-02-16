@@ -505,7 +505,8 @@ hr {
 /* Grid dei Prodotti */
 .grid-item {
 	background-color: lightgray;
-	border: 2px rgba(0, 0, 0, 0.8);
+	border: 5px outset #bbb;
+	border-radius: 15px;
 	padding: 10px;
 	font-size: auto;
 	font-weight: 200;

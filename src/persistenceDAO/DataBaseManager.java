@@ -46,8 +46,9 @@ public class DataBaseManager {
         		+ " qualità  e professionalità.Da Antonella Mazzei Arredamenti potrai trovare uno staff di professionisti capace di prendersi"
         		+ " cura delle tue esigenze, ma soprattutto in grado di valorizzare i tuoi spazi andando incontro ai tuoi desideri."
         		+ "Perchè la casa esprime il tuo gusto personale, che la rende unica ed eclusiva.");
-        mazzei.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12346.557015984656!2d16.248965!3d39.3191!3m2!1i1024!2i768!"
-        		+ "4f13.1!3m3!1m2!1s0x0%3A0x9b5c190b92bc84ac!2sAntonella+Mazzei+Arredamenti!5e0!3m2!1sit!2sit!4v1515843884042");
+ 
+        mazzei.setLatitudineVenditore("39.3191");
+        mazzei.setLongitudineVenditore("16.248965");
 		venditoreDao.save(mazzei);
 
 		// ----------------------------------------------------------
@@ -66,9 +67,9 @@ public class DataBaseManager {
 				+ "consumatori. Da attività artigianale si è trasformata in realtà industriale, percorrendo con tenacia"
 				+ " e determinazione tutte le tappe della sua costruzione aziendale nel pieno rispetto del pubblico, e "
 				+ "in sintonia con le esigenze del territorio in cui si trova ad operare.");
-		scavoliniCosenza.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12341.855887393946!2d16.2437827!3d39."
-				+ "3457285!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c81cc21a288142c!2sScavolini+Store!5e0!3m2!1sit!2sit!4v1517511668218");
-
+		
+		scavoliniCosenza.setLatitudineVenditore("39.3469155");
+		scavoliniCosenza.setLongitudineVenditore("16.2386041");
 		venditoreDao.save(scavoliniCosenza);
 
 		// ----------------------------------------------------------
@@ -89,9 +90,9 @@ public class DataBaseManager {
 				+ "artigianali e nella scelta dei migliori marchi. La nostra azienda non si limita esclusivamente "
 				+ "alla realizzazione ma si impegna ad interpretarla ed aggiornarla sotto gli aspetti più propriamente "
 				+ "formali e stilistici avvalendosi della competenza di consulenti qualificati.");
-		confortiArredamenti.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12341.805645946073!2d16.195811!3d39."
-				+ "346013!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb1682bdb6bdd1604!2sConforti+Arredamenti+show+room!5e0!3m2!1sit!2sit!4v1517511390045");
-
+		confortiArredamenti.setLatitudineVenditore("39.346013");
+		confortiArredamenti.setLongitudineVenditore("16.195811");
+		
 		venditoreDao.save(confortiArredamenti);
 
 		// ----------------------------------------------------------
@@ -109,9 +110,10 @@ public class DataBaseManager {
 				+ " è garantire ai nostri clienti un prodotto di alta qualità, di grande artigianalità, interamente italiano,"
 				+ " al miglior prezzo di mercato possibile. Disponibilità e capillarità sono i capisaldi del nostro servizio."
 				+ " Puntiamo sulla praticità, oltre che sull'estetica. Tutti i nostri divani sono infatti sfoderabili e lavabili.");
-		poltroneSofa.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12342.856379363127!2d16.2434078!3d39.3400627!"
-				+ "3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x809681754ef4d6a2!2sPoltronesof%C3%A0+S.p.A!5e0!3m2!1sit!2sit!4v1517511509464");
-
+		
+		poltroneSofa.setLatitudineVenditore("39.3400668");
+		poltroneSofa.setLongitudineVenditore("16.2412138");
+		
 		venditoreDao.save(poltroneSofa);
 
 		// Arredamenti due pi, Rende
@@ -131,9 +133,10 @@ public class DataBaseManager {
 				+ " DuePi offre ai clienti una visione variegata e chiara sulla dimensione e gli ambienti da realizzare. "
 				+ "Gli spazi raffinati del living, quelli funzionali e minimalisti dell'area Kitchen, connessi all'universo "
 				+ "intimo dell'area di riposo, offrono soluzioni estetico-funzionali alle molteplici necessità del cliente del nostro tempo.");
-		arredamentiDuePi.setMappaVenditore("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12348.39483027524!2d16.2170517!3d39.308686!3m2!1i1024!2i768!4f13.1!"
-				+ "3m3!1m2!1s0x0%3A0x1108261bc51d732c!2sDue+P+Arredamenti+Di+Polillo+Bruno+%26+C.+Sas!5e0!3m2!1sit!2sit!4v1517511748507");
-
+		
+		arredamentiDuePi.setLatitudineVenditore("39.308686");
+		arredamentiDuePi.setLongitudineVenditore("16.2170517");
+		
 		venditoreDao.save(arredamentiDuePi);
 
 		// ----------------------------------------------------------
@@ -1824,7 +1827,7 @@ public class DataBaseManager {
 		prodotto.setNomeProdotto("Ekanta");
 		prodotto.setPrezzoProdotto(Double.parseDouble("1822.00"));
 		prodotto.setMisureProdotto("170/210cm x 90cm x 75cm");
-		prodotto.setOffertaProdotto(true);
+		prodotto.setOffertaProdotto(false);
 		prodotto.setDescrizioneProdotto(
 				"Design fluido ed armonico per il tavolo Ekanta, caratterizzato da slanciate gambe in legno massello di Rovere che, unite alla struttura del piano del tavolo, \r\n"
 						+ "conferiscono alla composizione una linea morbida ed elegante.");
@@ -1871,7 +1874,7 @@ public class DataBaseManager {
 		prodotto.setNomeProdotto("Cartesio");
 		prodotto.setPrezzoProdotto(Double.parseDouble("1765.00"));
 		prodotto.setMisureProdotto("115/200cm x 115cm x 80cm");
-		prodotto.setOffertaProdotto(false);
+		prodotto.setOffertaProdotto(true);
 		prodotto.setDescrizioneProdotto(
 				"Forma quadrata e accuratezza dei dettagli rendono il tavolo Cartesio un elemento di charme che diventa protagonista in ogni ambiente.");
 

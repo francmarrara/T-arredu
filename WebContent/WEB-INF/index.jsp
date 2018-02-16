@@ -358,7 +358,7 @@
 					<div class="col-sm-4">
 						<div class="coupon">
 							<div class="containerLogo">
-								<h4>${prodotto.marcaProdotto}</h4>
+								<h4 class="nomeProdottoOfferta">${prodotto.marcaProdotto}</h4>
 							</div>
 							<div class="containerImmagine" style="text-align: center;">
 								<a href="prodotto?id=${prodotto.idProdotto}"><img
@@ -367,7 +367,7 @@
 							</div>
 							<div class="containerTitoloETestoOfferta">
 								<div class="titoloArticoloInOfferta">
-									<h4>${prodotto.nomeProdotto}</h4>
+									<h4 class="nomeProdottoOfferta">${prodotto.nomeProdotto}</h4>
 									<p>${prodotto.descrizioneProdotto}</p>
 								</div>
 							</div>
@@ -395,14 +395,14 @@
 					<div class="col-sm-4">
 						<div class="coupon">
 							<div class="containerLogo">
-								<h4>${prodotto.marcaProdotto}</h4>
+								<h4 class="nomeProdottoOfferta">${prodotto.marcaProdotto}</h4>
 							</div>
 							<a href="prodotto?id=${prodotto.idProdotto}"><img
 								class="immagineProdottoInOfferta img img-responsive"
 								src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
 							<div class="containerTitoloETestoOfferta">
 								<div class="titoloArticoloInOfferta">
-									<h4>${prodotto.nomeProdotto}</h4>
+									<h4 class="nomeProdottoOfferta">${prodotto.nomeProdotto}</h4>
 									<p>${prodotto.descrizioneProdotto}.</p>
 								</div>
 							</div>

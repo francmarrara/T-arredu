@@ -188,7 +188,8 @@ footer {
 /* Grid dei Prodotti */
 .grid-item {
 	background-color: lightgray;
-	border: 2px rgba(0, 0, 0, 0.8);
+	border: 5px outset #bbb;
+	border-radius: 15px;
 	padding: 10px;
 	font-size: auto;
 	font-weight: 200;
@@ -256,6 +257,9 @@ hr {
 .mappa {
 	padding-top: 4%;
 	padding-left: 10%;
+	margin-bottom:2%;
+	border: 2px outset rgb(121,4,4);
+	border-radius: 15px;
 }
 
 #map {
@@ -266,6 +270,7 @@ hr {
 .contatti {
 	list-style: none;
 	padding: 0;
+	
 }
 
 a {
@@ -274,7 +279,8 @@ a {
 
 .box_venditore {
 	background: aliceblue;
-	border: 1px groove black;
+	border: 5px outset #bbb;
+	border-radius: 15px;
 }
 
 .info {
@@ -614,4 +620,5 @@ to {
 .single-top-left .descrizione #descrizioneVenditore {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-style: italic;
+	font-size: medium;
 }

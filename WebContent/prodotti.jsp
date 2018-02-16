@@ -322,7 +322,7 @@
 			<div class="row rigaProdotto">
 				<c:forEach var="prodotto" items="${prodotti}">
 					<div
-						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "
+						class="col-lg-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "
 						value="${prodotto.prezzoProdotto}">
 						<a href="prodotto?id=${prodotto.idProdotto}"> <img
 							class="img img-responsive img_grid"

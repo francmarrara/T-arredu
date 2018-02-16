@@ -535,10 +535,16 @@ html {
 .containerSezioneSuperiore {
 	text-align: center;
 	border: 5px outset #bbb;
+	border-radius: 3%;
+	background-color: aliceblue;
+	margin-bottom: 3%;
 }
 
 .descrizione {
 	text-align: left;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-style: italic;
+	font-size: medium;
 }
 
 /* Container Inferiore */

@@ -50,8 +50,8 @@
 <script>
 	function initMap() {
 		var posizione = {
-			lat : 39.3191,
-			lng : 16.248965
+			lat : ${venditore.latitudineVenditore},
+			lng : ${venditore.longitudineVenditore}
 		};
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom : 16,
@@ -282,7 +282,7 @@
 
 			<!-- Fine Div a Destra con Mappa-->
 
-			<h2 style="padding-top: 2%; padding-left: 10%;">Come
+			<h2 style= "padding-left: 10%;">Come
 				Raggiungerci</h2>
 			<div class="col-md-5 mappa single-top-right" id="map"></div>
 			<!--Fine  Div a destra con mappa-->
@@ -380,7 +380,7 @@
 					<div
 						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"
 						value="${prodotto.prezzoProdotto}">
-						> <a href="prodotto?id=${prodotto.idProdotto}"><img
+						 <a href="prodotto?id=${prodotto.idProdotto}"><img
 							class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
 							alt="${prodotto.nomeProdotto}"></a>

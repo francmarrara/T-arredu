@@ -12,7 +12,8 @@ public class Venditore {
 	private String emailVenditore;
 	private String numeroTelefonicoVenditore;
 	private String descrizioneVenditore;
-	private String mappaVenditore;
+	private String latitudineVenditore;
+	private String longitudineVenditore;
 
 	private ArrayList<ProdottoConImmagini> prodottiInPreventivo;
 	
@@ -103,12 +104,20 @@ public class Venditore {
 		this.descrizioneVenditore = descrizioneVenditore;
 	}
 
-	public String getMappaVenditore() {
-		return mappaVenditore;
+	public String getLatitudineVenditore() {
+		return latitudineVenditore;
 	}
 
-	public void setMappaVenditore(String mappaVenditore) {
-		this.mappaVenditore = mappaVenditore;
+	public void setLatitudineVenditore(String latitudineVenditore) {
+		this.latitudineVenditore = latitudineVenditore;
+	}
+
+	public String getLongitudineVenditore() {
+		return longitudineVenditore;
+	}
+
+	public void setLongitudineVenditore(String longitudineVenditore) {
+		this.longitudineVenditore = longitudineVenditore;
 	}
 
 }

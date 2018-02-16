@@ -71,7 +71,7 @@
 
 	<!-- Sfondo -->
 	<
-		<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
+	<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
 
 
 	<!-- Header -->
@@ -85,7 +85,7 @@
 	<div class="row" style="">
 
 		<!-- Menu di navigazione principale -->
-		<nav class="navbar navbar-inverse col-md-12" style="width:100%;">
+		<nav class="navbar navbar-inverse col-md-12" style="width: 100%;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
@@ -229,18 +229,20 @@
 			</div>
 		</nav>
 	</div>
-	
+
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
 		<a href="#top" id="backToTopMenu">Torna Su</a> <a
 			href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 	</div>
-	
+
 	<div class="container mioSlider" style="background-color: aliceblue">
 		<div class="row" id="">
+			<h2 class="product_name">${prodottoCercato.nomeProdotto}</h2>
+			<p class="separatore"></p>
 			<div class="col-md-7 single-top-left">
-				<h2 class="product_name">${prodottoCercato.nomeProdotto}</h2>
-				<p class="separatore"></p>
+
+
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 					<!-- Indicicatori inferiori -->
@@ -263,9 +265,10 @@
 					<div class="carousel-inner">
 
 						<div class="item active">
-						  <a href="prodotto?id=${prodottoCercato.idProdotto}">
-							<img src="${listaImmaginiProdotto[0]}"
-								alt="${prodottoCercato.nomeProdotto}"style="height: 100%; width: 100%;"></a>
+							<a href="prodotto?id=${prodottoCercato.idProdotto}"> <img
+								src="${listaImmaginiProdotto[0]}"
+								alt="${prodottoCercato.nomeProdotto}"
+								style="height: 100%; width: 100%;"></a>
 							<div class="carousel-caption"></div>
 						</div>
 
@@ -273,8 +276,9 @@
 							begin="1" end="${dimensioneListaImmagini}" step="1">
 
 							<div class="item">
-							  <a href="prodotto?id=${prodottoCercato.idProdotto}">
-								<img src="${immagineProdotto}" alt="${prodottoCercato.nomeProdotto}"style="height: 100%; width: 100%;">
+								<a href="prodotto?id=${prodottoCercato.idProdotto}"> <img
+									src="${immagineProdotto}" alt="${prodottoCercato.nomeProdotto}"
+									style="height: 100%; width: 100%;">
 								</a>
 								<div class="carousel-caption"></div>
 							</div>
@@ -299,15 +303,24 @@
 			<!-- Div a destra con marca e pulsanti-->
 
 			<div class="col-md-5 single-top-right descrizione">
-				<div class="marca_prodotto">${prodottoCercato.marcaProdotto}</div>
-				<div class="tipo_prodotto">${prodottoCercato.tipoProdotto}</div>
-				<div class="ambiente_prodotto">${prodottoCercato.ambienteProdotto}</div>
+				<p class="marca_prodotto">Marca</p>
+				<div class="specifiche">${prodottoCercato.marcaProdotto}</div>
+				<p class="marca_prodotto">Tipo</p>
+				<div class="specifiche">${prodottoCercato.tipoProdotto}</div>
+				<p class="marca_prodotto">Ambiente</p>
+				<div class="specifiche">${prodottoCercato.ambienteProdotto}</div>
 
 
-				<hr>
-				<hr>
-				<div class="prezzo_prodotto">Prezzo Consigliato :
-					${prodottoCercato.prezzoProdotto}0 €</div>
+				<hr class="separatore">
+
+
+				<p class="marca_prodotto">Prezzo Consigliato</p>
+
+				<div class="prezzo_prodotto specifiche">${prodottoCercato.prezzoProdotto}0 €</div>
+				<br>
+				<p class="marca_prodotto">Descrizione</p>
+
+				<div class="descrizioneLaterale">${prodottoCercato.descrizioneProdotto}</div>
 
 				<c:if test="${utenteLoggato == true}">
 					<div class="btn-group button_carrello">
@@ -343,15 +356,13 @@
 
 
 		</div>
-	</div>
 
-	<div class="container menu_basso" style="background-color: aliceblue">
+		<br> <br>
 		<div class="col-md-9 single-top-left ">
 			<ul class="nav nav-tabs menu_down">
-				<li class="active"><a data-toggle="tab" href="#descrizione">Descrizione</a></li>
+				<li class="active"><a data-toggle="tab" href="#venditori">Venditori</a></li>
 				<li><a data-toggle="tab" href="#misure">Misure</a></li>
 				<li><a data-toggle="tab" href="#colori">Colori Disponibili</a></li>
-				<li><a data-toggle="tab" href="#venditori">Venditori</a></li>
 				<li><a data-toggle="tab" href="#recensioni">Recensioni</a></li>
 				<li><a data-toggle="tab" href="#aggiungiRecensione">Aggiungi
 						una recensione!</a></li>
@@ -361,20 +372,7 @@
 			</ul>
 
 			<div class="tab-content">
-				<div id="descrizione" class="tab-pane fade in active">
-					<h3>Descrizione</h3>
-					<p class="descrizione_bassa">${prodottoCercato.descrizioneProdotto}.</p>
-				</div>
-				<div id="misure" class="tab-pane fade">
-					<h3>Misure</h3>
-					<p class="descrizione_bassa">Misure:
-						${prodottoCercato.misureProdotto}</p>
-				</div>
-				<div id="colori" class="tab-pane fade">
-					<h3>Colori</h3>
-					<p class="descrizione_bassa">${prodottoCercato.coloriProdotto}</p>
-				</div>
-				<div id="venditori" class="tab-pane fade">
+				<div id="venditori" class="tab-pane fade in active">
 					<h3>Puoi Trovarlo Qui</h3>
 					<ul class="lista_venditori">
 						<c:forEach var="venditore" items="${listaVenditoriProdotto}">
@@ -385,6 +383,17 @@
 					</ul>
 				</div>
 
+				<div id="misure" class="tab-pane fade">
+					<h3>Misure</h3>
+					<p class="descrizione_bassa">Misure:
+						${prodottoCercato.misureProdotto}</p>
+				</div>
+				<div id="colori" class="tab-pane fade">
+					<h3>Colori</h3>
+					<p class="descrizione_bassa">${prodottoCercato.coloriProdotto}</p>
+				</div>
+
+
 				<div id="recensioni" class="tab-pane fade">
 					<h3>Recensioni</h3>
 					<ul class="recensioni">
@@ -393,9 +402,8 @@
 						<c:forEach var="commentoProdotto" items="${listaCommentiProdotto}">
 
 							<li>
-								<p style="font-family: cursive;">${commentoProdotto.commento}                        
-								</p>
-								<br>
+								<p style="font-family: cursive;">${commentoProdotto.commento}
+								</p> <br>
 								<p style="font-family: cursive;">
 									Valutazione prodotto: <strong>${commentoProdotto.valutazione}/5</strong>
 								</p>
@@ -471,7 +479,7 @@
 								<p style="font-family: cursive; font-size: medium;">Hai Già
 									Recensito Questo prodotto</p>
 								<li style="font-family: sans-serif;">Recensione :</li>
-								<li>${commentoPresente.commento}Valutazione : <strong>${commentoPresente.valutazione}/5</strong></li>
+								<li>${commentoPresente.commento}Valutazione:<strong>${commentoPresente.valutazione}/5</strong></li>
 
 							</c:otherwise>
 						</c:choose>
@@ -489,11 +497,12 @@
 			</div>
 
 		</div>
-
 	</div>
+	FINE
 
 
-	<br>
+
+
 
 
 	<button type="button" class="btn btn-primary bottoneTornaSu">
