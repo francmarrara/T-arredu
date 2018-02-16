@@ -57,7 +57,6 @@ public class DailyJobLogin30Days implements Runnable {
 
 			Transport.send(message);
 
-			System.out.println("EMAIL LOGIN DONE");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

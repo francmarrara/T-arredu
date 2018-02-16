@@ -57,7 +57,6 @@ public class DailyJobVenditore30GiorniSenzaPreventivi implements Runnable {
 
 			Transport.send(message);
 
-			System.out.println("EMAIL VENDITORE DONE");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

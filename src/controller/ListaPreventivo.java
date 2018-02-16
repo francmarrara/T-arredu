@@ -76,7 +76,8 @@ public class ListaPreventivo extends HttpServlet {
 
 		}
 
-		// System.out.println(venditoriEProdotti.toString());
+
+
 
 		for (ProdottoConImmagini prodotto : prodottiDaInserireNelPreventivo) {
 
@@ -105,8 +106,8 @@ public class ListaPreventivo extends HttpServlet {
 		messaggioUtente.append("------------------\n\n");
 		sendEmail(emailUtente, "Conferma invio richieste di preventivo", messaggioUtente.toString());
 
-		System.out.println(prodottiDaInserireNelPreventivo.toString());
-		
+
+	
 	inserisciPreventivoInDB();
 	rimuoviProdottiDalCarrello();
 
@@ -139,7 +140,7 @@ public class ListaPreventivo extends HttpServlet {
 
 			Transport.send(message);
 
-			System.out.println("Done");
+	
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
@@ -188,7 +189,7 @@ public class ListaPreventivo extends HttpServlet {
 		p.setUtente(emailUtente);
 		p.setListaProdotti(prodottiDaInserireNelPreventivo);
 		p.setListaVenditori(listaVenditori);
-		System.out.println(listaVenditori.toString());
+	
 
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		factory.getPreventivoDAO().save(p);
