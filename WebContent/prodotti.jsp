@@ -67,10 +67,9 @@
 
 <body>
 
-	<!-- Sfondo -->
-	<div id="bg">
-		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
-	</div>
+<!-- Sfondo -->
+		<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
+
 
 
 	<!-- Header -->

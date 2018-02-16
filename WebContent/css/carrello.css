@@ -121,21 +121,13 @@ footer {
 
 /* Sfondo della pagina */
 #bg {
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 0;
-	height: 0;
-}
-
-#bg img {
 	position: fixed;
+	z-index:-1;
 	top: 0;
 	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	z-index: -10;
+	/* Preserve aspet ratio */
+	min-width: 100%;
+	min-height: 100%;
 }
 
 /* Nomi delle catergorie del menu prodotti */

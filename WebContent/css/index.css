@@ -3,15 +3,6 @@
 html, body {
 	max-width: 100%;
 	overflow-x: hidden;
-	background: rgb(45, 6, 0); /* Old browsers */
-	background: -moz-linear-gradient(left, rgb(45, 6, 0) 0%, rgb(121, 4, 4)
-		100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, rgb(45, 6, 0) 0%,
-		rgb(121, 4, 4) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, rgb(45, 6, 0) 0%, rgb(121, 4, 4)
-		100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d0600',
-		endColorstr='#790404', GradientType=1);
 }
 
 header {
@@ -135,24 +126,16 @@ header {
 
 /* Sfondo della pagina */
 #bg {
-	position: relative;
+	position: fixed;
+	z-index:-1;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: auto;
+	/* Preserve aspet ratio */
+	min-width: 100%;
+	min-height: 100%;
 }
 
-#bg img {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	z-index: -10;
-	width: 100%;
-	height: auto;
-}
+
 
 /* Menu dei venditori */
 .dropdown-menu {

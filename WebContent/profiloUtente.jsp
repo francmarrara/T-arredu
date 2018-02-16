@@ -55,9 +55,8 @@ window.smartsupp||(function(d) {
 <body>
 
 	<!-- Sfondo -->
-	<div id="bg">
-		<img class="img img-responsive" src="images/sfondoLegno.png" alt="">
-	</div>
+	<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
+
 
 
 	<!-- Header -->

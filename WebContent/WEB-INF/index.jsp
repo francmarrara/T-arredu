@@ -67,6 +67,9 @@
 </head>
 
 <body>
+	<!-- Sfondo -->
+		
+			<img class ="img img-responsive" src="images/sfondoLegno.png" id = "bg">
 
 	<c:if test="${passwordCorretta == false}">
 		<script type=text/javascript>
