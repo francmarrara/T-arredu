@@ -227,14 +227,13 @@ span.psw {
 	float: right;
 	padding-top: 16px;
 }
-
 /* The Modal (background) */
 .modal {
 	display: none;
 	/* Hidden by default */
 	position: fixed;
 	/* Stay in place */
-	z-index: 10;
+	z-index: 9999;
 	/* Sit on top */
 	left: 0;
 	top: 0;
@@ -259,10 +258,11 @@ span.psw {
 	/* 5% from the top, 15% from the bottom and centered */
 	border: 5px outset rgb(121, 4, 4);
 	padding: 10px;
+	width: 100%;
+		height: 90%;
+		z-index: 9999;
 	/* Could be more or less, depending on screen size */
-	overflow: auto;
 }
-
 .containerModal label {
 	padding-left: 10px;
 }
