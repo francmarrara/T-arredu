@@ -392,11 +392,11 @@ window.smartsupp||(function(d) {
 																	<div class="row">
 																		<h4>${prodotto.nomeProdotto}</h4>
 																		<div class="col-md-6">
-																			<img href="prodotto?id=${prodotto.idProdotto}"
+																			<a href="prodotto?id=${prodotto.idProdotto}"><img 
 																				class="img img-responsive immagineProdotto"
 																				style="width: 300px; height: 200px;"
 																				src="${prodotto.immaginePrincipale}"
-																				alt="Stanza TerraR04">
+																				alt="${prodotto.nomeProdotto}"></a>
 																		</div>
 																		<div class="col-md-6">
 																			<div class="containerCaratteristiche">
