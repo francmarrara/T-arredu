@@ -156,15 +156,6 @@ header {
 	text-shadow: 2px 2px 4px rgb(121, 4, 4);
 }
 
-/*Tasto e Barra Ricerca */
-.tastoRicerca {
-	padding: 27%;
-}
-
-.barraRicerca {
-	padding: 35%;
-}
-
 /* Footer */
 footer {
 	background-color: #333333;
@@ -243,7 +234,7 @@ span.psw {
 	/* Hidden by default */
 	position: fixed;
 	/* Stay in place */
-	z-index: 9999;
+	z-index: 10;
 	/* Sit on top */
 	left: 0;
 	top: 0;
@@ -268,10 +259,8 @@ span.psw {
 	/* 5% from the top, 15% from the bottom and centered */
 	border: 5px outset rgb(121, 4, 4);
 	padding: 10px;
-	width: 30%;
-		height: 90%;
-		z-index: 9999;
 	/* Could be more or less, depending on screen size */
+	overflow: auto;
 }
 
 .containerModal label {
@@ -401,7 +390,7 @@ span.psw {
 	/* Hidden by default */
 	position: fixed;
 	/* Stay in place */
-	z-index: 10;
+	z-index: 9999;
 	/* Sit on top */
 	left: 0;
 	top: 0;
@@ -426,8 +415,9 @@ span.psw {
 	/* 5% from the top, 15% from the bottom and centered */
 	border: 5px outset rgb(121, 4, 4);
 	padding: 10px;
-	width: 500px;
-	height: 90%;
+	width: 30%;
+		height: 90%;
+		z-index: 9999;
 	/* Could be more or less, depending on screen size */
 }
 
@@ -496,7 +486,6 @@ to {
 		width: 100%;
 	}
 }
-
 /* Hr */
 hr {
 	border: 1px solid #333333;

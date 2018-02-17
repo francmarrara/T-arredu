@@ -87,7 +87,7 @@
 
 <body>
 	<!-- Sfondo -->
-		<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
+	<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
 
 
 	<!-- Header -->
@@ -150,91 +150,90 @@
 							onclick="document.getElementById('login').style.display='block'">
 								<span class="glyphicon glyphicon-log-in"></span> Login
 						</a>
-
-							<div id="login" class="modal">
-
-								<form class="modal-content animate" method="post"
-									action="validaCredenzialiLogin">
-									<div class="imgcontainer">
-										<span
-											onclick="document.getElementById('login').style.display='none'"
-											class="close" title="Chiudi Login">&times;</span> <img
-											src="images/userLogin.jpg" alt="Avatar" class="avatar"
-											width=150 height=150>
-									</div>
-
-									<div class="containerModal">
-										<label><b>Email Utente</b></label> <input
-											class="inputLogIn EmailUtenteLogin" type="text"
-											placeholder="Inserire Indirizzo Email" name="emailUtente"
-											required> <label><b>Password</b></label> <input
-											class="inputLogIn passwordLogin" type="password"
-											placeholder="Inserire Password" name="psw" required>
-
-										<button class="buttonLog" type="submit">Login</button>
-										<div class="containerCheckbox">
-											<label>Ricordami <input type="checkbox"
-												id="checkRicordami" onclick="controlla()"></label>
-										</div>
-									</div>
-
-									<div class="containerModalBottom"
-										style="background-color: #ffffff">
-										<button type="button"
-											onclick="document.getElementById('login').style.display='none'"
-											class="cancelbtn">Cancel</button>
-									</div>
-								</form>
-							</div>
 						</li>
+
+						<div id="login" class="modal">
+
+							<form class="modal-content animate" method="post"
+								action="validaCredenzialiLogin">
+								<div class="imgcontainer">
+									<span
+										onclick="document.getElementById('login').style.display='none'"
+										class="close" title="Chiudi Login">&times;</span> <img
+										src="images/userLogin.jpg" alt="Avatar" class="avatar"
+										width=150 height=150>
+								</div>
+
+								<div class="containerModal">
+									<label><b>Email Utente</b></label> <input
+										class="inputLogIn EmailUtenteLogin" type="text"
+										placeholder="Inserire Indirizzo Email" name="emailUtente"
+										required> <label><b>Password</b></label> <input
+										class="inputLogIn passwordLogin" type="password"
+										placeholder="Inserire Password" name="psw" required>
+
+									<button class="buttonLog" type="submit">Login</button>
+									<div class="containerCheckbox">
+										<label>Ricordami <input type="checkbox"
+											id="checkRicordami" onclick="controlla()"></label>
+									</div>
+								</div>
+
+								<div class="containerModalBottom"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('login').style.display='none'"
+										class="cancelbtn">Cancel</button>
+								</div>
+							</form>
+						</div>
 						<li class="navbarOggetto">
 							<!-- Form per la registrazione --> <a href="#registrazione"
 							onclick="document.getElementById('registrazione').style.display='block'">
 								<span class="glyphicon glyphicon-user user"></span> Registrati
 						</a>
-
-							<div id="registrazione" class="modal">
-
-								<form class="modal-content animateReg" method="post"
-									action="registrazione">
-									<div class="imgcontainerReg">
-										<span
-											onclick="document.getElementById('registrazione').style.display='none'"
-											class="closeReg" title="Chiudi Registrazione">&times;</span>
-									</div>
-									<h1>Registrazione</h1>
-									<p>Compila questo modulo per creare un account.</p>
-									<hr>
-									<div class="containerReg">
-
-										<label><b>Nome</b></label> <input type="text"
-											placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
-										<input type="text" placeholder="Inserire Cognome"
-											name="cognome" required> <label><b>Data
-												di Nascita</b></label> <input type="date"
-											placeholder="Inserire Data di Nascita" name="dataDiNascita"
-											required> <label><b>Numero di Telefono</b></label> <input
-											type="text" placeholder="Inserire Numero di Telefono"
-											name="numeroDiTelefono" required> <label><b>Email</b></label>
-										<input id="emailUtente" type="text"
-											placeholder="Inserire Indirizzo Email" name="email" required>
-										<label><b>Password</b></label> <input id="psw" type="password"
-											placeholder="Inserire Password" name="psw" required>
-										<label><b>Ripetere Password</b></label> <input id="psw-repeat"
-											type="password" placeholder="Reinserire Password"
-											name="psw-repeat" required>
-									</div>
-									<div class="containerRegButton"
-										style="background-color: #ffffff">
-										<button type="button"
-											onclick="document.getElementById('registrazione').style.display='none'"
-											class="cancelbtnReg">Cancel</button>
-										<button class="buttonReg" type="submit">Registrati</button>
-									</div>
-								</form>
-
-							</div>
 						</li>
+
+						<div id="registrazione" class="modal">
+
+							<form class="modal-content animateReg" method="post"
+								action="registrazione">
+								<div class="imgcontainerReg">
+									<span
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="closeReg" title="Chiudi Registrazione">&times;</span>
+								</div>
+								<h1>Registrazione</h1>
+								<p>Compila questo modulo per creare un account.</p>
+								<hr>
+								<div class="containerReg">
+
+									<label><b>Nome</b></label> <input type="text"
+										placeholder="Inserire Nome" name="nome" required> <label><b>Cognome</b></label>
+									<input type="text" placeholder="Inserire Cognome"
+										name="cognome" required> <label><b>Data di
+											Nascita</b></label> <input type="date"
+										placeholder="Inserire Data di Nascita" name="dataDiNascita"
+										required> <label><b>Numero di Telefono</b></label> <input
+										type="text" placeholder="Inserire Numero di Telefono"
+										name="numeroDiTelefono" required> <label><b>Email</b></label>
+									<input id="emailUtente" type="text"
+										placeholder="Inserire Indirizzo Email" name="email" required>
+									<label><b>Password</b></label> <input id="psw" type="password"
+										placeholder="Inserire Password" name="psw" required> <label><b>Ripetere
+											Password</b></label> <input id="psw-repeat" type="password"
+										placeholder="Reinserire Password" name="psw-repeat" required>
+								</div>
+								<div class="containerRegButton"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="cancelbtnReg">Cancel</button>
+									<button class="buttonReg" type="submit">Registrati</button>
+								</div>
+							</form>
+
+						</div>
 						<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
 							style="cursor: pointer"><span
 								class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
@@ -282,8 +281,7 @@
 
 			<!-- Fine Div a Destra con Mappa-->
 
-			<h2 style= "padding-left: 10%;">Come
-				Raggiungerci</h2>
+			<h2 style="padding-left: 10%;">Come Raggiungerci</h2>
 			<div class="col-md-5 mappa single-top-right" id="map"></div>
 			<!--Fine  Div a destra con mappa-->
 
@@ -380,7 +378,7 @@
 					<div
 						class="col-md-4 grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto}"
 						value="${prodotto.prezzoProdotto}">
-						 <a href="prodotto?id=${prodotto.idProdotto}"><img
+						<a href="prodotto?id=${prodotto.idProdotto}"><img
 							class="img img-responsive img_grid"
 							src="${prodotto.immaginePrincipale}"
 							alt="${prodotto.nomeProdotto}"></a>

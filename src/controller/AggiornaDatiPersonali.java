@@ -33,10 +33,8 @@ public class AggiornaDatiPersonali extends HttpServlet {
 		String data = ((req.getParameter("bday")));
 		utente.setEmailUtente(req.getParameter("email"));
 		utente.setNumeroTelefonoUtente((req.getParameter("recapitoTelefonicoUtente")));
-System.out.println(data + "DATA ");
 		
 		if(data.equals("")) {
-			System.out.println("NULL");
 			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 			utente.setDatadiNascita(factory.getUtenteDAO().dataNascitaUtente(emailVecchia));
 		}

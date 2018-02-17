@@ -70,7 +70,7 @@
 <body>
 
 	<!-- Sfondo -->
-	<
+	
 	<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
 
 
@@ -134,6 +134,7 @@
 							onclick="document.getElementById('login').style.display='block'">
 								<span class="glyphicon glyphicon-log-in"></span> Login
 						</a>
+						</li>
 
 							<div id="login" class="modal">
 
@@ -170,12 +171,12 @@
 									</div>
 								</form>
 							</div>
-						</li>
 						<li class="navbarOggetto">
 							<!-- Form per la registrazione --> <a href="#registrazione"
 							onclick="document.getElementById('registrazione').style.display='block'">
 								<span class="glyphicon glyphicon-user user"></span> Registrati
 						</a>
+						</li>
 
 							<div id="registrazione" class="modal">
 
@@ -218,7 +219,6 @@
 								</form>
 
 							</div>
-						</li>
 						<li class="carrello navbarOggetto"><a onclick="chiediLogin()"
 							style="cursor: pointer"><span
 								class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
