@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import model.ProdottoConImmagini;
 import persistenceDAO.DAOFactory;
 
+/**
+ * Questa servlet prende tutti i prodotti presenti sul db
+ *  e genera la pagina corrispondente.
+ */
+
+
 public class TuttiProdotti extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	

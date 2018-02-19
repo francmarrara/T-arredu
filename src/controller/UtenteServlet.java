@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+
+
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,11 +17,16 @@ import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DAOFactory;
 
+
+/**
+ * Questa servlet reperisce i vari dati dell'utente loggato
+ * e ne genera la pagina personale.
+ */
+
+
 public class UtenteServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 7606660061220323902L;
 
 	@Override

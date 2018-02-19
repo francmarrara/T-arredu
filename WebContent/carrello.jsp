@@ -18,7 +18,9 @@
 <link rel="stylesheet" href="css/carrello.css">
 <link rel="stylesheet" href="css/snackbar.css">
 
-
+<script src="js/Js/lateralButtons.js"></script>
+<script src="js/Js/login.js"></script>
+<script src="js/Js/snackbar.js"></script>
 <script src="js/Js/carrello.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
@@ -49,7 +51,7 @@
 
 		tw_share.href = 'http://twitter.com/share?text=vieni a trovarci su Tarredu arredamenti&url='
 				+ encodeURIComponent(location.href)
-				+ '&hashtags=#tarredu,#unical,#ingsw,#ricca';
+				+ '&hashtags=#tarredu,#unical,#siw,#grasso,#reale';
 
 		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
 				+ encodeURIComponent(location.href);
@@ -151,10 +153,7 @@
 											placeholder="Inserire Password" name="psw" required>
 
 										<button class="buttonLog" type="submit">Login</button>
-										<div class="containerCheckbox">
-											<label>Ricordami <input type="checkbox"
-												id="checkRicordami" onclick="controlla()"></label>
-										</div>
+										
 									</div>
 
 									<div class="containerModalBottom"
@@ -309,12 +308,7 @@
 								</td>
 							</tr>
 						</c:forEach>
-						<td>
-							<button type="button" class="btn btn-default">
-								<span class="glyphicon glyphicon-shopping-cart"></span> <a
-									href="index.jsp">Home</a>
-							</button>
-						</td>
+						<tr>
 						<td>
 							<button type="button" class="btn btn-success"
 								onclick="richiediPreventivo()">

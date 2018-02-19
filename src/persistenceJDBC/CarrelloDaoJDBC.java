@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
 import java.util.List;
 
 import model.Carrello;
@@ -13,10 +12,7 @@ import model.ProdottoConImmagini;
 import persistenceDAO.CarrelloDAO;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.DataSource;
-import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
-import persistenceDAO.ProdottoDAO;
-import persistenceDAO.UtenteDAO;
 
 public class CarrelloDaoJDBC implements CarrelloDAO {
 
@@ -26,49 +22,7 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 		this.dataSource = dataSource;
 	}
 
-	// @Override
-	// public void save(Carrello carrello) {
-	// Connection connection = dataSource.getConnection();
-	// try {
-	// String insert = "insert into carrello(id_carrello, email_utente) values
-	// (?,?)";
-	//
-	// Integer id = IdBuilder.getId(connection);
-	// carrello.setUtenteCarello(id);
-	//
-	// PreparedStatement statement = connection.prepareStatement(insert);
-	//
-	// statement.setInt(1, id);
-	// statement.setString(2, carrello.getUtenteCarrello().getEmailUtente());
-	//
-	// statement.executeUpdate();
-	//
-	// for (ProdottoConImmagini p : carrello.getProdottiNelCarrello()) {
-	//
-	// insert = "insert into prodottoInCarrello(id_prodottoInCarrello,
-	// email_utenteCarrello) values (?,?)";
-	// statement = connection.prepareStatement(insert);
-	//
-	// statement.setInt(1, p.getIdProdotto());
-	// statement.setString(2, carrello.getUtenteCarrello().getEmailUtente());
-	// statement.executeUpdate();
-	//
-	// }
-	//
-	// } catch (
-	//
-	// SQLException e) {
-	// throw new PersistenceException(e.getMessage());
-	// } finally {
-	// try {
-	// connection.close();
-	// } catch (SQLException e) {
-	// throw new PersistenceException(e.getMessage());
-	// }
-	// }
-	//
-	// }
-
+	
 	@Override
 	public Carrello findByPrimaryKey(String emailUtenteCarrello) {
 		Connection connection = this.dataSource.getConnection();
@@ -81,6 +35,7 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 			statement.setString(1, emailUtenteCarrello);
 			ResultSet result = statement.executeQuery();
 
+			@SuppressWarnings("unused")
 			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
 			carrello = new Carrello();
@@ -110,53 +65,7 @@ public class CarrelloDaoJDBC implements CarrelloDAO {
 		return carrello;
 	}
 
-	// @Override
-	// public List<Carrello> findAll() {
-	// Connection connection = this.dataSource.getConnection();
-	// List<Carrello> listaCarrelli = new LinkedList<Carrello>();
-	// try {
-	// Carrello carrello = null;
-	//
-	// PreparedStatement statement;
-	// String query = "select * from carrello";
-	// statement = connection.prepareStatement(query);
-	// ResultSet result = statement.executeQuery();
-	// UtenteDAO utenteDao = new UtenteDaoJDBC(dataSource);
-	//
-	// if (result.next()) {
-	// carrello = new Carrello();
-	// carrello.setUtenteCarello(result.getInt(("id_carrello")));
-	// carrello.setUtenteCarello(utenteDao.findByPrimaryKey(result.getString("email_utente")));
-	//
-	// query = "select * from prodottoInCarrello where email_utenteCarrello = ?";
-	// statement = connection.prepareStatement(query);
-	// statement.setString(1, result.getString("email_utente"));
-	// result = statement.executeQuery();
-	// ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
-	//
-	// if (result.next()) {
-	//
-	// carrello.getProdottiNelCarrello()
-	// .add(prodottoDao.findByPrimaryKeyProdottoConImmagini(result.getInt("id_prodottoInCarrello")));
-	//
-	// }
-	// listaCarrelli.add(carrello);
-	//
-	// }
-	//
-	// } catch (SQLException e) {
-	// throw new PersistenceException(e.getMessage());
-	// } finally {
-	// try {
-	// connection.close();
-	// } catch (SQLException e) {
-	// throw new PersistenceException(e.getMessage());
-	// }
-	// }
-	// return listaCarrelli;
-	//
-	// }
-
+	
 	@Override
 	public void addProduct(Prodotto p, Carrello c) {
 

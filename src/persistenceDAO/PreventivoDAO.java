@@ -3,10 +3,7 @@ package persistenceDAO;
 import java.util.List;
 
 import model.Preventivo;
-import model.Prodotto;
 import model.ProdottoConImmagini;
-import model.Utente;
-import model.Venditore;
 
 public interface PreventivoDAO {
 
@@ -17,12 +14,9 @@ public interface PreventivoDAO {
 	
 	public List<Preventivo> findAll(); // Trova tutti i preventivi
 	
-	//Trova l'utente di un preventivo
-	public Utente findUtenteByPreventivo(Preventivo preventivo);
+
 	
-	// Aggiorna prodotto e venditore di un preventivo
-	public void updateProdottoInPreventivo(Preventivo preventivo);
-	public void updateVenditoreInPreventivo(Preventivo preventivo);
+
 	
 	// Aggiunge un prodotto o un venditore al preventivo
 	public void addProductToPreventivo(ProdottoConImmagini prodotto, Integer idPreventivo);

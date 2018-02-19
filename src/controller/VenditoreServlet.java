@@ -14,11 +14,14 @@ import model.ProdottoConImmagini;
 import model.Venditore;
 import persistenceDAO.DAOFactory;
 
+/**Questa servlet dato un email Venditore 
+ * recupera tutti i dati presenti nel db e
+ * crea la pagina del venditore.
+ */
+
+
 public class VenditoreServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override

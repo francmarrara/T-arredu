@@ -10,7 +10,6 @@ import java.util.List;
 import model.Commento;
 import persistenceDAO.CommentoDAO;
 import persistenceDAO.DAOFactory;
-import persistenceDAO.DataBaseManager;
 import persistenceDAO.DataSource;
 import persistenceDAO.PersistenceException;
 import persistenceDAO.UtenteDAO;

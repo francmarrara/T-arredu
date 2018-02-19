@@ -11,8 +11,7 @@
 
 <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
-<link rel="stylesheet" type="text/css" href="css/slick.css" />
-<link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -22,7 +21,6 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
@@ -50,7 +48,7 @@
 
 		tw_share.href = 'http://twitter.com/share?text=vieni a trovarci su Tarredu arredamenti&url='
 				+ encodeURIComponent(location.href)
-				+ '&hashtags=#tarredu,#unical,#ingsw,#ricca';
+				+ '&hashtags=#tarredu,#unical,#siw,#grasso,#reale';
 
 		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
 				+ encodeURIComponent(location.href);
@@ -59,9 +57,9 @@
 
 <link rel="stylesheet" href="css/snackbar.css">
 <link rel="stylesheet" href="css/index.css">
-<script src="js/Js/index.js"></script>
+<script src="js/Js/lateralButtons.js"></script>
 <script src="js/Js/login.js"></script>
-
+<script src="js/Js/snackbar.js"></script>
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 
 </head>
@@ -166,10 +164,7 @@
 										placeholder="Inserire Password" name="psw" required>
 
 									<button class="buttonLog" type="submit">Login</button>
-									<div class="containerCheckbox">
-										<label>Ricordami <input type="checkbox"
-											id="checkRicordami" onclick="controlla()"></label>
-									</div>
+									
 								</div>
 
 								<div class="containerModalBottom"

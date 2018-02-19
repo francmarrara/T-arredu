@@ -91,7 +91,6 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setLatitudineVenditore(result.getString("latitudineVenditore"));
 				venditore.setLongitudineVenditore(result.getString("longitudineVenditore"));
 
-
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -135,7 +134,6 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
 				venditore.setLatitudineVenditore(result.getString("latitudineVenditore"));
 				venditore.setLongitudineVenditore(result.getString("longitudineVenditore"));
-
 
 				venditori.add(venditore);
 
@@ -196,8 +194,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 
 			String update = "update venditore SET nomeTitolare = ?, cognomeTitolare = ?, nomeNegozio = ?, "
 					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, latitudineVenditore = ?,"
-					+ "longitudineVenditore=? "
-					+ "WHERE emailVenditore = ?";
+					+ "longitudineVenditore=? " + "WHERE emailVenditore = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 
 			statement.setString(1, venditore.getNomeTitolare());
@@ -280,7 +277,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			}
 		}
 		return emails;
-	
+
 	}
 
 }

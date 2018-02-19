@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import model.Preventivo;
-import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
 
@@ -32,14 +31,11 @@ public interface UtenteDAO {
 
 	public void updateLoginData(String utente);
 
-	public List <String> utentiCheNonSiLogganoDa30Giorni();
-	
-	
+	public List<String> utentiCheNonSiLogganoDa30Giorni();
+
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente);
 
 	public List<Preventivo> getPreventiviUtente(String emailUtente);
-
-	public void rimuoviPreferiti(String emailUtente);
 
 	public String getNomeUtente(String emailUtente);
 
@@ -50,7 +46,7 @@ public interface UtenteDAO {
 	boolean giaPreferito(Integer idProdotto, String emailUtente);
 
 	boolean giaInCarrello(Integer idProdotto, String emailUtente);
-	
+
 	public Date dataNascitaUtente(String emailUtente);
 
 }

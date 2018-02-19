@@ -1,45 +1,4 @@
-/* Abilita bottone laterale indietro*/
-$(document).ready(function() {
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 200) {
-			$('#backToPage').fadeIn(200);
-		} else {
-			$('#backToPage').fadeOut(200);
-		}
-	});
-});
 
-
-/* Abilita bottone laterale */
-$(document).ready(function() {
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 200) {
-			$('#backToTopMenu').fadeIn(200);
-		} else {
-			$('#backToTopMenu').fadeOut(200);
-		}
-	});
-});
-
-/* SNACKBAR */
-function showSnackbar() {
-	var x = document.getElementById("snackbar")
-	x.className = "show";
-	setTimeout(function() {
-		x.className = x.className.replace("show", "");
-	}, 3000);
-}
-
-/* VALIDATORE EMAIL */
-
-var validate_email = function(email) {
-	var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
-	var is_email_valid = false;
-	if (email.match(pattern) != null) {
-		is_email_valid = true;
-	}
-	return is_email_valid;
-}
 
 /* Valida Email registrazione */
 $(document).on("focusout", "#emailUtente", function() {
@@ -70,8 +29,6 @@ $(document).on("focusout", "#emailUtente", function() {
 	}
 
 });
-
-
 
 // /* Validatore PASSWORD */
 $(document).on("focusout", "#confirmNewPassword", function() {
@@ -128,42 +85,39 @@ $(document).on("focusout", "#confirmNewPassword", function() {
 });
 
 // Valida email vecchia confrontata alla nuova
-$(document).on(
-		"focusout",
-		"#oldPassword",
-		function() {
-			var password = $("#oldPassword").val();
+$(document).on("focusout", "#oldPassword", function() {
+	var password = $("#oldPassword").val();
 
-			console.log(password);
+	console.log(password);
 
-			var confirmPassword = $("#passwordPerVerifica").val();
+	var confirmPassword = $("#passwordPerVerifica").val();
 
-			console.log(confirmPassword);
+	console.log(confirmPassword);
 
-			if (password == confirmPassword) {
-				$("#oldPassword").css({
-					'background-color' : '#7FFF00'
-				});
-
-				$("#snackbar").css({
-					'background-color' : '#7FFF00'
-				});
-				$("#snackbar").text("LA VECCHIA PASSWORD E' CONFERMATA");
-				showSnackbar();
-
-			} else {
-				$("#oldPassword").css({
-					'background-color' : 'red'
-				});
-
-				$("#snackbar").css({
-					'background-color' : 'red'
-				});
-				$("#snackbar").text("VECCHIA PASSWORD ERRATA");
-				showSnackbar();
-			}
-
+	if (password == confirmPassword) {
+		$("#oldPassword").css({
+			'background-color' : '#7FFF00'
 		});
+
+		$("#snackbar").css({
+			'background-color' : '#7FFF00'
+		});
+		$("#snackbar").text("LA VECCHIA PASSWORD E' CONFERMATA");
+		showSnackbar();
+
+	} else {
+		$("#oldPassword").css({
+			'background-color' : 'red'
+		});
+
+		$("#snackbar").css({
+			'background-color' : 'red'
+		});
+		$("#snackbar").text("VECCHIA PASSWORD ERRATA");
+		showSnackbar();
+	}
+
+});
 
 function cambiaDati() {
 
@@ -201,27 +155,6 @@ function cambiaDati() {
 
 }
 
-function effettuaLogout() {
-
-	$.ajax({
-		type : "GET",
-		url : "effettuaLogout",
-
-		success : function() {
-			$("#snackbar").text("LOGOUT EFFETTUATO");
-			$("#snackbar").css({
-				'background-color' : 'green'
-			});
-			showSnackbar();
-
-			// window.setTimeout(location.reload(), 1000);
-			window.location.replace('index.jsp');
-
-		}
-
-	})
-}
-
 
 // rimuovo dai Preferiti un Prodotto
 
@@ -250,9 +183,3 @@ function rimuoviDaiPreferiti(idProdotto, emailUtente) {
 	})
 
 }
-
-
-
-
-
-

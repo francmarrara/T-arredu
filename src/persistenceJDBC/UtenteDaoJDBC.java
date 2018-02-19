@@ -9,14 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
-
-import com.mysql.jdbc.Statement;
-
 import model.Preventivo;
-import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DataSource;
@@ -105,37 +99,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 	@Override
 	public List<Utente> findAll() {
-		Connection connection = this.dataSource.getConnection();
-		List<Utente> utenti = new LinkedList<>();
-		try {
-			Utente utente;
-			PreparedStatement statement;
-			String query = "select * from utente";
-			statement = connection.prepareStatement(query);
-			ResultSet result = statement.executeQuery();
-			while (result.next()) {
-				utente = new Utente();
-				utente.setIdUtente(result.getInt("utente_id"));
-				utente.setNomeUtente(result.getString("nome"));
-				utente.setCognomeUtente(result.getString("cognome"));
-				long secs = result.getDate("dataNascita").getTime();
-				utente.setDatadiNascita(new java.util.Date(secs));
-				utente.setEmailUtente(result.getString("email"));
-				utente.setNumeroTelefonoUtente(result.getString("numeroTelefonico"));
-				utente.setPasswordUtente(result.getString("passwordUtente"));
-
-				utenti.add(utente);
-			}
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-		return utenti;
+		return null;
 	}
 
 	@Override
@@ -269,6 +233,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 	public List<ProdottoConImmagini> getProdottiPreferitiConImmagini(String emailUtente) {
 		Connection connection = this.dataSource.getConnection();
 		List<ProdottoConImmagini> prodotti = new ArrayList<ProdottoConImmagini>();
+		@SuppressWarnings("unused")
 		ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
 
 		try {
@@ -305,30 +270,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		return prodotti;
 	}
 
-	@Override
-	public void rimuoviPreferiti(String emailUtente) {
-		Connection connection = this.dataSource.getConnection();
-		try {
-
-			String delete = "delete FROM prodottiPreferiti WHERE emailUtente = ?";
-			PreparedStatement statement = connection.prepareStatement(delete);
-
-			statement.setString(1, emailUtente);
-
-			statement.executeUpdate();
-
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-
-	}
-
+	
 	@Override
 	public boolean giaPreferito(Integer idProdotto, String emailUtente) {
 
@@ -547,7 +489,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		PreparedStatement statement;
 
 		List<Preventivo> preventivi = new ArrayList<>();
-		List<Integer> idPreventivi = new ArrayList();
+		List<Integer> idPreventivi = new ArrayList<Integer>();
 
 		try {
 

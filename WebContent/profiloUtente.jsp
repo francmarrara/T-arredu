@@ -38,7 +38,7 @@ window.smartsupp||(function(d) {
 
 		tw_share.href = 'http://twitter.com/share?text=vieni a trovarci su Tarredu arredamenti&url='
 				+ encodeURIComponent(location.href)
-				+ '&hashtags=#tarredu,#unical,#ingsw,#ricca';
+				+ '&hashtags=#tarredu,#unical,#siw,#grasso,#reale';
 
 		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
 				+ encodeURIComponent(location.href);
@@ -48,6 +48,9 @@ window.smartsupp||(function(d) {
 <link rel="stylesheet" type="text/css" href="css/profiloUtente.css" />
 <link rel="stylesheet" type="text/css" href="css/snackbar.css" />
 <script src="js/Js/profiloUtente.js"></script>
+<script src="js/Js/lateralButtons.js"></script>
+<script src="js/Js/login.js"></script>
+<script src="js/Js/snackbar.js"></script>
 
 <link rel="shortcut icon" href="images/TarreduLogo.png">
 </head>
@@ -228,9 +231,9 @@ window.smartsupp||(function(d) {
 		<h2>Il mio account</h2>
 
 		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" href="#home">Dati
+			<li><a data-toggle="tab" href="#home">Dati
 					personali</a></li>
-			<li><a data-toggle="tab" href="#menu1">Prodotti Preferiti</a></li>
+			<li class="active"><a data-toggle="tab" href="#menu1">Prodotti Preferiti</a></li>
 			<li><a data-toggle="tab" href="#menu2">Storico Preventivi</a></li>
 			<li><a data-toggle="tab" href="#menu3">Modifica dati
 					personali</a></li>
@@ -239,7 +242,7 @@ window.smartsupp||(function(d) {
 
 		<div class="tab-content">
 			<!-- Dati personali utente -->
-			<div id="home" class="tab-pane fade in active">
+			<div id="home" class="tab-pane fade in">
 				<h3>
 					Dati personali <span class="glyphicon glyphicon-user"></span>
 				</h3>
@@ -297,7 +300,7 @@ window.smartsupp||(function(d) {
 				</div>
 			</div>
 			<!-- Prodotti preferiti utente -->
-			<div id="menu1" class="tab-pane fade">
+			<div id="menu1" class="tab-pane fade in active">
 				<!--Inizio Box Prodotti -->
 
 				<div class="container prodotti" style="padding-top: 2%;">
