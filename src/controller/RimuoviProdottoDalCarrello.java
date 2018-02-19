@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.UtenteDAO;
 
+/**Questa servlet riceve un idProdotto e un emailUtente
+ * e rimuove il prodotto in questione dal carrello dell'utente.
+ */
+
+
 public class RimuoviProdottoDalCarrello extends HttpServlet {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 4028785756896912137L;
 
 	@Override

@@ -5,8 +5,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import model.Utente;
 import persistenceDAO.DAOFactory;
 
+/**
+ * Questa servlet riceve i vari dati personali e li aggiorna sul db. Se la data
+ * di nascita non viene aggiornata recupera la data corrente ed effettua
+ * l'update.
+ */
+
 public class AggiornaDatiPersonali extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -33,25 +34,23 @@ public class AggiornaDatiPersonali extends HttpServlet {
 		String data = ((req.getParameter("bday")));
 		utente.setEmailUtente(req.getParameter("email"));
 		utente.setNumeroTelefonoUtente((req.getParameter("recapitoTelefonicoUtente")));
-		
-		if(data.equals("")) {
+
+		if (data.equals("")) {
 			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 			utente.setDatadiNascita(factory.getUtenteDAO().dataNascitaUtente(emailVecchia));
-		}
-		else {
-		
-		
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
-		try {
-			date = format.parse(data);{}
-			utente.setDatadiNascita(date);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} else {
 
-		
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = format.parse(data);
+				{
+				}
+				utente.setDatadiNascita(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);

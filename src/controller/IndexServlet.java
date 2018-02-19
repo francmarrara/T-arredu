@@ -12,15 +12,20 @@ import javax.servlet.http.HttpSession;
 
 import model.ProdottoConImmagini;
 import model.Venditore;
-import persistenceDAO.DataBaseManager;
+import persistenceDAO.DAOFactory;
 import persistenceDAO.ProdottoDAO;
 import persistenceDAO.VenditoreDAO;
 
+
+/**Questa servlet reperisce tutti i contenuti necessari per 
+ * creare l'homepage ( prodotti più visti, in offerta) e la restituisce.
+ */
+
+
+
 public class IndexServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -38,10 +43,10 @@ public class IndexServlet extends HttpServlet {
 		List<ProdottoConImmagini> prodottiInOfferta = null;
 		List<ProdottoConImmagini> prodottiPiuVisti = null;
 
-		DataBaseManager dbManager = new DataBaseManager();
+		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
-		ProdottoDAO prodotto = dbManager.getProdottoDao();
-		VenditoreDAO venditore = dbManager.getVenditoreDao();
+		ProdottoDAO prodotto = factory.getProdottoDAO();
+		VenditoreDAO venditore = factory.getVenditoreDAO();
 		
 		prodottiInOfferta = prodotto.prodottiInOfferta();
 		prodottiPiuVisti = prodotto.prodottiPerVisibilità();

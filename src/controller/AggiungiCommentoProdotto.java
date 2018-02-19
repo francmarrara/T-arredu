@@ -14,13 +14,18 @@ import org.json.JSONObject;
 
 import model.Commento;
 import persistenceDAO.DAOFactory;
-import persistenceDAO.DataBaseManager;
+
+
+/**
+ * Questa servlet riceve un oggetto di tipo JSON contenente 
+ * Un commento relativo ad un prodotto, la sua valutazione ( da 1 a 5), 
+ * e ovviamente l'id del prodotto e l'email dell'utente che effettua
+ * la recensione. Si occupa poi di salvare tutto sul db.
+ */
 
 public class AggiungiCommentoProdotto extends HttpServlet{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1920482527706105632L;
 
 	@Override

@@ -8,18 +8,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.Commento;
 import model.Prodotto;
 import model.Venditore;
-import persistenceDAO.DataBaseManager;
+import persistenceDAO.DAOFactory;
+
+/** Questa servlet riceve un id prodotto, recupera tutte le informazioni sul db
+ *  e genera la pagina corrispondente.
+ */
+
 
 public class GetProdottoServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 6269492782108630350L;
 
 	@Override
@@ -32,10 +34,11 @@ public class GetProdottoServlet extends HttpServlet {
 			emailUtente = (String) (req.getSession().getAttribute("emailUtenteLoggato"));
 		}
 
-		DataBaseManager dbManager = new DataBaseManager();
+	DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+	
 
-		Prodotto p = dbManager.getProdottoDao().findByPrimaryKey(idProdotto);
-		dbManager.getProdottoDao().visitPlusPlus(idProdotto);
+		Prodotto p = factory.getProdottoDAO().findByPrimaryKey(idProdotto);
+		factory.getProdottoDAO().visitPlusPlus(idProdotto);
 
 		req.setAttribute("prodottoCercato", p);
 
@@ -56,7 +59,7 @@ public class GetProdottoServlet extends HttpServlet {
 		req.setAttribute("listaVenditoriProdotto", venditoriProdotto);
 
 		// TROVA COMMENTO UTENTE PER PRODOTTO
-		Commento commento = dbManager.getCommentoDao().getCommentoUtentePerProdotto(idProdotto, emailUtente);
+		Commento commento = factory.getCommentoDAO().getCommentoUtentePerProdotto(idProdotto, emailUtente);
 
 		if (commento != null) {
 

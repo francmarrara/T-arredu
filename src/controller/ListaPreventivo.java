@@ -18,12 +18,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.Preventivo;
 import model.ProdottoConImmagini;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.ProdottoDAO;
+
+/**
+ * Questa servlet riceve una lista di prodotti selezionati dall'utente all'interno
+ * del carrello, reperisce i vari venditori ed invia loro le richieste di preventivo
+ * tramite javamail.
+ */
+
 
 public class ListaPreventivo extends HttpServlet {
 
@@ -32,9 +38,7 @@ public class ListaPreventivo extends HttpServlet {
 	private ArrayList<ProdottoConImmagini> prodottiDaInserireNelPreventivo;
 	private HashSet<String> listaVenditori;
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override

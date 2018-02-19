@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import persistenceDAO.DAOFactory;
 import persistenceDAO.UtenteDAO;
 
+/**
+ * Questa servlet riceve un idProdotto e un emailUtente
+ * e inserisce nel db il prodotto nei preferiti dell'utente.
+ */
+
 public class AggiungiPreferito extends HttpServlet {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Override

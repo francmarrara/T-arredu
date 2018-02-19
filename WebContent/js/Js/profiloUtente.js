@@ -221,3 +221,38 @@ function effettuaLogout() {
 
 	})
 }
+
+
+// rimuovo dai Preferiti un Prodotto
+
+function rimuoviDaiPreferiti(idProdotto, emailUtente) {
+
+	$.ajax({
+		type : "GET",
+		url : "rimuoviDaiPreferiti",
+
+		data : {
+			idProdotto : idProdotto,
+			emailUtente : emailUtente,
+
+		},
+		success : function() {
+			$("#snackbar").text("RIMOSSO DAI PREFERITI");
+			$("#snackbar").css({
+				'background-color' : 'green'
+			});
+			showSnackbar();
+
+			window.setTimeout(location.reload(), 1000);
+
+		}
+
+	})
+
+}
+
+
+
+
+
+

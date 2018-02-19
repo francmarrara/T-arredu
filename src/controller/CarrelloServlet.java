@@ -10,14 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Carrello;
-import model.ProdottoConImmagini;
 import persistenceDAO.DAOFactory;
+
+/**Questa servlet ricevuta un email utente reperisce tutti i 
+ * prodotti dentro il suo carrello e genera la pagina corrispondente.
+ */
+
+
 
 public class CarrelloServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override

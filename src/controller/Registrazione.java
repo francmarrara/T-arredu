@@ -2,7 +2,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,13 +23,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Utente;
-import persistenceDAO.DataBaseManager;
+import persistenceDAO.DAOFactory;
+
+/**
+ * Questa servlet riceve i dati tramite la form di registrazione e si occupa di
+ * caricare i dati dell'utente sul DB.
+ * 
+ */
 
 public class Registrazione extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -64,9 +66,8 @@ public class Registrazione extends HttpServlet {
 			utente.setDatadiNascita(date);
 			utente.setNumeroTelefonoUtente(numeroDiTelefono);
 
-			DataBaseManager dbManager = new DataBaseManager();
-
-			dbManager.getUtenteDao().save(utente);
+			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+			factory.getUtenteDAO().save(utente);
 
 			req.setAttribute("utente", utente);
 
@@ -115,7 +116,6 @@ public class Registrazione extends HttpServlet {
 			message.setText(messaggio);
 
 			Transport.send(message);
-
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

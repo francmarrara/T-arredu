@@ -126,6 +126,16 @@
 		<url-pattern>/rimuoviDalCarrello</url-pattern>
 	</servlet-mapping>
 
+<servlet>
+		<servlet-name>RimuoviProdottoDaiPreferiti</servlet-name>
+		<servlet-class>controller.RimuoviProdottoDaiPreferiti</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviProdottoDaiPreferiti</servlet-name>
+		<url-pattern>/rimuoviDaiPreferiti</url-pattern>
+	</servlet-mapping>
+
+
 
 	<servlet>
 		<servlet-name>EffettuaLogout</servlet-name>
