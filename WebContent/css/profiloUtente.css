@@ -674,6 +674,7 @@ label {
 /* Lista preventivi richiesti */
 .containerListaPreventivi {
 	text-align: center;
+	
 }
 
 .immaginePreventivo {
@@ -699,6 +700,20 @@ label {
 	background-color: rgba(0, 0, 0, 0.4);
 	/* Black w/ opacity */
 }
+
+
+.boxCarrello{
+	
+    background: aliceblue; 
+	border: 2px solid black; 
+	border-radius:15px;
+	padding-bottom: 1%;
+	margin-bottom: 1%;"
+}
+
+
+
+
 
 /* Modal Content/Box */
 .modal-content {

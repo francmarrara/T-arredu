@@ -493,7 +493,7 @@ public class UtenteDaoJDBC implements UtenteDAO {
 
 		try {
 
-			String query = "select id_preventivo FROM preventivo WHERE id_utente = ?";
+			String query = "select * FROM preventivo WHERE id_utente = ? order by data_ora_preventivo DESC";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, emailUtente);

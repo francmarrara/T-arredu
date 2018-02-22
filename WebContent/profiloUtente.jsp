@@ -340,8 +340,7 @@ window.smartsupp||(function(d) {
 					</h3>
 				</div>
 				<hr>
-				<div class="container boxCarrello"
-					style="background: aliceblue; border: 2px solid black; padding-bottom: 50px;">
+				<div class="container boxCarrello">
 					<div class="row">
 						<div class="col-sm-12 col-md-10 col-md-offset-1">
 							<table class="table table-hover">
@@ -358,15 +357,15 @@ window.smartsupp||(function(d) {
 											<td class="col-sm-8 col-md-8">
 												<div class="media">
 													<div class="immaginePreventivo">
-														<a class="thumbnail pull-left" href="#"> <img
+														 <img
 															class="media-object" src="images/preventivo.jpg"
 															style="width: 72px; height: 72px;">
-														</a>
+														
 													</div>
 													<div class="media-body">
 														<br>
 														<h4 class="media-heading">
-															<a href="#"> Cod: ${preventivo.idPreventivo}</a>
+															 Codice Preventivo : ${preventivo.idPreventivo}
 														</h4>
 													</div>
 												</div>
