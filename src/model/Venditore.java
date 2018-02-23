@@ -14,10 +14,10 @@ public class Venditore {
 	private String descrizioneVenditore;
 	private String latitudineVenditore;
 	private String longitudineVenditore;
+	private String passwordVenditore;
 
 	private ArrayList<ProdottoConImmagini> prodottiInPreventivo;
-	
-	
+
 	// costruttore senza parametri
 	public Venditore() {
 		setProdottiInPreventivo(new ArrayList<ProdottoConImmagini>());
@@ -118,6 +118,22 @@ public class Venditore {
 
 	public void setLongitudineVenditore(String longitudineVenditore) {
 		this.longitudineVenditore = longitudineVenditore;
+	}
+
+	public String getPasswordVenditore() {
+		return passwordVenditore;
+	}
+
+	public void setPasswordVenditore(String passwordVenditore) {
+		this.passwordVenditore = passwordVenditore;
+	}
+
+	public void stampaVenditore() {
+		System.out.println("Nome Titolare : " + nomeTitolare + "\n" + "Cognome Titolare : " + cognomeTitolare + "\n"
+				+ "Nome Negozio : " + nomeNegozio + "\n" + "Indirizzo : " + indirizzoVenditore + "\n" + "Descrizione : "
+				+ descrizioneVenditore + "\n" + "Email : " + emailVenditore + "\n" + "Password : " + passwordVenditore
+				+ "\n" + "Latitudine : " + latitudineVenditore + "\n" + "Longitudine : " + longitudineVenditore);
+
 	}
 
 }

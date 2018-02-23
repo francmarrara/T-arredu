@@ -23,6 +23,16 @@
 		<url-pattern>/registrazione</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>RegistrazioneVenditore</servlet-name>
+		<servlet-class>controller.RegistrazioneVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistrazioneVenditore</servlet-name>
+		<url-pattern>/registrazioneVenditore</url-pattern>
+	</servlet-mapping>
+
+
 
 	<servlet>
 		<servlet-name>VerificaEmail</servlet-name>

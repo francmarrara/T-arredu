@@ -138,9 +138,17 @@
 					<c:if test="${utenteLoggato == false  || empty utenteLoggato}">
 
 						<li class="navbarOggetto">
+							<!-- Form per il login --> <a href="#loginVenditore"
+							onclick="document.getElementById('loginVenditore').style.display='block'">
+								<span class="glyphicon glyphicon-log-in"></span> Sono un
+								Venditore
+						</a>
+						</li>
+
+						<li class="navbarOggetto">
 							<!-- Form per il login --> <a href="#login"
 							onclick="document.getElementById('login').style.display='block'">
-								<span class="glyphicon glyphicon-log-in"></span> Login
+								<span class="glyphicon glyphicon-log-in"></span> Sono un Utente
 						</a>
 						</li>
 						<div id="login" class="modal">
@@ -164,7 +172,7 @@
 										placeholder="Inserire Password" name="psw" required>
 
 									<button class="buttonLog" type="submit">Login</button>
-									
+
 								</div>
 
 								<div class="containerModalBottom"
@@ -176,12 +184,99 @@
 							</form>
 						</div>
 
+						<div id="loginVenditore" class="modal">
+
+							<form class="modal-content animate" method="post"
+								action="validaCredenzialiVenditoreLogin">
+								<div class="imgcontainer">
+									<span
+										onclick="document.getElementById('loginVenditore').style.display='none'"
+										class="close" title="Chiudi Login">&times;</span> <img
+										src="images/userLogin.jpg" alt="Avatar" class="avatar"
+										width=150 height=150>
+								</div>
+
+								<div class="containerModal">
+									<label><b>Email Venditore</b></label> <input
+										class="inputLogIn EmailUtenteLogin" type="text"
+										placeholder="Inserire Indirizzo Email" name="emailVenditore"
+										required> <label><b>Password</b></label> <input
+										class="inputLogIn passwordLogin" type="password"
+										placeholder="Inserire Password" name="passwordVenditore"
+										required>
+
+									<button class="buttonLog" type="submit">Login</button>
+
+								</div>
+
+								<div class="containerModalBottom"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('loginVenditore').style.display='none'"
+										class="cancelbtn">Cancel</button>
+								</div>
+							</form>
+						</div>
+
+						<li class="navbarOggetto">
+							<!-- Form per la registrazione --> <a href="#registrazioneVenditore"
+							onclick="document.getElementById('registrazioneVenditore').style.display='block'">
+								<span class="glyphicon glyphicon-user user"></span> Registrati
+								come Venditore
+						</a>
+						</li>
+
 						<li class="navbarOggetto">
 							<!-- Form per la registrazione --> <a href="#registrazione"
 							onclick="document.getElementById('registrazione').style.display='block'">
-								<span class="glyphicon glyphicon-user user"></span> Registrati
+								<span class="glyphicon glyphicon-user user"></span> Registrati Come Utente
 						</a>
 						</li>
+						
+						<div id="registrazioneVenditore" class="modal">
+
+							<form class="modal-content animateReg" method="post"
+								action="registrazioneVenditore">
+								<div class="imgcontainerReg">
+									<span
+										onclick="document.getElementById('registrazioneVenditore').style.display='none'"
+										class="closeReg" title="Chiudi Registrazione">&times;</span>
+								</div>
+								<h1>Registrazione</h1>
+								<p>Compila questo modulo per creare un account.</p>
+								<hr>
+								<div class="containerReg">
+
+									<label><b>Nome</b></label> <input type="text"
+										placeholder="Inserire Nome" name="nomeVenditore" required> <label><b>Cognome</b></label>
+									<input type="text" placeholder="Inserire Cognome"
+										name="cognomeVenditore" required>  <label><b>Nome Negozio</b></label>
+									<input type="text" placeholder="Inserire Nome Negozio"
+										name="nomeNegozio" required><label><b>Numero di Telefono</b></label> <input
+										type="text" placeholder="Inserire Numero di Telefono"
+										name="numeroDiTelefonoVenditore" required> 
+										<label><b>Indirizzo Negozio</b></label> <input
+										type="text" placeholder="Inserire Indirizzo Negozio"
+										name="indirizzoVenditore" required>
+										<label><b>Descrizione Venditore</b></label><div style="margin-bottom:1.5%; "><textarea name = "descrizioneVenditore" class="form-control" rows="5" ></textarea></div>
+										<label><b>Email</b></label>
+									<input id="emailVenditore" type="text"
+										placeholder="Inserire Indirizzo Email" name="emailVenditore" required>
+									<label><b>Password</b></label> <input id="psw" type="password"
+										placeholder="Inserire Password" name="pswVenditore" required> <label><b>Ripetere
+											Password</b></label> <input id="psw-repeat" type="password"
+										placeholder="Reinserire Password" name="psw-repeat-Venditore" required>
+								</div>
+								<div class="containerRegButton"
+									style="background-color: #ffffff">
+									<button type="button"
+										onclick="document.getElementById('registrazione').style.display='none'"
+										class="cancelbtnReg">Cancel</button>
+									<button class="buttonReg" type="submit">Registrati</button>
+								</div>
+							</form>
+
+						</div>
 
 						<div id="registrazione" class="modal">
 
@@ -353,7 +448,8 @@
 						<div class="containerLogo">
 							<h4 class="nomeProdottoOfferta">${prodotto.marcaProdotto}</h4>
 						</div>
-						<div class="containerImmagine img img-responsive" style="text-align: center;">
+						<div class="containerImmagine img img-responsive"
+							style="text-align: center;">
 							<a href="prodotto?id=${prodotto.idProdotto}"><img
 								class="immagineProdottoInOfferta img img-responsive"
 								src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
