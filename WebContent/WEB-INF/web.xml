@@ -61,6 +61,15 @@
 		<servlet-name>ValidaCredenzialiLogin</servlet-name>
 		<url-pattern>/validaCredenzialiLogin</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ValidaCredenzialiVenditoreLogin</servlet-name>
+		<servlet-class>controller.ValidaCredenzialiVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ValidaCredenzialiVenditoreLogin</servlet-name>
+		<url-pattern>/validaCredenzialiVenditoreLogin</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>GetProdottoServlet</servlet-name>
@@ -144,6 +153,15 @@
 		<servlet-name>RimuoviProdottoDaiPreferiti</servlet-name>
 		<url-pattern>/rimuoviDaiPreferiti</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RimuoviProdottoDelVenditore</servlet-name>
+		<servlet-class>controller.RimuoviProdottoDelVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviProdottoDelVenditore</servlet-name>
+		<url-pattern>/rimuoviProdottoDelVenditore</url-pattern>
+	</servlet-mapping>
 
 
 
@@ -172,6 +190,15 @@
 	<servlet-mapping>
 		<servlet-name>UtenteServlet</servlet-name>
 		<url-pattern>/utente</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ProfiloVenditore</servlet-name>
+		<servlet-class>controller.ProfiloVenditoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProfiloVenditore</servlet-name>
+		<url-pattern>/profiloVenditore</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

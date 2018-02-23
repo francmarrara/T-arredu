@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Preventivo;
+import model.ProdottoConImmagini;
 import model.Venditore;
 import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;
@@ -29,8 +31,8 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String save = " insert into venditore(id_venditore, nomeTitolare, cognomeTitolare, "
-					+ "nomeNegozio, indirizzoVenditore, emailVenditore, numeroTelefonicoVenditore, descrizioneVenditore, latitudineVenditore, longitudineVenditore) values"
-					+ "(?,?,?,?,?,?,?,?,?,?) ";
+					+ "nomeNegozio, indirizzoVenditore, emailVenditore, passwordVenditore, numeroTelefonicoVenditore, descrizioneVenditore, latitudineVenditore, longitudineVenditore) values"
+					+ "(?,?,?,?,?,?,?,?,?,?,?) ";
 
 			PreparedStatement statement = connection.prepareStatement(save);
 
@@ -43,10 +45,11 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			statement.setString(4, venditore.getNomeNegozio());
 			statement.setString(5, venditore.getIndirizzoVenditore());
 			statement.setString(6, venditore.getEmailVenditore());
-			statement.setString(7, venditore.getNumeroTelefonicoVenditore());
-			statement.setString(8, venditore.getDescrizioneVenditore());
-			statement.setString(9, venditore.getLatitudineVenditore());
-			statement.setString(10, venditore.getLongitudineVenditore());
+			statement.setString(7, venditore.getPasswordVenditore());
+			statement.setString(8, venditore.getNumeroTelefonicoVenditore());
+			statement.setString(9, venditore.getDescrizioneVenditore());
+			statement.setString(10, venditore.getLatitudineVenditore());
+			statement.setString(11, venditore.getLongitudineVenditore());
 
 			statement.executeUpdate();
 
@@ -90,6 +93,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
 				venditore.setLatitudineVenditore(result.getString("latitudineVenditore"));
 				venditore.setLongitudineVenditore(result.getString("longitudineVenditore"));
+				venditore.setPasswordVenditore(result.getString("passwordVenditore"));
 
 			}
 		} catch (SQLException e) {
@@ -134,6 +138,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				venditore.setDescrizioneVenditore(result.getString("descrizioneVenditore"));
 				venditore.setLatitudineVenditore(result.getString("latitudineVenditore"));
 				venditore.setLongitudineVenditore(result.getString("longitudineVenditore"));
+				venditore.setPasswordVenditore(result.getString("passwordVenditore"));
 
 				venditori.add(venditore);
 
@@ -193,7 +198,7 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String update = "update venditore SET nomeTitolare = ?, cognomeTitolare = ?, nomeNegozio = ?, "
-					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, latitudineVenditore = ?,"
+					+ "indirizzoVenditore = ?, emailVenditore = ?, passwordVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, latitudineVenditore = ?,"
 					+ "longitudineVenditore=? " + "WHERE emailVenditore = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 
@@ -202,11 +207,12 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			statement.setString(3, venditore.getNomeNegozio());
 			statement.setString(4, venditore.getIndirizzoVenditore());
 			statement.setString(5, venditore.getEmailVenditore());
-			statement.setString(6, venditore.getNumeroTelefonicoVenditore());
-			statement.setString(7, venditore.getDescrizioneVenditore());
-			statement.setString(8, venditore.getLatitudineVenditore());
-			statement.setString(9, venditore.getLongitudineVenditore());
-			statement.setString(10, venditore.getEmailVenditore());
+			statement.setString(6, venditore.getPasswordVenditore());
+			statement.setString(7, venditore.getNumeroTelefonicoVenditore());
+			statement.setString(8, venditore.getDescrizioneVenditore());
+			statement.setString(9, venditore.getLatitudineVenditore());
+			statement.setString(10, venditore.getLongitudineVenditore());
+			statement.setString(11, venditore.getEmailVenditore());
 			statement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -277,6 +283,131 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			}
 		}
 		return emails;
+
+	}
+
+	@Override
+	public boolean credenzialiVenditoreGiaPresenti(String email, String passw) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		PreparedStatement statement;
+
+		try {
+
+			String query = "select id_venditore FROM venditore WHERE emailVenditore = ? and passwordVenditore = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, email);
+			statement.setString(2, passw);
+
+			ResultSet result = statement.executeQuery();
+
+			if (!result.first() == false)
+				return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+
+	}
+
+	@Override
+	public List<Preventivo> getPreventiviVenditore(String emailVenditore) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		PreparedStatement statement;
+
+		List<Preventivo> preventivi = new ArrayList<>();
+		List<Integer> idPreventivi = new ArrayList<Integer>();
+
+		try {
+
+			String query = "select preventivoID FROM venditoreInPreventivo WHERE venditoreEmail = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, emailVenditore);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+				idPreventivi.add(result.getInt("preventivoID"));
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		for (Integer idPreventivo : idPreventivi) {
+			try {
+
+				Preventivo p = new Preventivo();
+
+				p.setListaProdotti(new ArrayList<ProdottoConImmagini>());
+
+				String query = "SELECT preventivo.id_preventivo, preventivo.data_ora_preventivo, preventivo.id_utente, "
+						+ "prodotto.id_prodotto, prodotto.nomeProdotto, prodotto.marcaProdotto,prodotto.immaginePrincipale,"
+						+ "prodotto.prezzoProdotto, venditore.emailVenditore, "
+						+ "venditore.nomeNegozio FROM tarreduDB.preventivo JOIN prodottoInPreventivo, prodotto, venditorePerProdotto, "
+						+ "venditore where id_preventivo = preventivoID and prodottoID = prodotto.id_prodotto and "
+						+ "prodotto.id_prodotto = venditorePerProdotto.id_prodotto and "
+						+ "venditorePerProdotto.emailVenditore = venditore.emailVenditore and preventivo.id_preventivo = ? order by preventivo.data_ora_preventivo DESC";
+				statement = connection.prepareStatement(query);
+
+				statement.setInt(1, idPreventivo);
+
+				ResultSet result = statement.executeQuery();
+
+				while (result.next()) {
+					p.setIdPreventivo(result.getInt("id_preventivo"));
+					p.setDataOraPreventivo(result.getDate("data_ora_preventivo"));
+					p.setUtente(result.getString("id_utente"));
+
+					ProdottoConImmagini prod = new ProdottoConImmagini();
+					prod.setIdProdotto(result.getInt("id_prodotto"));
+					prod.setNomeProdotto(result.getString("nomeProdotto"));
+					prod.setMarcaProdotto(result.getString("marcaProdotto"));
+					prod.setEmailVenditore(result.getString("emailVenditore"));
+					prod.setNomeNegozioVenditore(result.getString("nomeNegozio"));
+					prod.setImmaginePrincipale(result.getString("immaginePrincipale"));
+					prod.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+
+					p.getListaProdotti().add(prod);
+
+				}
+				preventivi.add(p);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		return preventivi;
+
+	}
+
+	@Override
+	public void rimuoviProdottoDelVenditore(Integer idProdotto) {
+		Connection connection = this.dataSource.getConnection();
+		StringBuilder delete = new StringBuilder();
+		delete.append("delete from prodotto where id_prodotto = ?");
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(delete.toString());
+			statement.setInt(1, idProdotto);
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}
 
 	}
 

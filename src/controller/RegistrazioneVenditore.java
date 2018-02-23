@@ -56,57 +56,50 @@ public class RegistrazioneVenditore extends HttpServlet {
 		String password = req.getParameter("pswVenditore");
 		String confirmPassword = req.getParameter("psw-repeat-Venditore");
 
-		
+		Venditore v = new Venditore();
+		v.setNomeTitolare(nome);
+		v.setCognomeTitolare(cognome);
+		v.setNomeNegozio(nomeNegozio);
+		v.setEmailVenditore(email);
+		v.setIndirizzoVenditore(indirizzo);
+		v.setNumeroTelefonicoVenditore(numeroDiTelefono);
+		v.setDescrizioneVenditore(descrizioneVenditore);
+		v.setPasswordVenditore(password);
 
-			Venditore v = new Venditore();
-			v.setNomeTitolare(nome);
-			v.setCognomeTitolare(cognome);
-            v.setNomeNegozio(nomeNegozio);
-            v.setEmailVenditore(email);
-            v.setIndirizzoVenditore(indirizzo);
-            v.setNumeroTelefonicoVenditore(numeroDiTelefono);
-            v.setDescrizioneVenditore(descrizioneVenditore);
-            v.setPasswordVenditore(password);
-            
-            String latLongs[] = null;
-			try {
-				latLongs = getLatLongPositions(indirizzo);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            v.setLatitudineVenditore(latLongs[0]);
-            v.setLongitudineVenditore(latLongs[1]);
-            
-            
-			
-//			
-//			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-//			factory.getVenditoreDAO().save(v);
-            
-            v.stampaVenditore();
-//
-//			req.setAttribute("venditore", v);
-//
-//			StringBuilder messaggio = new StringBuilder();
-//			messaggio.append("Gentile, " + v.getNomeTitolare() + " " + v.getCognomeTitolare() + ",\n");
-//			messaggio.append("la informiamo che la registrazione è stata effettuata con successo. \n\n");
-//			messaggio.append("Di seguito le credenziali di registrazione: \n");
-//			messaggio.append("Indirizzo email : " + v.getEmailVenditore() + "\n");
-//			messaggio.append("Password : " + v.getPasswordVenditore() + "\n");
-//
-//			sendEmail(v.getEmailVenditore(), "Conferma registrazione", messaggio.toString());
-//
-//			RequestDispatcher dispacher = req.getRequestDispatcher("/WEB-INF/index.jsp");
-//			dispacher.forward(req, resp);
+		String latLongs[] = null;
+		try {
+			latLongs = getLatLongPositions(indirizzo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		v.setLatitudineVenditore(latLongs[0]);
+		v.setLongitudineVenditore(latLongs[1]);
 
-	
+		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		factory.getVenditoreDAO().save(v);
 
+		v.stampaVenditore();
+
+		req.setAttribute("venditore", v);
+
+		StringBuilder messaggio = new StringBuilder();
+		messaggio.append("Gentile, " + v.getNomeTitolare() + " " + v.getCognomeTitolare() + ",\n");
+		messaggio.append("la informiamo che la registrazione è stata effettuata con successo.\n\n");
+		messaggio.append("Di seguito le credenziali di registrazione: \n");
+		messaggio.append("Indirizzo email : " + v.getEmailVenditore() + "\n");
+		messaggio.append("Password : " + v.getPasswordVenditore() + "\n");
+
+		sendEmail(v.getEmailVenditore(), "Conferma registrazione", messaggio.toString());
+
+		RequestDispatcher dispacher = req.getRequestDispatcher("profiloVenditore.jsp");
+		dispacher.forward(req, resp);
+	}
 
 	public String[] getLatLongPositions(String address) throws Exception {
 		int responseCode = 0;
-	    String api = "https://maps.googleapis.com/maps/api/geocode/xml?address="+ URLEncoder.encode(address, "UTF-8") +"&key=AIzaSyAUvzMYr08iaxtaGH2K31C7lLifLHRL2g4";
+		String api = "https://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8")
+				+ "&key=AIzaSyAUvzMYr08iaxtaGH2K31C7lLifLHRL2g4";
 
 		URL url = new URL(api);
 		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();

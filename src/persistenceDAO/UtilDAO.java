@@ -186,6 +186,7 @@ public class UtilDAO {
 					"  `nomeNegozio` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `indirizzoVenditore` VARCHAR(255) NOT NULL,\r\n" + 
 					"  `emailVenditore` VARCHAR(255) NOT NULL,\r\n" +
+					"  `passwordVenditore` VARCHAR(255) NOT NULL,\r\n" +
 					"  `latitudineVenditore` VARCHAR(255) NOT NULL,\r\n" +
 					"  `longitudineVenditore` VARCHAR(255) NOT NULL,\r\n" +
 					"  `descrizioneVenditore` MEDIUMTEXT NOT NULL,\r\n" +

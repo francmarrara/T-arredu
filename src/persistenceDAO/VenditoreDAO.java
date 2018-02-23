@@ -2,6 +2,7 @@ package persistenceDAO;
 
 import java.util.List;
 
+import model.Preventivo;
 import model.Venditore;
 
 
@@ -16,6 +17,9 @@ public interface VenditoreDAO {
 	public List<Venditore> findVenditoriByPreventivo(Integer codicePreventivo);// Trova tutti i venditori di un preventivo
 	
 	public List <String> venditoriCheNonRicevonoPreventiviDa30Giorni();
+	public boolean credenzialiVenditoreGiaPresenti(String email, String passw);
+	public List<Preventivo> getPreventiviVenditore(String emailVenditore);
+	public void rimuoviProdottoDelVenditore(Integer idProdotto);
 	
 	
 	

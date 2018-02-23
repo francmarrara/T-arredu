@@ -49,6 +49,7 @@ public class DataBaseManager {
  
         mazzei.setLatitudineVenditore("39.3191");
         mazzei.setLongitudineVenditore("16.248965");
+        mazzei.setPasswordVenditore("ciaociao");
 		venditoreDao.save(mazzei);
 
 		// ----------------------------------------------------------
@@ -70,6 +71,7 @@ public class DataBaseManager {
 		
 		scavoliniCosenza.setLatitudineVenditore("39.3469155");
 		scavoliniCosenza.setLongitudineVenditore("16.2386041");
+		scavoliniCosenza.setPasswordVenditore("ciaociao");
 		venditoreDao.save(scavoliniCosenza);
 
 		// ----------------------------------------------------------
@@ -93,6 +95,7 @@ public class DataBaseManager {
 		confortiArredamenti.setLatitudineVenditore("39.346013");
 		confortiArredamenti.setLongitudineVenditore("16.195811");
 		
+		confortiArredamenti.setPasswordVenditore("ciaociao");
 		venditoreDao.save(confortiArredamenti);
 
 		// ----------------------------------------------------------
@@ -114,6 +117,7 @@ public class DataBaseManager {
 		poltroneSofa.setLatitudineVenditore("39.3400668");
 		poltroneSofa.setLongitudineVenditore("16.2412138");
 		
+		poltroneSofa.setPasswordVenditore("ciaociao");
 		venditoreDao.save(poltroneSofa);
 
 		// Arredamenti due pi, Rende
@@ -137,6 +141,7 @@ public class DataBaseManager {
 		arredamentiDuePi.setLatitudineVenditore("39.308686");
 		arredamentiDuePi.setLongitudineVenditore("16.2170517");
 		
+		arredamentiDuePi.setPasswordVenditore("ciaociao");
 		venditoreDao.save(arredamentiDuePi);
 
 		// ----------------------------------------------------------

@@ -135,12 +135,13 @@
 
 					</c:if>
 
-					<c:if test="${utenteLoggato == false  || empty utenteLoggato}">
+					<c:if
+						test="${utenteLoggato == false || empty utenteLoggato}">
 
 						<li class="navbarOggetto">
 							<!-- Form per il login --> <a href="#loginVenditore"
 							onclick="document.getElementById('loginVenditore').style.display='block'">
-								<span class="glyphicon glyphicon-log-in"></span> Sono un
+								<span class="glyphicon glyphicon-log-in"></span> Login
 								Venditore
 						</a>
 						</li>
@@ -148,7 +149,7 @@
 						<li class="navbarOggetto">
 							<!-- Form per il login --> <a href="#login"
 							onclick="document.getElementById('login').style.display='block'">
-								<span class="glyphicon glyphicon-log-in"></span> Sono un Utente
+								<span class="glyphicon glyphicon-log-in"></span> Login Utente
 						</a>
 						</li>
 						<div id="login" class="modal">
@@ -219,20 +220,20 @@
 						</div>
 
 						<li class="navbarOggetto">
-							<!-- Form per la registrazione --> <a href="#registrazioneVenditore"
+							<!-- Form per la registrazione --> <a
+							href="#registrazioneVenditore"
 							onclick="document.getElementById('registrazioneVenditore').style.display='block'">
-								<span class="glyphicon glyphicon-user user"></span> Registrati
-								come Venditore
+								<span class="glyphicon glyphicon-user user"></span> SignUp Venditore
 						</a>
 						</li>
 
 						<li class="navbarOggetto">
 							<!-- Form per la registrazione --> <a href="#registrazione"
 							onclick="document.getElementById('registrazione').style.display='block'">
-								<span class="glyphicon glyphicon-user user"></span> Registrati Come Utente
+								<span class="glyphicon glyphicon-user user"></span> SignUp Utente
 						</a>
 						</li>
-						
+
 						<div id="registrazioneVenditore" class="modal">
 
 							<form class="modal-content animateReg" method="post"
@@ -248,24 +249,31 @@
 								<div class="containerReg">
 
 									<label><b>Nome</b></label> <input type="text"
-										placeholder="Inserire Nome" name="nomeVenditore" required> <label><b>Cognome</b></label>
-									<input type="text" placeholder="Inserire Cognome"
-										name="cognomeVenditore" required>  <label><b>Nome Negozio</b></label>
-									<input type="text" placeholder="Inserire Nome Negozio"
-										name="nomeNegozio" required><label><b>Numero di Telefono</b></label> <input
-										type="text" placeholder="Inserire Numero di Telefono"
-										name="numeroDiTelefonoVenditore" required> 
-										<label><b>Indirizzo Negozio</b></label> <input
-										type="text" placeholder="Inserire Indirizzo Negozio"
-										name="indirizzoVenditore" required>
-										<label><b>Descrizione Venditore</b></label><div style="margin-bottom:1.5%; "><textarea name = "descrizioneVenditore" class="form-control" rows="5" ></textarea></div>
-										<label><b>Email</b></label>
-									<input id="emailVenditore" type="text"
-										placeholder="Inserire Indirizzo Email" name="emailVenditore" required>
-									<label><b>Password</b></label> <input id="psw" type="password"
-										placeholder="Inserire Password" name="pswVenditore" required> <label><b>Ripetere
+										placeholder="Inserire Nome" name="nomeVenditore" required>
+									<label><b>Cognome</b></label> <input type="text"
+										placeholder="Inserire Cognome" name="cognomeVenditore"
+										required> <label><b>Nome Negozio</b></label> <input
+										type="text" placeholder="Inserire Nome Negozio"
+										name="nomeNegozio" required><label><b>Numero
+											di Telefono</b></label> <input type="text"
+										placeholder="Inserire Numero di Telefono"
+										name="numeroDiTelefonoVenditore" required> <label><b>Indirizzo
+											Negozio</b></label> <input type="text"
+										placeholder="Inserire Indirizzo Negozio"
+										name="indirizzoVenditore" required> <label><b>Descrizione
+											Venditore</b></label>
+									<div style="margin-bottom: 1.5%;">
+										<textarea name="descrizioneVenditore" class="form-control"
+											rows="5"></textarea>
+									</div>
+									<label><b>Email</b></label> <input id="emailVenditore"
+										type="text" placeholder="Inserire Indirizzo Email"
+										name="emailVenditore" required> <label><b>Password</b></label>
+									<input id="psw" type="password" placeholder="Inserire Password"
+										name="pswVenditore" required> <label><b>Ripetere
 											Password</b></label> <input id="psw-repeat" type="password"
-										placeholder="Reinserire Password" name="psw-repeat-Venditore" required>
+										placeholder="Reinserire Password" name="psw-repeat-Venditore"
+										required>
 								</div>
 								<div class="containerRegButton"
 									style="background-color: #ffffff">

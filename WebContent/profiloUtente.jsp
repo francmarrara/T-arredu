@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>Account Page</title>
+<title>${utente.nomeUtente} ${utente.cognomeUtente}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -231,9 +231,9 @@ window.smartsupp||(function(d) {
 		<h2>Il mio account</h2>
 
 		<ul class="nav nav-tabs">
-			<li><a data-toggle="tab" href="#home">Dati
-					personali</a></li>
-			<li class="active"><a data-toggle="tab" href="#menu1">Prodotti Preferiti</a></li>
+			<li><a data-toggle="tab" href="#home">Dati personali</a></li>
+			<li class="active"><a data-toggle="tab" href="#menu1">Prodotti
+					Preferiti</a></li>
 			<li><a data-toggle="tab" href="#menu2">Storico Preventivi</a></li>
 			<li><a data-toggle="tab" href="#menu3">Modifica dati
 					personali</a></li>
@@ -318,11 +318,12 @@ window.smartsupp||(function(d) {
 										<div class="testo_prodotto">
 											<p>${prodotto.descrizioneProdotto}.</p>
 										</div>
-										<button type="button" id ="bottoneRimuovi"class="btn btn-danger"
-										onclick="rimuoviDaiPreferiti('${prodotto.idProdotto}','${emailUtenteLoggato}')" style:"">
-										<span class="glyphicon glyphicon-remove"></span> Rimuovi dai
-										Preferiti
-									</button>
+										<button type="button" id="bottoneRimuovi"
+											class="btn btn-danger"
+											onclick="rimuoviDaiPreferiti('${prodotto.idProdotto}','${emailUtenteLoggato}')"style:"">
+											<span class="glyphicon glyphicon-remove"></span> Rimuovi dai
+											Preferiti
+										</button>
 									</div>
 								</div>
 							</div>
@@ -357,16 +358,14 @@ window.smartsupp||(function(d) {
 											<td class="col-sm-8 col-md-8">
 												<div class="media">
 													<div class="immaginePreventivo">
-														 <img
-															class="media-object" src="images/preventivo.jpg"
+														<img class="media-object" src="images/preventivo.jpg"
 															style="width: 72px; height: 72px;">
-														
+
 													</div>
 													<div class="media-body">
 														<br>
-														<h4 class="media-heading">
-															 Codice Preventivo : ${preventivo.idPreventivo}
-														</h4>
+														<h4 class="media-heading">Codice Preventivo :
+															${preventivo.idPreventivo}</h4>
 													</div>
 												</div>
 											</td>
