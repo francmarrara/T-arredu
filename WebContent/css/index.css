@@ -226,8 +226,9 @@ header {
 
 .couponPiuVisto img {
 	padding-top: 5%;
-	width: 290px;
+	width: 83%;
 	height: 300px;
+	margin-left: 8.5%;
 }
 
 .titoloArticoloPiuVisto {

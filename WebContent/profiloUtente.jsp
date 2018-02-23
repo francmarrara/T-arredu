@@ -318,8 +318,8 @@ window.smartsupp||(function(d) {
 										<div class="testo_prodotto">
 											<p>${prodotto.descrizioneProdotto}.</p>
 										</div>
-										<button type="button" class="btn btn-danger"
-										onclick="rimuoviDaiPreferiti('${prodotto.idProdotto}','${emailUtenteLoggato}')">
+										<button type="button" id ="bottoneRimuovi"class="btn btn-danger"
+										onclick="rimuoviDaiPreferiti('${prodotto.idProdotto}','${emailUtenteLoggato}')" style:"">
 										<span class="glyphicon glyphicon-remove"></span> Rimuovi dai
 										Preferiti
 									</button>
