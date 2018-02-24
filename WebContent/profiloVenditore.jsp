@@ -117,6 +117,7 @@ window.smartsupp||(function(d) {
 			<li><a data-toggle="tab" href="#menu3">Modifica dati
 					personali</a></li>
 			<li><a data-toggle="tab" href="#menu4">Modifica Password</a></li>
+			<li><a data-toggle="tab" href="#menu5">Aggiungi Prodotto</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -484,6 +485,100 @@ window.smartsupp||(function(d) {
 							</div>
 
 
+						</div>
+
+						<div class="row containerSubmitButton">
+							<div class="col-md-6">
+								<button class="cancelButton" type="reset">Cancella
+									tutto</button>
+							</div>
+							<div class="col-md-6">
+								<button class="submitButton">Salva</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="menu5" class="tab-pane fade">
+				<div class="containerTitoloForm">
+					<h3>
+						Aggiungi un nuovo prodotto <span class="glyphicon glyphicon-floppy-save"></span>
+					</h3>
+				</div>
+				<hr>
+				<div class="containerFormDatipersonali">
+					<form action="aggiungiProdottoVenditore">
+						<div class="containerDatiForm">
+							<div class="row">
+								<div class="col-md-1">
+									<label for="nomeProdotto">Nome Prodotto</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" id="nomeProdotto" name="nome"
+										placeholder="Inserire nuovo nome prodotto"
+										value="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="marcaProdotto">Marca Prodotto</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" id="marcaProdotto" name="marca"
+										placeholder="Inserire nuova marca prodotto"
+										value="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="negozioVenditore">Negozio Venditore</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" id="negozioVenditore" name="negozio"
+										placeholder="Inserire nuovo nome del negozio"
+										value="${venditore.nomeNegozio}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="emailVenditore">Email Utente</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" id="emailUtente" name="email"
+										placeholder="Inserire nuova email venditore"
+										value="${venditore.emailVenditore}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="indirizzoVenditore">Indirizzo Venditore</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" name="indirizzoVenditore"
+										value="${venditore.indirizzoVenditore}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="recapitoTelefonico">Recapito Telefonico</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" id="recapitoTelefonico"
+										name="recapitoTelefonicoVenditore"
+										placeholder="Inserire nuovo recapito telefonico"
+										value="${venditore.numeroTelefonicoVenditore}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="descrizioneVenditore">Descrizione venditore</label>
+								</div>
+								<div class="col-md-8">
+									<textarea id="descrizioneVenditore" name="descrizioneVenditore"
+										placeholder="Inserire una descrizione..."
+										style="height: 50%; width: 100%;">${venditore.descrizioneVenditore}</textarea>
+								</div>
+							</div>
 						</div>
 
 						<div class="row containerSubmitButton">

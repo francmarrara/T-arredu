@@ -1,5 +1,3 @@
-
-
 /* Valida Email registrazione */
 $(document).on("focusout", "#emailVenditore", function() {
 	var input_val = $(this).val();
@@ -28,7 +26,7 @@ $(document).on("focusout", "#emailVenditore", function() {
 
 	}
 
-}); 
+});
 
 // /* Validatore PASSWORD */
 $(document).on("focusout", "#confirmNewPassword", function() {
@@ -88,9 +86,7 @@ $(document).on("focusout", "#confirmNewPassword", function() {
 $(document).on("focusout", "#oldPassword", function() {
 	var password = $("#oldPassword").val();
 
-
 	var confirmPassword = $("#passwordPerVerifica").val();
-
 
 	if (password == confirmPassword) {
 		$("#oldPassword").css({
@@ -124,12 +120,9 @@ function cambiaDati() {
 
 	var newPassword = $("#newPassword").val();
 	var confirmPassword = $("#confirmNewPassword").val();
-	alert('ciao');
 
 	if (newPassword == confirmPassword) {
 
-		console.log('miao');
-		
 		$.ajax({
 			type : "GET",
 			url : "cambiaPasswordVenditore",
@@ -147,7 +140,8 @@ function cambiaDati() {
 				$("#snackbar").text("PASSWORD MODIFICATA CON SUCCESSO");
 				showSnackbar();
 
-				window.setTimeout(window.location.replace('profiloVenditore'), 1000);
+				window.setTimeout(window.location.replace('profiloVenditore'),
+						1000);
 
 			}
 		})
@@ -156,11 +150,10 @@ function cambiaDati() {
 
 }
 
-
-// rimuovo Prodotto 
+// rimuovo Prodotto
 
 function rimuoviDaiProdotti(idProdotto) {
-	
+
 	$.ajax({
 		type : "GET",
 		url : "rimuoviProdottoDelVenditore",

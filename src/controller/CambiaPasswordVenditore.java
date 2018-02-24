@@ -25,9 +25,6 @@ public class CambiaPasswordVenditore extends HttpServlet {
 		String nuovaPassword = req.getParameter("nuovaPassword");
 		String emailVenditore = (String) req.getSession().getAttribute("emailVenditoreLoggato");
 		
-		System.out.println(nuovaPassword);
-		System.out.println(emailVenditore);
-		
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		
 		factory.getVenditoreDAO().changePassword(emailVenditore, nuovaPassword);
