@@ -569,6 +569,15 @@ window.smartsupp||(function(d) {
 							</div>
 							<div class="row">
 								<div class="col-md-1">
+									<label for="coloriProdotto">Colori Prodotto</label>
+								</div>
+								<div class="col-md-8">
+									<input type="text" id="coloriProdotto" name="colori"
+										placeholder="Inserire i colori, separati da ',' " value="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
 									<label for="descrizioneProdotto">Descrizione prodotto</label>
 								</div>
 								<div class="col-md-8">

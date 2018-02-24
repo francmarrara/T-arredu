@@ -130,7 +130,7 @@ public class Prodotto {
 		System.out.println("Ambiente : " + ambienteProdotto);
 		System.out.println("Prezzo : " + prezzoProdotto);
 		System.out.println("Misure : " + misureProdotto);
-		System.out.println("Disponibilità : " + inOfferta);
+		System.out.println("Offerta : " + inOfferta);
 		System.out.println("Descrizione : " + descrizioneProdotto);
 		System.out.println("IMMAGINI : ");
 		System.out.println("----------------");
@@ -189,4 +189,69 @@ public class Prodotto {
 		this.commentiProdotto = commentiProdotto;
 	}
 
+	public void setValue(String name, String value) {
+
+		switch (name) {
+		case "nome": {
+			this.setNomeProdotto(value);
+			break;
+		}
+		case "marca": {
+			this.setMarcaProdotto(value);
+			break;
+		}
+		case "tipo": {
+			this.setTipoProdotto(value);
+			break;
+		}
+
+		case "ambiente": {
+			this.setAmbienteProdotto(value);
+			break;
+		}
+
+		case "prezzo": {
+			this.setPrezzoProdotto(Double.parseDouble(value));
+			break;
+		}
+
+		case "misure": {
+			this.setMisureProdotto(value);
+			break;
+
+		}
+
+		case "colori": {
+			String colori = value;
+
+			String[] coloriSingoli = colori.split(",");
+
+			for (String s : coloriSingoli) {
+				s = s.replaceAll("\\s", "");
+				this.getColoriProdotto().add(s);
+
+			}
+			break;
+		}
+
+		case "descrizioneProdotto": {
+			this.setDescrizioneProdotto(value);
+			break;
+		}
+
+		case "prodottoInOfferta": {
+			if (value.equals("1")) {
+				this.setOffertaProdotto(true);
+				break;
+			} else {
+				this.setOffertaProdotto(false);
+				break;
+
+			}
+
+		}
+
+		}
+
+	}
 }

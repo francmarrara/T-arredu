@@ -1,85 +1,144 @@
 package controller;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import model.Prodotto;
+import model.Venditore;
+import persistenceDAO.DAOFactory;
+
 /**
  * Servlet implementation class CambiaAvatar
  */
 
-@MultipartConfig(maxFileSize = 199999999)
 public class AggiungiProdottoVenditore extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private File file;
-
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * 
 	 */
-	public AggiungiProdottoVenditore() {
-		super();
-		// TODO Auto-generated constructor stub
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+		Prodotto p = new Prodotto();
+		String emailVenditore = (String) request.getSession().getAttribute("emailVenditoreLoggato");
+
+		ServletContext sc = request.getSession().getServletContext();
+
+		if (!ServletFileUpload.isMultipartContent(request)) {
+			System.out.println("Nothing to upload");
+			return;
+		}
+		FileItemFactory itemfactory = new DiskFileItemFactory();
+		ServletFileUpload upload = new ServletFileUpload(itemfactory);
+		try {
+			List<FileItem> items = upload.parseRequest(request);
+			for (FileItem item : items) {
+
+				Integer numeroImmagini = 0;
+
+				if (!item.isFormField()) {
+
+					String urlImmagine = "images/productImages/" + item.getFieldName() + "_" + item.getName();
+					
+					System.out.println("URL IMMAGINE DEL PRODOTTO : "+urlImmagine);
+
+					if (numeroImmagini == 0) {
+						p.setUrlImmaginePrincipale(urlImmagine);
+						p.getUrlImmaginiProdotto().add(urlImmagine);
+						numeroImmagini++;
+					} else {
+						p.getUrlImmaginiProdotto().add(urlImmagine);
+						numeroImmagini++;
+					}
+
+					File savedFile = new File(sc.getRealPath("/") + "\\images\\productImages\\" + item.getFieldName()
+							+ "_" + item.getName());
+
+					item.write(savedFile);
+
+					System.out.println("File Saved Successfully");
+				} else {
+					p.setValue(item.getFieldName(), item.getString());
+
+				}
+
+			}
+
+			if (p.getOffertaProdotto() == null) {
+				p.setOffertaProdotto(false);
+				// Si veda lo switch di Prodotto.java per
+				// il caso TRUE
+
+			}
+
+			// Aggiungo il venditore
+			p.getVenditoriProdotto().add(new Venditore(emailVenditore));
+
+			p.stampaProdotto();
+
+			// CHIAMO IL DAO PER SALVARE IL PRODOTTO
+
+			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+			factory.getProdottoDAO().save(p);
+
+		} catch (FileUploadException e) {
+
+			System.out.println("upload fail");
+		} catch (Exception ex) {
+
+			System.out.println(ex.getMessage());
+		}
+
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	public void salvaImmagini(HttpServletRequest request, int num) {
+		ServletContext sc = request.getSession().getServletContext();
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+		if (!ServletFileUpload.isMultipartContent(request)) {
+			System.out.println("Nothing to upload");
+			return;
+		}
+		FileItemFactory itemfactory = new DiskFileItemFactory();
+		ServletFileUpload upload = new ServletFileUpload(itemfactory);
+		try {
+			List<FileItem> items = upload.parseRequest(request);
+			for (FileItem item : items) {
 
-		
-		PrintWriter out = response.getWriter();
-		   
-		  if(!ServletFileUpload.isMultipartContent(request)){
-		   out.println("Nothing to upload");
-		   return; 
-		  }
-		  FileItemFactory itemfactory = new DiskFileItemFactory(); 
-		  ServletFileUpload upload = new ServletFileUpload(itemfactory);
-		  try{
-		   List<FileItem>  items = upload.parseRequest(request);
-		   for(FileItem item:items){
-		     
-		    String contentType = item.getContentType();
-		    if(!contentType.equals("pic1")){
-		     out.println("only png format image files supported");
-		     continue;
-		    }
-		    File uploadDir = new File("C:\\Users\\xblac\\Desktop");
-		    File file = File.createTempFile("img",".png",uploadDir);
-		    item.write(file);
-		 
-		    out.println("File Saved Successfully");
-		   }
-		  }
-		  catch(FileUploadException e){
-		    
-		   out.println("upload fail");
-		  }
-		  catch(Exception ex){
-		    
-		   out.println("can't save");
-		  }
-		 }
+				if (!item.isFormField()) {
+
+					String urlImmagine = "/images/productImages/" + item.getFieldName() + "_" + item.getName();
+					System.out.println(urlImmagine);
+
+					File savedFile = new File(sc.getRealPath("/") + "\\images\\productImages\\" + item.getFieldName()
+							+ "_" + item.getName());
+
+					item.write(savedFile);
+
+					System.out.println("File Saved Successfully");
+				}
+
+			}
+		} catch (FileUploadException e) {
+
+			System.out.println("upload fail");
+		} catch (Exception ex) {
+
+			System.out.println(ex.getMessage());
+		}
+	}
 
 }
