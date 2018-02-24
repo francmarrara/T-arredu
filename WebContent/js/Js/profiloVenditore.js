@@ -176,3 +176,17 @@ function rimuoviDaiProdotti(idProdotto) {
 	})
 
 }
+
+/* Inserimento immagini */
+$(document).ready(function() {
+
+			var contatore = 1;
+
+			$("#aggiungiImmagine").click(function() {
+						$(".listaImmagini").append("<input type="+"file"+ "name="+"pic" +"accept="+"image/*"+"">");
+								
+			});
+			
+			
+			
+		});

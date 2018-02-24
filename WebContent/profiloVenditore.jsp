@@ -77,7 +77,7 @@ window.smartsupp||(function(d) {
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
 						src="images/TarreduLogo.png" width="50" height="50"></li>
-				
+
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right menuDestra">
@@ -253,8 +253,10 @@ window.smartsupp||(function(d) {
 													</div>
 													<div class="media-body">
 														<br>
-														<h4 class="media-heading"><strong>Codice Preventivo :
-															${preventivo.idPreventivo}</strong></h4>
+														<h4 class="media-heading">
+															<strong>Codice Preventivo :
+																${preventivo.idPreventivo}</strong>
+														</h4>
 													</div>
 												</div>
 											</td>
@@ -502,7 +504,8 @@ window.smartsupp||(function(d) {
 			<div id="menu5" class="tab-pane fade">
 				<div class="containerTitoloForm">
 					<h3>
-						Aggiungi un nuovo prodotto <span class="glyphicon glyphicon-floppy-save"></span>
+						Aggiungi un nuovo prodotto <span
+							class="glyphicon glyphicon-floppy-save"></span>
 					</h3>
 				</div>
 				<hr>
@@ -515,8 +518,7 @@ window.smartsupp||(function(d) {
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="nomeProdotto" name="nome"
-										placeholder="Inserire nuovo nome prodotto"
-										value="">
+										placeholder="Inserire nuovo nome prodotto" value="">
 								</div>
 							</div>
 							<div class="row">
@@ -525,60 +527,77 @@ window.smartsupp||(function(d) {
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="marcaProdotto" name="marca"
-										placeholder="Inserire nuova marca prodotto"
-										value="">
+										placeholder="Inserire nuova marca prodotto" value="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-1">
-									<label for="negozioVenditore">Negozio Venditore</label>
+									<label for="tipoProdotto">Tipo Prodotto</label>
 								</div>
 								<div class="col-md-8">
-									<input type="text" id="negozioVenditore" name="negozio"
-										placeholder="Inserire nuovo nome del negozio"
-										value="${venditore.nomeNegozio}">
+									<input type="text" id="tipoProdotto" name="tipo"
+										placeholder="Inserire nuovo tipo del prodotto" value="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-1">
-									<label for="emailVenditore">Email Utente</label>
+									<label for="ambienteProdotto">Ambiente Prodotto</label>
 								</div>
 								<div class="col-md-8">
-									<input type="text" id="emailUtente" name="email"
-										placeholder="Inserire nuova email venditore"
-										value="${venditore.emailVenditore}">
+									<input type="text" id="ambienteProdotto" name="ambiente"
+										placeholder="Inserire nuovo ambiente del prodotto" value="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-1">
-									<label for="indirizzoVenditore">Indirizzo Venditore</label>
+									<label for="prezzoProdotto">Prezzo Prodotto</label>
 								</div>
 								<div class="col-md-8">
-									<input type="text" name="indirizzoVenditore"
-										value="${venditore.indirizzoVenditore}">
+									<input type="text" id="prezzoProdotto" name="prezzo"
+										placeholder="Inserire nuovo prezzo del prodotto" value="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-1">
-									<label for="recapitoTelefonico">Recapito Telefonico</label>
+									<label for="misureProdotto">Misure Prodotto</label>
 								</div>
 								<div class="col-md-8">
-									<input type="text" id="recapitoTelefonico"
-										name="recapitoTelefonicoVenditore"
-										placeholder="Inserire nuovo recapito telefonico"
-										value="${venditore.numeroTelefonicoVenditore}">
+									<input type="text" id="misureProdotto" name="misure"
+										placeholder="Inserire nuove misure del prodotto" value="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-1">
-									<label for="descrizioneVenditore">Descrizione venditore</label>
+									<label for="descrizioneProdotto">Descrizione prodotto</label>
 								</div>
 								<div class="col-md-8">
-									<textarea id="descrizioneVenditore" name="descrizioneVenditore"
+									<textarea id="descrizioneProdotto" name="descrizioneProdotto"
 										placeholder="Inserire una descrizione..."
-										style="height: 50%; width: 100%;">${venditore.descrizioneVenditore}</textarea>
+										style="height: 50%; width: 100%;"></textarea>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="inserimentoImmagine">Inserire immagine
+										prodotto</label>
+								</div>
+								<div class="col-md-8">
+									<ol class="listaImmagini">
+										<li><input type="file" name="pic" accept="image/*">
+										</li>
+									</ol>
+									<button id="aggiungiImmagine">Aggiungi Immagine</button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<label for="inOfferta">Prodotto in offerta?</label><input
+										type="checkbox" name="prodottoInOfferta"
+										class="messageCheckbox" value="1">
+								</div>
+
+							</div>
+
 						</div>
 
 						<div class="row containerSubmitButton">
