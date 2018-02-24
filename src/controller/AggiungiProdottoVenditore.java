@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,11 +31,16 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
 		Prodotto p = new Prodotto();
+		PrintWriter out = response.getWriter();
 		String emailVenditore = (String) request.getSession().getAttribute("emailVenditoreLoggato");
 
 		ServletContext sc = request.getSession().getServletContext();
+
+		out.write(sc.getRealPath(""));
+		out.write("<br>");
 
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			System.out.println("Nothing to upload");
@@ -53,8 +57,6 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 				if (!item.isFormField()) {
 
 					String urlImmagine = "images/productImages/" + item.getFieldName() + "_" + item.getName();
-					
-					System.out.println("URL IMMAGINE DEL PRODOTTO : "+urlImmagine);
 
 					if (numeroImmagini == 0) {
 						p.setUrlImmaginePrincipale(urlImmagine);
@@ -65,12 +67,14 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 						numeroImmagini++;
 					}
 
-					File savedFile = new File(sc.getRealPath("/") + "\\images\\productImages\\" + item.getFieldName()
-							+ "_" + item.getName());
+					File savedFile = new File(
+							sc.getRealPath("") + "/images/productImages/" + item.getFieldName() + "_" + item.getName());
 
 					item.write(savedFile);
 
-					System.out.println("File Saved Successfully");
+					out.write("File Saved Successfully");
+					out.write("<br>");
+
 				} else {
 					p.setValue(item.getFieldName(), item.getString());
 
@@ -96,49 +100,18 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 			factory.getProdottoDAO().save(p);
 
 		} catch (FileUploadException e) {
+			out.write("cant upload");
+			out.write(e.getMessage());
+			out.write("<br>");
 
-			System.out.println("upload fail");
 		} catch (Exception ex) {
 
-			System.out.println(ex.getMessage());
+			out.write("eccezione");
+			out.write(ex.getMessage());
+			out.write("<br>");
+
 		}
 
-	}
-
-	public void salvaImmagini(HttpServletRequest request, int num) {
-		ServletContext sc = request.getSession().getServletContext();
-
-		if (!ServletFileUpload.isMultipartContent(request)) {
-			System.out.println("Nothing to upload");
-			return;
-		}
-		FileItemFactory itemfactory = new DiskFileItemFactory();
-		ServletFileUpload upload = new ServletFileUpload(itemfactory);
-		try {
-			List<FileItem> items = upload.parseRequest(request);
-			for (FileItem item : items) {
-
-				if (!item.isFormField()) {
-
-					String urlImmagine = "/images/productImages/" + item.getFieldName() + "_" + item.getName();
-					System.out.println(urlImmagine);
-
-					File savedFile = new File(sc.getRealPath("/") + "\\images\\productImages\\" + item.getFieldName()
-							+ "_" + item.getName());
-
-					item.write(savedFile);
-
-					System.out.println("File Saved Successfully");
-				}
-
-			}
-		} catch (FileUploadException e) {
-
-			System.out.println("upload fail");
-		} catch (Exception ex) {
-
-			System.out.println(ex.getMessage());
-		}
 	}
 
 }
