@@ -98,6 +98,15 @@
 		<servlet-name>AggiungiPreferito</servlet-name>
 		<url-pattern>/aggiungiPreferito</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AggiungiProdottoVenditore</servlet-name>
+		<servlet-class>controller.AggiungiProdottoVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiProdottoVenditore</servlet-name>
+		<url-pattern>/aggiungiProdottoVenditore</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>ProdottoGiaInCarrello</servlet-name>

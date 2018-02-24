@@ -178,15 +178,22 @@ function rimuoviDaiProdotti(idProdotto) {
 }
 
 /* Inserimento immagini */
-$(document).ready(function() {
+$(document).ready(
+		function() {
 
-			var contatore = 1;
+			var contatore = $("#contatoreImmagini").val();
 
-			$("#aggiungiImmagine").click(function() {
-						$(".listaImmagini").append("<input type="+"file"+ "name="+"pic" +"accept="+"image/*"+"">");
-								
-			});
-			
-			
-			
+			$("#aggiungiImmagine").click(
+					function() {
+						contatore++;
+						$(".listaImmagini ol").append(
+								"<li><input type=" + "file" + " name=" + "pic"
+										+ contatore + " accept=" + "image/*"
+										+ "" + ">" + "</li>");
+
+						$("#contatoreImmagini").val(contatore);
+						return false;
+
+					});
+
 		});

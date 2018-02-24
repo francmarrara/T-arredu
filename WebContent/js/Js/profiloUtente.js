@@ -86,13 +86,10 @@ $(document).on("focusout", "#confirmNewPassword", function() {
 
 // Valida email vecchia confrontata alla nuova
 $(document).on("focusout", "#oldPassword", function() {
+	
 	var password = $("#oldPassword").val();
-
-	console.log(password);
-
 	var confirmPassword = $("#passwordPerVerifica").val();
 
-	console.log(confirmPassword);
 
 	if (password == confirmPassword) {
 		$("#oldPassword").css({

@@ -31,5 +31,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="libs/activation.jar"/>
 	<classpathentry kind="lib" path="libs/javax.mail.jar"/>
+	<classpathentry kind="lib" path="libs/commons-fileupload-1.3.3.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

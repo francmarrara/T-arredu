@@ -510,7 +510,8 @@ window.smartsupp||(function(d) {
 				</div>
 				<hr>
 				<div class="containerFormDatipersonali">
-					<form action="aggiungiProdottoVenditore">
+					<form action="aggiungiProdottoVenditore" method="post"
+						enctype="multipart/form-data">
 						<div class="containerDatiForm">
 							<div class="row">
 								<div class="col-md-1">
@@ -576,15 +577,18 @@ window.smartsupp||(function(d) {
 										style="height: 50%; width: 100%;"></textarea>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-md-1">
 									<label for="inserimentoImmagine">Inserire immagine
 										prodotto</label>
 								</div>
-								<div class="col-md-8">
-									<ol class="listaImmagini">
-										<li><input type="file" name="pic" accept="image/*">
-										</li>
+								<div class="col-md-8 listaImmagini">
+									<input id="contatoreImmagini" value="1"
+										name="contatoreImmagini" style="display: none;">
+									<ol>
+										<li><input type="file" name="pic1" accept="image/*"
+											class=""></li>
 									</ol>
 									<button id="aggiungiImmagine">Aggiungi Immagine</button>
 								</div>
