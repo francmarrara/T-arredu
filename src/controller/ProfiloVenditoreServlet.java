@@ -39,6 +39,8 @@ public class ProfiloVenditoreServlet extends HttpServlet {
 
 		List<Preventivo> listaPreventivi = factory.getVenditoreDAO().getPreventiviVenditore(emailVenditore);
 		req.setAttribute("listaPreventivi", listaPreventivi);
+	
+		
 
 		RequestDispatcher dispacher = req.getRequestDispatcher("profiloVenditore.jsp");
 		dispacher.forward(req, resp);

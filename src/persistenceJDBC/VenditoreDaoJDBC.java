@@ -1,5 +1,8 @@
 package persistenceJDBC;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,9 +11,20 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+
 import model.Preventivo;
 import model.ProdottoConImmagini;
+import model.Utente;
 import model.Venditore;
+import persistenceDAO.DAOFactory;
 import persistenceDAO.DataSource;
 import persistenceDAO.IdBuilder;
 import persistenceDAO.PersistenceException;
@@ -198,21 +212,30 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		try {
 
 			String update = "update venditore SET nomeTitolare = ?, cognomeTitolare = ?, nomeNegozio = ?, "
-					+ "indirizzoVenditore = ?, emailVenditore = ?, passwordVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, latitudineVenditore = ?,"
+					+ "indirizzoVenditore = ?, emailVenditore = ?, numeroTelefonicoVenditore = ?, descrizioneVenditore = ?, latitudineVenditore = ?,"
 					+ "longitudineVenditore=? " + "WHERE emailVenditore = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
+
+			String latLongs[] = null;
+			try {
+				latLongs = getLatLongPositions(venditore.getIndirizzoVenditore());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			venditore.setLatitudineVenditore(latLongs[0]);
+			venditore.setLongitudineVenditore(latLongs[1]);
 
 			statement.setString(1, venditore.getNomeTitolare());
 			statement.setString(2, venditore.getCognomeTitolare());
 			statement.setString(3, venditore.getNomeNegozio());
 			statement.setString(4, venditore.getIndirizzoVenditore());
 			statement.setString(5, venditore.getEmailVenditore());
-			statement.setString(6, venditore.getPasswordVenditore());
-			statement.setString(7, venditore.getNumeroTelefonicoVenditore());
-			statement.setString(8, venditore.getDescrizioneVenditore());
-			statement.setString(9, venditore.getLatitudineVenditore());
-			statement.setString(10, venditore.getLongitudineVenditore());
-			statement.setString(11, venditore.getEmailVenditore());
+			statement.setString(6, venditore.getNumeroTelefonicoVenditore());
+			statement.setString(7, venditore.getDescrizioneVenditore());
+			statement.setString(8, venditore.getLatitudineVenditore());
+			statement.setString(9, venditore.getLongitudineVenditore());
+			statement.setString(10, venditore.getEmailVenditore());
 			statement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -367,7 +390,10 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 				while (result.next()) {
 					p.setIdPreventivo(result.getInt("id_preventivo"));
 					p.setDataOraPreventivo(result.getDate("data_ora_preventivo"));
-					p.setUtente(result.getString("id_utente"));
+					DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+					Utente u = factory.getUtenteDAO().findByPrimaryKey(result.getString("id_utente"));
+
+					p.setUtente(u.getNomeUtente() + " " + u.getCognomeUtente());
 
 					ProdottoConImmagini prod = new ProdottoConImmagini();
 					prod.setIdProdotto(result.getInt("id_prodotto"));
@@ -409,6 +435,51 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 			throw new PersistenceException(e.getMessage());
 		}
 
+	}
+
+	public String[] getLatLongPositions(String address) throws Exception {
+		int responseCode = 0;
+		String api = "https://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8")
+				+ "&key=AIzaSyAUvzMYr08iaxtaGH2K31C7lLifLHRL2g4";
+
+		URL url = new URL(api);
+		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+		httpConnection.connect();
+		responseCode = httpConnection.getResponseCode();
+		if (responseCode == 200) {
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			;
+			Document document = builder.parse(httpConnection.getInputStream());
+			XPathFactory xPathfactory = XPathFactory.newInstance();
+			XPath xpath = xPathfactory.newXPath();
+			XPathExpression expr = xpath.compile("/GeocodeResponse/status");
+			String status = (String) expr.evaluate(document, XPathConstants.STRING);
+			if (status.equals("OK")) {
+				expr = xpath.compile("//geometry/location/lat");
+				String latitude = (String) expr.evaluate(document, XPathConstants.STRING);
+				expr = xpath.compile("//geometry/location/lng");
+				String longitude = (String) expr.evaluate(document, XPathConstants.STRING);
+				return new String[] { latitude, longitude };
+			} else {
+				throw new Exception("Error from the API - response status: " + status);
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void changePassword(String venditore, String password) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update venditore SET passwordVenditore = ? WHERE emailVenditore = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, password);
+			statement.setString(2, venditore);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+
+		}
 	}
 
 }

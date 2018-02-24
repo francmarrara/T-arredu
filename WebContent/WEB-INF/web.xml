@@ -61,7 +61,7 @@
 		<servlet-name>ValidaCredenzialiLogin</servlet-name>
 		<url-pattern>/validaCredenzialiLogin</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ValidaCredenzialiVenditoreLogin</servlet-name>
 		<servlet-class>controller.ValidaCredenzialiVenditore</servlet-class>
@@ -145,7 +145,7 @@
 		<url-pattern>/rimuoviDalCarrello</url-pattern>
 	</servlet-mapping>
 
-<servlet>
+	<servlet>
 		<servlet-name>RimuoviProdottoDaiPreferiti</servlet-name>
 		<servlet-class>controller.RimuoviProdottoDaiPreferiti</servlet-class>
 	</servlet>
@@ -153,7 +153,7 @@
 		<servlet-name>RimuoviProdottoDaiPreferiti</servlet-name>
 		<url-pattern>/rimuoviDaiPreferiti</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>RimuoviProdottoDelVenditore</servlet-name>
 		<servlet-class>controller.RimuoviProdottoDelVenditore</servlet-class>
@@ -191,7 +191,7 @@
 		<servlet-name>UtenteServlet</servlet-name>
 		<url-pattern>/utente</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ProfiloVenditore</servlet-name>
 		<servlet-class>controller.ProfiloVenditoreServlet</servlet-class>
@@ -220,6 +220,17 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>CambiaPasswordVenditore</servlet-name>
+		<servlet-class>controller.CambiaPasswordVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiaPasswordVenditore</servlet-name>
+		<url-pattern>/cambiaPasswordVenditore</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
 		<servlet-name>AggiornaDatiPersonali</servlet-name>
 		<servlet-class>controller.AggiornaDatiPersonali</servlet-class>
 	</servlet>
@@ -227,6 +238,16 @@
 		<servlet-name>AggiornaDatiPersonali</servlet-name>
 		<url-pattern>/aggiornaDatiPersonali</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AggiornaDatiPersonaliVenditore</servlet-name>
+		<servlet-class>controller.AggiornaDatiPersonaliVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiornaDatiPersonaliVenditore</servlet-name>
+		<url-pattern>/aggiornaDatiPersonaliVenditore</url-pattern>
+	</servlet-mapping>
+
 
 	<servlet>
 		<servlet-name>TuttiProdotti</servlet-name>

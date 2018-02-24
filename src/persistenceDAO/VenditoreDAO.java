@@ -20,7 +20,7 @@ public interface VenditoreDAO {
 	public boolean credenzialiVenditoreGiaPresenti(String email, String passw);
 	public List<Preventivo> getPreventiviVenditore(String emailVenditore);
 	public void rimuoviProdottoDelVenditore(Integer idProdotto);
-	
+	public void changePassword(String venditore, String password);
 	
 	
 }

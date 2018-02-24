@@ -88,11 +88,9 @@ $(document).on("focusout", "#confirmNewPassword", function() {
 $(document).on("focusout", "#oldPassword", function() {
 	var password = $("#oldPassword").val();
 
-	console.log(password);
 
 	var confirmPassword = $("#passwordPerVerifica").val();
 
-	console.log(confirmPassword);
 
 	if (password == confirmPassword) {
 		$("#oldPassword").css({
@@ -126,12 +124,15 @@ function cambiaDati() {
 
 	var newPassword = $("#newPassword").val();
 	var confirmPassword = $("#confirmNewPassword").val();
+	alert('ciao');
 
 	if (newPassword == confirmPassword) {
 
+		console.log('miao');
+		
 		$.ajax({
 			type : "GET",
-			url : "cambiaPassword",
+			url : "cambiaPasswordVenditore",
 
 			data : {
 				nuovaPassword : newPassword,

@@ -17,7 +17,6 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
@@ -78,7 +77,7 @@ window.smartsupp||(function(d) {
 				<ul class="nav navbar-nav">
 					<li class="navbarOggetto"><img id="logoButton"
 						src="images/TarreduLogo.png" width="50" height="50"></li>
-					<li class="navbarOggetto"><a href="profiloVenditore">Home</a></li>
+				
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right menuDestra">
@@ -236,6 +235,7 @@ window.smartsupp||(function(d) {
 								<thead>
 									<tr>
 										<th>Codice Preventivo</th>
+										<th>Utente</th>
 										<th>Data Preventivo</th>
 										<th class="text-center">Lista Prodotti in preventivo</th>
 									</tr>
@@ -252,11 +252,12 @@ window.smartsupp||(function(d) {
 													</div>
 													<div class="media-body">
 														<br>
-														<h4 class="media-heading">Codice Preventivo :
-															${preventivo.idPreventivo}</h4>
+														<h4 class="media-heading"><strong>Codice Preventivo :
+															${preventivo.idPreventivo}</strong></h4>
 													</div>
 												</div>
 											</td>
+											<td class="col-sm-1 col-md-1 text-left"><strong>${preventivo.utente}</strong></td>
 											<td class="col-sm-1 col-md-1 text-left"><strong>${preventivo.dataOraPreventivo}</strong></td>
 
 											<td
@@ -353,7 +354,7 @@ window.smartsupp||(function(d) {
 				</div>
 				<hr>
 				<div class="containerFormDatipersonali">
-					<form action="aggiornaDatiPersonali">
+					<form action="aggiornaDatiPersonaliVenditore">
 						<div class="containerDatiForm">
 							<div class="row">
 								<div class="col-md-1">
@@ -367,7 +368,7 @@ window.smartsupp||(function(d) {
 							</div>
 							<div class="row">
 								<div class="col-md-1">
-									<label for="cognomeUtente">Cognome venditore</label>
+									<label for="cognomeVenditore">Cognome venditore</label>
 								</div>
 								<div class="col-md-8">
 									<input type="text" id="cognomeVenditore" name="cognome"
