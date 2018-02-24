@@ -212,6 +212,11 @@ window.smartsupp||(function(d) {
 											<span class="glyphicon glyphicon-remove"></span> Rimuovi dai
 											Prodotti
 										</button>
+										<button type="button" id="bottoneRimuovi"
+											class="btn btn-info"
+											onclick="apriModificaProdotto('${prodotto.idProdotto}')">
+											<span class="glyphicon glyphicon-pencil"></span> Modifica
+										</button>
 									</div>
 								</div>
 							</div>

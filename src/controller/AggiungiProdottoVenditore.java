@@ -39,9 +39,6 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 
 		ServletContext sc = request.getSession().getServletContext();
 
-		out.write(sc.getRealPath(""));
-		out.write("<br>");
-
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			System.out.println("Nothing to upload");
 			return;
@@ -72,8 +69,6 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 
 					item.write(savedFile);
 
-					out.write("File Saved Successfully");
-					out.write("<br>");
 
 				} else {
 					p.setValue(item.getFieldName(), item.getString());
@@ -111,6 +106,8 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 			out.write("<br>");
 
 		}
+		
+		response.sendRedirect("profiloVenditore");
 
 	}
 

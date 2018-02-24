@@ -197,3 +197,20 @@ $(document).ready(
 					});
 
 		});
+
+/* Apri modifica Prodotto */
+function apriModificaProdotto(idProdotto) {
+	window.open("modificaProdotto?id="+idProdotto, null,"height=600,width=1100,status=yes,toolbar=no,menubar=no,location=no");
+}
+
+
+
+
+
+
+
+
+
+
+
+
