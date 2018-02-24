@@ -118,6 +118,14 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setMisureProdotto(result.getString("misureProdotto"));
+//				if(result.getInt("offertaProdotto")==1) {
+//					prodotto.setOffertaProdotto(true);
+//					System.out.println("PRODOTTO IN OFFERTA");
+//				}
+//				else {
+//					System.out.println("PRODOTTO NON IN OFFERTA");
+//					prodotto.setOffertaProdotto(false);
+//				}
 				prodotto.setOffertaProdotto(result.getBoolean("offertaProdotto"));
 				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));

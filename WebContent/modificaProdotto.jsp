@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <html lang="it">
 
 <head>
@@ -40,7 +41,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="nomeProdotto" name="nome"
-								placeholder="Inserire nuovo nome prodotto" value="">
+								placeholder="Inserire nuovo nome prodotto"
+								value="${prodotto.nomeProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -49,7 +51,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="marcaProdotto" name="marca"
-								placeholder="Inserire nuova marca prodotto" value="">
+								placeholder="Inserire nuova marca prodotto"
+								value="${prodotto.marcaProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -58,7 +61,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="tipoProdotto" name="tipo"
-								placeholder="Inserire nuovo tipo del prodotto" value="">
+								placeholder="Inserire nuovo tipo del prodotto"
+								value="${prodotto.tipoProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -67,7 +71,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="ambienteProdotto" name="ambiente"
-								placeholder="Inserire nuovo ambiente del prodotto" value="">
+								placeholder="Inserire nuovo ambiente del prodotto"
+								value="${prodotto.ambienteProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -76,7 +81,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="prezzoProdotto" name="prezzo"
-								placeholder="Inserire nuovo prezzo del prodotto" value="">
+								placeholder="Inserire nuovo prezzo del prodotto"
+								value="${prodotto.prezzoProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -85,7 +91,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="misureProdotto" name="misure"
-								placeholder="Inserire nuove misure del prodotto" value="">
+								placeholder="Inserire nuove misure del prodotto"
+								value="${prodotto.misureProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -94,7 +101,8 @@
 						</div>
 						<div class="col-md-10">
 							<input type="text" id="coloriProdotto" name="colori"
-								placeholder="Inserire i colori, separati da ',' " value="">
+								placeholder="Inserire i colori, separati da ',' "
+								value="${prodotto.coloriProdotto}">
 						</div>
 					</div>
 					<div class="row">
@@ -104,7 +112,7 @@
 						<div class="col-md-10">
 							<textarea id="descrizioneProdotto" name="descrizioneProdotto"
 								placeholder="Inserire una descrizione..."
-								style="height: 50%; width: 100%;"></textarea>
+								style="height: 50%; width: 100%;">${prodotto.descrizioneProdotto}</textarea>
 						</div>
 					</div>
 
@@ -125,9 +133,20 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<label for="inOfferta">Prodotto in offerta?</label><input
-								type="checkbox" name="prodottoInOfferta" class="messageCheckbox"
-								value="1">
+
+
+							<c:if test="${offertaProdotto == true}">
+								<label for="inOfferta">Prodotto in offerta? <strong>SI</strong>
+								</label>
+								<input type="checkbox" name="prodottoInOfferta"
+									class="messageCheckbox" value="1" checked>
+							</c:if>
+							<c:if test="${offertaProdotto == false}">
+								<label for="inOfferta">Prodotto in offerta? <strong>NO</strong>
+								</label>
+								<input type="checkbox" name="prodottoInOfferta"
+									class="messageCheckbox" value="1">
+							</c:if>
 						</div>
 
 					</div>
@@ -137,7 +156,8 @@
 				<div class="bottoni">
 					<div class="row containerSubmitButton">
 						<div class="col-md-6">
-							<button class="cancelButton" type="reset" onclick="alert('suca')">Cancella tutto</button>
+							<button class="cancelButton" type="reset" onclick="alert('suca')">Cancella
+								tutto</button>
 						</div>
 						<div class="col-md-6">
 							<button class="submitButton" onclick="alert('sucaduevolte')">Salva</button>

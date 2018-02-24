@@ -25,6 +25,14 @@ public class ModificaProdotto extends HttpServlet{
 		
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 		Prodotto prodotto = factory.getProdottoDAO().findByPrimaryKey(idProdotto);
+	
+		if(prodotto.getOffertaProdotto()) {
+			req.setAttribute("offertaProdotto", true);
+		}
+		else {
+			req.setAttribute("offertaProdotto", false);
+		}
+		
 		
 		req.setAttribute("prodotto", prodotto);
 		
