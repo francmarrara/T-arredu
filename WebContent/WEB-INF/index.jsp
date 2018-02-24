@@ -460,7 +460,7 @@
 							style="text-align: center;">
 							<a href="prodotto?id=${prodotto.idProdotto}"><img
 								class="immagineProdottoInOfferta img img-responsive"
-								src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
+								src="${prodotto.immaginePrincipale}" alt="${prodotto.nomeProdotto}"></a>
 						</div>
 						<div class="containerTitoloETestoOfferta">
 							<div class="titoloArticoloInOfferta">
@@ -496,7 +496,7 @@
 						</div>
 						<a href="prodotto?id=${prodotto.idProdotto}"><img
 							class="immagineProdottoInOfferta img img-responsive"
-							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
+							src="${prodotto.immaginePrincipale}" alt="${prodotto.nomeProdotto}"></a>
 						<div class="containerTitoloETestoOfferta">
 							<div class="titoloArticoloInOfferta">
 								<h4 class="nomeProdottoOfferta">${prodotto.nomeProdotto}</h4>
@@ -535,10 +535,10 @@
 					<div class="couponPiuVisto">
 						<a href="prodotto?id=${prodotto.idProdotto}"><img
 							class="immagineProdottoPiuVisto img img-responsive"
-							src="${prodotto.immaginePrincipale}" alt="Divano Ardiano"></a>
+							src="${prodotto.immaginePrincipale}" alt="${prodotto.nomeProdotto}"></a>
 						<div class="containerTitoloETesto">
 							<div class="titoloArticoloPiuVisto">
-								<h4>${prodotto.nomeProdotto }</h4>
+								<h4>${prodotto.nomeProdotto}</h4>
 							</div>
 						</div>
 						<button type="button"
