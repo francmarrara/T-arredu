@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,7 +34,10 @@ public class ModificaProdotto extends HttpServlet{
 			req.setAttribute("offertaProdotto", false);
 		}
 		
+		List<String> immaginiProdotto = factory.getProdottoDAO().getImages(idProdotto);
 		
+		req.setAttribute("listaImmaginiProdotto", immaginiProdotto);
+		req.setAttribute("dimensioneListaImmagini", immaginiProdotto.size());
 		req.setAttribute("prodotto", prodotto);
 		
 		RequestDispatcher dispacher = req.getRequestDispatcher("modificaProdotto.jsp");

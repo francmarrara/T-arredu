@@ -118,14 +118,14 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
 				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
 				prodotto.setMisureProdotto(result.getString("misureProdotto"));
-//				if(result.getInt("offertaProdotto")==1) {
-//					prodotto.setOffertaProdotto(true);
-//					System.out.println("PRODOTTO IN OFFERTA");
-//				}
-//				else {
-//					System.out.println("PRODOTTO NON IN OFFERTA");
-//					prodotto.setOffertaProdotto(false);
-//				}
+				// if(result.getInt("offertaProdotto")==1) {
+				// prodotto.setOffertaProdotto(true);
+				// System.out.println("PRODOTTO IN OFFERTA");
+				// }
+				// else {
+				// System.out.println("PRODOTTO NON IN OFFERTA");
+				// prodotto.setOffertaProdotto(false);
+				// }
 				prodotto.setOffertaProdotto(result.getBoolean("offertaProdotto"));
 				prodotto.setDescrizioneProdotto(result.getString("descrizioneProdotto"));
 				prodotto.setNumeroVisite(result.getInt("numeroVisite"));
@@ -312,7 +312,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			ResultSet result = statement.executeQuery();
 
 			result = statement.executeQuery();
-			if (result.next()) {
+			while (result.next()) {
 				immagini.add(result.getString("urlImmagine"));
 
 			}
@@ -784,4 +784,216 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	}
 
+	@Override
+	public Boolean isImmaginePrincipale(Integer idProdotto, String urlImmagine) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			PreparedStatement statementProdotto;
+			String query = "SELECT immaginePrincipale FROM prodotto where id_prodotto = ?;";
+
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setInt(1, idProdotto);
+
+			ResultSet result = statementProdotto.executeQuery();
+
+			if (result.next()) {
+
+				return true;
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return false;
+
+	}
+
+	@Override
+	public Integer countImages(Integer idProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		int count = 0;
+
+		try {
+
+			PreparedStatement statementProdotto;
+			String query = "SELECT count(*) FROM urlImmaginiProdotto where id_prodotto = ?;";
+
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setInt(1, idProdotto);
+
+			ResultSet result = statementProdotto.executeQuery();
+
+			if (result.next()) {
+
+				count = Integer.parseInt(result.getString("count(*)"));
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return count;
+
+	}
+
+	@Override
+	public Boolean deleteImage(Integer idProdotto, String urlImmagine) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		Integer dimensione = countImages(idProdotto);
+
+		// Se l'immagine è unica ed è la principale non posso eliminarla
+		if (dimensione == 1)
+			return false;
+		// Se l'immagine non è unica e non è la principale la elimino
+		else if (dimensione > 1 && isImmaginePrincipale(idProdotto, urlImmagine).equals(false)) {
+
+			try {
+
+				PreparedStatement statementProdotto;
+				String query = "DELETE FROM urlImmaginiProdotto where id_prodotto = ? and urlImmagine = ?;";
+
+				statementProdotto = connection.prepareStatement(query);
+
+				statementProdotto.setInt(1, idProdotto);
+				statementProdotto.setString(2, urlImmagine);
+
+				statementProdotto.executeUpdate();
+
+				return true;
+
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new PersistenceException(e.getMessage());
+				}
+			}
+
+		}
+		// L'immagine è principale e non è l'unica
+		else if (dimensione > 1 && isImmaginePrincipale(idProdotto, urlImmagine).equals(true)) {
+
+			try {
+
+				PreparedStatement statementProdotto;
+				String query = "DELETE FROM urlImmaginiProdotto where id_prodotto = ? and urlImmagine = ?;";
+
+				statementProdotto = connection.prepareStatement(query);
+
+				statementProdotto.setInt(1, idProdotto);
+				statementProdotto.setString(2, urlImmagine);
+
+				statementProdotto.executeUpdate();
+
+				// Prendo la seconda immagine e la sostituisco come immagine principale del
+				// prodotto
+				String nuovaImmagine = getPrimaImmagine(idProdotto);
+				setImmaginePrincipale(idProdotto, nuovaImmagine);
+
+				return true;
+
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new PersistenceException(e.getMessage());
+				}
+
+			}
+
+		}
+
+		return false;
+
+	}
+
+	@Override
+	public String getPrimaImmagine(Integer idProdotto) {
+
+		Connection connection = this.dataSource.getConnection();
+		String urlImmagine = null;
+
+		try {
+
+			PreparedStatement statementProdotto;
+			String query = "SELECT urlImmagine FROM tarreduDB.urlImmaginiProdotto where id_prodotto = ? LIMIT  1;";
+
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setInt(1, idProdotto);
+
+			ResultSet result = statementProdotto.executeQuery();
+
+			if (result.next()) {
+
+				urlImmagine = result.getString("urlImmagine");
+
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return urlImmagine;
+
+	}
+
+	@Override
+	public void setImmaginePrincipale(Integer idProdotto, String urlImmagine) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			PreparedStatement statementProdotto;
+			String query = "update prodotto SET immaginePrincipale = ? WHERE id_prodotto=?;";
+
+			statementProdotto = connection.prepareStatement(query);
+
+			statementProdotto.setString(1, urlImmagine);
+			statementProdotto.setInt(2, idProdotto);
+
+			statementProdotto.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+	}
 }

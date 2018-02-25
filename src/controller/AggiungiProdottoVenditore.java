@@ -69,7 +69,6 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 
 					item.write(savedFile);
 
-
 				} else {
 					p.setValue(item.getFieldName(), item.getString());
 

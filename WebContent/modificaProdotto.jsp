@@ -32,6 +32,7 @@
 	<div class="containerGenerale">
 		<div class="container containerFormDatipersonali">
 			<h2>Modifica Prodotto</h2>
+			<hr>
 			<form action="aggiungiProdottoVenditore" method="post"
 				enctype="multipart/form-data">
 				<div class="containerDatiForm">
@@ -45,7 +46,8 @@
 								value="${prodotto.nomeProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="marcaProdotto">Marca Prodotto</label>
 						</div>
@@ -55,7 +57,8 @@
 								value="${prodotto.marcaProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="tipoProdotto">Tipo Prodotto</label>
 						</div>
@@ -65,7 +68,8 @@
 								value="${prodotto.tipoProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="ambienteProdotto">Ambiente Prodotto</label>
 						</div>
@@ -75,7 +79,8 @@
 								value="${prodotto.ambienteProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="prezzoProdotto">Prezzo Prodotto</label>
 						</div>
@@ -85,7 +90,8 @@
 								value="${prodotto.prezzoProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="misureProdotto">Misure Prodotto</label>
 						</div>
@@ -95,7 +101,8 @@
 								value="${prodotto.misureProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="coloriProdotto">Colori Prodotto</label>
 						</div>
@@ -105,85 +112,136 @@
 								value="${prodotto.coloriProdotto}">
 						</div>
 					</div>
-					<div class="row">
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="descrizioneProdotto">Descrizione prodotto</label>
 						</div>
 						<div class="col-md-10">
 							<textarea id="descrizioneProdotto" name="descrizioneProdotto"
 								placeholder="Inserire una descrizione..."
-								style="height: 50%; width: 100%;">${prodotto.descrizioneProdotto}</textarea>
+								style="height: 50%; width: 90%;">${prodotto.descrizioneProdotto}</textarea>
 						</div>
 					</div>
-
-					<div class="row inserireImmagine">
+					<hr>
+					<div class="row riga inserireImmagine">
 						<div class="col-md-2">
-							<label for="inserimentoImmagine">Inserire immagine
+							<label for="eliminareImmagine">Eliminare immagine/i
 								prodotto</label>
 						</div>
-						<div class="col-md-10 listaImmagini">
-							<input id="contatoreImmagini" value="1" name="contatoreImmagini"
-								style="display: none;">
-							<ol>
-								<li><input type="file" name="pic1" accept="image/*"
-									class=""></li>
-							</ol>
-							<button id="aggiungiImmagine">Aggiungi Immagine</button>
+						<div class="col-md-10 listaImmaginiProdotto row">
+
+							<c:forEach var="immagineProdotto"
+								items="${listaImmaginiProdotto}" varStatus="loop" begin="0"
+								end="${dimensioneListaImmagini}" step="1">
+
+								<div class="column containerFotoProdotto">
+									<img src="${immagineProdotto}" style="width: 100%"
+										onclick="openModal();currentSlide(${loop.index})"
+										class="hover-shadow cursor img img-responsive imgProdotto">
+
+									<button type="button" id="bottoneRimuovi"
+										class="btn btn-danger"
+										onclick="rimuoviImmagineProdotto('${prodotto.idProdotto}', '${immagineProdotto}')">
+										<span class="glyphicon glyphicon-remove"></span> Rimuovi
+										immagine
+									</button>
+								</div>
+
+							</c:forEach>
+
+							<!-- MODAL -->
+							<div id="myModal" class="modal">
+								<span class="close cursor" onclick="closeModal()">&times;</span>
+								<div class="modal-content">
+
+									<c:forEach var="immagineProdotto"
+										items="${listaImmaginiProdotto}" varStatus="loop" begin="0"
+										end="${dimensioneListaImmagini}" step="1">
+
+										<div class="mySlides">
+											<div class="numbertext">${loop.index}/
+												${dimensioneListaImmagini}</div>
+											<img src="${immagineProdotto}" style="width: 100%">
+										</div>
+
+									</c:forEach>
+
+									<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
+										class="next" onclick="plusSlides(1)">&#10095;</a>
+
+									<hr style="border: 0.5px solid black; width: 100%;">
+
+									<c:forEach var="immagineProdotto"
+										items="${listaImmaginiProdotto}" varStatus="loop" begin="0"
+										end="${dimensioneListaImmagini}" step="1">
+
+										<div class="column">
+											<img class="demo cursor" src="${immagineProdotto}"
+												style="width: 100%" onclick="currentSlide(${loop.index})">
+										</div>
+
+
+									</c:forEach>
+
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row riga inserireImmagine">
+							<div class="col-md-2">
+								<label for="inserimentoImmagine">Inserire immagine
+									prodotto</label>
+							</div>
+							<div class="col-md-10 listaImmagini">
+								<input id="contatoreImmagini" value="1" name="contatoreImmagini"
+									style="display: none;">
+								<ol>
+									<li><input type="file" name="pic1" accept="image/*"
+										class=""></li>
+								</ol>
+								<button id="aggiungiImmagine">Aggiungi Immagine</button>
+							</div>
+						</div>
+						<hr>
+						<div class="row riga">
+							<div class="col-md-4">
+
+
+								<c:if test="${offertaProdotto == true}">
+									<label for="inOfferta">Prodotto in offerta? <strong>SI</strong>
+									</label>
+									<input type="checkbox" name="prodottoInOfferta"
+										class="messageCheckbox" value="1" checked>
+								</c:if>
+								<c:if test="${offertaProdotto == false}">
+									<label for="inOfferta">Prodotto in offerta? <strong>NO</strong>
+									</label>
+									<input type="checkbox" name="prodottoInOfferta"
+										class="messageCheckbox" value="1">
+								</c:if>
+							</div>
+
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-4">
-
-
-							<c:if test="${offertaProdotto == true}">
-								<label for="inOfferta">Prodotto in offerta? <strong>SI</strong>
-								</label>
-								<input type="checkbox" name="prodottoInOfferta"
-									class="messageCheckbox" value="1" checked>
-							</c:if>
-							<c:if test="${offertaProdotto == false}">
-								<label for="inOfferta">Prodotto in offerta? <strong>NO</strong>
-								</label>
-								<input type="checkbox" name="prodottoInOfferta"
-									class="messageCheckbox" value="1">
-							</c:if>
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="bottoni">
-					<div class="row containerSubmitButton">
-						<div class="col-md-6">
-							<button class="cancelButton" type="reset" onclick="alert('suca')">Cancella
-								tutto</button>
-						</div>
-						<div class="col-md-6">
-							<button class="submitButton" onclick="alert('sucaduevolte')">Salva</button>
+					<hr>
+					<div class="bottoni">
+						<div class="row containerSubmitButton">
+							<div class="col-md-6">
+								<button class="cancelButton" type="reset">Cancella
+									tutto</button>
+							</div>
+							<div class="col-md-6">
+								<button class="submitButton">Salva</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
 
-
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<div id="snackbar"></div>
 
 </body>
 </html>

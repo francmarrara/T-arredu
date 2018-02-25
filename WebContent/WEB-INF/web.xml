@@ -42,7 +42,7 @@
 		<servlet-name>VerificaEmail</servlet-name>
 		<url-pattern>/verificaMail</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ModificaProdotto</servlet-name>
 		<servlet-class>controller.ModificaProdotto</servlet-class>
@@ -107,7 +107,7 @@
 		<servlet-name>AggiungiPreferito</servlet-name>
 		<url-pattern>/aggiungiPreferito</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AggiungiProdottoVenditore</servlet-name>
 		<servlet-class>controller.AggiungiProdottoVenditore</servlet-class>
@@ -181,7 +181,14 @@
 		<url-pattern>/rimuoviProdottoDelVenditore</url-pattern>
 	</servlet-mapping>
 
-
+	<servlet>
+		<servlet-name>RimuoviImmagineProdotto</servlet-name>
+		<servlet-class>controller.RimuoviImmagineProdotto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviImmagineProdotto</servlet-name>
+		<url-pattern>/rimuoviImmagineProdotto</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>EffettuaLogout</servlet-name>

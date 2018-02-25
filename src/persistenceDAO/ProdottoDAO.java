@@ -23,6 +23,16 @@ public interface ProdottoDAO {
 
 	public List<String> getImages(Integer idProdotto);
 
+	public Boolean deleteImage(Integer idProdotto, String urlImmagine);
+
+	public Boolean isImmaginePrincipale(Integer idProdotto, String urlImmagine);
+
+	public Integer countImages(Integer idProdotto);
+
+	public String getPrimaImmagine(Integer idProdotto);
+
+	public void setImmaginePrincipale(Integer idProdotto, String urlImmagine);
+
 	public Integer getNumberOfvisit(Integer idProdotto);
 
 	public void visitPlusPlus(Integer idProdotto);
