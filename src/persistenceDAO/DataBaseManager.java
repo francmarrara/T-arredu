@@ -1089,7 +1089,7 @@ public class DataBaseManager {
 
 		prodotto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		prodotto.setUrlImmaginePrincipale("images/productImages/HarryH_01.jpg");
-		prodotto.getUrlImmaginiProdotto().add("HarryH_01.jpg");
+		prodotto.getUrlImmaginiProdotto().add("images/productImages/HarryH_01.jpg");
 		prodottoDao.save(prodotto);
 
 		// Lana
