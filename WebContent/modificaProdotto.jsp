@@ -33,10 +33,21 @@
 		<div class="container containerFormDatipersonali">
 			<h2>Modifica Prodotto</h2>
 			<hr>
-			<form action="aggiungiProdottoVenditore" method="post"
+			<form action="aggiornaProdotto" method="post"
 				enctype="multipart/form-data">
 				<div class="containerDatiForm">
-					<div class="row">
+				<div class="row riga">
+						<div class="col-md-2">
+							<label for="nomeProdotto">id Prodotto DB</label>
+						</div>
+						<div class="col-md-10">
+							<input type="text" id="idProdotto" name="idProdotto"
+								placeholder=""
+								value="${prodotto.idProdotto}" readonly>
+						</div>
+					</div>
+					<hr>
+					<div class="row riga">
 						<div class="col-md-2">
 							<label for="nomeProdotto">Nome Prodotto</label>
 						</div>
@@ -109,7 +120,7 @@
 						<div class="col-md-10">
 							<input type="text" id="coloriProdotto" name="colori"
 								placeholder="Inserire i colori, separati da ',' "
-								value="${prodotto.coloriProdotto}">
+								value="<c:forEach var="colore" items="${prodotto.coloriProdotto}"><c:out value="${colore}" />,</c:forEach>">
 						</div>
 					</div>
 					<hr>
@@ -135,10 +146,17 @@
 								items="${listaImmaginiProdotto}" varStatus="loop" begin="0"
 								end="${dimensioneListaImmagini}" step="1">
 
-								<div class="column containerFotoProdotto">
-									<img src="${immagineProdotto}" style="width: 100%"
+								<div class="column containerFotoProdotto"
+									style="width: 30%; height: 30%;">
+									<img src="${immagineProdotto}"
 										onclick="openModal();currentSlide(${loop.index})"
 										class="hover-shadow cursor img img-responsive imgProdotto">
+									<button type="button" id="bottoneRimuovi"
+										class="btn btn-success"
+										onclick="impostaComePrincipale('${prodotto.idProdotto}', '${immagineProdotto}')">
+										<span class="glyphicon glyphicon-remove"></span>Imposta Come
+										Principale
+									</button>
 
 									<button type="button" id="bottoneRimuovi"
 										class="btn btn-danger"
@@ -146,6 +164,7 @@
 										<span class="glyphicon glyphicon-remove"></span> Rimuovi
 										immagine
 									</button>
+
 								</div>
 
 							</c:forEach>
@@ -228,11 +247,11 @@
 					<div class="bottoni">
 						<div class="row containerSubmitButton">
 							<div class="col-md-6">
-								<button class="cancelButton" type="reset">Cancella
-									tutto</button>
+								<button class="btn btn-danger" type="reset">Ripristina Originali
+									</button>
 							</div>
 							<div class="col-md-6">
-								<button class="submitButton">Salva</button>
+								<button class="btn btn-success">Salva</button>
 							</div>
 						</div>
 					</div>

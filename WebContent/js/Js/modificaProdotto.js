@@ -19,7 +19,7 @@ $(document).ready(
 
 		});
 
-/* Rimuovo immagine dal prodotto */
+/* Modifico l'immagine principale del prodotto */
 function rimuoviImmagineProdotto(idProdotto, immagineProdotto) {
 
 	$.ajax({
@@ -32,7 +32,9 @@ function rimuoviImmagineProdotto(idProdotto, immagineProdotto) {
 		},
 
 		success : function(data) {
-			if (data == "true") {
+			
+			if (data=="true") {
+				console.log(data);
 				$("#snackbar").text("IMMAGINE RIMOSSA");
 				$("#snackbar").css({
 					'background-color' : 'green'
@@ -41,6 +43,7 @@ function rimuoviImmagineProdotto(idProdotto, immagineProdotto) {
 
 				window.setTimeout(location.reload(), 1000);
 			} else {
+				console.log(data);
 				$("#snackbar").text("NON E' POSSIBILE RIMUOVERE L'IMMAGINE");
 				$("#snackbar").css({
 					'background-color' : 'red'
@@ -51,6 +54,53 @@ function rimuoviImmagineProdotto(idProdotto, immagineProdotto) {
 	})
 
 }
+
+
+
+/* Rimuovo immagine dal prodotto */
+function impostaComePrincipale(idProdotto, immagineProdotto) {
+
+	$.ajax({
+		type : "GET",
+		url : "impostaComePrincipale",
+
+		data : {
+			idProdotto : idProdotto,
+			urlImmagine : immagineProdotto,
+		},
+
+		success : function(data) {
+			if (data == "true") {
+				$("#snackbar").text("IMMAGINE IMPOSTATA COME PRINCIPALE");
+				$("#snackbar").css({
+					'background-color' : 'green'
+				});
+				showSnackbar();
+
+				window.setTimeout(location.reload(), 1000);
+			} else {
+				$("#snackbar").text("L'IMMAGINE E' GIA' PRINCIPALE");
+				$("#snackbar").css({
+					'background-color' : 'red'
+				});
+				showSnackbar();
+			}
+		}
+	})
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* MODAL IMAGES */
 function openModal() {

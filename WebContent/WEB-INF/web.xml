@@ -43,6 +43,15 @@
 		<url-pattern>/verificaMail</url-pattern>
 	</servlet-mapping>
 
+<servlet>
+		<servlet-name>AggiornaProdotto</servlet-name>
+		<servlet-class>controller.AggiornaProdotto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiornaProdotto</servlet-name>
+		<url-pattern>/aggiornaProdotto</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>ModificaProdotto</servlet-name>
 		<servlet-class>controller.ModificaProdotto</servlet-class>
@@ -189,6 +198,20 @@
 		<servlet-name>RimuoviImmagineProdotto</servlet-name>
 		<url-pattern>/rimuoviImmagineProdotto</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>ImpostaImmagineComePrincipale</servlet-name>
+		<servlet-class>controller.ImpostaImmagineComePrincipale</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImpostaImmagineComePrincipale</servlet-name>
+		<url-pattern>/impostaComePrincipale</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
 
 	<servlet>
 		<servlet-name>EffettuaLogout</servlet-name>

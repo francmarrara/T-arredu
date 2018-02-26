@@ -802,7 +802,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			if (result.next()) {
 
-				return true;
+				if(urlImmagine.equals(result.getString("immaginePrincipale")))
+				    return true;
 
 			}
 		} catch (SQLException e) {

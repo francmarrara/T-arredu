@@ -192,6 +192,10 @@ public class Prodotto {
 	public void setValue(String name, String value) {
 
 		switch (name) {
+		case "idProdotto": {
+			this.setIdProdotto(Integer.parseInt(value));;
+			break;
+		}
 		case "nome": {
 			this.setNomeProdotto(value);
 			break;
