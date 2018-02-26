@@ -352,7 +352,7 @@
 					<h5>Supporto</h5>
 					<ul>
 						<li><a href="#">FAQ</a></li>
-						<li><a href="aboutUs.html">Help desk</a></li>
+						<li><a href="aboutUs.jsp">Help desk</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-3 myCols"></div>
