@@ -36,7 +36,7 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 		Prodotto p = new Prodotto();
 		PrintWriter out = response.getWriter();
 		String emailVenditore = (String) request.getSession().getAttribute("emailVenditoreLoggato");
-
+		
 		ServletContext sc = request.getSession().getServletContext();
 
 		if (!ServletFileUpload.isMultipartContent(request)) {
@@ -89,7 +89,6 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 			// Aggiungo il venditore
 			p.getVenditoriProdotto().add(new Venditore(emailVenditore));
 
-			p.stampaProdotto();
 
 			// CHIAMO IL DAO PER SALVARE IL PRODOTTO
 
