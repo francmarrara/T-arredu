@@ -52,6 +52,59 @@ function aggiungiPreferito(idProdotto, emailUtente) {
 
 }
 
+// Aggiungi a confronto
+function aggiungiAConfronto(idProdotto, emailUtente) {
+	
+	$.ajax({
+		type : "GET",
+		url : "prodottoGiaInConfronto",
+
+		data : {
+			idProdotto : idProdotto,
+			emailUtente : emailUtente,
+
+		},
+		// controllo che il prodotto non sia già a confronto
+		success : function(data) {
+			if (data == "true") {
+				$("#snackbar").text("PRODOTTO GIA' A CONFRONTO");
+				$("#snackbar").css({
+					'background-color' : 'red'
+				});
+				showSnackbar();
+			} else {
+				// se non è in confronto faccio un altra chiamata ajax e lo
+				// aggiungo
+				$.ajax({
+					type : "GET",
+					url : "aggiungiAConfronto",
+
+					data : {
+						emailUtente : emailUtente,
+						idProdotto : idProdotto,
+					},
+					success : function() {
+
+						$("#snackbar").text("AGGIUNTO A CONFRONTO");
+						$("#snackbar").css({
+							'background-color' : 'green'
+						});
+						showSnackbar();
+
+					}
+				// fine seconda chiamata ajax
+				})
+
+				// fine else
+			}
+
+			// fine success
+		}
+	// fine prima chiamata ajax
+	})
+
+}
+
 function aggiungiNelCarrello(idProdotto, emailUtente) {
 
 	$.ajax({

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import model.Preventivo;
+import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DataSource;
@@ -270,7 +271,6 @@ public class UtenteDaoJDBC implements UtenteDAO {
 		return prodotti;
 	}
 
-	
 	@Override
 	public boolean giaPreferito(Integer idProdotto, String emailUtente) {
 
@@ -641,5 +641,140 @@ public class UtenteDaoJDBC implements UtenteDAO {
 			}
 		}
 		return emails;
+	}
+
+	@Override
+	public List<Prodotto> getProdottiPerConfronto(String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+		List<Prodotto> prodotti = new ArrayList<Prodotto>();
+		@SuppressWarnings("unused")
+		ProdottoDAO prodottoDao = new ProdottoDaoJDBC(dataSource);
+
+		try {
+
+			PreparedStatement statement;
+			String query = "SELECT prod.id_prodotto, prod.nomeProdotto, prod.marcaProdotto, "
+					+ "prod.tipoProdotto, prod.ambienteProdotto, prod.misureProdotto, "
+					+ "prod.prezzoProdotto FROM tarreduDB.prodotto as prod JOIN "
+					+ "tarreduDB.prodottiPerConfronto as conf WHERE "
+					+ "prod.id_prodotto = conf.id_prodotto and conf.emailUtente = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, emailUtente);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+				Prodotto prodotto = new Prodotto();
+				prodotto.setIdProdotto(result.getInt("id_prodotto"));
+				prodotto.setNomeProdotto(result.getString("nomeProdotto"));
+				prodotto.setMarcaProdotto(result.getString("marcaProdotto"));
+				prodotto.setTipoProdotto(result.getString("tipoProdotto"));
+				prodotto.setAmbienteProdotto(result.getString("ambienteProdotto"));
+				prodotto.setMisureProdotto(result.getString("misureProdotto"));
+				prodotto.setPrezzoProdotto(result.getDouble("prezzoProdotto"));
+
+				prodotti.add(prodotto);
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return prodotti;
+
+	}
+
+	@Override
+	public boolean giaAConfronto(Integer idProdotto, String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			PreparedStatement statement;
+			String query = "select id_prodotto from prodottiPerConfronto where emailUtente = ? and id_prodotto = ? ";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, emailUtente);
+			statement.setInt(2, idProdotto);
+
+			ResultSet result = statement.executeQuery();
+
+			if (!result.first() == false) {
+
+				return true;
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return false;
+
+	}
+
+	@Override
+	public void aggiungiProdottoAConfronto(Integer idProdotto, String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			String insert = "insert into prodottiPerConfronto(id_prodotto, emailUtente) values (?,?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+
+			statement.setInt(1, idProdotto);
+			statement.setString(2, emailUtente);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+	}
+
+	@Override
+	public void rimuoviProdottoDaConfronto(Integer idProdotto, String emailUtente) {
+
+		Connection connection = this.dataSource.getConnection();
+		try {
+
+			String delete = "delete FROM prodottiPerConfronto WHERE id_prodotto = ? and emailUtente = ?";
+			PreparedStatement statement = connection.prepareStatement(delete);
+
+			statement.setInt(1, idProdotto);
+			statement.setString(2, emailUtente);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
 	}
 }

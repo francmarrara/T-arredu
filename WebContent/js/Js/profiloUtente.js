@@ -1,5 +1,3 @@
-
-
 /* Valida Email registrazione */
 $(document).on("focusout", "#emailUtente", function() {
 	var input_val = $(this).val();
@@ -86,10 +84,9 @@ $(document).on("focusout", "#confirmNewPassword", function() {
 
 // Valida email vecchia confrontata alla nuova
 $(document).on("focusout", "#oldPassword", function() {
-	
+
 	var password = $("#oldPassword").val();
 	var confirmPassword = $("#passwordPerVerifica").val();
-
 
 	if (password == confirmPassword) {
 		$("#oldPassword").css({
@@ -152,7 +149,6 @@ function cambiaDati() {
 
 }
 
-
 // rimuovo dai Preferiti un Prodotto
 
 function rimuoviDaiPreferiti(idProdotto, emailUtente) {
@@ -180,3 +176,51 @@ function rimuoviDaiPreferiti(idProdotto, emailUtente) {
 	})
 
 }
+
+// Rimuovo prodotto da confronto
+
+$(document).ready(function() {
+	var table = $('#table').DataTable();
+
+	$('#table tbody').on('click', 'tr', function() {
+		if ($(this).hasClass('selected')) {
+			$(this).removeClass('selected');
+		} else {
+			table.$('tr.selected').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	});
+
+	$('#rimuoviBtn').click(function() {
+
+		var valori= table.row('.selected').data();
+		table.row('.selected').remove().draw(false);
+
+		var email = $("#emailUtenteLog").val();
+		
+		
+		 var valoriString = valori.toString();
+         var idProdotto = valoriString.substr(0, valoriString.indexOf(','));
+		
+		$.ajax({
+			type : "GET",
+			url : "rimuoviDaConfronto",
+
+			data : {
+				idProdotto : idProdotto,
+				emailUtente : email,
+
+			},
+			success : function() {
+				$("#snackbar").text("RIMOSSO DAL CONFRONTO");
+				$("#snackbar").css({
+					'background-color' : 'green'
+				});
+				showSnackbar();
+
+			}
+
+		})
+
+	});
+});

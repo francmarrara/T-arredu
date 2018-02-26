@@ -107,6 +107,17 @@
 		<servlet-name>ProdottoGiaInPreferiti</servlet-name>
 		<url-pattern>/prodottoGiaInPreferiti</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>ProdottoGiaAConfronto</servlet-name>
+		<servlet-class>controller.ProdottoGiaAConfronto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProdottoGiaAConfronto</servlet-name>
+		<url-pattern>/prodottoGiaInConfronto</url-pattern>
+	</servlet-mapping>
+	
 
 	<servlet>
 		<servlet-name>AggiungiPreferito</servlet-name>
@@ -115,6 +126,15 @@
 	<servlet-mapping>
 		<servlet-name>AggiungiPreferito</servlet-name>
 		<url-pattern>/aggiungiPreferito</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AggiungiAConfronto</servlet-name>
+		<servlet-class>controller.AggiungiAConfronto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiAConfronto</servlet-name>
+		<url-pattern>/aggiungiAConfronto</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -170,6 +190,15 @@
 	<servlet-mapping>
 		<servlet-name>RimuoviProdottoDalCarrello</servlet-name>
 		<url-pattern>/rimuoviDalCarrello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RimuoviDaConfronto</servlet-name>
+		<servlet-class>controller.RimuoviDaConfronto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviDaConfronto</servlet-name>
+		<url-pattern>/rimuoviDaConfronto</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

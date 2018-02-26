@@ -66,6 +66,10 @@ public class UtilDAO {
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			
+			delete = "drop table if exists prodottiPerConfronto;";
+			statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
 			delete = "drop table if exists utente;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
@@ -77,6 +81,8 @@ public class UtilDAO {
 			delete = "drop table if exists venditore;";
 			statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
+			
+			
 			
 			System.out.println("Executed drop database");
 
@@ -390,6 +396,25 @@ public class UtilDAO {
 					"    ON DELETE CASCADE\r\n" + 
 					"    ON UPDATE CASCADE,\r\n" + 
 					"  CONSTRAINT `emailUtenteProdottoPreferito`\r\n" + 
+					"    FOREIGN KEY (`emailUtente`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE);\r\n";
+			
+			statement = connection.prepareStatement(add);
+			statement.executeUpdate();
+			
+			add = "CREATE TABLE `tarreduDB`.`prodottiPerConfronto` (\r\n" + 
+					"  `id_prodotto` INT NOT NULL,\r\n" + 
+					"  `emailUtente` VARCHAR(255) NOT NULL,\r\n" + 
+					"  INDEX `idprodottoPerConfronto_idx` (`id_prodotto` ASC),\r\n" + 
+					"  INDEX `emailUtenteProdottoPerConfronto_idx` (`emailUtente` ASC),\r\n" + 
+					"  CONSTRAINT `idprodottoPerConfronto`\r\n" + 
+					"    FOREIGN KEY (`id_prodotto`)\r\n" + 
+					"    REFERENCES `tarreduDB`.`prodotto` (`id_prodotto`)\r\n" + 
+					"    ON DELETE CASCADE\r\n" + 
+					"    ON UPDATE CASCADE,\r\n" + 
+					"  CONSTRAINT `emailUtenteProdottoPerConfronto`\r\n" + 
 					"    FOREIGN KEY (`emailUtente`)\r\n" + 
 					"    REFERENCES `tarreduDB`.`utente` (`email`)\r\n" + 
 					"    ON DELETE CASCADE\r\n" + 

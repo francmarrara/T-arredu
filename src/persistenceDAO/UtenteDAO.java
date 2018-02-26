@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import model.Preventivo;
+import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
 
@@ -48,5 +49,13 @@ public interface UtenteDAO {
 	boolean giaInCarrello(Integer idProdotto, String emailUtente);
 
 	public Date dataNascitaUtente(String emailUtente);
+
+	public List<Prodotto> getProdottiPerConfronto(String emailUtente);
+
+	public boolean giaAConfronto(Integer idProdotto, String emailUtente);
+
+	public void aggiungiProdottoAConfronto(Integer idProdotto, String emailUtente);
+
+	public void rimuoviProdottoDaConfronto(Integer idProdotto, String emailUtente);
 
 }

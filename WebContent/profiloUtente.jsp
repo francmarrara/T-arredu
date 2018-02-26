@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>${utente.nomeUtente} ${utente.cognomeUtente}</title>
+<title>${utente.nomeUtente}${utente.cognomeUtente}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,18 +17,28 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
+
+<link rel="stylesheet" href="css/jquery.dataTables.min.css">
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
+	var _smartsupp = _smartsupp || {};
+	_smartsupp.key = '21b19ab74e96a08f193732a37ad89bc04bed9b7d';
+	window.smartsupp || (function(d) {
+		var s, c, o = smartsupp = function() {
+			o._.push(arguments)
+		};
+		o._ = [];
+		s = d.getElementsByTagName('script')[0];
+		c = d.createElement('script');
+		c.type = 'text/javascript';
+		c.charset = 'utf-8';
+		c.async = true;
+		c.src = 'https://www.smartsuppchat.com/loader.js?';
+		s.parentNode.insertBefore(c, s);
+	})(document);
 </script>
 
 <script>
@@ -43,6 +53,12 @@ window.smartsupp||(function(d) {
 		go_share.href = 'https://plus.google.com/share?text=vieni a trovarci su Tarredu arredamenti&u='
 				+ encodeURIComponent(location.href);
 	}
+</script>
+
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
 </script>
 
 <link rel="stylesheet" type="text/css" href="css/profiloUtente.css" />
@@ -219,6 +235,8 @@ window.smartsupp||(function(d) {
 
 	<input id="passwordPerVerifica" value="${utente.passwordUtente}"
 		style="display: none;">
+	<input id="emailUtenteLog" value="${emailUtenteLoggato}"
+		style="display: none;">
 
 	<!-- Bottone laterale a scomparsa -->
 	<div id="mySidenav" class="sidenav">
@@ -234,10 +252,11 @@ window.smartsupp||(function(d) {
 			<li><a data-toggle="tab" href="#home">Dati personali</a></li>
 			<li class="active"><a data-toggle="tab" href="#menu1">Prodotti
 					Preferiti</a></li>
-			<li><a data-toggle="tab" href="#menu2">Storico Preventivi</a></li>
-			<li><a data-toggle="tab" href="#menu3">Modifica dati
+			<li><a data-toggle="tab" href="#menu2">Confronta Prodotti</a></li>
+			<li><a data-toggle="tab" href="#menu3">Storico Preventivi</a></li>
+			<li><a data-toggle="tab" href="#menu4">Modifica dati
 					personali</a></li>
-			<li><a data-toggle="tab" href="#menu4">Modifica Password</a></li>
+			<li><a data-toggle="tab" href="#menu5">Modifica Password</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -268,7 +287,7 @@ window.smartsupp||(function(d) {
 						<div class="col-sm-8 rigaCredenziali">
 							<div class="panel panel-info">
 								<div class="panel-heading">Email</div>
-								<div class="panel-body">${utente.emailUtente}</div>
+								<div class="panel-body" id="emailUtenteLog">${utente.emailUtente}</div>
 							</div>
 						</div>
 					</div>
@@ -333,8 +352,64 @@ window.smartsupp||(function(d) {
 
 				</div>
 			</div>
+
+			<!-- Confronta prodotti -->
+			<div id="menu2" class="tab-pane fade in">
+
+				<div class="container prodotti" style="padding-top: 2%;">
+					<div class="container" style="text-align: right;">
+					<button id="rimuoviBtn" class="btn btn-danger">Rimuovi riga selezionata</button>
+					</div>
+					<table width="100%" class="display" id="table" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Id Prodotto DB</th>
+								<th>Nome</th>
+								<th>Marca</th>
+								<th>Tipo</th>
+								<th>Ambiente</th>
+								<th>Misure</th>
+								<th>Prezzo</th>
+
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Id Prodotto DB</th>
+								<th>Nome</th>
+								<th>Marca</th>
+								<th>Tipo</th>
+								<th>Ambiente</th>
+								<th>Misure</th>
+								<th>Prezzo</th>
+
+							</tr>
+						</tfoot>
+						<tbody>
+
+							<c:forEach var="prodotto" items="${prodottiPerConfronto}">
+
+								<tr>
+									<td>${prodotto.idProdotto}</td>
+									<td><a href="prodotto?id=${prodotto.idProdotto}">${prodotto.nomeProdotto}</a></td>
+									<td>${prodotto.marcaProdotto}</td>
+									<td>${prodotto.tipoProdotto}</td>
+									<td>${prodotto.ambienteProdotto}</td>
+									<td>${prodotto.misureProdotto}</td>
+									<td>${prodotto.prezzoProdotto}0€</td>
+								</tr>
+
+							</c:forEach>
+						</tbody>
+					</table>
+
+
+				</div>
+			</div>
+
+
 			<!-- Lista di preventivi richiesti dall' utente -->
-			<div id="menu2" class="tab-pane fade">
+			<div id="menu3" class="tab-pane fade">
 				<div class="containerListaPreventivi">
 					<h3>
 						Preventivi <span class="glyphicon glyphicon-list-alt"></span>
@@ -457,7 +532,7 @@ window.smartsupp||(function(d) {
 				</div>
 			</div>
 			<!-- Modifica dati personali utente -->
-			<div id="menu3" class="tab-pane fade">
+			<div id="menu4" class="tab-pane fade">
 				<div class="containerTitoloForm">
 					<h3>
 						Modifica Dati Personali <span class="glyphicon glyphicon-pencil"></span>
@@ -531,7 +606,7 @@ window.smartsupp||(function(d) {
 				</div>
 			</div>
 			<!-- Modifica password utente -->
-			<div id="menu4" class="tab-pane fade">
+			<div id="menu5" class="tab-pane fade">
 				<div class="containerTitoloForm">
 					<h3>
 						Modifica Password <span class="glyphicon glyphicon-pencil"></span>

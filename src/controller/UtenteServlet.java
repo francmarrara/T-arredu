@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Preventivo;
+import model.Prodotto;
 import model.ProdottoConImmagini;
 import model.Utente;
 import persistenceDAO.DAOFactory;
@@ -44,6 +45,10 @@ public class UtenteServlet extends HttpServlet {
 		List<ProdottoConImmagini> prodottiPreferiti = factory.getUtenteDAO()
 				.getProdottiPreferitiConImmagini(emailUtente);
 		req.setAttribute("prodottiPreferiti", prodottiPreferiti);
+		
+		List<Prodotto> prodottiPerConfronto = factory.getUtenteDAO()
+				.getProdottiPerConfronto(emailUtente);
+		req.setAttribute("prodottiPerConfronto", prodottiPerConfronto);
 
 		List<Preventivo> listaPreventivi = factory.getUtenteDAO().getPreventiviUtente(emailUtente);
 		req.setAttribute("listaPreventivi", listaPreventivi);
