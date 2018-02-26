@@ -215,6 +215,7 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 	@Override
 	public void update(Prodotto prodotto) {
+		
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String update = "update prodotto SET marcaProdotto = ?, tipoProdotto = ? ,ambienteProdotto = ?, nomeProdotto = ?, "
@@ -228,8 +229,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			statement.setString(3, prodotto.getAmbienteProdotto());
 			statement.setString(4, prodotto.getNomeProdotto());
 			statement.setDouble(5, prodotto.getPrezzoProdotto());
-			statement.setBoolean(6, prodotto.getOffertaProdotto());
-			statement.setString(7, prodotto.getMisureProdotto());
+			statement.setString(6, prodotto.getMisureProdotto());
+			statement.setBoolean(7, prodotto.getOffertaProdotto());
 			statement.setString(8, prodotto.getDescrizioneProdotto());
 			statement.setInt(9, prodotto.getNumeroVisite());
 			statement.setInt(10, prodotto.getIdProdotto());
@@ -802,8 +803,8 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 
 			if (result.next()) {
 
-				if(urlImmagine.equals(result.getString("immaginePrincipale")))
-				    return true;
+				if (urlImmagine.equals(result.getString("immaginePrincipale")))
+					return true;
 
 			}
 		} catch (SQLException e) {
@@ -996,5 +997,105 @@ public class ProdottoDaoJDBC implements ProdottoDAO {
 			}
 		}
 
+	}
+
+	@Override
+	public List<String> getColoriprodotto(Integer idProdotto) {
+		Connection connection = this.dataSource.getConnection();
+		List<String> colori = new ArrayList<>();
+
+		try {
+
+			PreparedStatement statementProdotto;
+
+			String query = "select coloreProdotto from coloriPerProdotto where id_prodotto = ?;";
+
+			statementProdotto = connection.prepareStatement(query);
+			statementProdotto.setInt(1, idProdotto);
+
+			ResultSet resultProdotto = statementProdotto.executeQuery();
+
+			while (resultProdotto.next()) {
+
+				colori.add(resultProdotto.getString("coloreProdotto"));
+
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return colori;
+
+	}
+
+	@Override
+	public void addColors(Integer idProdotto, List<String> colori) {
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+			PreparedStatement statement;
+
+			for (String s : colori) {
+				String insert = "insert into coloriPerProdotto(id_prodotto, coloreProdotto) values(?,?)";
+
+				statement = connection.prepareStatement(insert);
+
+				statement.setInt(1, idProdotto);
+				statement.setString(2, s);
+				statement.executeUpdate();
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void removeAllColors(Integer idProdotto) {
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+			PreparedStatement statement;
+			String delete = "delete from coloriPerProdotto where id_prodotto = ?;";
+			statement = connection.prepareStatement(delete);
+			statement.setInt(1, idProdotto);
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void addImagesToProduct(Integer idProdotto, List<String> images) {
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+			PreparedStatement statement;
+
+			for (String s : images) {
+				String insert = "insert into urlImmaginiProdotto(id_prodotto, urlImmagine) values(?,?)";
+
+				statement = connection.prepareStatement(insert);
+
+				statement.setInt(1, idProdotto);
+				statement.setString(2, s);
+				statement.executeUpdate();
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

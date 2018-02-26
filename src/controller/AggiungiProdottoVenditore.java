@@ -52,6 +52,8 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 				Integer numeroImmagini = 0;
 
 				if (!item.isFormField()) {
+					if(!item.getName().equals("")) {
+						
 
 					String urlImmagine = "images/productImages/" + item.getFieldName() + "_" + item.getName();
 
@@ -68,6 +70,7 @@ public class AggiungiProdottoVenditore extends HttpServlet {
 							sc.getRealPath("") + "/images/productImages/" + item.getFieldName() + "_" + item.getName());
 
 					item.write(savedFile);
+					}
 
 				} else {
 					p.setValue(item.getFieldName(), item.getString());

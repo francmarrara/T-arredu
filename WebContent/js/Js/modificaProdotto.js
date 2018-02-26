@@ -32,9 +32,8 @@ function rimuoviImmagineProdotto(idProdotto, immagineProdotto) {
 		},
 
 		success : function(data) {
-			
-			if (data=="true") {
-				console.log(data);
+			if (data== "true") {
+				
 				$("#snackbar").text("IMMAGINE RIMOSSA");
 				$("#snackbar").css({
 					'background-color' : 'green'
@@ -43,7 +42,7 @@ function rimuoviImmagineProdotto(idProdotto, immagineProdotto) {
 
 				window.setTimeout(location.reload(), 1000);
 			} else {
-				console.log(data);
+				
 				$("#snackbar").text("NON E' POSSIBILE RIMUOVERE L'IMMAGINE");
 				$("#snackbar").css({
 					'background-color' : 'red'
@@ -70,6 +69,7 @@ function impostaComePrincipale(idProdotto, immagineProdotto) {
 		},
 
 		success : function(data) {
+			console.log(data)
 			if (data == "true") {
 				$("#snackbar").text("IMMAGINE IMPOSTATA COME PRINCIPALE");
 				$("#snackbar").css({
@@ -77,7 +77,6 @@ function impostaComePrincipale(idProdotto, immagineProdotto) {
 				});
 				showSnackbar();
 
-				window.setTimeout(location.reload(), 1000);
 			} else {
 				$("#snackbar").text("L'IMMAGINE E' GIA' PRINCIPALE");
 				$("#snackbar").css({

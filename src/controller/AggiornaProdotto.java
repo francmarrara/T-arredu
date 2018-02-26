@@ -3,7 +3,9 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +22,7 @@ import model.Prodotto;
 import model.Venditore;
 import persistenceDAO.DAOFactory;
 
-public class AggiornaProdotto extends HttpServlet{
+public class AggiornaProdotto extends HttpServlet {
 
 	/**
 	 * 
@@ -46,25 +48,24 @@ public class AggiornaProdotto extends HttpServlet{
 			List<FileItem> items = upload.parseRequest(request);
 			for (FileItem item : items) {
 
-				Integer numeroImmagini = 0;
+		
 
 				if (!item.isFormField()) {
-
+					
+					if(!item.getName().equals("")) {
+						System.out.println("VUOTO");
+					
+					
 					String urlImmagine = "images/productImages/" + item.getFieldName() + "_" + item.getName();
-
-					if (numeroImmagini == 0) {
-						p.setUrlImmaginePrincipale(urlImmagine);
+					
+				
 						p.getUrlImmaginiProdotto().add(urlImmagine);
-						numeroImmagini++;
-					} else {
-						p.getUrlImmaginiProdotto().add(urlImmagine);
-						numeroImmagini++;
-					}
+					
 
 					File savedFile = new File(
 							sc.getRealPath("") + "/images/productImages/" + item.getFieldName() + "_" + item.getName());
 
-					item.write(savedFile);
+					item.write(savedFile);}
 
 				} else {
 					p.setValue(item.getFieldName(), item.getString());
@@ -83,12 +84,18 @@ public class AggiornaProdotto extends HttpServlet{
 			// Aggiungo il venditore
 			p.getVenditoriProdotto().add(new Venditore(emailVenditore));
 
-			p.stampaProdotto();
-
 			// CHIAMO IL DAO PER SALVARE IL PRODOTTO
 
 			DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 			factory.getProdottoDAO().update(p);
+
+			List<String> coloriModificati = p.getColoriProdotto();
+
+			factory.getProdottoDAO().removeAllColors(p.getIdProdotto());
+
+			factory.getProdottoDAO().addColors(p.getIdProdotto(), coloriModificati);
+			
+			factory.getProdottoDAO().addImagesToProduct(p.getIdProdotto(), p.getUrlImmaginiProdotto());
 
 		} catch (FileUploadException e) {
 			out.write("cant upload");
@@ -102,8 +109,10 @@ public class AggiornaProdotto extends HttpServlet{
 			out.write("<br>");
 
 		}
-		
-		response.sendRedirect("modificaProdotto?id="+p.getIdProdotto());
+
+		out.write("<script>");
+		out.write("window.close();");
+		out.write("</script>");
 
 	}
 

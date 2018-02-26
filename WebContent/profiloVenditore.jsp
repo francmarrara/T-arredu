@@ -604,7 +604,7 @@ window.smartsupp||(function(d) {
 										<li><input type="file" name="pic1" accept="image/*"
 											class=""></li>
 									</ol>
-									<button id="aggiungiImmagine">Aggiungi Immagine</button>
+									<button class ="btn btn-warning" id="aggiungiImmagine">Aggiungi Immagine</button>
 								</div>
 							</div>
 							<div class="row">

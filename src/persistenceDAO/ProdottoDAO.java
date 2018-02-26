@@ -48,7 +48,15 @@ public interface ProdottoDAO {
 	public List<ProdottoConImmagini> prodottiInOfferta();
 
 	public List<ProdottoConImmagini> prodottiPerVisibilità();
-
+	
+	public List<String> getColoriprodotto(Integer idProdotto);
+   
+	public void removeAllColors(Integer idProdotto);
+	
+	public void addColors(Integer idProdotto, List<String> colori);
+	
+	public void addImagesToProduct(Integer idProdotto, List<String> images);
+	
 	public ProdottoConImmagini getProdottoPerPreventivo(Integer idProdotto);
 
 	public List<String> getTutteLeMarche();

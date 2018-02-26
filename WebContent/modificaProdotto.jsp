@@ -147,7 +147,7 @@
 								end="${dimensioneListaImmagini}" step="1">
 
 								<div class="column containerFotoProdotto"
-									style="width: 30%; height: 30%;">
+									style="width: 30%; height: 25%;">
 									<img src="${immagineProdotto}"
 										onclick="openModal();currentSlide(${loop.index})"
 										class="hover-shadow cursor img img-responsive imgProdotto">
@@ -219,7 +219,7 @@
 									<li><input type="file" name="pic1" accept="image/*"
 										class=""></li>
 								</ol>
-								<button id="aggiungiImmagine">Aggiungi Immagine</button>
+								<button class ="btn btn-warning" id="aggiungiImmagine">Aggiungi Immagine</button>
 							</div>
 						</div>
 						<hr>

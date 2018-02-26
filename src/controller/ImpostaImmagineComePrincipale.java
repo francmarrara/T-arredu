@@ -22,22 +22,18 @@ public class ImpostaImmagineComePrincipale extends HttpServlet {
 
 		PrintWriter out = resp.getWriter();
 		
-		System.out.println("sono entrato");
 		
 
 		String urlImmagine = req.getParameter("urlImmagine");
-		System.out.println(urlImmagine);
 
 		Integer idProdotto = Integer.parseInt(req.getParameter("idProdotto"));
 
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
 		if (factory.getProdottoDAO().isImmaginePrincipale(idProdotto, urlImmagine)) {
-			System.out.println("primo if");
 			out.write("false");
 		} else {
 			factory.getProdottoDAO().setImmaginePrincipale(idProdotto, urlImmagine);
-			System.out.println("secondo if");
 			out.write("true");
 		}
 
