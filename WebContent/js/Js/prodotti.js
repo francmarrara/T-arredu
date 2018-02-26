@@ -1,4 +1,3 @@
-
 //Funzione che ordina i prodotti per tipo
 
 $(window).on('load', function() {
@@ -27,9 +26,7 @@ $(window).on('load', function() {
 
 })
 
-
-//Funzione che ordina i prodotti per ambiente
-
+// Funzione che ordina i prodotti per ambiente
 
 $(window).on('load', function() {
 	$("#ambienteProdotto").change(function() {
@@ -57,8 +54,7 @@ $(window).on('load', function() {
 
 })
 
-//Funzione che ordina i prodotti per marca
-
+// Funzione che ordina i prodotti per marca
 
 $(window).on('load', function() {
 	$("#marcaProdotto").change(function() {
@@ -117,3 +113,17 @@ $(window).on('load', function() {
 
 	})
 })
+
+/* List e grid view */
+
+// List View
+function listView() {
+	window.location.replace("prodotti?stile=list");
+
+}
+
+// Grid View
+function gridView() {
+	window.location.replace("prodotti?stile=grid");
+
+}

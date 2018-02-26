@@ -80,7 +80,7 @@ window.smartsupp||(function(d) {
 						src="images/TarreduLogo.png" width="50" height="50"></li>
 					<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
 
-					<li class="navbarOggetto"><a href="prodotti">Catalogo
+					<li class="navbarOggetto"><a href="prodotti?stile=grid">Catalogo
 							Prodotti</a></li>
 
 					<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
