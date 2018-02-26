@@ -325,44 +325,42 @@
 
 		<div class="container prodotti" style="padding-top: 2%;">
 
-			<div class="rigaProdotto">
+			<div class="container rigaProdotto">
 				<c:forEach var="prodotto" items="${prodotti}">
 					<div
-						class="row riga grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "
+						class="container row riga grid-item ${prodotto.marcaProdotto} ${prodotto.tipoProdotto} ${prodotto.ambienteProdotto} "
 						value="${prodotto.prezzoProdotto}">
 
-						<div>
-							<div class="col-md-4 colProd" style="text-align: left;">
-								<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
-								<a href="prodotto?id=${prodotto.idProdotto}"> <img
-									class="img img-responsive img_grid"
-									src="${prodotto.immaginePrincipale}"
-									alt="${prodotto.nomeProdotto}"></a>
-								<p>
-									<strong>Marca : </strong> ${prodotto.marcaProdotto}
-								</p>
-							</div>
-							<div class="testo_prodotto col-md-4 colProd">
-								<p>
-									<strong>Tipo : </strong> ${prodotto.tipoProdotto}
-								</p>
-
-								<p>
-									<strong>Ambiente : </strong> ${prodotto.ambienteProdotto}
-								</p>
-								<p>
-									<strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €
-								</p>
-							</div>
-
-							<div class="testo_prodotto col-md-4 colProd">
-								<p>
-									<strong>Descrizione : </strong> ${prodotto.descrizioneProdotto}
-								</p>
-							</div>
-
-
+						<div class="col-md-4 colProd" style="text-align: left;">
+							<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
+							<a href="prodotto?id=${prodotto.idProdotto}"> <img
+								class="img img-responsive img_grid"
+								src="${prodotto.immaginePrincipale}"
+								alt="${prodotto.nomeProdotto}"></a>
+							<p>
+								<strong>Marca : </strong> ${prodotto.marcaProdotto}
+							</p>
 						</div>
+						<div class="testo_prodotto col-md-4 colProd">
+							<p>
+								<strong>Tipo : </strong> ${prodotto.tipoProdotto}
+							</p>
+
+							<p>
+								<strong>Ambiente : </strong> ${prodotto.ambienteProdotto}
+							</p>
+							<p>
+								<strong>Prezzo : </strong> ${prodotto.prezzoProdotto}0 €
+							</p>
+						</div>
+
+						<div class="testo_prodotto col-md-4 colProd">
+							<p>
+								<strong>Descrizione : </strong> ${prodotto.descrizioneProdotto}
+							</p>
+						</div>
+
+
 					</div>
 				</c:forEach>
 
