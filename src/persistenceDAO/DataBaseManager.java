@@ -921,7 +921,7 @@ public class DataBaseManager {
 		cameraDaLetto.getColoriProdotto().add("Grigio");
 		cameraDaLetto.getVenditoriProdotto().add(new Venditore("info@arredamentiduepi.it"));
 		cameraDaLetto.setPrezzoProdotto(3100.00);
-		cameraDaLetto.setMisureProdotto("-");
+		cameraDaLetto.setMisureProdotto("Misure in cm (LxPxH) 168x220x92");
 		cameraDaLetto.setOffertaProdotto(false);
 		cameraDaLetto.setDescrizioneProdotto(
 				"Spazio Ragazzi è un programma completo per la cameretta, che si articola attraverso composizioni con letti a terra, soluzioni con letti inseriti fra o sotto armadi a ponte e composizioni salvaspazio.");
