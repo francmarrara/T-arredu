@@ -14,11 +14,10 @@ import model.ProdottoConImmagini;
 import model.Venditore;
 import persistenceDAO.DAOFactory;
 
-/**Questa servlet dato un email Venditore 
- * recupera tutti i dati presenti nel db e
- * crea la pagina del venditore.
+/**
+ * Questa servlet dato un email Venditore recupera tutti i dati presenti nel db
+ * e crea la pagina del venditore.
  */
-
 
 public class VenditoreServlet extends HttpServlet {
 
@@ -32,12 +31,13 @@ public class VenditoreServlet extends HttpServlet {
 		Venditore venditore = new Venditore();
 
 		String email = (String) req.getParameter("id");
+		String stile = req.getParameter("stile");
 
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
 		venditore = factory.getVenditoreDAO().findByPrimaryKey(email);
 		req.setAttribute("venditore", venditore);
-		
+
 		List<ProdottoConImmagini> prodotti = factory.getProdottoDAO().findProductsByVenditoreProdottoConImmagini(email);
 
 		req.setAttribute("prodotti", prodotti);
@@ -46,9 +46,18 @@ public class VenditoreServlet extends HttpServlet {
 		req.setAttribute("marcheProdotti", marcheProdotti);
 		req.setAttribute("ambientiProdotti", ambientiProdotti);
 
-		RequestDispatcher dispacher = req.getRequestDispatcher("venditore.jsp");
-		dispacher.forward(req, resp);
+		if (stile.equals("grid")) {
 
+			RequestDispatcher dispacher = req.getRequestDispatcher("venditore.jsp");
+			dispacher.forward(req, resp);
+
+		}
+		else {
+			
+			RequestDispatcher dispacher = req.getRequestDispatcher("venditoreList.jsp");
+			dispacher.forward(req, resp);
+			
+		}
 	}
 
 }

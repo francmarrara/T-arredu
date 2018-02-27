@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/venditore.css">
 <link rel="stylesheet" href="css/snackbar.css">
 
-<script src="js/Js/prodotti.js"></script>
+<script src="js/Js/venditoreList.js"></script>
 <script src="js/Js/lateralButtons.js"></script>
 <script src="js/Js/login.js"></script>
 <script src="js/Js/snackbar.js"></script>
@@ -121,7 +121,7 @@
 							<c:forEach var="venditore" items="${listaVenditori}">
 
 								<li><a class="nomeNegozio"
-									href="venditore?id=${venditore.emailVenditore}"
+									href="venditore?id=${venditore.emailVenditore}&stile=grid"
 									style="color: red;">${venditore.nomeNegozio}</a></li>
 
 							</c:forEach>
@@ -176,7 +176,7 @@
 										placeholder="Inserire Password" name="psw" required>
 
 									<button class="buttonLog" type="submit">Login</button>
-								
+
 								</div>
 
 								<div class="containerModalBottom"
@@ -368,6 +368,15 @@
 		</div>
 		<!--Fine Menu di selezione Tipo prodotti e Prezzo-->
 
+		<br>
+		<div class="container" id="btnContainer" style="text-align: right;">
+			<button class="btn" onclick="listView('${venditore.emailVenditore}')">
+				<i class="fa fa-bars"></i> List
+			</button>
+			<button class="btn" onclick="gridView('${venditore.emailVenditore}')">
+				<i class="fa fa-th-large"></i> Grid
+			</button>
+		</div>
 
 		<!--Inizio Box Prodotti -->
 

@@ -1,26 +1,34 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
 <html>
 
 <head>
-<title>Prodotti</title>
+<title>Venditore</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet"
-	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/Footer-with-social-icons.css">
+<link rel="stylesheet" href="css/venditoreList.css">
+<link rel="stylesheet" href="css/snackbar.css">
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="js/Js/venditoreList.js"></script>
+<script src="js/Js/lateralButtons.js"></script>
+<script src="js/Js/login.js"></script>
+<script src="js/Js/snackbar.js"></script>
+
+<link rel="shortcut icon" href="images/TarreduLogo.png">
+
+<!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
 
 
 <!-- Smartsupp Live Chat script -->
@@ -43,6 +51,28 @@
 </script>
 
 <script>
+	function initMap() {
+		var posizione = {
+			lat : ${venditore.latitudineVenditore},
+			lng : ${venditore.longitudineVenditore}
+		};
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom : 16,
+			center : posizione
+		});
+		var marker = new google.maps.Marker({
+			position : posizione,
+			title : '${venditore.nomeNegozio}',
+			map : map
+		});
+	}
+</script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUvzMYr08iaxtaGH2K31C7lLifLHRL2g4&callback=initMap">
+	
+</script>
+
+<script>
 	window.onload = function() {
 		fb_share.href = 'https://www.facebook.com/sharer/sharer.php?text=vieni a trovarci su Tarredu arredamenti&u='
 				+ encodeURIComponent(location.href);
@@ -56,26 +86,16 @@
 	}
 </script>
 
-<link rel="stylesheet" href="css/listaProdotti.css">
-<link rel="stylesheet" href="css/snackbar.css">
-<script src="js/Js/prodotti.js"></script>
-<script src="js/Js/lateralButtons.js"></script>
-<script src="js/Js/login.js"></script>
-<script src="js/Js/snackbar.js"></script>
-
-<link rel="shortcut icon" href="images/TarreduLogo.png">
 </head>
 
 <body>
-
 	<!-- Sfondo -->
 	<img class="img img-responsive" src="images/sfondoLegno.png" id="bg">
 
 
-
 	<!-- Header -->
 	<header class="container-fluid headerImage row" name="top">
-		<div class="headerContainer col-md-12" style="text-align: center;">
+		<div class="headerContainer col-md-12">
 			<img class="img img-responsive" src="images/headerImage.png"
 				alt="headerImage" width="100%" height="100%">
 		</div>
@@ -91,7 +111,7 @@
 						src="images/TarreduLogo.png" width="50" height="50"></li>
 					<li class="navbarOggetto"><a href="index.jsp">Home</a></li>
 
-					<li class="navbarOggetto"><a href="prodotti">Catalogo
+					<li class="navbarOggetto"><a href="prodotti?stile=grid">Catalogo
 							Prodotti</a></li>
 
 					<li class="navbarOggetto"><a href="aboutUs.jsp">About us</a></li>
@@ -231,6 +251,44 @@
 			href="javascript:history.back()" id="backToPage">Torna Indietro</a>
 	</div>
 
+	<div class="container box_venditore">
+		<div class="row" id="">
+			<!-- Div a sinistra con descrizione Venditore e Contatti-->
+
+			<div class="col-md-7 single-top-left">
+				<h2 class="vendor_name">${venditore.nomeNegozio}</h2>
+				<p class="separatore"></p>
+				<div class="descrizione">
+					<p id="descrizioneVenditore" style="">${venditore.descrizioneVenditore}</p>
+				</div>
+
+				<div class="info">
+					<div class="col-sm-10">
+						<h5 style="font-style: oblique">
+							<b>Contatti :</b>
+						</h5>
+						<ul class="contatti">
+							<li>${venditore.nomeTitolare}${venditore.cognomeTitolare}</li>
+							<li><a href="mailto:${venditore.emailVenditore}">${venditore.emailVenditore}</a></li>
+							<li>${venditore.indirizzoVenditore}</li>
+							<li><a href="skype:${venditore.numeroTelefonicoVenditore}">${venditore.numeroTelefonicoVenditore}</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<!-- Fine Div a sinistra con descrizione Venditore e Contatti-->
+
+			<!-- Fine Div a Destra con Mappa-->
+
+			<h2 style="padding-left: 10%;">Come Raggiungerci</h2>
+			<div class="col-md-5 mappa single-top-right" id="map"></div>
+			<!--Fine  Div a destra con mappa-->
+
+		</div>
+	</div>
+
+
 	<p class="titolo_sopra_prodotti">PRODOTTI</p>
 
 	<!--Inizio Menu di selezione Tipo prodotti e Prezzo-->
@@ -238,7 +296,6 @@
 	<div class="container" style="text-align: center;">
 
 		<hr>
-
 		<div class="container menu_selezione">
 			<div class="row ">
 				<div class="col-md-3 single-top-left ">
@@ -246,7 +303,7 @@
 						Prodotto</h4>
 					<select name="tipoProdotto " class="form-control "
 						id="tipoProdotto">
-						<option value="---">---</option>
+						<option value="">---</option>
 						<option value="Armadio">Armadio</option>
 						<option value="Cassettiera">Cassettiera</option>
 						<option value="Comodino">Comodino</option>
@@ -254,6 +311,7 @@
 						<option value="Cucina">Cucina</option>
 						<option value="Libreria">Libreria</option>
 						<option value="Illuminazione">Illuminazione</option>
+						<option value="Letto">Letto</option>
 						<option value="Scrivania">Scrivania</option>
 						<option value="Sedia">Sedia</option>
 						<option value="Divano">Divano</option>
@@ -262,7 +320,6 @@
 						<option value="Bagno">Bagno</option>
 						<option value="Vetrina">Vetrina</option>
 						<option value="Camera da Letto">Camera da Letto</option>
-						<option value="Tutti">Tutti i Prodotti</option>
 
 
 					</select>
@@ -313,10 +370,10 @@
 
 		<br>
 		<div class="container" id="btnContainer" style="text-align: right;">
-			<button class="btn" onclick="listView()">
+			<button class="btn" onclick="listView('${venditore.emailVenditore}')">
 				<i class="fa fa-bars"></i> List
 			</button>
-			<button class="btn" onclick="gridView()">
+			<button class="btn" onclick="gridView('${venditore.emailVenditore}')">
 				<i class="fa fa-th-large"></i> Grid
 			</button>
 		</div>
@@ -334,7 +391,7 @@
 						<div class="col-md-4 colProd" style="text-align: left;">
 							<h4 class="titolo_prodotto">${prodotto.nomeProdotto}</h4>
 							<a href="prodotto?id=${prodotto.idProdotto}"> <img
-								class="img img-responsive img_grid"
+								class="img img-responsive img_grid" style="width: 150px; height: 150px;"
 								src="${prodotto.immaginePrincipale}"
 								alt="${prodotto.nomeProdotto}"></a>
 							<p>
@@ -372,10 +429,15 @@
 
 
 	</div>
+
 	<button type="button" class="btn btn-primary bottoneTornaSu">
 		<a href="#top" style="color: #ffffff">Torna su...</a>
 	</button>
 
+
+
+
+	<div class="content"></div>
 	<!-- Footer -->
 	<footer id="myFooter">
 		<div class="container" style="text-align: center">
@@ -412,6 +474,7 @@
 		</div>
 	</footer>
 	<div id="snackbar"></div>
+
 </body>
 
 </html>

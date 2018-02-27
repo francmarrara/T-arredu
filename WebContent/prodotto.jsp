@@ -104,7 +104,7 @@
 							<c:forEach var="venditore" items="${listaVenditori}">
 
 								<li><a class="nomeNegozio"
-									href="venditore?id=${venditore.emailVenditore}"
+									href="venditore?id=${venditore.emailVenditore}&stile=grid"
 									style="color: red;">${venditore.nomeNegozio}</a></li>
 
 							</c:forEach>
