@@ -269,9 +269,9 @@
 									<label><b>Email</b></label> <input id="emailVenditore"
 										type="text" placeholder="Inserire Indirizzo Email"
 										name="emailVenditore" required> <label><b>Password</b></label>
-									<input id="psw" type="password" placeholder="Inserire Password"
+									<input id="pswVenditore" type="password" placeholder="Inserire Password"
 										name="pswVenditore" required> <label><b>Ripetere
-											Password</b></label> <input id="psw-repeat" type="password"
+											Password</b></label> <input id="psw-repeat-Venditore" type="password"
 										placeholder="Reinserire Password" name="psw-repeat-Venditore"
 										required>
 								</div>

@@ -4,7 +4,7 @@
 <html>
 
 <head>
-<title>Venditore</title>
+<title>${venditore.nomeNegozio}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -268,7 +268,7 @@
 							<b>Contatti :</b>
 						</h5>
 						<ul class="contatti">
-							<li>${venditore.nomeTitolare}${venditore.cognomeTitolare}</li>
+							<li>${venditore.nomeTitolare} ${venditore.cognomeTitolare}</li>
 							<li><a href="mailto:${venditore.emailVenditore}">${venditore.emailVenditore}</a></li>
 							<li>${venditore.indirizzoVenditore}</li>
 							<li><a href="skype:${venditore.numeroTelefonicoVenditore}">${venditore.numeroTelefonicoVenditore}</a></li>

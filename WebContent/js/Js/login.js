@@ -15,7 +15,7 @@ var validate_email = function(email) {
 	return is_email_valid;
 }
 
-/* Valida Email registrazione */
+/* Valida Email registrazione UTENTE */
 $(document).on("focusout", "#emailUtente", function() {
 	var input_val = $(this).val();
 	var is_success = validate_email(input_val);
@@ -65,7 +65,58 @@ $(document).on("focusout", "#emailUtente", function() {
 
 });
 
-/* Validatore PASSWORD */
+/* Valida Email registrazione VENDITORE */
+$(document).on("focusout","#emailVenditore", function() {
+	var input_val = $(this).val();
+	var is_success = validate_email(input_val);
+
+	if (!is_success) {
+
+		$("#emailVenditore").css({
+			'background-color' : 'red'
+		});
+		$("#snackbar").text("FORMATO EMAIL NON CORRETTO");
+		$("#snackbar").css({
+			'background-color' : 'red'
+		});
+		showSnackbar();
+	} else {
+
+		$.ajax({
+			type : "GET",
+			url : "verificaMailVenditore",
+
+			data : {
+				email : input_val
+			},
+			success : function(data) {
+				if (data == "false") {
+					$("#emailVenditore").css({
+						'background-color' : '#7FFF00'
+					});
+					$("#snackbar").css({
+						'background-color' : '#7FFF00'
+					});
+					$("#snackbar").text("EMAIL CORRETTA");
+					showSnackbar();
+				} else {
+					$("#emailVenditore").css({
+						'background-color' : 'red'
+					});
+					$("#snackbar").css({
+						'background-color' : 'red'
+					});
+					$("#snackbar").text("EMAIL GIA' REGISTRATA");
+					showSnackbar();
+				}
+			}
+		})
+	}
+
+});
+
+
+/* Validatore PASSWORD UTENTE*/
 
 $(document).on("focusout", "#psw-repeat", function() {
 	var password = $("#psw").val();
@@ -99,6 +150,45 @@ $(document).on("focusout", "#psw-repeat", function() {
 	}
 
 })
+
+
+/* Validatore PASSWORD VENDITORE */
+
+$(document).on("focusout", "#psw-repeat-Venditore", function() {
+	var password = $("#pswVenditore").val();
+	var confirmPassword = $("#psw-repeat-Venditore").val();
+
+	if (password == confirmPassword) {
+		$("#pswVenditore").css({
+			'background-color' : '#7FFF00'
+		});
+		$("#psw-repeat-Venditore").css({
+			'background-color' : '#7FFF00'
+		});
+		$("#snackbar").css({
+			'background-color' : '#7FFF00'
+		});
+		$("#snackbar").text("PASSWORD MATCH");
+		showSnackbar();
+
+	} else {
+		$("#pswVenditore").css({
+			'background-color' : 'red'
+		});
+		$("#psw-repeat-Venditore").css({
+			'background-color' : 'red'
+		});
+		$("#snackbar").css({
+			'background-color' : 'red'
+		});
+		$("#snackbar").text("PASSWORD DOESN'T MATCH");
+		showSnackbar();
+	}
+
+})
+
+
+
 
 /* REGISTRAZIONE */
 function registrazione() {

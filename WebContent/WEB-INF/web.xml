@@ -42,7 +42,16 @@
 		<servlet-name>VerificaEmail</servlet-name>
 		<url-pattern>/verificaMail</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>VerificaMailVenditore</servlet-name>
+		<servlet-class>controller.VerificaMailVenditore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VerificaMailVenditore</servlet-name>
+		<url-pattern>/verificaMailVenditore</url-pattern>
+	</servlet-mapping>
+	
 <servlet>
 		<servlet-name>AggiornaProdotto</servlet-name>
 		<servlet-class>controller.AggiornaProdotto</servlet-class>
