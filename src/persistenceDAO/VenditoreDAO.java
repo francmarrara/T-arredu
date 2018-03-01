@@ -22,5 +22,7 @@ public interface VenditoreDAO {
 	public void rimuoviProdottoDelVenditore(Integer idProdotto);
 	public void changePassword(String venditore, String password);
 	
+	public boolean giaRegistrato(String email);
+	
 	
 }

@@ -482,4 +482,35 @@ public class VenditoreDaoJDBC implements VenditoreDAO {
 		}
 	}
 
+	@Override
+	public boolean giaRegistrato(String email) {
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+
+			PreparedStatement statement;
+			String query = "select emailVenditore from venditore where emailVenditore = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, email);
+
+			ResultSet result = statement.executeQuery();
+
+			if (!result.first() == false) {
+				return true;
+			}
+
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+
+		return false;
+
+	}
+
 }
